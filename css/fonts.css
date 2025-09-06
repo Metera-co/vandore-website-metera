@@ -30,5 +30,5 @@ h1, .display, h2, h3, h4, .font-1 {
 
 /* Secondary font for other headings and UI elements (overriding defaults if necessary) */
 h5, h6, .btn, .nav-link, .dropdown-item, .form-label, .form-control, .accordion-button {
-    font-family: var(--font-secondary);
+    font-family: var(--font-secondary), Georgia, "Times New Roman", "Noto Serif", serif;
 }
