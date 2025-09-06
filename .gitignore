@@ -1,5 +1,5 @@
+.history/
 # env files
 .env
 .env.*
 !.env.example
-
