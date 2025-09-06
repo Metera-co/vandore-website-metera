@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@stackbit/cms-git": "1.0.35",
+    "@stackbit/types": "2.1.14"
+  }
+}
+

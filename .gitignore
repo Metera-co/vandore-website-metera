@@ -1,4 +1,8 @@
 .history/
+node_modules/
+.vscode/
+.VSCode/
+.info/
 # env files
 .env
 .env.*

@@ -1,11 +1,11 @@
 import { defineStackbitConfig } from '@stackbit/types';
+import { GitContentSource } from '@stackbit/cms-git';
 
 export default defineStackbitConfig({
   stackbitVersion: '~0.6.0',
   contentSources: [
-    {
+    new GitContentSource({
       name: 'content',
-      type: 'git',
       rootPath: '.',
       contentDirs: ['content'],
       models: [
@@ -27,12 +27,13 @@ export default defineStackbitConfig({
           fields: [
             { name: 'title', type: 'string' },
             { name: 'price', type: 'string' },
-            { name: 'location', type: 'string' },
-            { name: 'description', type: 'text' }
+            { name: 'address', type: 'string' },
+            { name: 'description', type: 'text' },
+            { name: 'image', type: 'string' },
+            { name: 'url', type: 'string' }
           ]
         }
       ]
-    }
+    })
   ]
 });
-
