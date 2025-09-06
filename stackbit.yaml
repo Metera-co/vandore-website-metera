@@ -1,0 +1,14 @@
+stackbitVersion: "~0.6.0"
+contentSources:
+  - type: git
+    rootPath: .
+    contentDirs: ["content"]
+    models:
+      - name: Page
+        type: page
+        filePath: content/pages/{slug}.json
+        urlPath: "/{slug}"
+        fields:
+          - { name: title, type: string }
+          - { name: heroHeading, type: string }
+          - { name: heroSubheading, type: string }
