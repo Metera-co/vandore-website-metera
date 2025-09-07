@@ -1,12 +1,13 @@
-import { defineStackbitConfig } from '@stackbit/types';
+import { defineStackbitConfig, SiteMapEntry } from '@stackbit/types';
 import { GitContentSource } from '@stackbit/cms-git';
+import * as path from 'path';
 
 export default defineStackbitConfig({
   stackbitVersion: '~0.6.0',
   contentSources: [
     new GitContentSource({
       name: 'content',
-      rootPath: '.',
+      rootPath: __dirname,
       contentDirs: ['content'],
       models: [
         {
@@ -17,7 +18,7 @@ export default defineStackbitConfig({
           fields: [
             { name: 'title', type: 'string' },
             { name: 'heroHeading', type: 'string' },
-            { name: 'heroSubheading', type: 'string' },
+            { name: 'heroSubheading', type: 'text' },
             {
               // generic sections for headings + text blocks
               name: 'sections',
@@ -108,5 +109,20 @@ export default defineStackbitConfig({
         }
       ]
     })
-  ]
+  ],
+
+  // Map JSON docs to real static HTML URLs
+  siteMap: ({ documents }) => {
+    return documents
+      .filter((d) => d.modelName === 'Page')
+      .map((d) => {
+        const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
+        return {
+          stableId: d.id,
+          urlPath: slug === 'index' ? '/' : `/${slug}.html`,
+          document: d,
+          isHomePage: slug === 'index'
+        } as SiteMapEntry;
+      });
+  }
 });
