@@ -1,3 +1,6 @@
 {
-    "type": "Page"
+    "type": "Page",
+    "team": [
+        {}
+    ]
 }
