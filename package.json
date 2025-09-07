@@ -2,8 +2,9 @@
   "name": "visual-editor",
   "private": true,
   "version": "0.0.0",
+  "engines": { "node": ">=20" },
   "devDependencies": {
-    "@stackbit/types": "^2.1.14",
+    "@stackbit/types": "^2.2.0",
     "@stackbit/cms-git": "^1.0.35"
   }
 }
