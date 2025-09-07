@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="lv"><head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +130,7 @@
                 </div>
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
-                        <div data-sb-object-id="content/pages/team.json"><h1 class="display" style="max-width: 700px;" data-i18n="our_team" data-sb-field-path="heroHeading">Mūsu komanda</h1>
+                        <div><h1 class="display" style="max-width: 700px;" data-i18n="our_team" data-sb-field-path="heroHeading">Mūsu komanda</h1>
                         <div class="row row-xl-cols-2 row-cols-1">
                             <div class="col col-xl-2">
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
@@ -159,14 +159,14 @@ Izcils serviss.</p></div>
                         </div>
                     </div>
                 </div>
-                <div class="row row-cols-xl-3 row-cols-1">
+                <div class="row row-cols-xl-3 row-cols-1" data-sb-field-path="team">
                     <div class="col mb-4">
                         <div class="card d-flex flex-column h-100 position-relative">
-                            <img src="image/dummy-img-600x700.jpg" class="img-fluid h-100 rounded-2" style="aspect-ratio: 6/7;" alt="Vandore Heritage">
+                            <img src="image/dummy-img-600x700.jpg" class="img-fluid h-100 rounded-2" style="aspect-ratio: 6/7;" alt="Vandore Heritage" data-sb-field-path=".0.image">
                             <div class="d-flex flex-column gap-5 rounded-2 p-4 bg-gray-hover mx-4" style="margin-top: -105px;">
                                 <div class="d-flex flex-column gap-2">
-                                    <h4 data-i18n="dolfs_mrti_krauklis">Ādolfs Mārtiņš Krauklis</h4>
-                                    <span data-i18n="cofounder">Līdzdibinātājs</span>
+                                    <h4 data-i18n="dolfs_mrti_krauklis" data-sb-field-path=".0.name">Ādolfs Mārtiņš Krauklis</h4>
+                                    <span data-i18n="cofounder" data-sb-field-path=".0.role">Līdzdibinātājs</span>
                                 </div>
                                 <div class="social-container" style="border-bottom-right-radius: 20px;">
                                     <a href="https://www.facebook.com/share/1AwoA2Vb1U/?mibextid=wwXIfr" class="social-item" target="_blank">
@@ -181,11 +181,11 @@ Izcils serviss.</p></div>
                     </div>
                     <div class="col mb-4">
                         <div class="card d-flex flex-column h-100 position-relative">
-                            <img src="image/dummy-img-600x700.jpg" class="img-fluid h-100 rounded-2" style="aspect-ratio: 6/7;" alt="Vandore Heritage">
+                            <img src="image/dummy-img-600x700.jpg" class="img-fluid h-100 rounded-2" style="aspect-ratio: 6/7;" alt="Vandore Heritage" data-sb-field-path=".1.image">
                             <div class="d-flex flex-column gap-5 rounded-2 p-4 bg-gray-hover mx-4" style="margin-top: -105px;">
                                 <div class="d-flex flex-column gap-2">
-                                    <h4 data-i18n="roberts_punka">Roberts panka</h4>
-                                    <span data-i18n="cofounder">Līdzdibinātājs</span>
+                                    <h4 data-i18n="roberts_punka" data-sb-field-path=".1.name">Roberts panka</h4>
+                                    <span data-i18n="cofounder" data-sb-field-path=".1.role">Līdzdibinātājs</span>
                                 </div>
                                 <div class="social-container" style="border-bottom-right-radius: 20px;">
                                     <a href="https://www.facebook.com/share/1AwoA2Vb1U/?mibextid=wwXIfr" class="social-item" target="_blank">

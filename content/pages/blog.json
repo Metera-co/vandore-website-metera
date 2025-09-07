@@ -1,5 +1,43 @@
 {
   "title": "Vandore Heritage - emuārs",
   "heroHeading": "Blogot",
-  "heroSubheading": "Palieciet atjaunināts ar jaunākajām nekustamā īpašuma tendencēm, padomiem un tirgus atziņām."
+  "heroSubheading": "Palieciet atjaunināts ar jaunākajām nekustamā īpašuma tendencēm, padomiem un tirgus atziņām.",
+  "blogPosts": [
+    {
+      "title": "Atklājiet nepārspējamu kompetenci tirgū",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2025. gada 5. janvāris",
+      "url": "single_blog.html"
+    },
+    {
+      "title": "Padomi, kā izvēlēties mājas krāsas krāsas, lai izskatās eleganti un ērti",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2025. gada 4. janvāris",
+      "url": "single_blog.html"
+    },
+    {
+      "title": "Mūsdienīgas un funkcionālas minimālisma mājas dizaina iedvesmas",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2025. gada 3. janvāris",
+      "url": "single_blog.html"
+    },
+    {
+      "title": "Parastās mājas dizaina kļūdas, lai izvairītos no funkcionālākas dzīves telpas",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2025. gada 2. janvāris",
+      "url": "single_blog.html"
+    },
+    {
+      "title": "Kā izveidot mājīgu āra terasi atpūtai un izklaidei",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2025. gada 1. janvāris",
+      "url": "single_blog.html"
+    },
+    {
+      "title": "Ilgtspējīgas mājas dizaina priekšrocības zaļākai nākotnei",
+      "excerpt": "Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā jūsu īpašuma ceļojuma solis ar pārliecību.",
+      "date": "2024. gada 24. decembrī",
+      "url": "single_blog.html"
+    }
+  ]
 }

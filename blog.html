@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="lv"><head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
-                        <div data-sb-object-id="content/pages/blog.json"><h1 class="display" style="max-width: 700px;" data-i18n="blog" data-sb-field-path="heroHeading">Blogot</h1>
+                        <div><h1 class="display" style="max-width: 700px;" data-i18n="blog" data-sb-field-path="heroHeading">Blogot</h1>
                         <div class="row row-xl-cols-2 row-cols-1">
                             <div class="col col-xl-2">
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
@@ -165,18 +165,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="row row-cols-xl-2 row-cols-1">
+                <div class="row row-cols-xl-2 row-cols-1" data-sb-field-path="blogPosts">
                     <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".0.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="jan_05_2025">2025. gada 5. janvāris</p>
+                                        <p class="m-0" data-i18n="jan_05_2025" data-sb-field-path=".0.date">2025. gada 5. janvāris</p>
                                         <p class="m-0" data-i18n="2_min_read">2 min Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="discover_unparalleled_expertise_in_market">Atklājiet nepārspējamu kompetenci tirgū</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="discover_unparalleled_expertise_in_market" data-sb-field-path=".0.title">Atklājiet nepārspējamu kompetenci tirgū</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".0.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.
@@ -188,14 +188,14 @@ Jūsu īpašuma ceļojuma solis ar pārliecību.
                     <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".1.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="jan_04_2025">2025. gada 4. janvāris</p>
+                                        <p class="m-0" data-i18n="jan_04_2025" data-sb-field-path=".1.date">2025. gada 4. janvāris</p>
                                         <p class="m-0" data-i18n="2_min_read">2 min Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="tips_for_choosing_house_paint_colors_to_look_elegant_and_comfortable">Padomi, kā izvēlēties mājas krāsas krāsas, lai izskatās eleganti un ērti</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="tips_for_choosing_house_paint_colors_to_look_elegant_and_comfortable" data-sb-field-path=".1.title">Padomi, kā izvēlēties mājas krāsas krāsas, lai izskatās eleganti un ērti</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".1.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.
@@ -207,14 +207,14 @@ Jūsu īpašuma ceļojuma solis ar pārliecību.
                     <div class="col mb-3 scrollanimation animated fadeInRight adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".2.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="jan_03_2025">2025. gada 3. janvāris</p>
+                                        <p class="m-0" data-i18n="jan_03_2025" data-sb-field-path=".2.date">2025. gada 3. janvāris</p>
                                         <p class="m-0" data-i18n="3_min_read">3 minūtes Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="modern_and_functional_minimalist_home_design_inspirations">Mūsdienīgas un funkcionālas minimālisma mājas dizaina iedvesmas</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="modern_and_functional_minimalist_home_design_inspirations" data-sb-field-path=".2.title">Mūsdienīgas un funkcionālas minimālisma mājas dizaina iedvesmas</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".2.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.
@@ -226,14 +226,14 @@ Jūsu īpašuma ceļojuma solis ar pārliecību.
                     <div class="col mb-3 scrollanimation animated fadeInRight adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".3.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="jan_02_2025">2025. gada 2. janvāris</p>
+                                        <p class="m-0" data-i18n="jan_02_2025" data-sb-field-path=".3.date">2025. gada 2. janvāris</p>
                                         <p class="m-0" data-i18n="4_min_read">4 minūtes Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="common_home_design_mistakes_to_avoid_for_a_more_functional_living_space">Parastās mājas dizaina kļūdas, lai izvairītos no funkcionālākas dzīves telpas</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="common_home_design_mistakes_to_avoid_for_a_more_functional_living_space" data-sb-field-path=".3.title">Parastās mājas dizaina kļūdas, lai izvairītos no funkcionālākas dzīves telpas</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".3.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.
@@ -245,14 +245,14 @@ Jūsu īpašuma ceļojuma solis ar pārliecību.
                     <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".4.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="jan_01_2025">2025. gada 1. janvāris</p>
+                                        <p class="m-0" data-i18n="jan_01_2025" data-sb-field-path=".4.date">2025. gada 1. janvāris</p>
                                         <p class="m-0" data-i18n="2_min_read">2 min Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="how_to_create_a_cozy_outdoor_patio_for_relaxation_and_entertainment">Kā izveidot mājīgu āra terasi atpūtai un izklaidei</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="how_to_create_a_cozy_outdoor_patio_for_relaxation_and_entertainment" data-sb-field-path=".4.title">Kā izveidot mājīgu āra terasi atpūtai un izklaidei</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".4.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.
@@ -264,14 +264,14 @@ Jūsu īpašuma ceļojuma solis ar pārliecību.
                     <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
                         <div class="card d-flex flex-column gap-4">
                             <img src="image/dummy-img-600x400.jpg" alt="Vandore Heritage" class="img-fluid" style="aspect-ratio: 5/3;">
-                            <a href="single_blog.html">
+                            <a href="single_blog.html" data-sb-field-path=".5.url">
                                 <div class="d-flex flex-column gap-2">
                                     <div class="d-flex flex-row gap-3">
-                                        <p class="m-0" data-i18n="dec_24_2024">2024. gada 24. decembrī</p>
+                                        <p class="m-0" data-i18n="dec_24_2024" data-sb-field-path=".5.date">2024. gada 24. decembrī</p>
                                         <p class="m-0" data-i18n="3_min_read">3 minūtes Lasīt</p>
                                     </div>
-                                    <h4 class="black-1 font-1" data-i18n="the_benefits_of_sustainable_home_design_for_a_greener_future">Ilgtspējīgas mājas dizaina priekšrocības zaļākai nākotnei</h4>
-                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence">
+                                    <h4 class="black-1 font-1" data-i18n="the_benefits_of_sustainable_home_design_for_a_greener_future" data-sb-field-path=".5.title">Ilgtspējīgas mājas dizaina priekšrocības zaļākai nākotnei</h4>
+                                    <p data-i18n="discover_unparalleled_expertise_in_the_real_estate_market_providing_indepth_knowledge_strategic_insights_and_tailored_solutions_to_help_you_navigate_every_step_of_your_property_journey_with_confidence" data-sb-field-path=".5.excerpt">
                                         Atklājiet nepārspējamu kompetenci nekustamā īpašuma tirgū, nodrošinot padziļinātu 
 Zināšanas, stratēģiskas atziņas un pielāgoti risinājumi, kas palīdzēs jums orientēties katrā 
 Jūsu īpašuma ceļojuma solis ar pārliecību.

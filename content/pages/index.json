@@ -1,5 +1,15 @@
 {
   "title": "Home",
   "heroHeading": "",
-  "heroSubheading": ""
+  "heroSubheading": "",
+  "sections": [
+    {
+      "heading": "Mūsu stāsts",
+      "text": "Vandore Heritage sākās ar sarunu - nevis par vairāk pārdošanu, bet gan par to, kā rīkoties pareizi. Mēs skatāmies ārpus kvadrātmetriem un darījumiem, kā telpa liek justies, kā tā veido lēmumus, un lomu, ko mēs spēlējam šajos stāstos."
+    },
+    {
+      "heading": "Kāpēc viņi mūs mīl",
+      "text": "Atklājiet mūsu apmierināto klientu balsis, kuri ir pieredzējuši ārkārtas situāciju pakalpojumi un kompetence, ko mēs sniedzam, palīdzot viņiem atrast savas sapņu mājas."
+    }
+  ]
 }
