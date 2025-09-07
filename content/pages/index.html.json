@@ -1,7 +1,9 @@
 {
     "type": "Page",
     "team": [
-        {}
+        {
+            "name": "ewe"
+        }
     ],
     "title": ""
 }
