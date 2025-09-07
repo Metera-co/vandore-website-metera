@@ -38,7 +38,7 @@ module.exports = defineStackbitConfig({
     documents
       .filter(d => d.modelName === 'Page')
       .map(d => {
-        const slug = d.id;
+        const slug = d.id; // filename without .json
         return {
           stableId: d.id,
           urlPath: slug === 'index' ? '/' : `/${slug}.html`,
@@ -47,4 +47,3 @@ module.exports = defineStackbitConfig({
         };
       })
 });
-
