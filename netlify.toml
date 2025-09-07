@@ -2,5 +2,8 @@
   command = ""
   publish = "."
 
+[build.environment]
+  NODE_VERSION = "20"
+
 [[plugins]]
   package = "@netlify/plugin-visual-editor"
