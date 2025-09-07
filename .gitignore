@@ -1,5 +1,6 @@
+node_modules/
 .history/
-# env files
+.vscode/
 .env
 .env.*
 !.env.example
