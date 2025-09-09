@@ -113,16 +113,28 @@ export default defineStackbitConfig({
 
   // Map JSON docs to real static HTML URLs
   siteMap: ({ documents }) => {
-    return documents
+    const pages = documents
       .filter((d) => d.modelName === 'Page')
       .map((d) => {
         const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
         return {
-          stableId: d.id,
-          urlPath: slug === 'index' ? '/' : `/${slug}.html`,
-          document: d,
-          isHomePage: slug === 'index'
+          urlPath: `/${slug}.html`,
+          pageSrc: `${slug}.html`,
+          pageObjectId: d.id
         } as SiteMapEntry;
       });
+
+    const properties = documents
+      .filter((d) => d.modelName === 'Property')
+      .map((d) => {
+        const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
+        return {
+          urlPath: `/properties/${slug}.html`,
+          pageSrc: `property-detail-template.html`,
+          pageObjectId: d.id
+        } as SiteMapEntry;
+      });
+
+    return [...pages, ...properties];
   }
 });

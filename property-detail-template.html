@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="lv" data-sb-object-id="content/pages/property-detail-template.json"><head>
+<!DOCTYPE html><html lang="lv"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,11 +130,11 @@
                 </div>
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
-                        <div><h1 class="display" data-i18n="property_title" data-sb-field-path="heroHeading">{{Property_Title}}</h1>
+                        <div><h1 class="display" data-i18n="property_title" data-sb-field-path="title">{{Property_Title}}</h1>
                         <div class="row row-xl-cols-2 row-cols-1">
                             <div class="col col-xl-2">
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
-                                    <p data-i18n="property_location" data-sb-field-path="heroSubheading">{{Property_location}}</p></div>
+                                    <p data-i18n="property_location" data-sb-field-path="address">{{Property_location}}</p></div>
                                     <div class="devider"></div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
             <div class="r-container d-flex flex-column gap-5">
                 <div class="row row-cols-xl-2 row-cols-1">
                     <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
-                        <img src="../{{MAIN_IMAGE}}" class="img-fluid rounded-2 h-100" alt="{{PROPERTY_TITLE}}">
+                        <img src="../{{MAIN_IMAGE}}" class="img-fluid rounded-2 h-100" alt="{{PROPERTY_TITLE}}" data-sb-field-path="image#@src title#@alt">
                     </div>
                     <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
                         <!-- GALLERY_IMAGES_HERE -->
@@ -160,7 +160,7 @@
                 <div class="row row-cols-xl-2 row-cols-1">
                     <div class="col col-xl-8 mb-3">
                         <div class="d-flex flex-column gap-4 position-relative">
-                            <h4 data-i18n="description">Apraksts</h4>
+                            <h4 data-i18n="description" data-sb-field-path="description">Apraksts</h4>
                             {{DESCRIPTION}}
                             <div class="row row-cols-xl-2 row-cols-1">
                                 <!-- VIDEO_PLAYER_HERE -->
@@ -206,7 +206,7 @@
                             <hr class="m-0">
                             <div class="d-flex flex-column gap-3">
                                 <img src="image/dummy-img-600x400.jpg" class="img-fluid h-100 rounded-2" style="aspect-ratio: 3/2;" alt="Vandore Heritage">
-                                <a href="">
+                                <a href="" data-sb-field-path="url#@href">
                                     <div class="d-flex flex-column black-1">
                                         <div class="d-flex flex-row justify-content-between">
                                             <div class="d-flex flex-column gap-2">
@@ -215,7 +215,7 @@
                                                     <span data-i18n="beverly_hills_california">Beverlihils, Kalifornijā</span>
                                                 </div>
                                             </div>
-                                            <h4 data-i18n="669k">669 000 USD</h4>
+                                            <h4 data-i18n="669k" data-sb-field-path="price">669 000 USD</h4>
                                         </div>
                                         <h4 data-i18n="sunset_valley_retreat">Saulrieta ielejas atkāpšanās</h4>
                                     </div>

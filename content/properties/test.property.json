@@ -1,3 +1,9 @@
 {
-    "type": "Property"
+  "type": "Property",
+  "title": "Test Property",
+  "price": "$0",
+  "address": "N/A",
+  "description": "",
+  "image": "image/dummy-img-900x700.jpg",
+  "url": "/properties/test.property.html"
 }

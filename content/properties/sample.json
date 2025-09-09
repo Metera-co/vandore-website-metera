@@ -5,5 +5,5 @@
   "address": "123 Heritage Lane, Riga",
   "description": "Elegant historic residence with modern amenities and refined finishes.",
   "image": "image/dummy-img-900x700.jpg",
-  "url": "property_details.html"
+  "url": "/properties/sample.html"
 }
