@@ -1,10 +1,11 @@
 {
-  "name": "visual-editor",
-  "private": true,
-  "version": "0.0.0",
-  "engines": { "node": ">=20" },
-  "devDependencies": {
-    "@stackbit/cms-git": "1.0.35",
-    "@stackbit/types": "2.1.14"
-  }
+  "name": "real-estate-website",
+  "version": "1.0.0",
+  "description": "Static real estate website",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "dependencies": {}
 }
