@@ -154,13 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (activeFilters.bedrooms) {
-                const requiredBedrooms = parseInt(activeFilters.bedrooms.replace('+', ''), 10);
+                const bedroomFilter = activeFilters.bedrooms;
+                const requiredBedrooms = parseInt(bedroomFilter.replace('+', ''), 10);
                 if (activeFilters.bedrooms.includes('+')) {
                     if (cardBedrooms < requiredBedrooms) {
                         show = false;
                     }
                 } else {
-                    if (cardBedrooms !== parseInt(activeFilters.bedrooms)) {
+                    if (cardBedrooms !== requiredBedrooms) {
                         show = false;
                     }
                 }
