@@ -208,21 +208,24 @@
                                 <form class="d-flex flex-column gap-1 h-100 justify-content-center w-100 needs-validation form" novalidate="">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name<span class="accent-color">*</span></label>
-                                        <input type="text" class="form-control py-3 px-4" name="name" id="name" placeholder="Your Full Name" required="">
+                                        <input type="text" class="form-control py-3 px-4" name="name" id="name" placeholder="Jūsu pilnais vārds" required="">
                                         <div class="invalid-feedback" data-i18n="the_field_is_required">
                                             Lauks ir nepiecieÅ¡ams.
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">E-mail<span class="accent-color">*</span></label>
-                                        <input type="email" class="form-control py-3 px-4" name="email" id="email" placeholder="Your E-mail" required="">
+                                        <input type="email" class="form-control py-3 px-4" name="email" id="email" placeholder="Jūsu e-pasts" required="">
                                         <div class="invalid-feedback" data-i18n="the_field_is_required">
                                             Lauks ir nepiecieÅ¡ams.
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Message<span class="accent-color">*</span></label>
-                                        <textarea class="form-control py-3 px-4" id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+                                        <textarea class="form-control py-3 px-4" id="message" name="message" rows="4" placeholder="Jūsu ziņojums" required=""></textarea>
+                                        <div class="invalid-feedback" data-i18n="the_field_is_required">
+                                            Lauks ir nepieciešams.
+                                        </div>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-accent submit_form d-flex flex-row gap-2 justify-content-center gap-3">
