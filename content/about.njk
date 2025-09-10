@@ -1,0 +1,42 @@
+---
+layout: base.njk
+data: about
+permalink: "about.html"
+eleventyComputed:
+  pageTitle: "{{ pages[data].title }}"
+  objectPath: "content/pages/{{ data }}.json"
+---
+
+<div class="section">
+  <div class="r-container">
+    <div class="row row-cols-xl-2 row-cols-1">
+      <div class="col col-xl-10 mb-3">
+        <div>
+          <h1 class="display" style="max-width: 700px;" data-sb-field-path="heroHeading">{{ pages[data].heroHeading }}</h1>
+          <div class="row row-xl-cols-2 row-cols-1">
+            <div class="col col-xl-2">
+              <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                <p data-sb-field-path="heroSubheading">{{ pages[data].heroSubheading }}</p>
+              </div>
+              <div class="devider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="r-container" data-sb-field-path="sections">
+    {% for sec in pages[data].sections %}
+    <div class="row row-cols-xl-2 row-cols-1 mb-4" data-sb-field-path=".{{ loop.index0 }}">
+      <div class="col">
+        <h3 data-sb-field-path=".heading">{{ sec.heading }}</h3>
+        <p data-sb-field-path=".text">{{ sec.text }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+
