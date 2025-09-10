@@ -75,6 +75,12 @@
 .active-filters .chip .remove-chip {
     margin-left: 8px;
     cursor: pointer;
+    color: #999;
+    font-weight: bold;
+}
+
+.active-filters .chip .remove-chip:hover {
+    color: #666;
 }
 
 #property-count {
@@ -135,11 +141,9 @@
     transform: none !important;
     left: auto !important;
     top: auto !important;
-    margin-top: 0 !important;
   }
 
   .w-max-content {
-    margin-top: 0 !important;
   }
 
   .offcanvas-body .row {
@@ -175,6 +179,17 @@
   .section img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+/* Header responsive positioning */
+@media (min-width: 768px) {
+  .logo-container {
+    margin-top: 2cm !important;
+  }
+  
+  .w-max-content {
+    margin-top: 0.5cm !important;
   }
 }
 
