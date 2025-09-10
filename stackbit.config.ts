@@ -104,7 +104,11 @@ export default defineStackbitConfig({
             { name: 'address', type: 'string' },
             { name: 'description', type: 'text' },
             { name: 'image', type: 'string' },
-            { name: 'url', type: 'string' }
+            { name: 'url', type: 'string' },
+            { name: 'bedrooms', type: 'number', required: false },
+            { name: 'bathrooms', type: 'number', required: false },
+            { name: 'area', type: 'number', required: false },
+            { name: 'floors', type: 'number', required: false }
           ]
         }
       ]

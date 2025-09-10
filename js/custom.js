@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const max = isMobile ? parseFloat(maxPriceMobile.value) : parseFloat(maxPrice.value);
 
         if (!isNaN(min) && !isNaN(max) && min > max) {
-            alert('Min price cannot be greater than Max price.');
+            alert('Minimālā cena nevar būt lielāka par maksimālo cenu.');
             return;
         }
 
@@ -154,13 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (activeFilters.bedrooms) {
-                const requiredBedrooms = parseInt(activeFilters.bedrooms.replace('+', ''), 10);
+                const bedroomFilter = activeFilters.bedrooms;
+                const requiredBedrooms = parseInt(bedroomFilter.replace('+', ''), 10);
                 if (activeFilters.bedrooms.includes('+')) {
                     if (cardBedrooms < requiredBedrooms) {
                         show = false;
                     }
                 } else {
-                    if (cardBedrooms !== parseInt(activeFilters.bedrooms)) {
+                    if (cardBedrooms !== requiredBedrooms) {
                         show = false;
                     }
                 }

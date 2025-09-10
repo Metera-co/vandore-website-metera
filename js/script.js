@@ -193,7 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (el.hasAttribute('data-i18n')) translated++;
         });
         var msg = 'LV audit: translated ' + translated + '/' + total + ' nodes; skipped ' + skipped + (skipSelectors.length ? (' e.g. ' + skipSelectors.join(', ')) : '');
-        console.log(msg);
+        // Development only - remove in production
+        // console.log(msg);
     } catch (e) {
         // Never throw; avoid console errors per acceptance criteria
     }
