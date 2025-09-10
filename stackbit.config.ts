@@ -123,7 +123,7 @@ export default defineStackbitConfig({
         const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
         return {
           urlPath: `/${slug}.html`,
-          pageSrc: `${slug}.html`,
+          pageSrc: `content/${slug}.njk`,
           pageObjectId: d.id
         } as SiteMapEntry;
       });
@@ -134,7 +134,7 @@ export default defineStackbitConfig({
         const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
         return {
           urlPath: `/properties/${slug}.html`,
-          pageSrc: `property-detail-template.html`,
+          pageSrc: `content/property-detail.njk`,
           pageObjectId: d.id
         } as SiteMapEntry;
       });

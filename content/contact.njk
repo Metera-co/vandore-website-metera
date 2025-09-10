@@ -1,0 +1,71 @@
+---
+layout: base.njk
+data: contact
+permalink: "contact.html"
+eleventyComputed:
+  pageTitle: "{{ pages[data].title }}"
+  objectPath: "content/pages/{{ data }}.json"
+---
+
+<div class="section">
+  <div class="r-container">
+    <div class="row row-cols-xl-2 row-cols-1">
+      <div class="col col-xl-10 mb-3">
+        <div>
+          <h1 class="display" style="max-width: 700px;" data-sb-field-path="heroHeading">{{ pages[data].heroHeading }}</h1>
+          <div class="row row-xl-cols-2 row-cols-1">
+            <div class="col col-xl-2">
+              <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                <p data-sb-field-path="heroSubheading">{{ pages[data].heroSubheading }}</p>
+              </div>
+              <div class="devider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="r-container">
+    <div class="row row-cols-xl-2 row-cols-1" data-sb-field-path="sections">
+      <div class="col">
+        <div class="d-flex flex-column gap-3">
+          <a href="tel:{{ global.contact.phone | replace(' ', '') }}" class="link" data-sb-field-path="global.contact.phone">{{ global.contact.phone }}</a>
+          <a href="mailto:{{ global.contact.email }}" class="link" data-sb-field-path="global.contact.email">{{ global.contact.email }}</a>
+          <a href="{{ global.contact.mapUrl }}" class="link" target="_blank" data-sb-field-path="global.contact.address">{{ global.contact.address }}</a>
+          <div class="social-container mb-5 gap-3">
+            <a href="{{ global.social.facebook }}" class="social-item-2" target="_blank" data-sb-field-path="global.social.facebook">
+              <i class="fa-brands fa-xs fa-facebook-f"></i>
+            </a>
+            <a href="{{ global.social.instagram }}" class="social-item-2" target="_blank" data-sb-field-path="global.social.instagram">
+              <i class="fa-brands fa-xs fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex flex-column gap-3 w-100 p-5 bg-gray-hover rounded-2">
+          <!-- Contact form placeholder to preserve layout -->
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Write your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

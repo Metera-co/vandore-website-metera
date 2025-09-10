@@ -1,0 +1,28 @@
+{
+  "siteTitle": "Vandore Heritage",
+  "logo": "image/red_LOGO_Vandore.png?v=2025",
+  "favicon": "image/red_LOGO_Vandore.png?v=2025",
+  "navLinks": [
+    { "label": "Mājas", "href": "index.html" },
+    { "label": "Par", "href": "about.html" },
+    { "label": "Īpašības", "href": "properties.html" },
+    { "label": "Īre", "href": "rentals.html" },
+    { "label": "Sakārtošana", "href": "service.html" },
+    { "label": "Sazinieties ar mums", "href": "contact.html" }
+  ],
+  "contact": {
+    "email": "info@vandoreheritage.lv",
+    "phone": "+371 29 71 3030",
+    "address": "Skanstes Iela 29A - 91, Rīga, Latvija",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilsēta,+Rīga,+LV-1013,+Latvia"
+  },
+  "legalLinks": [
+    { "label": "Noteikumi un nosacījumi", "href": "" },
+    { "label": "Paziņojums par privātumu", "href": "" }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/share/1AwoA2Vb1U/?mibextid=wwXIfr",
+    "instagram": "https://www.instagram.com/vandoreheritage"
+  }
+}
+
