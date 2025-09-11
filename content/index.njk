@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ (pages.index.title) or 'Home' }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>{{ (pages.index.heroHeading) or 'Welcome' }}</h1>
+      <p>{{ (pages.index.heroSubheading) or '' }}</p>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/properties.html">Properties</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      {% if pages.index.sections %}
+        {% for s in pages.index.sections %}
+          <section>
+            <h2>{{ s.heading }}</h2>
+            <p>{{ s.text }}</p>
+          </section>
+        {% endfor %}
+      {% endif %}
+
+      <section>
+        <h2>Sample Property</h2>
+        <ul>
+          {% for p in collections.property %}
+            <li>
+              <a href="/properties/{{ p.fileSlug }}.html">{{ p.data.title }}</a>
+              <span>{{ p.data.price }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>&copy; Vandore</small>
+    </footer>
+  </body>
+  </html>
+

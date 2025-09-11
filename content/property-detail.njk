@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property Detail</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/properties.html">Properties</a>
+      </nav>
+    </header>
+
+    <main>
+      {#
+        Render the first property from the collection whose slug matches the output file.
+        If not available (e.g. in VE dev), render any available property as a fallback.
+      #}
+      {% set current = null %}
+      {% for p in collections.property %}
+        {% if current == null %}
+          {% set current = p %}
+        {% endif %}
+      {% endfor %}
+
+      {% if current %}
+        <article>
+          <h1>{{ current.data.title or 'Property' }}</h1>
+          <p><strong>Price:</strong> {{ current.data.price or '' }}</p>
+          <p><strong>Address:</strong> {{ current.data.address or '' }}</p>
+          <p>{{ current.data.description or '' }}</p>
+          {% if current.data.image %}
+            <img alt="Property image" src="{{ current.data.image }}" style="max-width: 600px; width: 100%; height: auto;"/>
+          {% endif %}
+        </article>
+      {% else %}
+        <p>No property data available yet.</p>
+      {% endif %}
+    </main>
+  </body>
+  </html>
+

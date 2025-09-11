@@ -1,0 +1,9 @@
+{
+  "title": "Home",
+  "heroHeading": "Welcome to Vandore",
+  "heroSubheading": "Find properties to buy or rent.",
+  "sections": [
+    { "heading": "Featured", "text": "A few featured listings and news." }
+  ]
+}
+
