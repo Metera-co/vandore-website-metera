@@ -1,12 +1,26 @@
 {
   "name": "real-estate-website",
   "version": "1.0.0",
-  "description": "Static real estate website",
+  "description": "Real estate website with posting and listings (Latvian)",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "eleventy": "npx @11ty/eleventy --serve",
+    "build-static": "npx @11ty/eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dayjs": "^1.11.13",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "uuid": "^9.0.1"
   }
 }
