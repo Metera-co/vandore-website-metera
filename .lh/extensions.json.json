@@ -1,0 +1,18 @@
+{
+    "sourceFile": "extensions.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1757528334352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1757528334352,
+            "name": "Commit-0",
+            "content": "{\r\n  \"recommendations\": [\"21st.21st-extension\"]\r\n}\r\n"
+        }
+    ]
+}
