@@ -1,8 +1,0 @@
-node_modules/
-.history/
-.vscode/
-.env
-.env.*
-!.env.example
-data/
-public/uploads/
