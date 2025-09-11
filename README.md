@@ -21,3 +21,15 @@ Papildu skripti:
 - `npm run eleventy` – ja nepieciešams 11ty statisko lapu priekšskatījums (nav obligāti)
 
 Augšupielādes saglabājas mapē `public/uploads`. Dati tiek glabāti kā JSON `data/listings.json`.
+
+## Izvietošana Netlify
+
+- Build komanda: `npm run build`
+- Public direktorija: `_site`
+- Node versija: `20` (norādīta `netlify.toml`)
+- Visual Editor: iespējots ar `@netlify/plugin-visual-editor` (`netlify.toml`).
+
+Soļi:
+- Pievienojiet repozitoriju Netlify un izvēlieties galveno vai attiecīgo zaru.
+- Pārliecinieties, ka build iestatījumi atbilst augstāk minētajiem.
+- Pēc pirmā veiksmīgā build aktivizējiet Visual Editor Netlify vidē (Site settings → Visual Editor), ja pieejams jūsu plānā.
