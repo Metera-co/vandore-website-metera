@@ -10,26 +10,30 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
-    <link rel="icon" type="image/x-icon" href="../image/red_LOGO_Vandore.png?v=2025">
+    <link rel="icon" type="image/x-icon" href="../image/red_LOGO_Vandore.png?v=2025" data-sb-field-path="seo.favicon#@href">
 <title data-i18n="vandore_heritage_about_us" data-sb-field-path="title">Vandore Heritage - par mums</title>
+    <meta name="description" data-sb-field-path="seo.description" content="">
+    <meta property="og:title" data-sb-field-path="seo.og.title" content="">
+    <meta property="og:description" data-sb-field-path="seo.og.description" content="">
+    <meta name="twitter:title" data-sb-field-path="seo.twitter.title" content="">
 </head>
 
 <body>
     <!-- Header -->
     <header class="bg-accent-primary px-5">
-        <nav class="navbar">
+        <nav class="navbar" data-sb-field-path="content/pages/about.json:nav">
             <div class="container-fluid ps-3 gap-3">
                 <div class="me-auto"></div>
                 <div class="logo-container position-absolute start-50 translate-middle-x">
-                    <a class="navbar-brand" href="index.html"><img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage Logo" class="img-fluid"></a>
+                    <a class="navbar-brand" href="index.html" data-sb-field-path="content/pages/about.json:nav.logo.href#@href"><img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage Logo" class="img-fluid" data-sb-field-path="content/pages/about.json:nav.logo.src#@src" data-sb-alt-field="content/pages/about.json:nav.logo.alt"></a>
                 </div>
                 <div class="w-max-content">
-                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars"></i>
-                        Menu</button>
+                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars" data-sb-field-path="content/pages/about.json:nav.toggle.icon"></i>
+                        <span data-sb-field-path="content/pages/about.json:nav.toggle.label">Menu</span></button>
 
                     <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header bg-transparent">
-                            <h5 id="offcanvasRightLabel">Menu</h5>
+                            <h5 id="offcanvasRightLabel" data-sb-field-path="content/pages/about.json:nav.menuTitle">Menu</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
@@ -317,9 +321,9 @@
                                     <form class="d-flex flex-column h-100 justify-content-center w-100 needs-validation form" novalidate="">
                                         <input type="text" name="action" value="subscribe" hidden="">
                                         <div class="input-group gap-3 mb-xl-2 mb-0 position-relative">
-                                            <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="Sign Up to Newsletter" name="email" required="">
-                                            <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3" type="submit"><i class="rtmicon rtmicon-arrow-right fw-bold"></i></button>
-                                            <div class="invalid-feedback text-white" data-i18n="please_provide_a_valid_email_format_eg_userexamplecom">
+                                            <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="Sign Up to Newsletter" name="email" required="" data-sb-field-path="subscribe.placeholder">
+                                            <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3" type="submit"><i class="rtmicon rtmicon-arrow-right fw-bold" data-sb-field-path="subscribe.icon"></i></button>
+                                            <div class="invalid-feedback text-white" data-i18n="please_provide_a_valid_email_format_eg_userexamplecom" data-sb-field-path="subscribe.invalidMessage">
                                                 Lūdzu, norādiet derīgu e -pasta formātu (piemēram, 
 user@example.com).
                                             </div>
@@ -355,32 +359,32 @@ user@example.com).
                         <div class="d-flex flex-row gap-5">
                             <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
                                 <li>
-                                    <a href="index.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home">
+                                    <a href="index.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home" data-sb-field-path="content/pages/about.json:footer.nav.0.href#@href content/pages/about.json:footer.nav.0.label#text()[0]">
                                         Mājas
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="about.html" class="link active d-flex flex-row gap-3 align-items-center" data-i18n="about">
+                                    <a href="about.html" class="link active d-flex flex-row gap-3 align-items-center" data-i18n="about" data-sb-field-path="content/pages/about.json:footer.nav.1.href#@href content/pages/about.json:footer.nav.1.label#text()[0]">
                                         Pret
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="properties.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="properties">
+                                    <a href="properties.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="properties" data-sb-field-path="content/pages/about.json:footer.nav.2.href#@href content/pages/about.json:footer.nav.2.label#text()[0]">
                                         Īpašības
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="rentals.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="rentals">
+                                    <a href="rentals.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="rentals" data-sb-field-path="content/pages/about.json:footer.nav.3.href#@href content/pages/about.json:footer.nav.3.label#text()[0]">
                                         Īre
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service">
+                                    <a href="service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service" data-sb-field-path="content/pages/about.json:footer.nav.4.href#@href content/pages/about.json:footer.nav.4.label#text()[0]">
                                         Sakārtošana
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us">
+                                    <a href="contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us" data-sb-field-path="content/pages/about.json:footer.nav.5.href#@href content/pages/about.json:footer.nav.5.label#text()[0]">
                                         Sazinieties ar mums
                                     </a>
                                 </li>
@@ -414,7 +418,7 @@ user@example.com).
 
 
     <!-- Back to top button -->
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="rtmicon rtmicon-arrow-up"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-sb-field-path="content/pages/about.json:backToTop.href#@href"><i class="rtmicon rtmicon-arrow-up" data-sb-field-path="content/pages/about.json:backToTop.icon"></i></a>
 
     <!-- Scripts -->
     <script src="../js/vendor/jquery.min.js"></script>
