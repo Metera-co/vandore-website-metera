@@ -18,6 +18,8 @@ Pages annotated for inline editing
 Notes
 
 - Existing fields (already present in code): `title`, `heroHeading`, `heroSubheading`, `sections[...]`, `properties[...]` remain intact.
-- SEO: added `seo.description`, `seo.og.*`, `seo.twitter.title`, `seo.favicon#@href` in pages/properties.html.
+- SEO: added `seo.description`, `seo.og.*`, `seo.twitter.title`, `seo.favicon#@href` in pages/properties.html; favicon field added on index and about.
 - Navigation: logo `nav.logo.href#@href`, `nav.logo.src#@src`, `nav.logo.alt`, toggle `nav.toggle.icon`, `nav.toggle.label`.
 - Properties page: hero `hero.image#@src/alt`, grid `properties[i].image#@src/alt`, `title`, `price`, `address`, `description`, `badges[0..]`, `url#@href`, `url.label`, `location.icon`; how-it-works `howItWorks.bg.src`, `howItWorks.steps` with per-step `.icon` and `.stepNumber`; back-to-top `backToTop.href#@href`, `backToTop.icon`.
+- About page: nav scope + logo/toggler; hero + about images annotated; subscribe fields (placeholder, icon, invalidMessage); back-to-top; footer logo `footer.logo#@src/alt`.
+- Index page: nav scope + logo/toggler; hero images (desktop/mobile src/alt), about teaser image; back-to-top.
