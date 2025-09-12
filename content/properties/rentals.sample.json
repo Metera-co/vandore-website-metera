@@ -2,5 +2,7 @@
     "type": "Property",
     "url": "rentals.html/sample.rentals",
     "title": "test",
-    "price": "test"
+    "price": "test",
+    "address": "test",
+    "description": "test"
 }
