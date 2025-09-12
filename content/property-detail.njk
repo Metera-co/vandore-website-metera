@@ -27,13 +27,13 @@
       {% endfor %}
 
       {% if current %}
-        <article>
-          <h1>{{ current.data.title or 'Property' }}</h1>
-          <p><strong>Price:</strong> {{ current.data.price or '' }}</p>
-          <p><strong>Address:</strong> {{ current.data.address or '' }}</p>
-          <p>{{ current.data.description or '' }}</p>
+        <article data-sb-object-id="{{ current.inputPath }}">
+          <h1 data-sb-field-path="title">{{ current.data.title or 'Property' }}</h1>
+          <p><strong>Price:</strong> <span data-sb-field-path="price">{{ current.data.price or '' }}</span></p>
+          <p><strong>Address:</strong> <span data-sb-field-path="address">{{ current.data.address or '' }}</span></p>
+          <p data-sb-field-path="description">{{ current.data.description or '' }}</p>
           {% if current.data.image %}
-            <img alt="Property image" src="{{ current.data.image }}" style="max-width: 600px; width: 100%; height: auto;"/>
+            <img alt="Property image" src="{{ current.data.image }}" style="max-width: 600px; width: 100%; height: auto;" data-sb-field-path="image#@src"/>
           {% endif %}
         </article>
       {% else %}
@@ -42,4 +42,3 @@
     </main>
   </body>
   </html>
-

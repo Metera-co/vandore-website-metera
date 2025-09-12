@@ -1,0 +1,1 @@
+              <img src="../image/dummy-img-600x400.jpg" class="card-img-top" alt="Divistabu dzīvoklis centrā">
