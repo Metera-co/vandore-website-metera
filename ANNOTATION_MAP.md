@@ -18,4 +18,6 @@ Pages annotated for inline editing
 Notes
 
 - Existing fields (already present in code): `title`, `heroHeading`, `heroSubheading`, `sections[...]`, `properties[...]` remain intact.
-- Next steps: add `data-sb-alt-field` for key images and annotate CTA links with `data-sb-href-field` per page.
+- SEO: added `seo.description`, `seo.og.*`, `seo.twitter.title`, `seo.favicon#@href` in pages/properties.html.
+- Navigation: logo `nav.logo.href#@href`, `nav.logo.src#@src`, `nav.logo.alt`, toggle `nav.toggle.icon`, `nav.toggle.label`.
+- Properties page: hero `hero.image#@src/alt`, grid `properties[i].image#@src/alt`, `title`, `price`, `address`, `description`, `badges[0..]`, `url#@href`, `url.label`, `location.icon`; how-it-works `howItWorks.bg.src`, `howItWorks.steps` with per-step `.icon` and `.stepNumber`; back-to-top `backToTop.href#@href`, `backToTop.icon`.
