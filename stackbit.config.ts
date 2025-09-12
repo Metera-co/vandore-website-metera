@@ -14,7 +14,8 @@ export default defineStackbitConfig({
           name: 'Page',
           type: 'page',
           filePath: 'content/pages/{slug}.json',
-          urlPath: '/{slug}',
+          // Static pages under /pages map to /{slug}.html
+          urlPath: '/{slug}.html',
           fields: [
             { name: 'title', type: 'string' },
             { name: 'heroHeading', type: 'string' },
@@ -96,8 +97,10 @@ export default defineStackbitConfig({
         },
         {
           name: 'Property',
-          type: 'data',
+          // Treat each property JSON as its own page for the editor
+          type: 'page',
           filePath: 'content/properties/{slug}.json',
+          urlPath: '/properties/{slug}.html',
           fields: [
             { name: 'title', type: 'string' },
             { name: 'price', type: 'string' },
@@ -115,30 +118,26 @@ export default defineStackbitConfig({
     })
   ],
 
-  // Map JSON docs to real static HTML URLs
-  siteMap: ({ documents }) => {
-    const pages = documents
-      .filter((d) => d.modelName === 'Page')
-      .map((d) => {
-        const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
+  // Connect page models to live URLs in the Visual Editor
+  siteMap: ({ documents, models }) => {
+    const pageModelNames = models.filter((m) => m.type === 'page').map((m) => m.name);
+
+    return documents
+      .filter((d) => pageModelNames.includes(d.modelName))
+      .map((document) => {
+        const slug = path.basename(String(document.filePath || '').replace(/\.json$/, ''));
+        const isHomePage = document.modelName === 'Page' && slug === 'index';
+
+        const urlPath = document.modelName === 'Property'
+          ? `/properties/${slug}.html`
+          : `/${slug}.html`;
+
         return {
-          urlPath: `/${slug}.html`,
-          pageSrc: `content/${slug}.njk`,
-          pageObjectId: d.id
+          stableId: document.id,
+          urlPath,
+          document,
+          isHomePage
         } as SiteMapEntry;
       });
-
-    const properties = documents
-      .filter((d) => d.modelName === 'Property')
-      .map((d) => {
-        const slug = path.basename(String(d.filePath || '').replace(/\.json$/, ''));
-        return {
-          urlPath: `/properties/${slug}.html`,
-          pageSrc: `content/property-detail.njk`,
-          pageObjectId: d.id
-        } as SiteMapEntry;
-      });
-
-    return [...pages, ...properties];
   }
 });
