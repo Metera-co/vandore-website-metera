@@ -1,4 +1,5 @@
 {
+  "type": "Property",
   "title": "Sample Apartment",
   "price": "€120,000",
   "address": "Example St 10, Riga",
@@ -10,4 +11,3 @@
   "area": 65,
   "floors": 5
 }
-
