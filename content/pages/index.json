@@ -1,4 +1,5 @@
 {
+  "type": "Page",
   "title": "Home",
   "heroHeading": "Welcome to Vandore",
   "heroSubheading": "Find properties to buy or rent.",
@@ -6,4 +7,3 @@
     { "heading": "Featured", "text": "A few featured listings and news." }
   ]
 }
-
