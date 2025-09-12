@@ -113,6 +113,25 @@ export default defineStackbitConfig({
             { name: 'area', type: 'number', required: false },
             { name: 'floors', type: 'number', required: false }
           ]
+        },
+        {
+          name: 'Rental',
+          // Treat each rental JSON as its own page for the editor
+          type: 'page',
+          filePath: 'content/rentals/{slug}.json',
+          urlPath: '/rentals/{slug}.html',
+          fields: [
+            { name: 'title', type: 'string' },
+            { name: 'price', type: 'string' },
+            { name: 'address', type: 'string' },
+            { name: 'description', type: 'text' },
+            { name: 'image', type: 'string' },
+            { name: 'url', type: 'string' },
+            { name: 'bedrooms', type: 'number', required: false },
+            { name: 'bathrooms', type: 'number', required: false },
+            { name: 'area', type: 'number', required: false },
+            { name: 'floors', type: 'number', required: false }
+          ]
         }
       ]
     })
@@ -128,9 +147,17 @@ export default defineStackbitConfig({
         const slug = path.basename(String(document.filePath || '').replace(/\.json$/, ''));
         const isHomePage = document.modelName === 'Page' && slug === 'index';
 
-        const urlPath = document.modelName === 'Property'
-          ? `/properties/${slug}.html`
-          : `/${slug}.html`;
+        let urlPath: string;
+        switch (document.modelName) {
+          case 'Property':
+            urlPath = `/properties/${slug}.html`;
+            break;
+          case 'Rental':
+            urlPath = `/rentals/${slug}.html`;
+            break;
+          default:
+            urlPath = `/${slug}.html`;
+        }
 
         return {
           stableId: document.id,

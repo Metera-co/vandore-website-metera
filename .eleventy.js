@@ -54,6 +54,27 @@ module.exports = function (eleventyConfig) {
     return items;
   });
 
+  // Build collection from rental JSON files under content/rentals
+  eleventyConfig.addCollection('rental', function () {
+    const rentalsDir = path.join(contentRoot, 'rentals');
+    const items = [];
+    if (fs.existsSync(rentalsDir)) {
+      for (const file of fs.readdirSync(rentalsDir)) {
+        if (file.endsWith('.json')) {
+          const slug = file.replace(/\.json$/, '');
+          try {
+            const raw = fs.readFileSync(path.join(rentalsDir, file), 'utf8');
+            const data = JSON.parse(raw);
+            items.push({ fileSlug: slug, data, inputPath: path.join('content/rentals', file) });
+          } catch (e) {
+            console.warn('Failed parsing rental JSON:', file, e);
+          }
+        }
+      }
+    }
+    return items;
+  });
+
   return {
     dir: {
       input: 'content',

@@ -1,0 +1,88 @@
+   1: const fs = require('fs');
+   2: const path = require('path');
+   3: 
+   4: module.exports = function (eleventyConfig) {
+   5:   // Passthrough asset folders from project root
+   6:   eleventyConfig.addPassthroughCopy({ css: 'css' });
+   7:   eleventyConfig.addPassthroughCopy({ js: 'js' });
+   8:   eleventyConfig.addPassthroughCopy({ image: 'image' });
+   9:   eleventyConfig.addPassthroughCopy({ font: 'font' });
+  10:   eleventyConfig.addWatchTarget('./css');
+  11:   eleventyConfig.addWatchTarget('./js');
+  12:   eleventyConfig.addWatchTarget('./image');
+  13: 
+  14:   // Copy static HTML under pages/ to the site root so existing pages still deploy
+  15:   eleventyConfig.addPassthroughCopy({ pages: '.' });
+  16: 
+  17:   // Load page JSON documents under content/pages into a global map: pages[slug]
+  18:   const contentRoot = path.join(__dirname, 'content');
+  19:   const pagesDir = path.join(contentRoot, 'pages');
+  20:   const pagesMap = {};
+  21:   if (fs.existsSync(pagesDir)) {
+  22:     for (const file of fs.readdirSync(pagesDir)) {
+  23:       if (file.endsWith('.json')) {
+  24:         const slug = file.replace(/\.json$/, '');
+  25:         try {
+  26:           const raw = fs.readFileSync(path.join(pagesDir, file), 'utf8');
+  27:           pagesMap[slug] = JSON.parse(raw);
+  28:         } catch (e) {
+  29:           console.warn('Failed parsing page JSON:', file, e);
+  30:         }
+  31:       }
+  32:     }
+  33:   }
+  34:   eleventyConfig.addGlobalData('pages', pagesMap);
+  35: 
+  36:   // Build collection from property JSON files under content/properties
+  37:   eleventyConfig.addCollection('property', function () {
+  38:     const propertiesDir = path.join(contentRoot, 'properties');
+  39:     const items = [];
+  40:     if (fs.existsSync(propertiesDir)) {
+  41:       for (const file of fs.readdirSync(propertiesDir)) {
+  42:         if (file.endsWith('.json')) {
+  43:           const slug = file.replace(/\.json$/, '');
+  44:           try {
+  45:             const raw = fs.readFileSync(path.join(propertiesDir, file), 'utf8');
+  46:             const data = JSON.parse(raw);
+  47:             items.push({ fileSlug: slug, data, inputPath: path.join('content/properties', file) });
+  48:           } catch (e) {
+  49:             console.warn('Failed parsing property JSON:', file, e);
+  50:           }
+  51:         }
+  52:       }
+  53:     }
+  54:     return items;
+  55:   });
+  56: 
+  57:   // Build collection from rental JSON files under content/rentals
+  58:   eleventyConfig.addCollection('rental', function () {
+  59:     const rentalsDir = path.join(contentRoot, 'rentals');
+  60:     const items = [];
+  61:     if (fs.existsSync(rentalsDir)) {
+  62:       for (const file of fs.readdirSync(rentalsDir)) {
+  63:         if (file.endsWith('.json')) {
+  64:           const slug = file.replace(/\.json$/, '');
+  65:           try {
+  66:             const raw = fs.readFileSync(path.join(rentalsDir, file), 'utf8');
+  67:             const data = JSON.parse(raw);
+  68:             items.push({ fileSlug: slug, data, inputPath: path.join('content/rentals', file) });
+  69:           } catch (e) {
+  70:             console.warn('Failed parsing rental JSON:', file, e);
+  71:           }
+  72:         }
+  73:       }
+  74:     }
+  75:     return items;
+  76:   });
+  77: 
+  78:   return {
+  79:     dir: {
+  80:       input: 'content',
+  81:       output: '_site',
+  82:       includes: '_includes',
+  83:       data: '_data'
+  84:     },
+  85:     templateFormats: ['njk', 'html']
+  86:   };
+  87: };
+  88: 

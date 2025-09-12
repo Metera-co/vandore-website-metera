@@ -1,0 +1,170 @@
+   1: import { defineStackbitConfig, SiteMapEntry } from '@stackbit/types';
+   2: import { GitContentSource } from '@stackbit/cms-git';
+   3: import * as path from 'path';
+   4: 
+   5: export default defineStackbitConfig({
+   6:   stackbitVersion: '~0.6.0',
+   7:   contentSources: [
+   8:     new GitContentSource({
+   9:       name: 'content',
+  10:       rootPath: __dirname,
+  11:       contentDirs: ['content'],
+  12:       models: [
+  13:         {
+  14:           name: 'Page',
+  15:           type: 'page',
+  16:           filePath: 'content/pages/{slug}.json',
+  17:           // Static pages under /pages map to /{slug}.html
+  18:           urlPath: '/{slug}.html',
+  19:           fields: [
+  20:             { name: 'title', type: 'string' },
+  21:             { name: 'heroHeading', type: 'string' },
+  22:             { name: 'heroSubheading', type: 'text' },
+  23:             {
+  24:               // generic sections for headings + text blocks
+  25:               name: 'sections',
+  26:               type: 'list',
+  27:               items: {
+  28:                 type: 'object',
+  29:                 fields: [
+  30:                   { name: 'heading', type: 'string' },
+  31:                   { name: 'text', type: 'text' }
+  32:                 ]
+  33:               },
+  34:               required: false
+  35:             },
+  36:             {
+  37:               // property cards on listing pages
+  38:               name: 'properties',
+  39:               type: 'list',
+  40:               items: {
+  41:                 type: 'object',
+  42:                 fields: [
+  43:                   { name: 'title', type: 'string' },
+  44:                   { name: 'price', type: 'string' },
+  45:                   { name: 'address', type: 'string' },
+  46:                   { name: 'description', type: 'text', required: false },
+  47:                   { name: 'image', type: 'string', required: false },
+  48:                   { name: 'url', type: 'string', required: false }
+  49:                 ]
+  50:               },
+  51:               required: false
+  52:             },
+  53:             {
+  54:               // team members
+  55:               name: 'team',
+  56:               type: 'list',
+  57:               items: {
+  58:                 type: 'object',
+  59:                 fields: [
+  60:                   { name: 'name', type: 'string' },
+  61:                   { name: 'role', type: 'string' },
+  62:                   { name: 'bio', type: 'text', required: false },
+  63:                   { name: 'image', type: 'string', required: false }
+  64:                 ]
+  65:               },
+  66:               required: false
+  67:             },
+  68:             {
+  69:               // FAQs
+  70:               name: 'faqs',
+  71:               type: 'list',
+  72:               items: {
+  73:                 type: 'object',
+  74:                 fields: [
+  75:                   { name: 'question', type: 'string' },
+  76:                   { name: 'answer', type: 'text' }
+  77:                 ]
+  78:               },
+  79:               required: false
+  80:             },
+  81:             {
+  82:               // blog cards/lists
+  83:               name: 'blogPosts',
+  84:               type: 'list',
+  85:               items: {
+  86:                 type: 'object',
+  87:                 fields: [
+  88:                   { name: 'title', type: 'string' },
+  89:                   { name: 'excerpt', type: 'text', required: false },
+  90:                   { name: 'date', type: 'string', required: false },
+  91:                   { name: 'url', type: 'string', required: false }
+  92:                 ]
+  93:               },
+  94:               required: false
+  95:             }
+  96:           ]
+  97:         },
+  98:         {
+  99:           name: 'Property',
+ 100:           // Treat each property JSON as its own page for the editor
+ 101:           type: 'page',
+ 102:           filePath: 'content/properties/{slug}.json',
+ 103:           urlPath: '/properties/{slug}.html',
+ 104:           fields: [
+ 105:             { name: 'title', type: 'string' },
+ 106:             { name: 'price', type: 'string' },
+ 107:             { name: 'address', type: 'string' },
+ 108:             { name: 'description', type: 'text' },
+ 109:             { name: 'image', type: 'string' },
+ 110:             { name: 'url', type: 'string' },
+ 111:             { name: 'bedrooms', type: 'number', required: false },
+ 112:             { name: 'bathrooms', type: 'number', required: false },
+ 113:             { name: 'area', type: 'number', required: false },
+ 114:             { name: 'floors', type: 'number', required: false }
+ 115:           ]
+ 116:         },
+ 117:         {
+ 118:           name: 'Rental',
+ 119:           // Treat each rental JSON as its own page for the editor
+ 120:           type: 'page',
+ 121:           filePath: 'content/rentals/{slug}.json',
+ 122:           urlPath: '/rentals/{slug}.html',
+ 123:           fields: [
+ 124:             { name: 'title', type: 'string' },
+ 125:             { name: 'price', type: 'string' },
+ 126:             { name: 'address', type: 'string' },
+ 127:             { name: 'description', type: 'text' },
+ 128:             { name: 'image', type: 'string' },
+ 129:             { name: 'url', type: 'string' },
+ 130:             { name: 'bedrooms', type: 'number', required: false },
+ 131:             { name: 'bathrooms', type: 'number', required: false },
+ 132:             { name: 'area', type: 'number', required: false },
+ 133:             { name: 'floors', type: 'number', required: false }
+ 134:           ]
+ 135:         }
+ 136:       ]
+ 137:     })
+ 138:   ],
+ 139: 
+ 140:   // Connect page models to live URLs in the Visual Editor
+ 141:   siteMap: ({ documents, models }) => {
+ 142:     const pageModelNames = models.filter((m) => m.type === 'page').map((m) => m.name);
+ 143: 
+ 144:     return documents
+ 145:       .filter((d) => pageModelNames.includes(d.modelName))
+ 146:       .map((document) => {
+ 147:         const slug = path.basename(String(document.filePath || '').replace(/\.json$/, ''));
+ 148:         const isHomePage = document.modelName === 'Page' && slug === 'index';
+ 149: 
+ 150:         let urlPath: string;
+ 151:         switch (document.modelName) {
+ 152:           case 'Property':
+ 153:             urlPath = `/properties/${slug}.html`;
+ 154:             break;
+ 155:           case 'Rental':
+ 156:             urlPath = `/rentals/${slug}.html`;
+ 157:             break;
+ 158:           default:
+ 159:             urlPath = `/${slug}.html`;
+ 160:         }
+ 161: 
+ 162:         return {
+ 163:           stableId: document.id,
+ 164:           urlPath,
+ 165:           document,
+ 166:           isHomePage
+ 167:         } as SiteMapEntry;
+ 168:       });
+ 169:   }
+ 170: });
