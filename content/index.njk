@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-sb-object-id="content/pages/index.json">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ (pages.index.title) or 'Home' }}</title>
+    <title data-sb-field-path="title">{{ (pages.index.title) or 'Home' }}</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <header>
-      <h1>{{ (pages.index.heroHeading) or 'Welcome' }}</h1>
-      <p>{{ (pages.index.heroSubheading) or '' }}</p>
+      <h1 data-sb-field-path="heroHeading">{{ (pages.index.heroHeading) or 'Welcome' }}</h1>
+      <p data-sb-field-path="heroSubheading">{{ (pages.index.heroSubheading) or '' }}</p>
       <nav>
         <a href="/index.html">Home</a>
         <a href="/properties.html">Properties</a>
@@ -20,9 +20,9 @@
     <main>
       {% if pages.index.sections %}
         {% for s in pages.index.sections %}
-          <section>
-            <h2>{{ s.heading }}</h2>
-            <p>{{ s.text }}</p>
+          <section data-sb-field-path="sections[{{ loop.index0 }}]">
+            <h2 data-sb-field-path="sections[{{ loop.index0 }}].heading">{{ s.heading }}</h2>
+            <p data-sb-field-path="sections[{{ loop.index0 }}].text">{{ s.text }}</p>
           </section>
         {% endfor %}
       {% endif %}
@@ -31,9 +31,9 @@
         <h2>Sample Property</h2>
         <ul>
           {% for p in collections.property %}
-            <li>
-              <a href="/properties/{{ p.fileSlug }}.html">{{ p.data.title }}</a>
-              <span>{{ p.data.price }}</span>
+            <li data-sb-object-id="{{ p.inputPath }}">
+              <a href="/properties/{{ p.fileSlug }}.html" data-sb-field-path="title">{{ p.data.title }}</a>
+              <span data-sb-field-path="price">{{ p.data.price }}</span>
             </li>
           {% endfor %}
         </ul>
@@ -45,4 +45,3 @@
     </footer>
   </body>
   </html>
-
