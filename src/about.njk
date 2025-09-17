@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+title: About
+seo:
+  title: About Vandore Heritage
+  description: Meet the team curating heritage properties, refined rentals, and relocation journeys across Latvia.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: About Vandore Heritage
+  headline: A studio agency built on stewardship
+  subheadline: We are a multidisciplinary team of strategists, restorers, and hospitality specialists who deliver property experiences with care.
+  cta_label: Meet our team
+  cta_url: /team/
+values:
+  heading: What guides every mandate
+  items:
+    - title: Stewardship first
+      description: We handle every property as a living narrative, balancing commercial outcomes with respect for the people and history involved.
+    - title: Precision with warmth
+      description: From due diligence to handovers, our processes are rigorous while remaining calm, human, and reassuring.
+    - title: Radical transparency
+      description: Weekly briefings, open pipelines, and candid advice keep owners and tenants in control of every decision.
+team_intro:
+  heading: Your core partners
+  description: A nimble team supported by a trusted network of conservators, legal specialists, and hospitality experts.
+team:
+  - name: Laura Vandore
+    role: Founder & Lead Strategist
+    bio: 15 years guiding heritage transactions and complex relocations across the Baltics.
+  - name: Martins Ozols
+    role: Head of Client Experience
+    bio: Hospitality executive ensuring every brief feels orchestrated.
+  - name: Ieva Kravale
+    role: Conservation Partnerships
+    bio: Architectural historian connecting restorers with the right artisans.
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 data-cms-bind="#values.heading">{{ values.heading }}</h2>
+    <div class="grid two">
+      {% for value in values.items %}
+      <article class="card" data-cms-collection="values" data-cms-item="{{ loop.index0 }}">
+        <h3 data-cms-bind="title">{{ value.title }}</h3>
+        <p data-cms-bind="description">{{ value.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 data-cms-bind="#team_intro.heading">{{ team_intro.heading }}</h2>
+    <p data-cms-bind="#team_intro.description">{{ team_intro.description }}</p>
+    <div class="grid two">
+      {% for person in team %}
+      <article class="card" data-cms-collection="team" data-cms-item="{{ loop.index0 }}">
+        <h3 data-cms-bind="name">{{ person.name }}</h3>
+        <p class="meta" data-cms-bind="role">{{ person.role }}</p>
+        <p data-cms-bind="bio">{{ person.bio }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

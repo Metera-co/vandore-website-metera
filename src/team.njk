@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: Team
+seo:
+  title: Meet the Vandore Heritage Team
+  description: Learn more about the strategists, conservation partners, and hospitality specialists at Vandore Heritage.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: The team
+  headline: Specialists aligned around your goals
+  subheadline: Vandore Heritage blends strategy, hospitality, and conservation expertise to deliver bespoke outcomes.
+  cta_label: Talk with us
+  cta_url: /contact/
+intro:
+  text: Our core team is supported by a trusted collective of architects, legal advisors, and cultural partners across the Baltics and beyond.
+people:
+  - name: Laura Vandore
+    title: Founder & Lead Strategist
+    focus: Stewardship of heritage transactions, executive briefings, and partnership alignment.
+  - name: Martins Ozols
+    title: Head of Client Experience
+    focus: Designing relocation programs and concierge services for executive households.
+  - name: Ieva Kravale
+    title: Conservation Partnerships
+    focus: Sourcing craftspeople, overseeing restoration quality, and ensuring narrative continuity.
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p data-cms-bind="#intro.text">{{ intro.text }}</p>
+    <div class="grid two">
+      {% for person in people %}
+      <article class="card" data-cms-collection="people" data-cms-item="{{ loop.index0 }}">
+        <h2 data-cms-bind="name">{{ person.name }}</h2>
+        <p class="meta" data-cms-bind="title">{{ person.title }}</p>
+        <p data-cms-bind="focus">{{ person.focus }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

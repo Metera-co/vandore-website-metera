@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+title: Page not found
+permalink: 404.html
+seo:
+  title: Page Not Found | Vandore Heritage
+  description: The page you were looking for could not be found.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: 404
+  headline: The page you requested is unavailable
+  subheadline: Check the link or return to the homepage to continue exploring Vandore Heritage.
+  cta_label: Head home
+  cta_url: /
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+

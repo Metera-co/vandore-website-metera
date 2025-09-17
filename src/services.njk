@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+title: Services
+seo:
+  title: Vandore Heritage Services
+  description: Explore the representation, relocation, and restoration services we deliver for owners and executive teams.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: Services
+  headline: From mandate to move-in with one accountable team
+  subheadline: Tailored programs for sellers, relocating teams, and restoration partners across Latvia.
+  cta_label: Plan a strategy session
+  cta_url: /contact/
+services:
+  - name: Heritage sales strategy
+    summary: Positioning, marketing, and negotiation for significant properties with discretion.
+    deliverables:
+      - Comparative market storytelling
+      - Multi-channel launch with privacy controls
+      - Curated private viewings and briefing packs
+  - name: Executive relocation
+    summary: Short & long-term placements, cultural onboarding, and family support delivered as one program.
+    deliverables:
+      - Temporary residences with hospitality standards
+      - School and community integration for families
+      - Dedicated concierge and lifestyle support
+  - name: Restoration partner program
+    summary: Architect, artisan, and supplier alignment for heritage projects.
+    deliverables:
+      - Conservation blueprint and risk mapping
+      - Craft tendering and oversight
+      - Sustainability and technology integration review
+cta:
+  heading: Ready to align on your next brief?
+  description: Share the contours of your mandate and our team will prepare a confidential proposal within two business days.
+  label: Start your brief
+  url: /contact/
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    {% for service in services %}
+    <article class="card" data-cms-collection="services" data-cms-item="{{ loop.index0 }}">
+      <h2 data-cms-bind="name">{{ service.name }}</h2>
+      <p data-cms-bind="summary">{{ service.summary }}</p>
+      <ul>
+        {% for deliverable in service.deliverables %}
+        <li><span data-cms-bind="deliverables[{{ loop.index0 }}]">{{ deliverable }}</span></li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container card">
+    <h2 data-cms-bind="#cta.heading">{{ cta.heading }}</h2>
+    <p data-cms-bind="#cta.description">{{ cta.description }}</p>
+    <a class="cta" href="{{ cta.url }}"><span data-cms-bind="#cta.label">{{ cta.label }}</span></a>
+  </div>
+</section>
+
+

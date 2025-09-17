@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: properties.list
+  size: 1
+  alias: property
+permalink: "properties/{{ property.slug }}/index.html"
+_enabled_editors:
+  - visual
+  - data
+eleventyComputed:
+  title: "{{ property.title }}"
+  hero:
+    headline: "{{ property.hero.headline | default(property.title) }}"
+    subheadline: "{{ property.hero.subheadline }}"
+    cta_label: "{{ property.hero.cta_label | default('Request details') }}"
+    cta_url: "{{ property.hero.cta_url | default('/contact/') }}"
+  seo:
+    title: "{{ property.seo.title | default(property.title) }}"
+    description: "{{ property.seo.description | default(property.hero.subheadline) }}"
+---
+<section class="hero">
+  <div class="container">
+    <p class="meta">
+      <span data-cms-bind="city">{{ property.city }}</span>,
+      <span data-cms-bind="area">{{ property.area }}</span>
+    </p>
+    <h1 data-cms-bind="title">{{ property.title }}</h1>
+    <p data-cms-bind="hero.subheadline">{{ property.hero.subheadline }}</p>
+    <p class="meta">
+      <strong data-cms-bind="price">{{ property.price }}</strong>
+      <span data-cms-bind="currency">{{ property.currency }}</span>
+      · <span data-cms-bind="availability">{{ property.availability }}</span>
+    </p>
+    <a class="cta" href="{{ property.hero.cta_url | default('/contact/') }}">
+      <span data-cms-bind="hero.cta_label">{{ property.hero.cta_label }}</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    <div>
+      <div class="grid">
+        {% for image in property.gallery %}
+        <figure data-cms-collection="gallery" data-cms-item="{{ loop.index0 }}">
+          <img src="{{ image }}" alt="{{ property.title }} image {{ loop.index }}" data-cms-bind="gallery[{{ loop.index0 }}]">
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+    <aside class="card">
+      <h2>Essentials</h2>
+      <p><strong data-cms-bind="type">{{ property.type }}</strong></p>
+      <p><span data-cms-bind="bedrooms">{{ property.bedrooms }}</span> bedrooms · <span data-cms-bind="bathrooms">{{ property.bathrooms }}</span> bathrooms</p>
+      <p><span data-cms-bind="size">{{ property.size }}</span> {{ property.size_unit | default('sqm') }}</p>
+      <p data-cms-bind="address">{{ property.address }}</p>
+      <ul>
+        {% for feature in property.features %}
+        <li><span data-cms-bind="features[{{ loop.index0 }}]">{{ feature }}</span></li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div data-cms-bind="description">{{ property.description | safe }}</div>
+  </div>
+</section>
+

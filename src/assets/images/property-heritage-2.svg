@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#d9c6aa"/>
+  <rect x="120" y="120" width="560" height="260" fill="#fff" opacity="0.8"/>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="42" fill="#5b402a">Garden Pavilion</text>
+</svg>

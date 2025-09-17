@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: Blog
+seo:
+  title: Vandore Heritage Insights
+  description: Market outlooks, neighbourhood guides, and updates from the Vandore Heritage team.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: Insights
+  headline: Guidance for owners, buyers, and relocating teams
+  subheadline: Quarterly outlooks, neighbourhood intelligence, and stories from our restoration projects.
+  cta_label: Subscribe for briefings
+  cta_url: /contact/
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    {% for post in posts.list %}
+    <article class="card" data-cms-collection="posts" data-cms-item="{{ post.slug }}">
+      <img src="{{ post.cover }}" alt="{{ post.title }}" data-cms-bind="cover">
+      <p class="meta" data-cms-bind="date">{{ post.date | readableDate }}</p>
+      <h2 data-cms-bind="title"><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></h2>
+      <p data-cms-bind="excerpt">{{ post.excerpt }}</p>
+      <a class="cta" href="/blog/{{ post.slug }}/">Read more</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+

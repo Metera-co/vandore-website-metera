@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+title: Rentals
+seo:
+  title: Executive Rentals | Vandore Heritage
+  description: Short and long-term executive rentals with hospitality-grade services curated by Vandore Heritage.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: Executive rentals
+  headline: Hospitality-grade rentals for relocating teams
+  subheadline: Every residence includes concierge onboarding, cultural briefings, and weekly reporting.
+  cta_label: Submit a rental brief
+  cta_url: /contact/
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    {% for property in properties.list %}
+    <article class="card" data-cms-collection="properties" data-cms-item="{{ property.slug }}">
+      <img src="{{ property.gallery[0] }}" alt="{{ property.title }}" data-cms-bind="gallery[0]">
+      <h2 data-cms-bind="title">{{ property.title }}</h2>
+      <p class="meta">
+        <span data-cms-bind="city">{{ property.city }}</span>,
+        <span data-cms-bind="area">{{ property.area }}</span>
+      </p>
+      <p data-cms-bind="availability">{{ property.availability }}</p>
+      <a class="cta" href="/properties/{{ property.slug }}/">View residence</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+

@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: Contact
+seo:
+  title: Contact Vandore Heritage
+  description: Share your mandate or relocation plans and our team will respond within one business day.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: Contact
+  headline: Let's align on your next move
+  subheadline: Share a few details and our team will arrange a confidential introduction call within one business day.
+  cta_label: Call us directly
+  cta_url: tel:+37100000000
+contact_details:
+  email: hello@vandoreheritage.com
+  phone: +371 0000 0000
+  address: Raina bulvaris 11, Riga, Latvia
+form:
+  name_label: Full name
+  name_placeholder: Your name
+  email_label: Email address
+  email_placeholder: you@example.com
+  phone_label: Phone number
+  phone_placeholder: +371 ...
+  message_label: Tell us about your brief
+  message_placeholder: Share context, timelines, or priorities
+  submit_label: Send message
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    <div>
+      <h2 class="editable" data-cms-bind="#contact_intro">Reach the team directly</h2>
+      <p>Email: <a href="mailto:{{ contact_details.email }}" data-cms-bind="#contact_details.email">{{ contact_details.email }}</a></p>
+      <p>Phone: <a href="tel:{{ contact_details.phone | replace(' ', '') }}" data-cms-bind="#contact_details.phone">{{ contact_details.phone }}</a></p>
+      <p data-cms-bind="#contact_details.address">{{ contact_details.address }}</p>
+    </div>
+    <div>
+      <form class="contact-form" data-cloudcannon-form data-cloudcannon-form-id="contact" method="POST">
+        <input type="hidden" name="_to" value="{{ contact_details.email }}">
+        <input type="hidden" name="_subject" value="New enquiry from Vandore Heritage website">
+        <label for="name" data-cms-bind="#form.name_label">{{ form.name_label }}</label>
+        <input id="name" name="name" type="text" required placeholder="{{ form.name_placeholder }}" data-cms-bind="#form.name_placeholder">
+
+        <label for="email" data-cms-bind="#form.email_label">{{ form.email_label }}</label>
+        <input id="email" name="email" type="email" required placeholder="{{ form.email_placeholder }}" data-cms-bind="#form.email_placeholder">
+
+        <label for="phone" data-cms-bind="#form.phone_label">{{ form.phone_label }}</label>
+        <input id="phone" name="phone" type="tel" placeholder="{{ form.phone_placeholder }}" data-cms-bind="#form.phone_placeholder">
+
+        <label for="message" data-cms-bind="#form.message_label">{{ form.message_label }}</label>
+        <textarea id="message" name="message" rows="4" placeholder="{{ form.message_placeholder }}" data-cms-bind="#form.message_placeholder"></textarea>
+
+        <button type="submit"><span data-cms-bind="#form.submit_label">{{ form.submit_label }}</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="river" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a9d6ff"/>
+      <stop offset="100%" stop-color="#5f9fd9"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#river)"/>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="48" fill="#0a2a43">Riverside Residences</text>
+</svg>

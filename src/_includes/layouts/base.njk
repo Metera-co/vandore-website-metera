@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-cms-bind="#seo.title">{% if seo and seo.title %}{{ seo.title }}{% else %}{{ title }}{% endif %}</title>
+    <meta name="description" content="{% if seo and seo.description %}{{ seo.description }}{% else %}{% endif %}" data-cms-bind="#seo.description">
+    <link rel="stylesheet" href="/assets/main.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-logo" data-cms-bind="#site.name" href="/">{{ site.name }}</a>
+        <nav class="site-nav">
+          <a href="/" data-cms-bind="#site.nav.home">{{ site.nav.home }}</a>
+          <a href="/about/" data-cms-bind="#site.nav.about">{{ site.nav.about }}</a>
+          <a href="/services/" data-cms-bind="#site.nav.services">{{ site.nav.services }}</a>
+          <a href="/properties/" data-cms-bind="#site.nav.properties">{{ site.nav.properties }}</a>
+          <a href="/blog/" data-cms-bind="#site.nav.blog">{{ site.nav.blog }}</a>
+          <a href="/faq/" data-cms-bind="#site.nav.faq">{{ site.nav.faq }}</a>
+          <a href="/contact/" data-cms-bind="#site.nav.contact">{{ site.nav.contact }}</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      {{ content | safe }}
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p data-cms-bind="#site.footer">{{ site.footer }}</p>
+      </div>
+    </footer>
+  </body>
+</html>

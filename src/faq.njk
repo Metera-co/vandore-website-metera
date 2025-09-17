@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+title: FAQ
+seo:
+  title: Frequently Asked Questions | Vandore Heritage
+  description: Answers to common questions about our property representation, relocation, and restoration services.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: FAQ
+  headline: Answers for owners, tenants, and partners
+  subheadline: Explore the practicalities of working with Vandore Heritage.
+  cta_label: Ask something else
+  cta_url: /contact/
+faqs:
+  - question: How quickly can you prepare a property for market?
+    answer: We typically complete positioning, pricing, and creative in 14 days. Accelerated launches are possible with in-house staging assets.
+  - question: Do you work with overseas sellers?
+    answer: Yes. We provide secure virtual tours, notarised document coordination, and regular reporting to keep overseas owners informed.
+  - question: Can you manage relocation housing for entire teams?
+    answer: We design packages for teams from ten to one hundred people, including interim housing, long-term lets, and cultural onboarding.
+  - question: What happens after a restoration project completes?
+    answer: We offer optional guardianship programs covering maintenance oversight, trusted vendor scheduling, and guest preparation.
+---
+<section class="hero">
+  <div class="container">
+    <p data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% for item in faqs %}
+    <div class="faq-item" data-cms-collection="faqs" data-cms-item="{{ loop.index0 }}">
+      <h2 data-cms-bind="question">{{ item.question }}</h2>
+      <p data-cms-bind="answer">{{ item.answer }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="heritage" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8f4ef"/>
+      <stop offset="100%" stop-color="#e5d2b3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#heritage)"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="54" fill="#7b5332">Heritage Villa</text>
+</svg>

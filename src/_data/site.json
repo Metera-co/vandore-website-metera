@@ -1,0 +1,14 @@
+{
+  "name": "Vandore Heritage",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "properties": "Properties",
+    "blog": "Insights",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "footer": "© 2025 Vandore Heritage. All rights reserved."
+}
+

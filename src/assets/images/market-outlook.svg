@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e9f5ff"/>
+      <stop offset="100%" stop-color="#b5d9f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad)"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="48" fill="#1b365d">Market Outlook</text>
+</svg>

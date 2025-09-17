@@ -1,0 +1,110 @@
+---
+layout: layouts/base.njk
+title: Home
+seo:
+  title: Vandore Heritage | Heritage Property Agency
+  description: Tailored representation for heritage properties, refined rentals, and relocating teams across Latvia.
+_enabled_editors:
+  - visual
+  - data
+hero:
+  eyebrow: Personal agency for meaningful spaces
+  headline: Heritage properties stewarded with modern precision
+  subheadline: Vandore Heritage aligns curators, craftspeople, and clients to deliver heritage restorations, discreet rentals, and relocation experiences that feel personal from day one.
+  cta_label: Start a confidential brief
+  cta_url: /contact/
+sections:
+  - title: Why owners choose Vandore
+    description: We balance strategic pricing with thoughtful presentation, curating viewings that protect your time while showcasing the soul of the home.
+    points:
+      - Dedicated strategist, marketer, and viewing lead for every mandate
+      - Tailored documentation and story-driven staging assets within two weeks
+      - Weekly insight reports covering engagement, sentiment, and next actions
+  - title: Relocation experiences with warmth
+    description: Executive teams and households receive concierge-level onboarding, from area discovery to short-let arrangements and cultural briefings.
+    points:
+      - Curated neighbourhood immersions and lifestyle pairing
+      - Rentals matched to team rhythms with hospitality-grade services
+      - Cultural intelligence briefings for confident decision-making
+  - title: Restoration partnerships
+    description: We connect architects, artisans, and conservation experts to realise restorations that honour the original narrative while meeting today's comfort standards.
+    points:
+      - Conservation-grade project planning
+      - Material sourcing with provenance tracking
+      - On-site guardianship and reporting
+featured_properties:
+  heading: Featured properties
+  items:
+    - slug: heritage-villa-balasta
+    - slug: riverside-residences-penthouse
+testimonials:
+  heading: Trusted by owners and partners
+  items:
+    - quote: Vandore Heritage took our family estate to market with immense respect. Every buyer was briefed, the narrative was preserved, and expectations were exceeded.
+      attribution: Elizabete K., Kipsala residence steward
+    - quote: Their relocation program balanced our executive needs with humanity. The result—teams feeling at home from the first week.
+      attribution: Andris P., Baltics expansion lead
+---
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow" data-cms-bind="#hero.eyebrow">{{ hero.eyebrow }}</p>
+    <h1 data-cms-bind="#hero.headline">{{ hero.headline }}</h1>
+    <p data-cms-bind="#hero.subheadline">{{ hero.subheadline }}</p>
+    <a class="cta" href="{{ hero.cta_url }}"><span data-cms-bind="#hero.cta_label">{{ hero.cta_label }}</span></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid two">
+    {% for section in sections %}
+    <article class="card" data-cms-collection="sections" data-cms-item="{{ loop.index0 }}">
+      <h2 data-cms-bind="title">{{ section.title }}</h2>
+      <p data-cms-bind="description">{{ section.description }}</p>
+      <ul>
+        {% for point in section.points %}
+        <li><span data-cms-bind="points[{{ loop.index0 }}]">{{ point }}</span></li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-cms-bind="#featured_properties.heading">{{ featured_properties.heading }}</h2>
+    </div>
+    <div class="grid two">
+      {% for item in featured_properties.items %}
+      {% set property = properties.bySlug[item.slug] %}
+      {% if property %}
+      <article class="card" data-cms-collection="properties" data-cms-item="{{ property.slug }}">
+        <img src="{{ property.gallery[0] }}" alt="{{ property.title }}" data-cms-bind="gallery[0]">
+        <h3 data-cms-bind="title">{{ property.title }}</h3>
+        <p class="meta">{{ property.city }}, {{ property.area }}</p>
+        <p data-cms-bind="hero.subheadline">{{ property.hero.subheadline }}</p>
+        <a class="cta" href="/properties/{{ property.slug }}/"><span data-cms-bind="hero.cta_label">{{ property.hero.cta_label }}</span></a>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 data-cms-bind="#testimonials.heading">{{ testimonials.heading }}</h2>
+    <div class="grid two">
+      {% for testimonial in testimonials.items %}
+      <blockquote class="card" data-cms-collection="testimonials" data-cms-item="{{ loop.index0 }}">
+        <p data-cms-bind="quote">{{ testimonial.quote }}</p>
+        <p class="meta" data-cms-bind="attribution">{{ testimonial.attribution }}</p>
+      </blockquote>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+

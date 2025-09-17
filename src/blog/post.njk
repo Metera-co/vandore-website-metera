@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: posts.list
+  size: 1
+  alias: post
+permalink: "blog/{{ post.slug }}/index.html"
+_enabled_editors:
+  - visual
+  - data
+eleventyComputed:
+  title: "{{ post.title }}"
+  hero:
+    headline: "{{ post.title }}"
+    subheadline: "{{ post.excerpt }}"
+  seo:
+    title: "{{ post.seo.title | default(post.title) }}"
+    description: "{{ post.seo.description | default(post.excerpt) }}"
+---
+<section class="hero">
+  <div class="container">
+    <p class="meta" data-cms-bind="date">{{ post.date | readableDate }}</p>
+    <h1 data-cms-bind="title">{{ post.title }}</h1>
+    <p data-cms-bind="excerpt">{{ post.excerpt }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <img src="{{ post.cover }}" alt="{{ post.title }}" data-cms-bind="cover">
+    <div data-cms-bind="body">{{ post.body | safe }}</div>
+  </div>
+</section>

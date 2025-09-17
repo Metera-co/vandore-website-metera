@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#fff9f0"/>
+  <circle cx="220" cy="220" r="140" fill="#f6d6a2" opacity="0.6"/>
+  <text x="60%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="42" fill="#8a5b2f">Skyline Terrace</text>
+</svg>

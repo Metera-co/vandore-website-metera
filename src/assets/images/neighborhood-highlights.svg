@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f8ede0"/>
+  <circle cx="620" cy="140" r="90" fill="#f1c48b" opacity="0.6"/>
+  <circle cx="220" cy="240" r="130" fill="#d0a07a" opacity="0.5"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Noto Sans', Arial" font-size="48" fill="#5a382e">Area Highlights</text>
+</svg>

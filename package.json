@@ -1,10 +1,17 @@
 {
-  "name": "visual-editor",
+  "name": "vandore-website",
   "private": true,
-  "version": "0.0.0",
-  "engines": { "node": ">=20" },
+  "version": "1.0.0",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --watch"
+  },
   "devDependencies": {
-    "@stackbit/cms-git": "1.0.35",
-    "@stackbit/types": "2.1.14"
+    "@11ty/eleventy": "^3.0.0",
+    "cheerio": "^1.0.0",
+    "gray-matter": "^4.0.3",
+    "luxon": "^3.5.0",
+    "markdown-it": "^14.1.0"
   }
 }
+

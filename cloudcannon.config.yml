@@ -1,0 +1,52 @@
+site:
+  source: .
+  public: _site
+  breadcrumb: Vandore Heritage
+collections_config:
+  pages:
+    name: Pages
+    singular_name: Page
+    path: src
+    match: '**/*.njk'
+    exclude:
+      - '_includes/**'
+      - '_data/**'
+      - 'blog/**'
+      - 'posts/**'
+      - 'properties/**'
+    icon: page
+    editor:
+      enabled_editors:
+        - visual
+        - data
+  posts:
+    name: Posts
+    singular_name: Post
+    path: content/posts
+    match: '**/*.{md,markdown,html}'
+    icon: article
+    sort:
+      key: date
+      order: descending
+    editor:
+      enabled_editors:
+        - visual
+        - data
+  properties:
+    name: Properties
+    singular_name: Property
+    path: content/properties
+    match: '**/*.{md,markdown,html}'
+    icon: home
+    sort:
+      key: order
+      order: ascending
+    editor:
+      enabled_editors:
+        - visual
+        - data
+inboxes:
+  contact:
+    name: General Enquiries
+    recipients:
+      - hello@vandoreheritage.com
