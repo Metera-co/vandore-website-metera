@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "vandore-website",
   "private": true,
   "version": "1.0.0",
@@ -12,6 +12,9 @@
     "gray-matter": "^4.0.3",
     "luxon": "^3.5.0",
     "markdown-it": "^14.1.0"
+  },
+  "overrides": {
+    "undici": "^5.28.4",
+    "cheerio": "^1.0.0-rc.12"
   }
 }
-
