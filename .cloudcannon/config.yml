@@ -1,0 +1,257 @@
+﻿paths:
+  uploads: image/uploads
+  static: pages
+preserve_files:
+  - image/uploads
+
+collections_config:
+  pages:
+    path: pages
+    name: Pages
+    icon: wysiwyg
+    include: '**/*.html'
+    editor:
+      default: visual
+      media: visual
+  rentals:
+    path: data/rentals.json
+    name: Content Rentals
+    icon: holiday_village
+    format: json
+    output: false
+    value_key: rentals
+    schema:
+      name: Rental
+      fields:
+        - type: text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          name: title
+          label: Title
+          required: true
+        - type: text
+          name: price
+          label: Price
+        - type: text
+          name: address
+          label: Address
+        - type: textarea
+          name: description
+          label: Description
+          rows: 4
+        - type: select
+          name: type
+          label: Rental Type
+          options:
+            - label: Long-term
+              value: long
+            - label: Short-term
+              value: short
+        - type: number
+          name: bedrooms
+          label: Bedrooms
+        - type: number
+          name: bathrooms
+          label: Bathrooms
+        - type: number
+          name: area
+          label: Area (mÂ²)
+        - type: number
+          name: floors
+          label: Floor
+        - type: image
+          name: image_1
+          label: Primary Image
+          directory: image/uploads
+        - type: text
+          name: image_1_alt
+          label: Primary Image Alt Text
+        - type: image
+          name: image_2
+          label: Secondary Image
+          directory: image/uploads
+        - type: text
+          name: image_2_alt
+          label: Secondary Image Alt Text
+        - type: text
+          name: price
+          label: Price
+        - type: text
+          name: address
+          label: Address
+  properties:
+    path: data/properties.json
+    name: Content Properties
+    icon: real_estate_agent
+    format: json
+    output: false
+    value_key: properties
+    schema:
+      name: Property
+      fields:
+        - type: text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          name: title
+          label: Title
+          required: true
+        - type: text
+          name: price
+          label: Price
+        - type: text
+          name: address
+          label: Address
+        - type: textarea
+          name: description
+          label: Description
+          rows: 4
+        - type: number
+          name: bedrooms
+          label: Bedrooms
+        - type: number
+          name: bathrooms
+          label: Bathrooms
+        - type: number
+          name: area
+          label: Area (mÂ²)
+        - type: number
+          name: floors
+          label: Floor
+        - type: image
+          name: image
+          label: Featured Image
+          directory: image/uploads
+        - type: array
+          name: gallery
+          label: Gallery
+          schema:
+            name: Gallery Image
+            fields:
+              - type: image
+                name: src
+                label: Image
+                directory: image/uploads
+              - type: text
+                name: alt
+                label: Alt Text
+              - type: text
+                name: caption
+                label: Caption
+
+forms:
+  rental_publish:
+    name: Publish Rental
+    collection: rentals
+    icon: add_home_work
+    fields:
+      - name: slug
+        label: Slug
+        type: text
+      - name: title
+        label: Title
+        type: text
+      - name: type
+        label: Rental Type
+        type: select
+        options:
+          - label: Long-term
+            value: long
+          - label: Short-term
+            value: short
+      - name: price
+        label: Price
+        type: text
+      - name: address
+        label: Address
+        type: text
+      - name: description
+        label: Description
+        type: textarea
+      - name: bedrooms
+        label: Bedrooms
+        type: number
+      - name: bathrooms
+        label: Bathrooms
+        type: number
+      - name: area
+        label: Area (mÂ²)
+        type: number
+      - name: floors
+        label: Floor
+        type: number
+      - name: image_1
+        label: Primary Image
+        type: image
+        directory: image/uploads
+      - name: image_1_alt
+        label: Primary Image Alt Text
+        type: text
+      - name: image_2
+        label: Secondary Image
+        type: image
+        directory: image/uploads
+      - name: image_2_alt
+        label: Secondary Image Alt Text
+        type: text
+  property_publish:
+    name: Publish Property
+    collection: properties
+    icon: add_business
+    fields:
+      - name: slug
+        label: Slug
+        type: text
+      - name: title
+        label: Title
+        type: text
+      - name: price
+        label: Price
+        type: text
+      - name: address
+        label: Address
+        type: text
+      - name: description
+        label: Description
+        type: textarea
+      - name: bedrooms
+        label: Bedrooms
+        type: number
+      - name: bathrooms
+        label: Bathrooms
+        type: number
+      - name: area
+        label: Area (mÂ²)
+        type: number
+      - name: floors
+        label: Floor
+        type: number
+      - name: image
+        label: Featured Image
+        type: image
+        directory: image/uploads
+      - name: gallery
+        label: Gallery
+        type: array
+        schema:
+          name: Gallery Image
+          fields:
+            - name: src
+              label: Image
+              type: image
+              directory: image/uploads
+            - name: alt
+              label: Alt Text
+              type: text
+            - name: caption
+              label: Caption
+              type: text
+
+build:
+  install: ''
+  command: ''
+  output_path: '.'
+  options: {}
