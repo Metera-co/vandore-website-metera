@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const propertiesGrid = document.getElementById('property-grid');
   const propertyDetail = document.getElementById('property-detail');
   let properties = [];

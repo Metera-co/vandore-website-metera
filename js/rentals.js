@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const rentalsGrid = document.getElementById('rentals-grid');
   const rentalDetail = document.getElementById('rental-detail');
   let rentals = [];

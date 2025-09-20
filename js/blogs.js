@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const blogList = document.getElementById('blog-grid');
   const blogDetail = document.getElementById('blog-detail');
   let posts = [];
