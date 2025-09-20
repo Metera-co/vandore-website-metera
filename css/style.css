@@ -25,7 +25,6 @@
 /* ---------------------------- */
 /* Import Statements            */
 /* ---------------------------- */
-@import url('../css/vendor/');
 @import url('../css/vendor/bootstrap.min.css');
 @import url('../css/vendor/fontawesome.css');
 @import url('../css/vendor/brands.css');
@@ -33,8 +32,6 @@
 @import url('../css/vendor/solid.css');
 @import url('../css/vendor/swiper-bundle.min.css');
 @import url('../css/vendor/rtmicons.css');
-@import url('../css/vendor/plus-jakarta-sans/stylesheet.css');
-@import url('../css/vendor/open-sans/stylesheet.css');
 
 
 /* ---------------------------- */
