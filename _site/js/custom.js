@@ -259,4 +259,94 @@ document.addEventListener('DOMContentLoaded', function () {
     if (typeSelect) typeSelect.addEventListener('change', () => applyRentalsFilters());
     applyRentalsFilters();
   }
+
+  // ------------------ Stackbit inline attribute helpers ------------------
+  (function ensureStackbitAttrs() {
+    const htmlEl = document.documentElement;
+    const objectId = htmlEl.getAttribute('data-sb-object-id');
+    if (!objectId) return; // Only run on content-backed pages
+
+    // Ensure <title> is editable
+    const titleEl = document.querySelector('head > title');
+    if (titleEl && !titleEl.hasAttribute('data-sb-field-path')) {
+      titleEl.setAttribute('data-sb-field-path', 'title');
+    }
+
+    // Map the first main heading and a nearby paragraph as hero fields
+    const heroH1 = document.querySelector('main h1, header h1, .section h1');
+    if (heroH1 && !heroH1.hasAttribute('data-sb-field-path')) {
+      heroH1.setAttribute('data-sb-field-path', 'heroHeading');
+    }
+    if (heroH1) {
+      const heroP = heroH1.parentElement?.querySelector('p') || heroH1.nextElementSibling;
+      if (heroP && heroP.tagName === 'P' && !heroP.hasAttribute('data-sb-field-path')) {
+        heroP.setAttribute('data-sb-field-path', 'heroSubheading');
+      }
+    }
+
+    // Properties listing: properties page and rentals page
+    const grids = [
+      document.getElementById('property-grid'),
+      document.getElementById('rentals-grid')
+    ].filter(Boolean);
+    grids.forEach((grid) => {
+      if (!grid.hasAttribute('data-sb-field-path')) {
+        grid.setAttribute('data-sb-field-path', 'properties');
+      }
+      const cards = Array.from(grid.querySelectorAll('.card.h-100'));
+      cards.forEach((card, idx) => {
+        if (!card.hasAttribute('data-sb-field-path')) {
+          card.setAttribute('data-sb-field-path', `properties[${idx}]`);
+        }
+        // Image binding
+        const img = card.querySelector('img');
+        if (img && !img.hasAttribute('data-sb-field-path')) {
+          img.setAttribute('data-sb-field-path', `properties[${idx}].image#@src`);
+        }
+        // Title
+        const title = card.querySelector('h5.card-title');
+        if (title && !title.hasAttribute('data-sb-field-path')) {
+          title.setAttribute('data-sb-field-path', `properties[${idx}].title`);
+        }
+        // Price (if marked up)
+        const price = card.querySelector('.text-accent, .price');
+        if (price && !price.hasAttribute('data-sb-field-path')) {
+          price.setAttribute('data-sb-field-path', `properties[${idx}].price`);
+        }
+        // Address/description fallback
+        const desc = card.querySelector('p');
+        if (desc && !desc.hasAttribute('data-sb-field-path')) {
+          desc.setAttribute('data-sb-field-path', `properties[${idx}].description`);
+        }
+        // Link (if present)
+        const link = card.querySelector('a[href]');
+        if (link && !link.hasAttribute('data-sb-field-path')) {
+          link.setAttribute('data-sb-field-path', `properties[${idx}].url#@href`);
+        }
+      });
+    });
+
+    // Services page: annotate service cards as sections
+    const serviceRows = Array.from(document.querySelectorAll('.row.row-cols-xl-3.row-cols-1'))
+      .filter(r => r.querySelector('.card.card-service'));
+    serviceRows.forEach((row) => {
+      if (!row.hasAttribute('data-sb-field-path')) {
+        row.setAttribute('data-sb-field-path', 'sections');
+      }
+      const serviceCards = Array.from(row.querySelectorAll('.card.card-service'));
+      serviceCards.forEach((card, idx) => {
+        if (!card.hasAttribute('data-sb-field-path')) {
+          card.setAttribute('data-sb-field-path', `sections[${idx}]`);
+        }
+        const h4 = card.querySelector('h4');
+        if (h4 && !h4.hasAttribute('data-sb-field-path')) {
+          h4.setAttribute('data-sb-field-path', `sections[${idx}].heading`);
+        }
+        const p = card.querySelector('p');
+        if (p && !p.hasAttribute('data-sb-field-path')) {
+          p.setAttribute('data-sb-field-path', `sections[${idx}].text`);
+        }
+      });
+    });
+  })();
 });

@@ -1,10 +1,27 @@
 {
   "type": "Property",
   "title": "Sample Apartment",
-  "price": "€120,000",
-  "address": "Example St 10, Riga",
+  "price": "€120 000",
+  "address": "Example St 10, Rīga",
   "description": "Cozy 2-bedroom apartment in the city center.",
-  "image": "/image/property/property_1.jpg",
+  "image": "/image/dummy-img-900x700.jpg",
+  "gallery": [
+    {
+      "src": "/image/dummy-img-900x700.jpg",
+      "alt": "Plaša viesistaba ar lieliem logiem",
+      "caption": "Gaiša viesistaba ar skatu uz pagalmu"
+    },
+    {
+      "src": "/image/dummy-img-900x600.jpg",
+      "alt": "Virtuve ar iebūvētu tehniku",
+      "caption": "Pilnībā aprīkota virtuve ar ēdamzonu"
+    },
+    {
+      "src": "/image/dummy-img-600x400.jpg",
+      "alt": "Guļamistaba ar logu",
+      "caption": "Mierīga guļamistaba ar dabisko apgaismojumu"
+    }
+  ],
   "url": "/properties/sample.html",
   "bedrooms": 2,
   "bathrooms": 1,

@@ -1,0 +1,17 @@
+<header class="bg-accent-primary px-4 py-3 listing-nav">
+  <div class="container-fluid d-flex align-items-center flex-wrap gap-3">
+    <a class="navbar-brand" href="/">
+      <img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid" style="max-height: 56px;">
+    </a>
+    <nav class="ms-auto d-flex flex-wrap gap-2 align-items-center listing-nav__links">
+      <% Object.values(CATEGORIES).forEach((cat) => { %>
+        <a href="/sekcija/<%= cat.key %>" class="btn btn-outline-light px-3 py-2 text-uppercase fw-semibold listing-nav__link <%= activeCategory === cat.key ? 'active' : '' %>">
+          <%= cat.title %>
+        </a>
+      <% }); %>
+      <a href="/sekcija/<%= newListingCategory || 'pardosana' %>/pievienot" class="btn btn-toggler-accent px-3 py-2 text-uppercase fw-semibold">
+        + Jauns sludinajums
+      </a>
+    </nav>
+  </div>
+</header>

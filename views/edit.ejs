@@ -1,0 +1,100 @@
+<%- include('partials/layout-head', { pageTitle: `Rediget sludinajumu – ${listing.title}`, bodyClass: 'listing-form-page' }) %>
+<%- include('partials/site-header', { activeCategory: listing.category, newListingCategory: listing.category }) %>
+
+<main class="py-5">
+  <section class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <h1 class="h3 fw-semibold mb-3">Rediget sludinajumu</h1>
+        <p class="text-muted mb-4">Parkartojiet esošos attelus, pievienojiet jaunus un atjauniniet aprakstu.</p>
+
+        <% if (errors.length) { %>
+          <div class="alert alert-danger">
+            <ul class="mb-0 ps-3">
+              <% errors.forEach((error) => { %>
+                <li><%= error.msg %></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
+
+        <form class="card border-0 shadow-sm" action="" method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="imageState" id="imageState">
+          <div class="card-body p-4 d-flex flex-column gap-4">
+            <div>
+              <label for="title" class="form-label text-uppercase small fw-semibold">Nosaukums *</label>
+              <input type="text" id="title" name="title" class="form-control" required value="<%= old.title ?? listing.title %>">
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="price" class="form-label text-uppercase small fw-semibold">Cena</label>
+                <input type="text" id="price" name="price" class="form-control" value="<%= old.price ?? listing.price %>">
+              </div>
+              <div class="col-md-6">
+                <label for="city" class="form-label text-uppercase small fw-semibold">Pilseta</label>
+                <input type="text" id="city" name="city" class="form-control" value="<%= old.city ?? listing.city %>">
+              </div>
+            </div>
+
+            <div>
+              <label for="address" class="form-label text-uppercase small fw-semibold">Adrese</label>
+              <input type="text" id="address" name="address" class="form-control" value="<%= old.address ?? listing.address %>">
+            </div>
+
+            <div>
+              <label for="description" class="form-label text-uppercase small fw-semibold">Apraksts</label>
+              <textarea id="description" name="description" rows="6" class="form-control"><%= old.description ?? listing.description %></textarea>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="contact_name" class="form-label text-uppercase small fw-semibold">Kontakta persona</label>
+                <input type="text" id="contact_name" name="contact_name" class="form-control" value="<%= old.contact_name ?? listing.contact_name %>">
+              </div>
+              <div class="col-md-4">
+                <label for="contact_phone" class="form-label text-uppercase small fw-semibold">Talrunis</label>
+                <input type="text" id="contact_phone" name="contact_phone" class="form-control" value="<%= old.contact_phone ?? listing.contact_phone %>">
+              </div>
+              <div class="col-md-4">
+                <label for="contact_email" class="form-label text-uppercase small fw-semibold">E-pasts</label>
+                <input type="email" id="contact_email" name="contact_email" class="form-control" value="<%= old.contact_email ?? listing.contact_email %>">
+              </div>
+            </div>
+
+            <div class="image-manager" data-image-manager>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <h2 class="h5 mb-1">Esošie atteli</h2>
+                  <p class="text-muted small mb-0">Velciet vai lietojiet bultinas, lai parkartotu kartibu. Nonemiet liekos attelus ar dzešanas pogu.</p>
+                </div>
+                <span class="badge bg-dark">Kopa: <span data-image-count><%= (listing.images || []).length %></span> / <%= maxImages %></span>
+              </div>
+              <ul class="list-unstyled d-flex flex-column gap-3" id="imageList"></ul>
+            </div>
+
+            <div>
+              <label for="images" class="form-label text-uppercase small fw-semibold">Pievienot jaunus attelus</label>
+              <input type="file" id="images" name="images" class="form-control" accept="image/*" multiple>
+              <div class="form-text">Var pievienot lidz <%= maxImages %> atteliem kopa (esošie + jaunie).</div>
+            </div>
+          </div>
+
+          <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center px-4 py-3">
+            <a href="/sludinajums/<%= listing.id %>" class="btn btn-outline-secondary">Atcelt</a>
+            <div class="d-flex gap-3">
+              <a href="/sekcija/<%= listing.category %>" class="btn btn-outline-secondary">Atpakal uz sarakstu</a>
+              <button type="submit" class="btn btn-accent text-uppercase px-4">Saglabat izmainas</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<% const editorScripts = `
+  <script>window.initialImageState = ${JSON.stringify(listing.images || [])}; window.maxImages = ${maxImages};</script>
+  <script src="/js/listing-editor.js"></script>
+`; %>
+<%- include('partials/layout-foot', { extraScripts: editorScripts }) %>

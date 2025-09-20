@@ -1,0 +1,78 @@
+﻿<%- include('partials/layout-head', { pageTitle: listing.title, bodyClass: 'listing-detail-page' }) %>
+<%- include('partials/site-header', { activeCategory: listing.category, newListingCategory: listing.category }) %>
+
+<main class="py-5">
+  <section class="container pb-4">
+    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center">
+      <div>
+        <span class="text-uppercase text-muted small">Sludinajums</span>
+        <h1 class="display-6 fw-semibold mb-2"><%= listing.title %></h1>
+        <% if (listing.price) { %>
+          <p class="h4 text-accent fw-semibold mb-2"><%= listing.price %></p>
+        <% } %>
+        <% if (listing.address || listing.city) { %>
+          <p class="text-muted mb-2"><%= listing.address %><%= listing.address && listing.city ? ', ' : '' %><%= listing.city %></p>
+        <% } %>
+        <p class="text-muted small mb-0">Izveidots: <%= dayjs(listing.created_at).format('DD.MM.YYYY HH:mm') %> · Atjaunots: <%= dayjs(listing.updated_at).format('DD.MM.YYYY HH:mm') %></p>
+      </div>
+      <div class="d-flex gap-3 flex-wrap">
+        <a href="/sludinajums/<%= listing.id %>/rediget" class="btn btn-toggler-accent px-4 py-2 text-uppercase fw-semibold">Rediget</a>
+        <a href="/sekcija/<%= listing.category %>" class="btn btn-outline-secondary px-4 py-2">Atpakal uz sarakstu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-5">
+    <div class="listing-gallery" data-listing-gallery>
+      <div class="ratio ratio-16x9 rounded-3 overflow-hidden listing-gallery__main mb-3">
+        <% const primary = (listing.images || [])[0]; %>
+        <% if (primary) { %>
+          <img src="<%= primary.src %>" alt="<%= primary.alt || listing.title %>" class="w-100 h-100 object-fit-cover" data-gallery-main>
+          <% if (primary.caption) { %>
+            <div class="listing-gallery__caption"><%= primary.caption %></div>
+          <% } %>
+        <% } else { %>
+          <img src="/image/dummy-img-900x700.jpg" alt="Nav pievienotu attelu" class="w-100 h-100 object-fit-cover" data-gallery-main>
+        <% } %>
+      </div>
+      <% if ((listing.images || []).length > 1) { %>
+        <div class="listing-gallery__thumbs d-flex flex-wrap gap-3">
+          <% (listing.images || []).forEach((image, index) => { %>
+            <button type="button" class="listing-gallery__thumb btn btn-outline-secondary p-0 <%= index === 0 ? 'is-active' : '' %>" data-gallery-index="<%= index %>">
+              <div class="ratio ratio-4x3 overflow-hidden rounded-2">
+                <img src="<%= image.src %>" alt="<%= image.alt || listing.title %>" class="w-100 h-100 object-fit-cover">
+              </div>
+            </button>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+
+    <article class="mt-5">
+      <h2 class="h4 mb-3">Apraksts</h2>
+      <p class="fs-5 text-muted"><%= listing.description || 'Nav apraksta.' %></p>
+    </article>
+
+    <section class="mt-5">
+      <h2 class="h5 text-uppercase text-muted">Kontakti</h2>
+      <ul class="list-unstyled d-flex flex-column gap-1">
+        <% if (listing.contact_name) { %>
+          <li><strong>Persona:</strong> <%= listing.contact_name %></li>
+        <% } %>
+        <% if (listing.contact_phone) { %>
+          <li><strong>Talrunis:</strong> <a href="tel:<%= listing.contact_phone %>" class="link-dark text-decoration-none"><%= listing.contact_phone %></a></li>
+        <% } %>
+        <% if (listing.contact_email) { %>
+          <li><strong>E-pasts:</strong> <a href="mailto:<%= listing.contact_email %>" class="link-dark text-decoration-none"><%= listing.contact_email %></a></li>
+        <% } %>
+      </ul>
+    </section>
+  </section>
+</main>
+
+<% const galleryScripts = `
+  <script>window.galleryImages = ${JSON.stringify(listing.images || [])};</script>
+  <script src="/js/listing-gallery.js"></script>
+`; %>
+<%- include('partials/layout-foot', { extraScripts: galleryScripts }) %>
+

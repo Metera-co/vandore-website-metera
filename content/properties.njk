@@ -27,11 +27,38 @@ permalink: "/properties/{{ current.fileSlug }}.html"
         <p><strong>Cena:</strong> <span data-sb-field-path="price">{{ current.data.price or '' }}</span></p>
         <p><strong>Adrese:</strong> <span data-sb-field-path="address">{{ current.data.address or '' }}</span></p>
         <p data-sb-field-path="description">{{ current.data.description or '' }}</p>
-        {% if current.data.image %}
-          <img alt="Īpašuma attēls" src="{{ current.data.image }}" style="max-width: 600px; width: 100%; height: auto;" data-sb-field-path="image#@src"/>
+
+        {% set gallery = current.data.gallery or [] %}
+        {% if gallery | length %}
+          <div class="property-gallery" data-sb-field-path="gallery">
+            {% for image in gallery %}
+              <figure data-sb-field-path="gallery[{{ loop.index0 }}]" style="max-width: 600px; margin-bottom: 1.5rem;">
+                <img
+                  src="{{ image.src }}"
+                  alt="{{ image.alt }}"
+                  style="width: 100%; height: auto; border-radius: 12px;"
+                  data-sb-field-path="gallery[{{ loop.index0 }}].src#@src"
+                  data-sb-alt-field="gallery[{{ loop.index0 }}].alt"
+                />
+                {% if image.caption %}
+                  <figcaption data-sb-field-path="gallery[{{ loop.index0 }}].caption" style="font-style: italic; margin-top: 0.5rem;">
+                    {{ image.caption }}
+                  </figcaption>
+                {% else %}
+                  <figcaption data-sb-field-path="gallery[{{ loop.index0 }}].caption" style="font-style: italic; margin-top: 0.5rem;"></figcaption>
+                {% endif %}
+              </figure>
+            {% endfor %}
+          </div>
+        {% elseif current.data.image %}
+          <img
+            alt="Īpašuma attēls"
+            src="{{ current.data.image }}"
+            style="max-width: 600px; width: 100%; height: auto;"
+            data-sb-field-path="image#@src"
+          />
         {% endif %}
       </article>
     </main>
   </body>
   </html>
-

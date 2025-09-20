@@ -10,26 +10,26 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
-    <link rel="icon" type="image/x-icon" href="../image/red_LOGO_Vandore.png?v=2025">
+    <link rel="icon" type="image/x-icon" href="../image/red_LOGO_Vandore.png?v=2025" data-sb-field-path="seo.favicon#@href">
     <title data-i18n="vandore_heritage_homepage" data-sb-field-path="title">Vandore Heritage - mājas lapa</title>
 </head>
 
 <body>
     <!-- Header -->
     <header class="bg-accent-primary px-5">
-        <nav class="navbar">
+        <nav class="navbar" data-sb-field-path="content/pages/index.json:nav">
             <div class="container-fluid ps-3 gap-3">
                 <div class="me-auto"></div>
                 <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
-                    <a class="navbar-brand" href="index.html"><img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid"></a>
+                    <a class="navbar-brand" href="index.html" data-sb-field-path="content/pages/index.json:nav.logo.href#@href"><img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid" data-sb-field-path="content/pages/index.json:nav.logo.src#@src" data-sb-alt-field="content/pages/index.json:nav.logo.alt"></a>
                 </div>
                 <div class="w-max-content" style="margin-top: 0.5cm;">
-                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars"></i>
-                        Menu</button>
+                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars" data-sb-field-path="content/pages/index.json:nav.toggle.icon"></i>
+                        <span data-sb-field-path="content/pages/index.json:nav.toggle.label">Menu</span></button>
 
                     <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header bg-transparent">
-                            <h5 id="offcanvasRightLabel" data-sb-field-path="heroHeading">Menu</h5>
+                            <h5 id="offcanvasRightLabel" data-sb-field-path="content/pages/index.json:nav.menuTitle">Menu</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
@@ -117,7 +117,7 @@
     <!-- End Header -->
 
     <!-- Main -->
-    <main>
+    <main data-sb-object-id="content/pages/index.json">
         <!-- Banner -->
         <div class="section position-relative bg-attach-cover">
             <div class="r-container position-relative h-100">
@@ -125,7 +125,7 @@
                     <div class="row row-cols-2">
                         <div class="col-3 col-xl-2"></div>
                         <div class="col-9 col-xl-10">
-                            <img src="../image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage">
+                            <img src="../image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="hero.image.desktop#@src" data-sb-alt-field="hero.image.desktop#@alt">
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
                                     <p data-i18n="we_represent_properties_that_speak_and_clients_who_value_being_heard_vandore_heritage_is_our_promise_to_work_with_care_to_stay_present_beyond_the_deal" data-sb-field-path="heroSubheading">Mēs pārstāvam īpašības, kas runā, un klienti, kuri vērtē tiek uzklausīti. Vandore Heritage ir mūsu solījums: strādāt uzmanīgi, palikt klāt ārpus darījuma.</p>
                                     <div class="devider"></div>
-                                    <a href="contact.html" class="btn btn-accent d-flex flex-row gap-3" style="width: max-content;">
+                                    <a href="contact.html" class="btn btn-accent d-flex flex-row gap-3" style="width: max-content;" data-sb-href-field="hero.cta.href">
                                         <span data-i18n="explore_more">Izpētiet vairāk</span>
                                         <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
                                     </a>
@@ -151,7 +151,7 @@
                 </div>
                 <!-- Mobile hero image placed under the description -->
                 <div class="hero-img-mobile">
-                    <img src="../image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage">
+                    <img src="../image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="hero.image.mobile#@src" data-sb-alt-field="hero.image.mobile#@alt">
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
                                 <div class="position-absolute start-0 bottom-0 p-4" style="z-index: 3;">
                                     <h5 class="accent-primary m-0" data-i18n="what_is_vandore_heritage">Kas ir Vandore Heritage?</h5>
                                 </div>
-                                <img src="../image/dummy-img-600x700.jpg" class="img-fluid w-100" style="aspect-ratio: 6/7;" alt="Vandore Heritage">
+                                <img src="../image/dummy-img-600x700.jpg" class="img-fluid w-100" style="aspect-ratio: 6/7;" alt="Vandore Heritage" data-sb-field-path="aboutTeaser.image#@src" data-sb-alt-field="aboutTeaser.image#@alt">
                             </div>
                         </div>
                     </div>
@@ -1102,7 +1102,7 @@ Kļūdas, lai izvairītos no funkcionālākas dzīves telpas
 
 
     <!-- Back to top button -->
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="rtmicon rtmicon-arrow-up"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-sb-field-path="content/pages/index.json:backToTop.href#@href"><i class="rtmicon rtmicon-arrow-up" data-sb-field-path="content/pages/index.json:backToTop.icon"></i></a>
 
     <!-- Scripts -->
     <script src="../js/vendor/jquery.min.js"></script>

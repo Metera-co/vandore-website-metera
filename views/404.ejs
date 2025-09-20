@@ -1,0 +1,17 @@
+<%- include('partials/layout-head', { pageTitle: 'Lapa nav atrasta', bodyClass: 'listing-404' }) %>
+<%- include('partials/site-header', { activeCategory: null, newListingCategory: 'pardosana' }) %>
+
+<main class="py-5">
+  <section class="container text-center py-5">
+    <h1 class="display-4 fw-semibold mb-3">Lapa nav atrasta</h1>
+    <p class="text-muted mb-4">Atvainojiet, bet pieprasitais resurss nav pieejams. Ludzu, atgriezieties sakumlapa vai izvelieties kadu no sadalam.</p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="/" class="btn btn-accent px-4 py-2">Sakumlapa</a>
+      <% Object.values(CATEGORIES).forEach((cat) => { %>
+        <a href="/sekcija/<%= cat.key %>" class="btn btn-outline-secondary px-4 py-2"><%= cat.title %></a>
+      <% }); %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/layout-foot') %>
