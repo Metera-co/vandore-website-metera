@@ -390,3 +390,35 @@ html, body {
         max-width: 45%;
     }
 }
+.site-header .link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-header .link:hover,
+footer .link:hover {
+    text-decoration: underline;
+}
+
+footer .link {
+    color: inherit;
+    text-decoration: none;
+}
+
+#rental-filter-chips .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: #f2f2f2;
+    font-size: 0.875rem;
+}
+
+#rental-filter-chips .remove-chip {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}

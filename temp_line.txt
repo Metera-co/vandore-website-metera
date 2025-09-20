@@ -1,1 +1,0 @@
-                                <h3 data-i18n="get_in_touch_with_us_today" data-sb-field-path=".0.heading">Sazinieties ar mums šodien</h3>

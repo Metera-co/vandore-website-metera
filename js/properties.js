@@ -1,41 +1,47 @@
 ﻿(function () {
-  const CACHE = {};
+  const propertiesGrid = document.getElementById('property-grid');
+  const propertyDetail = document.getElementById('property-detail');
+  let properties = [];
 
-  function resolve(file) {
-    const path = window.location.pathname;
-    if (path.includes('/pages/')) {
-      return `../data/${file}`;
-    }
-    return `data/${file}`;
+  function dataPath(name) {
+    return window.location.pathname.includes('/pages/') ? `../data/${name}` : `data/${name}`;
   }
 
-  async function fetchJson(file) {
-    if (CACHE[file]) return CACHE[file];
-    const response = await fetch(resolve(file));
-    if (!response.ok) throw new Error(`Failed to load ${file}`);
-    const json = await response.json();
-    CACHE[file] = json;
-    return json;
+  function numericValue(value) {
+    if (!value) return 0;
+    const digits = value.match(/\d+/g);
+    return digits ? parseInt(digits.join(''), 10) : 0;
   }
 
-  function buildCard(property) {
+  function propertyUrl(slug) {
+    return `property.html?slug=${encodeURIComponent(slug)}`;
+  }
+
+  function createBadge(text) {
+    const span = document.createElement('span');
+    span.className = 'badge bg-light text-dark';
+    span.textContent = text;
+    return span;
+  }
+
+  function createCard(item) {
     const col = document.createElement('div');
     col.className = 'col mb-4';
-    col.dataset.location = (property.address || '').toLowerCase();
-    col.dataset.price = property.price ? (property.price.match(/\d+/g) || []).join('') : '';
-    col.dataset.bedrooms = property.bedrooms || '';
+    col.dataset.location = (item.address || '').toLowerCase();
+    col.dataset.price = numericValue(item.price);
+    col.dataset.bedrooms = item.bedrooms || '';
 
     const card = document.createElement('div');
     card.className = 'card h-100';
 
-    if (property.image) {
+    if (item.image) {
       const img = document.createElement('img');
-      img.src = property.image;
-      img.alt = property.title || '';
+      img.loading = 'lazy';
+      img.src = item.image;
+      img.alt = item.title || '';
       img.className = 'card-img-top';
       img.style.aspectRatio = '3/2';
       img.style.objectFit = 'cover';
-      img.loading = 'lazy';
       card.appendChild(img);
     }
 
@@ -47,48 +53,44 @@
 
     const title = document.createElement('h5');
     title.className = 'card-title mb-0';
-    title.textContent = property.title || '';
+    title.textContent = item.title || '';
     header.appendChild(title);
 
-    if (property.price) {
+    if (item.price) {
       const price = document.createElement('h6');
       price.className = 'text-accent fw-bold';
-      price.textContent = property.price;
+      price.textContent = item.price;
       header.appendChild(price);
     }
 
     body.appendChild(header);
 
-    if (property.address) {
-      const locationRow = document.createElement('div');
-      locationRow.className = 'd-flex align-items-center mb-2';
-      locationRow.innerHTML = `<i class="rtmicon rtmicon-location me-2"></i><span class="text-muted">${property.address}</span>`;
-      body.appendChild(locationRow);
+    if (item.address) {
+      const address = document.createElement('div');
+      address.className = 'd-flex align-items-center mb-2';
+      address.innerHTML = `<i class="rtmicon rtmicon-location me-2"></i><span class="text-muted">${item.address}</span>`;
+      body.appendChild(address);
     }
 
-    if (property.description) {
-      const desc = document.createElement('p');
-      desc.className = 'card-text flex-grow-1';
-      desc.textContent = property.description;
-      body.appendChild(desc);
+    if (item.description) {
+      const description = document.createElement('p');
+      description.className = 'card-text flex-grow-1';
+      description.textContent = item.description;
+      body.appendChild(description);
     }
 
     const footer = document.createElement('div');
     footer.className = 'd-flex justify-content-between align-items-center mt-auto';
 
     const badges = document.createElement('div');
-    badges.className = 'd-flex gap-3';
-    if (property.bedrooms) {
-      badges.appendChild(createBadge(`${property.bedrooms} guļamistabas`));
-    }
-    if (property.bathrooms) {
-      badges.appendChild(createBadge(`${property.bathrooms} vannas`));
-    }
+    badges.className = 'd-flex gap-3 flex-wrap';
+    if (item.bedrooms) badges.appendChild(createBadge(`${item.bedrooms} guļamist.`));
+    if (item.bathrooms) badges.appendChild(createBadge(`${item.bathrooms} vann.`));
     footer.appendChild(badges);
 
     const link = document.createElement('a');
     link.className = 'btn btn-accent btn-sm';
-    link.href = buildDetailUrl(property.slug);
+    link.href = propertyUrl(item.slug);
     link.innerHTML = '<span>Skatīt</span><i class="rtmicon rtmicon-arrow-up-right ms-1"></i>';
     footer.appendChild(link);
 
@@ -98,89 +100,110 @@
     return col;
   }
 
-  function createBadge(text) {
-    const span = document.createElement('span');
-    span.className = 'badge bg-light text-dark';
-    span.textContent = text;
-    return span;
-  }
+  function renderList(items) {
+    if (!propertiesGrid) return;
+    propertiesGrid.innerHTML = '';
+    items.forEach(item => propertiesGrid.appendChild(createCard(item)));
 
-  function buildDetailUrl(slug) {
-    const base = window.location.pathname.includes('/pages/') ? 'property.html' : 'pages/property.html';
-    return `${base}?slug=${encodeURIComponent(slug)}`;
-  }
-
-  function populateList(properties) {
-    const grid = document.getElementById('property-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    properties.forEach(property => grid.appendChild(buildCard(property)));
     const count = document.getElementById('property-count');
-    if (count) count.textContent = `${properties.length} īpašumi atrasti`;
-    window.dispatchEvent(new CustomEvent('properties:data-ready'));
+    if (count) count.textContent = `${items.length} īpašumi atrasti`;
+
+    const empty = document.getElementById('empty-state');
+    if (empty) empty.style.display = items.length ? 'none' : 'block';
+    propertiesGrid.style.display = items.length ? '' : 'none';
   }
 
-  function populateDetail(properties) {
-    const wrapper = document.getElementById('property-detail');
-    if (!wrapper) return;
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug');
-    const property = properties.find(item => item.slug === slug) || properties[0];
-    if (!property) {
-      wrapper.innerHTML = '<div class="alert alert-warning">Īpašums nav atrasts.</div>';
+  function renderDetail(item) {
+    if (!propertyDetail) return;
+    if (!item) {
+      propertyDetail.innerHTML = '<div class="alert alert-warning">Īpašums nav atrasts.</div>';
       return;
     }
 
-    const gallery = Array.isArray(property.gallery) ? property.gallery : [];
-    const galleryHtml = gallery.map(item => `
-      <div class="property-gallery-item">
-        <img src="${item.src}" alt="${item.alt || property.title}" class="img-fluid rounded-4" loading="lazy">
-        ${item.caption ? `<p class="text-muted small mt-2">${item.caption}</p>` : ''}
-      </div>
-    `).join('');
-
-    wrapper.innerHTML = `
+    const gallery = Array.isArray(item.gallery) ? item.gallery : [];
+    propertyDetail.innerHTML = `
       <div class="row gy-4">
         <div class="col-lg-7">
           <div class="property-gallery d-grid gap-4">
-            ${galleryHtml || '<div class="alert alert-info">Galerija vēl nav pievienota.</div>'}
+            ${gallery.length ? gallery.map(image => `
+              <div class="property-gallery-item">
+                <img class="img-fluid rounded-4" loading="lazy" src="${image.src}" alt="${image.alt || item.title}">
+                ${image.caption ? `<p class="text-muted small mt-2">${image.caption}</p>` : ''}
+              </div>
+            `).join('') : '<div class="alert alert-info">Galerija vēl nav pievienota.</div>'}
           </div>
         </div>
         <div class="col-lg-5">
           <span class="badge bg-primary mb-3">Pārdošanā</span>
-          <h1 class="display-5 fw-semibold mb-3">${property.title}</h1>
-          ${property.price ? `<p class="h4 text-accent mb-3">${property.price}</p>` : ''}
-          ${property.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${property.address}</p>` : ''}
-          ${property.description ? `<p class="mb-4">${property.description}</p>` : ''}
+          <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
+          ${item.price ? `<p class="h4 text-accent mb-3">${item.price}</p>` : ''}
+          ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
+          ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
           <div class="d-flex flex-wrap gap-3 mb-4">
-            ${property.area ? `<span class="badge bg-light text-dark px-3 py-2">${property.area} m²</span>` : ''}
-            ${property.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${property.bedrooms} guļamistabas</span>` : ''}
-            ${property.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${property.bathrooms} vannas</span>` : ''}
-            ${property.floors ? `<span class="badge bg-light text-dark px-3 py-2">${property.floors}. stāvs</span>` : ''}
+            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m²</span>` : ''}
+            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guļamistabas</span>` : ''}
+            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas</span>` : ''}
+            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stāvs</span>` : ''}
           </div>
-          <a href="mailto:info@vandoreheritage.lv" class="btn btn-accent btn-lg">Sazināties</a>
+          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Sazināties</a>
         </div>
-      </div>
-    `;
+      </div>`;
   }
 
-  function init() {
-    fetchJson('properties.json')
-      .then(data => {
-        const properties = Array.isArray(data.properties) ? data.properties : [];
-        window.propertiesData = properties;
-        populateList(properties);
-        populateDetail(properties);
-      })
-      .catch(() => {
-        const grid = document.getElementById('property-grid');
-        if (grid) grid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īpašumu sarakstu.</div>';
+  function applyFilters() {
+    if (!propertiesGrid) return;
+    let filtered = [...properties];
+
+    const location = (document.getElementById('location-search')?.value || '').trim().toLowerCase();
+    const min = parseInt(document.getElementById('min-price')?.value || '', 10);
+    const max = parseInt(document.getElementById('max-price')?.value || '', 10);
+    const bedrooms = document.getElementById('bedrooms-prop')?.value || '';
+
+    if (location) filtered = filtered.filter(item => (item.address || '').toLowerCase().includes(location));
+    if (!Number.isNaN(min)) filtered = filtered.filter(item => numericValue(item.price) >= min);
+    if (!Number.isNaN(max)) filtered = filtered.filter(item => numericValue(item.price) <= max);
+    if (bedrooms) filtered = filtered.filter(item => (item.bedrooms || 0) === parseInt(bedrooms, 10));
+
+    renderList(filtered);
+  }
+
+  function wireFilters() {
+    ['location-search', 'min-price', 'max-price'].forEach(id => {
+      const input = document.getElementById(id);
+      if (input) input.addEventListener('input', () => setTimeout(applyFilters, 150));
+    });
+    document.getElementById('bedrooms-prop')?.addEventListener('change', applyFilters);
+    document.getElementById('apply-filters')?.addEventListener('click', applyFilters);
+
+    ['clear-filters', 'clear-filters-link', 'clear-filters-mobile'].forEach(id => {
+      const btn = document.getElementById(id);
+      btn?.addEventListener('click', (event) => {
+        event?.preventDefault();
+        ['location-search', 'min-price', 'max-price', 'bedrooms-prop'].forEach(field => {
+          const el = document.getElementById(field);
+          if (el) el.value = '';
+        });
+        applyFilters();
       });
+    });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  fetch(dataPath('properties.json'))
+    .then(res => res.json())
+    .then(json => {
+      properties = Array.isArray(json.properties) ? json.properties : [];
+      if (propertiesGrid) {
+        renderList(properties);
+        wireFilters();
+      }
+      if (propertyDetail) {
+        const slug = new URLSearchParams(window.location.search).get('slug');
+        const selected = properties.find(item => item.slug === slug) || properties[0];
+        renderDetail(selected);
+      }
+    })
+    .catch(() => {
+      if (propertiesGrid) propertiesGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īpašumu sarakstu.</div>';
+    });
 })();
+

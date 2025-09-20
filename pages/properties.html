@@ -1,644 +1,123 @@
-<!DOCTYPE html><html lang="lv" data-sb-object-id="content/pages/properties.json"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/custom.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
-    <link rel="icon" type="image/x-icon" href="../image/red_LOGO_Vandore.png?v=2025" data-sb-field-path="seo.favicon#@href">
-    <title data-i18n="vandore_heritage_properties" data-sb-field-path="title">Vandore Heritage - īpašības</title>
-    <meta name="description" data-sb-field-path="seo.description" content="">
-    <meta property="og:title" data-sb-field-path="seo.og.title" content="">
-    <meta property="og:description" data-sb-field-path="seo.og.description" content="">
-    <meta name="twitter:title" data-sb-field-path="seo.twitter.title" content="">
+﻿<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vandore Heritage &mdash; &#298;pa&#352;umi p&#256;rdo&#352;an&#256;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
 </head>
+<body class="page properties-page">
+  <header class="site-header bg-accent-primary py-4">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <a class="navbar-brand" href="index.html">
+        <img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" height="48" />
+      </a>
+      <nav class="d-flex gap-4 text-uppercase small fw-semibold">
+        <a href="index.html" class="link text-white">S&#256;kums</a>
+        <a href="properties.html" class="link text-white">&#298;pa&#352;umi</a>
+        <a href="rentals.html" class="link text-white">&#298;re</a>
+        <a href="blog.html" class="link text-white">Blogs</a>
+        <a href="contact.html" class="link text-white">Kontakti</a>
+      </nav>
+    </div>
+  </header>
 
-<body class="properties-page">
-    <!-- Header -->
-    <header class="bg-accent-primary px-5">
-        <nav class="navbar" data-sb-field-path="content/pages/properties.json:nav">
-            <div class="container-fluid ps-3 gap-3">
-                <div class="me-auto"></div>
-                <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
-                    <a class="navbar-brand" href="index.html" data-sb-field-path="content/pages/properties.json:nav.logo.href#@href">
-                        <img src="../image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid" data-sb-field-path="content/pages/properties.json:nav.logo.src#@src" data-sb-alt-field="content/pages/properties.json:nav.logo.alt">
-                    </a>
+  <main>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-7">
+            <h1 class="display-4 fw-semibold mb-3">Premium &#298;pa&#352;umu katalogs</h1>
+            <p class="lead text-muted mb-4">
+              Ekskluz&#298;vi &#298;pa&#352;umi un att&#298;st&#298;bas projekti ar augstu pievienoto v&#274;rt&#298;bu. Izp&#274;tiet aktu&#256;los pied&#256;v&#256;jumus un sazinieties ar m&#362;su komandu, lai uzzin&#256;tu vair&#256;k.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <div class="bg-white border rounded-4 shadow-sm p-4">
+              <h2 class="h5 text-uppercase text-muted mb-3">Filtri</h2>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label text-muted small" for="location-search">Pils&#274;ta vai rajons</label>
+                  <input type="text" id="location-search" class="form-control" placeholder="Centrs, P&#256;rdaugava…" />
                 </div>
-                <div class="w-max-content" style="margin-top: 0.5cm;">
-                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars" data-sb-field-path="content/pages/properties.json:nav.toggle.icon"></i>
-                        <span data-sb-field-path="content/pages/properties.json:nav.toggle.label">Menu</span></button>
-
-                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header bg-transparent">
-                            <h5 id="offcanvasRightLabel" data-sb-field-path="content/pages/properties.json:nav.menuTitle">Menu</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div class="r-container">
-                                <div class="row row-cols-xl-2 row-cols-1">
-                                    <div class="col col-xl-10 mb-3">
-                                        <div class="d-flex flex-column">
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="01_homepage">01. Mājas lapa</span>
-                                                <img src="../image/img6.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="index.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="02_properties">02. Īpašumi</span>
-                                                <img src="../image/img5.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="properties.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="03_short_form_rentals">03. Īsas formas īre</span>
-                                                <img src="../image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="rentals.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="04_about_us">04. Par mums</span>
-                                                <img src="../image/img33.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="about.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="05_services">05. Pakalpojumi</span>
-                                                <img src="../image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="service.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="06_contact">06. Sazinieties</span>
-                                                <img src="../image/img29.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="contact.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="07_news">07. Jaunumi</span>
-                                                <img src="../image/img26.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="blog.html" class="d-flex" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col col-xl-2 mb-3">
-                                        <div class="d-flex flex-column gap-5 accent-primary text-end">
-                                           <div class="d-flex flex-column gap-4">
-                                                <h6 data-i18n="riga_latvia">Rīga, Latvija</h6>
-                                                <div class="d-flex flex-column gap-3">
-                                                    <span data-i18n="skanstes_iela_29a91_rga_latvia">
-                                                        Skanstes Iela 29A - 91, Rīga, Latvija
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-6">
+                  <label class="form-label text-muted small" for="min-price">Cena no (EUR)</label>
+                  <input type="number" min="0" id="min-price" class="form-control" placeholder="50000" />
                 </div>
+                <div class="col-sm-6">
+                  <label class="form-label text-muted small" for="max-price">Cena l&#298;dz (EUR)</label>
+                  <input type="number" min="0" id="max-price" class="form-control" placeholder="500000" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label text-muted small" for="bedrooms-prop">Gu&#316;amistabas</label>
+                  <select id="bedrooms-prop" class="form-select">
+                    <option value="">Visas</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <button id="apply-filters" class="btn btn-accent flex-grow-1">Filtr&#274;t</button>
+                <button id="clear-filters" class="btn btn-outline-secondary">Not&#298;r&#298;t</button>
+              </div>
             </div>
-        </nav>
-    </header>
-    <!-- End Header -->
-
-    <!-- Main -->
-    <main data-sb-object-id="content/pages/properties.json">
-        <!-- Banner -->
-        <div class="section position-relative bg-attach-cover">
-            <div class="r-container position-relative h-100">
-                <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
-                    <div class="row row-cols-2">
-                        <div class="col-3 col-xl-2"></div>
-                        <div class="col-9 col-xl-10">
-                            <img src="../image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="hero.image#@src" data-sb-alt-field="hero.image#@alt">
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
-                    <div class="d-flex flex-column gap-2 h-100">
-                        <div><h1 class="display" style="max-width: 700px;" data-i18n="properties" data-sb-field-path="heroHeading">Īpašības</h1>
-                        <div class="row row-xl-cols-2 row-cols-1">
-                            <div class="col col-xl-2">
-                                <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
-                                    <p data-i18n="discover_carefully_selected_homes_and_spaces_across_riga_chosen_for_their_quality_character_and_individuality" data-sb-field-path="heroSubheading">Atklājiet rūpīgi atlasītas mājas un telpas visā Rīgā, izvēloties to kvalitāti, raksturu un individualitāti.</p></div>
-                                    <div class="devider"></div>
-                                </div>
-                            </div>
-                            <div class="col col-xl-10"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Section Featured Properties -->
-        <div class="section">
-            <div class="r-container d-flex flex-column gap-5">
-                <div class="row row-cols-xl-2 row-cols-1 align-items-end">
-                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
-                        <h3 style="max-width: 400px;" data-i18n="explore_featured_homes">Izpētiet piedāvātās mājas</h3>
-                    </div>
-                    <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
-                        <div class="d-flex flex-column gap-2 align-items-end">
-                            <div class="w-max-content" style="justify-self: end;">
-                                <a href="property_detail.html" class="btn btn-accent d-flex flex-row gap-2 justify-content-center" data-sb-href-field="ctaAgents.href">
-                                    <span data-i18n="contact_our_agents">Sazinieties ar mūsu aģentiem</span>
-                                    <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="filter-bar card p-4">
-                            <div class="row g-3 align-items-end">
-                                <div class="col-12 col-md-4">
-                                    <label for="location-search" data-i18n="location">Atrašanās vieta</label>
-                                    <input type="text" id="location-search" class="form-control" placeholder="Pilsēta / rajons / apkaime">
-                                </div>
-                                <div class="col-6 col-md-2">
-                                    <label for="min-price" data-i18n="min_price">Min. cena (€)</label>
-                                    <input type="number" id="min-price" class="form-control" placeholder="0" min="0">
-                                </div>
-                                <div class="col-6 col-md-2">
-                                    <label for="max-price" data-i18n="max_price">Maks. cena (€)</label>
-                                    <input type="number" id="max-price" class="form-control" placeholder="100000" min="0">
-                                </div>
-                                <div class="col-6 col-md-2">
-                                    <label for="bedrooms-prop" data-i18n="bedrooms">Guļamistabas</label>
-                                    <select id="bedrooms-prop" class="form-select">
-                                        <option value="" data-i18n="all">Visas</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3+</option>
-                                    </select>
-                                </div>
-                                <div class="col-6 col-md-2">
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary" id="apply-filters" data-i18n="apply">Piemērot</button>
-                                        <button class="btn btn-secondary" id="clear-filters" data-i18n="clear">Notīrīt</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="active-filters my-3">
-                            <span id="filter-chips"></span>
-                            <span id="property-count" class="ms-2"></span>
-                        </div>
-                        <div class="filter-drawer d-none">
-                            <button class="btn btn-primary w-100 mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#filter-drawer" aria-controls="filter-drawer" data-i18n="filters">
-                                Filtri
-                            </button>
-                        </div>
-                        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="filter-drawer" aria-labelledby="filter-drawer-label" style="display:none">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="filter-drawer-label" data-i18n="filters" data-sb-field-path="filters.title">Filtri</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#filter-drawer" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <div class="filter-bar">
-                                    <div class="row g-3">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="location-search" data-i18n="location">Atrašanās vieta</label>
-                                                <input type="text" id="location-search-mobile" class="form-control" placeholder="Pilsēta/Rajons/Apkaime">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <label data-i18n="price_range">Cenu diapazons</label>
-                                            <div class="input-group">
-                                                <input type="number" id="min-price-mobile" class="form-control" placeholder="Min €" min="0">
-                                                <input type="number" id="max-price-mobile" class="form-control" placeholder="Max €" min="0">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <label data-i18n="bedrooms">Guļamistabas</label>
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-outline-primary active" data-i18n="all">Viss</button>
-                                                <button type="button" class="btn btn-outline-primary" data-i18n="1">Viens</button>
-                                                <button type="button" class="btn btn-outline-primary" data-i18n="2">Rādītājs</button>
-                                                <button type="button" class="btn btn-outline-primary" data-i18n="3">3</button>
-                                                <button type="button" class="btn btn-outline-primary" data-i18n="4">4</button>
-                                                <button type="button" class="btn btn-outline-primary" data-i18n="5+">5+</button>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="d-grid gap-2">
-                                                <button class="btn btn-primary" id="apply-filters-mobile" data-i18n="apply">Piemērot</button>
-                                                <button class="btn btn-secondary" id="clear-filters-mobile" data-i18n="clear">Noskaidrot</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="filter-bar d-none d-lg-block bg-white p-3 rounded-3" style="display:none">
-                            <div class="row g-3">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="form-group">
-                                        <label for="location-search" data-i18n="location">Atrašanās vieta</label>
-                                        <input type="text" id="location-search" class="form-control" placeholder="Pilsēta/Rajons/Apkaime">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <label data-i18n="price_range">Cenu diapazons</label>
-                                    <div class="input-group">
-                                        <input type="number" id="min-price" class="form-control" placeholder="Min €" min="0">
-                                        <input type="number" id="max-price" class="form-control" placeholder="Max €" min="0">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <label data-i18n="bedrooms">Guļamistabas</label>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-outline-primary active" data-i18n="all">Viss</button>
-                                        <button type="button" class="btn btn-outline-primary" data-i18n="1">Viens</button>
-                                        <button type="button" class="btn btn-outline-primary" data-i18n="2">Rādītājs</button>
-                                        <button type="button" class="btn btn-outline-primary" data-i18n="3">3</button>
-                                        <button type="button" class="btn btn-outline-primary" data-i18n="4">4</button>
-                                        <button type="button" class="btn btn-outline-primary" data-i18n="5+">5+</button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-12">
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary" id="apply-filters" data-i18n="apply">Piemērot</button>
-                                        <button class="btn btn-secondary" id="clear-filters" data-i18n="clear">Noskaidrot</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="active-filters my-3">
-                            <span id="filter-chips"></span>
-                            <span id="property-count" class="ms-2"></span>
-                        </div>
-                    </div>
-                </div>
-                <div id="property-grid" class="row row-cols-xl-3 row-cols-lg-2 row-cols-1" data-sb-field-path="properties">
-                    <div class="col mb-4" data-location="riga heritage lane" data-price="950000" data-bedrooms="4">
-                        <div class="card h-100" data-sb-field-path="properties[0]">
-                            <img src="../image/dummy-img-900x700.jpg" class="card-img-top" alt="Sample Property" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[0].image#@src" data-sb-alt-field="properties[0].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[0].title">Sample Property</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[0].price">$950,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[0].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[0].address">123 Heritage Lane, Riga</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[0].description">Elegant historic residence with modern amenities and refined finishes.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[0].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">4 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">3 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[0].url#@href">
-                                        <span data-sb-field-path="properties[0].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4" data-location="riga downtown" data-price="750000" data-bedrooms="3">
-                        <div class="card h-100" data-sb-field-path="properties[1]">
-                            <img src="../image/dummy-img-900x600.jpg" class="card-img-top" alt="Modern Apartment" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[1].image#@src" data-sb-alt-field="properties[1].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[1].title">Modern Apartment</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[1].price">$750,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[1].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[1].address">Downtown Riga</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[1].description">Contemporary living space with premium finishes and city views.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[1].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">3 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">2 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[1].url#@href">
-                                        <span data-sb-field-path="properties[1].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4" data-location="riga old town" data-price="1200000" data-bedrooms="5">
-                        <div class="card h-100" data-sb-field-path="properties[2]">
-                            <img src="../image/dummy-img-600x400.jpg" class="card-img-top" alt="Historic Villa" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[2].image#@src" data-sb-alt-field="properties[2].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[2].title">Historic Villa</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[2].price">$1,200,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[2].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[2].address">Old Town, Riga</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[2].description">Restored historic villa with original architectural details and modern conveniences.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[2].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">5 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">4 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[2].url#@href">
-                                        <span data-sb-field-path="properties[2].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4" data-location="riga suburbs" data-price="450000" data-bedrooms="2">
-                        <div class="card h-100" data-sb-field-path="properties[3]">
-                            <img src="../image/dummy-img-600x600.jpg" class="card-img-top" alt="Cozy Townhouse" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[3].image#@src" data-sb-alt-field="properties[3].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[3].title">Cozy Townhouse</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[3].price">$450,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[3].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[3].address">Riga Suburbs</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[3].description">Charming townhouse perfect for families, with garden and quiet neighborhood.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[3].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">2 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">2 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[3].url#@href">
-                                        <span data-sb-field-path="properties[3].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4" data-location="riga center" data-price="680000" data-bedrooms="3">
-                        <div class="card h-100" data-sb-field-path="properties[4]">
-                            <img src="../image/dummy-img-900x500.jpg" class="card-img-top" alt="Luxury Penthouse" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[4].image#@src" data-sb-alt-field="properties[4].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[4].title">Luxury Penthouse</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[4].price">$680,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[4].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[4].address">Riga Center</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[4].description">Stunning penthouse with panoramic city views and luxury amenities.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[4].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">3 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">3 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[4].url#@href">
-                                        <span data-sb-field-path="properties[4].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4" data-location="riga waterfront" data-price="890000" data-bedrooms="4">
-                        <div class="card h-100" data-sb-field-path="properties[5]">
-                            <img src="../image/dummy-img-600x500.jpg" class="card-img-top" alt="Waterfront Residence" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="properties[5].image#@src" data-sb-alt-field="properties[5].image#@alt">
-                            <div class="card-body d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title mb-0" data-sb-field-path="properties[5].title">Waterfront Residence</h5>
-                                    <h6 class="text-accent fw-bold" data-sb-field-path="properties[5].price">$890,000</h6>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="properties[5].location.icon"></i>
-                                    <span class="text-muted" data-sb-field-path="properties[5].address">Riga Waterfront</span>
-                                </div>
-                                <p class="card-text flex-grow-1" data-sb-field-path="properties[5].description">Beautiful waterfront property with private dock and stunning river views.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <div class="d-flex gap-3" data-sb-field-path="properties[5].badges">
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">4 bed</span>
-                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">3 bath</span>
-                                    </div>
-                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="properties[5].url#@href">
-                                        <span data-sb-field-path="properties[5].url.label">View Details</span>
-                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="empty-state" class="text-center py-5" style="display: none;">
-                    <h3 data-i18n="no_properties_found">Nekādas īpašības nav atrasti</h3>
-                    <p data-i18n="try_adjusting_filters_or">Mēģiniet pielāgot filtrus vai</p>
-                    <a href="#" id="clear-filters-link" class="link" data-i18n="clear_all_filters">Notīriet visus filtrus</a>
-                </div>
-            </div>
+    <section class="py-5">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div>
+            <h2 class="h4 mb-1">Aktu&#256;lie &#298;pa&#352;umi</h2>
+            <p class="text-muted mb-0" id="property-count">Notiek iel&#256;de…</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="#" id="clear-filters-link" class="link">Not&#298;r&#298;t filtrus</a>
+          </div>
         </div>
-
-        <div class="section bg-attach-cover" style="background-image: url(../image/bg_cta.png);" data-sb-field-path="howItWorks.bg.src">
-            <!-- Section How It Work -->
-            <div class="r-container d-flex flex-column" style="gap: 140px;">
-                <div class="d-flex flex-xl-row flex-column gap-5 justify-content-between align-items-center position-relative  scrollanimation animated fadeIn adr-7" data-sb-field-path="howItWorks.steps">
-                    <div class="devider-progress"></div>
-                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".0">
-                        <div class="icon-box active position-relative">
-                            <i class="rtmicon rtmicon-search" data-sb-field-path=".icon"></i>
-                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
-                                <h6 class="accent-primary m-0" data-i18n="1" data-sb-field-path=".stepNumber">1.</h6>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <h4 data-i18n="explore_properties">Izpētiet īpašumus</h4>
-                            <p class="accent-color-4" style="max-width: 300px;" data-i18n="browse_curated_listings_and_find_a_space_that_truly_fits_your_needs">Pārlūkojiet veidotus sarakstus un atrodiet vietu, kas patiesi atbilst jūsu vajadzībām.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".1">
-                        <div class="icon-box position-relative">
-                            <i class="rtmicon rtmicon-client-happy" data-sb-field-path=".icon"></i>
-                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
-                                <h6 class="accent-primary m-0" data-i18n="2" data-sb-field-path=".stepNumber">2.</h6>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <h4 data-i18n="connect_with_our_team">Sazinieties ar mūsu komandu</h4>
-                            <p class="accent-color-4" style="max-width: 300px;" data-i18n="receive_clear_practical_guidance_from_advisors_who_stay_with_you_through_the_entire_process">Saņemiet skaidrus, praktiskus norādījumus no padomniekiem, kuri paliek pie jums visā procesā.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".2">
-                        <div class="icon-box position-relative">
-                            <i class="rtmicon rtmicon-envelope-dollar" data-sb-field-path=".icon"></i>
-                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
-                                <h6 class="accent-primary m-0" data-i18n="3" data-sb-field-path=".stepNumber">3.</h6>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <h4 data-i18n="seal_the_deal">Aizzīmogot darījumu</h4>
-                                <p class="accent-color-4" style="max-width: 300px;" data-i18n="move_through_negotiations_and_closing_with_confidence_and_care">Pārvietojieties sarunās un ar pārliecību un rūpību slēgšanu.</p>
-                        </div>
-                    </div>
-                </div>
-                <h4 class="text-center text-accent fst-italic  scrollanimation animated fadeInDown adr-7" data-i18n="from_exploring_listings_to_expert_advice_and_closing_vandore_heritage_guides_you_every_step_of_the_way">Sākot ar sarakstu izpēti un beidzot ar ekspertu padomiem un slēgšanu, Vandore Heritage vada jūs ik uz soļa.</h4>
-            </div>
-
-            <!-- Section CTA -->
-            <div class="r-container d-flex flex-column gap-3" style="margin-block: 6em;">
-                <div class="row row-cols-xl-2 row-cols-1 align-items-center">
-                    <div class="col col-xl-7 mb-3 scrollanimation animated fadeInLeft">
-                        <div class="d-flex flex-column gap-5 pe-xl-5">
-                            <h3 data-i18n="ready_to_find_your_next_home">Vai esat gatavs atrast savas nākamās mājas?</h3>
-                            <h6 data-i18n="leave_your_email">Atstājiet savu e -pastu</h6>
-                            <div class="d-flex flex-column gap-3">
-                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                                    <div id="liveToast" class="toast success_msg_subscribe bg-dark-transparent text-white" role="alert" aria-live="assertive" aria-atomic="true">
-                                        <div class="d-flex">
-                                            <div class="toast-body" data-i18n="your_subscribe_send_successfully">
-                                                Jūsu abonēšana veiksmīgi nosūta!.
-                                            </div>
-                                            <button type="button" class="btn me-2 m-auto text-white" data-bs-dismiss="toast" aria-label="Close">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <form class="d-flex flex-column h-100 justify-content-center w-100 needs-validation form" novalidate="">
-                                        <input type="text" name="action" value="subscribe" hidden="">
-                                        <div class="input-group gap-3 mb-xl-2 mb-0 position-relative">
-                                            <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="Join Our Newsletter" name="email" required="" data-sb-field-path="subscribe.placeholder">
-                                            <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3" type="submit"><i class="rtmicon rtmicon-arrow-right fw-bold" data-sb-field-path="subscribe.icon"></i></button>
-                                            <div class="invalid-feedback text-white" data-i18n="please_enter_a_valid_email_eg_userexamplecom" data-sb-field-path="subscribe.invalidMessage">
-                                                Lūdzu, ievadiet derīgu e -pastu (piemēram, user@example.com).
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-xl-5 mb-3 scrollanimation animated fadeInRight">
-                        <img src="../image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="subscribe.image#@src" data-sb-alt-field="subscribe.image#@alt">
-                    </div>
-                </div>
-            </div>
+        <div id="property-grid" class="row row-cols-xl-3 row-cols-lg-2 row-cols-1"></div>
+        <div id="empty-state" class="alert alert-info mt-4" role="status" style="display:none;">
+          P&#274;c izv&#274;l&#274;tajiem filtriem netika atrasts neviens pied&#256;v&#256;jums.
         </div>
+      </div>
+    </section>
+  </main>
 
-    </main>
-
-    <footer>
-        <div class="section position-relative bg-black-1" style="height: 90vh;">
-            <div class="row row-cols-xl-2 row-cols-1 h-100">
-                <div class="col col-xl-8 mb-3">
-                    <div class="d-flex flex-column gap-3 justify-content-between h-100">
-                        <div class="d-flex flex-column accent-primary">
-                            <p class="gray" data-i18n="get_contact">Sazināties</p>
-                            <h1 class="fw-normal" data-i18n="infovandoreheritagelv">info@vandoreheritage.lv</h1>
-                        </div>
-                        <img src="../image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid" width="938" data-sb-field-path="content/pages/properties.json:footer.logo#@src" data-sb-alt-field="content/pages/properties.json:footer.logo#@alt">
-                    </div>
-                </div>
-                <div class="col col-xl-4 mb-3">
-                    <div class="d-flex flex-column gap-5 justify-content-between accent-primary h-100">
-                        <div class="d-flex flex-row gap-5">
-                            <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
-                                <li>
-                                    <a href="index.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home">
-                                        Mājas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="about.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="about">
-                                        Pret
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="properties.html" class="link active d-flex flex-row gap-3 align-items-center" data-i18n="properties">
-                                        Īpašības
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="rentals.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="rentals">
-                                        Īre
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service">
-                                        Sakārtošana
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us">
-                                        Sazinieties ar mums
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="d-flex flex-column gap-3">
-                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilsēta,+Rīga,+LV-1013,+Latvia" class="link" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
-                                    Skanstes Iela 29A - 91, Rīga, Latvija
-                                </a>
-                                <a href="tel:+37129713030" class="link" data-i18n="371_29_71_3030">
-                                    +371 29 71 3030
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row gap-3">
-                            <div class="border-end pe-3 border-gray">
-                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="terms_conditions">
-                                    Noteikumi un nosacījumi
-                                </a>
-                            </div>
-                            <div>
-                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="privacy_notice">
-                                    Paziņojums par privātumu
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-sb-field-path="content/pages/properties.json:backToTop.href#@href"><i class="rtmicon rtmicon-arrow-up" data-sb-field-path="content/pages/properties.json:backToTop.icon"></i></a>
-
-    <!-- Scripts -->
-    <script src="../js/vendor/jquery.min.js"></script>
-    <script src="../js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="../js/vendor/swiper-bundle.min.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/swiper-script.js"></script>
-    <script src="../js/submit-form.js"></script>
-    <script src="../js/vendor/isotope.pkgd.min.js"></script>
-    <script src="../js/video_embedded.js"></script>
-    <script src="../js/vendor/fslightbox.js"></script>
-    <script src="../js/custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <div>
+        <p class="text-uppercase small mb-1">Sazin&#256;ties</p>
+        <a class="text-white text-decoration-none" href="mailto:info@vandoreheritage.lv">info@vandoreheritage.lv</a>
+      </div>
+      <nav class="d-flex gap-3 text-uppercase small">
+        <a href="index.html" class="link text-white">S&#256;kums</a>
+        <a href="properties.html" class="link text-white">&#298;pa&#352;umi</a>
+        <a href="rentals.html" class="link text-white">&#298;re</a>
+        <a href="blog.html" class="link text-white">Blogs</a>
+        <a href="contact.html" class="link text-white">Kontakti</a>
+      </nav>
+      </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/properties.js"></script>
+</body>
+</html>
 
 
 
-</body></html>
+
+
+
+
+
+
