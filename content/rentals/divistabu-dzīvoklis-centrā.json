@@ -1,0 +1,12 @@
+{
+  "title": "Divistabu dzīvoklis centrā",
+  "price": "€ 650/mēn",
+  "address": "Rīga, Centrs",
+  "description": "Gaišs un mājīgs dzīvoklis ar divām guļamistabām un modernu virtuvi.",
+  "image": "/image/dummy-img-600x400.jpg",
+  "url": "/rentals/divistabu-dzivoklis-centra.html",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "area": 65,
+  "floors": 5
+}
