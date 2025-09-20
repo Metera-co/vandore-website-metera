@@ -1,0 +1,66 @@
+_schema: _schema
+paths:
+  uploads: uploads
+  static: ''
+collections_config:
+  pages:
+    path: ''
+    name: Pages
+    icon: wysiwyg
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  content_pages:
+    path: content/pages
+    name: Content Pages
+    icon: contact_page
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  content_properties:
+    path: content/properties
+    name: Content Properties
+    icon: content_paste
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  content_rentals:
+    path: content/rentals
+    name: Content Rentals
+    icon: content_cut
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  css_vendor_open_sans:
+    path: css/vendor/open-sans
+    name: Css Vendor Open Sans
+    icon: calendar_view_day
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  css_vendor_plus_jakarta_sans:
+    path: css/vendor/plus-jakarta-sans
+    name: Css Vendor Plus Jakarta Sans
+    icon: sensors_krx_off
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  pages_1:
+    path: pages
+    name: Pages 1
+    icon: pages
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+timezone: Europe/Riga
+markdown:
+  engine: commonmark
+  options:
+    html: true
