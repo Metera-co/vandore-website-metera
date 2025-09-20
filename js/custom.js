@@ -290,35 +290,34 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('rentals-grid')
     ].filter(Boolean);
     grids.forEach((grid) => {
-      if (!grid.hasAttribute('data-sb-field-path')) {
+      const isRentalGrid = grid.id === 'rentals-grid';
+      if (!isRentalGrid && !grid.hasAttribute('data-sb-field-path')) {
         grid.setAttribute('data-sb-field-path', 'properties');
       }
       const cards = Array.from(grid.querySelectorAll('.card.h-100'));
       cards.forEach((card, idx) => {
+        if (isRentalGrid && card.hasAttribute('data-sb-object-id')) {
+          return;
+        }
         if (!card.hasAttribute('data-sb-field-path')) {
           card.setAttribute('data-sb-field-path', `properties[${idx}]`);
         }
-        // Image binding
         const img = card.querySelector('img');
         if (img && !img.hasAttribute('data-sb-field-path')) {
           img.setAttribute('data-sb-field-path', `properties[${idx}].image#@src`);
         }
-        // Title
         const title = card.querySelector('h5.card-title');
         if (title && !title.hasAttribute('data-sb-field-path')) {
           title.setAttribute('data-sb-field-path', `properties[${idx}].title`);
         }
-        // Price (if marked up)
         const price = card.querySelector('.text-accent, .price');
         if (price && !price.hasAttribute('data-sb-field-path')) {
           price.setAttribute('data-sb-field-path', `properties[${idx}].price`);
         }
-        // Address/description fallback
         const desc = card.querySelector('p');
         if (desc && !desc.hasAttribute('data-sb-field-path')) {
           desc.setAttribute('data-sb-field-path', `properties[${idx}].description`);
         }
-        // Link (if present)
         const link = card.querySelector('a[href]');
         if (link && !link.hasAttribute('data-sb-field-path')) {
           link.setAttribute('data-sb-field-path', `properties[${idx}].url#@href`);

@@ -11,6 +11,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./js');
   eleventyConfig.addWatchTarget('./image');
 
+  eleventyConfig.addFilter('numbersOnly', function (value) {
+    if (value === undefined || value === null) {
+      return '';
+    }
+    const raw = String(value);
+    const normalized = raw.replace(/[^0-9.,]/g, '').replace(/,/g, '.');
+    const parsed = parseFloat(normalized);
+    if (!Number.isNaN(parsed)) {
+      return parsed.toString();
+    }
+    const digits = raw.replace(/\D/g, '');
+    return digits;
+  });
+
   // Copy static HTML under pages/ to the site root so existing pages still deploy
   eleventyConfig.addPassthroughCopy({ pages: '.' });
 

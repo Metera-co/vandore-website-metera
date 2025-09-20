@@ -27,11 +27,19 @@ permalink: "/rentals/{{ current.fileSlug }}.html"
         <p><strong>Cena:</strong> <span data-sb-field-path="price">{{ current.data.price or '' }}</span></p>
         <p><strong>Adrese:</strong> <span data-sb-field-path="address">{{ current.data.address or '' }}</span></p>
         <p data-sb-field-path="description">{{ current.data.description or '' }}</p>
-        {% if current.data.image %}
-          <img alt="Īres attēls" src="{{ current.data.image }}" style="max-width: 600px; width: 100%; height: auto;" data-sb-field-path="image#@src"/>
+        {% set image1 = current.data.image_1 or current.data.image %}
+        {% set image2 = current.data.image_2 %}
+        {% if image1 or image2 %}
+          <div class="rental-images" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+            {% if image1 %}
+              <img alt="{{ current.data.image_1_alt or current.data.title or 'Īres attēls 1' }}" src="{{ image1 }}" style="max-width: 600px; width: 100%; height: auto;" data-sb-field-path="image_1#@src image_1_alt#@alt"/>
+            {% endif %}
+            {% if image2 %}
+              <img alt="{{ current.data.image_2_alt or current.data.title or 'Īres attēls 2' }}" src="{{ image2 }}" style="max-width: 600px; width: 100%; height: auto;" data-sb-field-path="image_2#@src image_2_alt#@alt"/>
+            {% endif %}
+          </div>
         {% endif %}
       </article>
     </main>
   </body>
   </html>
-

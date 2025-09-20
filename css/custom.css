@@ -362,3 +362,31 @@ html, body {
 .listing-app footer {
     margin-top: auto;
 }
+.card-image-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.card-image-group .card-img-primary,
+.card-image-group .card-img-secondary {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-image-group .card-img-secondary {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+    .card-image-group {
+        flex-direction: row;
+    }
+
+    .card-image-group .card-img-secondary {
+        max-width: 45%;
+    }
+}
