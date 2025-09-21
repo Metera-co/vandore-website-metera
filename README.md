@@ -1,60 +1,65 @@
 ﻿# Vandore Heritage Static Site
 
-This repository contains the marketing website for Vandore Heritage. The site is a static HTML template organised for CloudCannon so every page can be edited visually and structured content (properties, rentals, blog posts) can be managed from collection editors.
+This repository contains the marketing website for Vandore Heritage. The site is organised for CloudCannon so you can edit every page visually and manage structured content (properties, rentals, blog posts) through collection editors.
 
 ## Local Preview
 
-1. Install the tooling once (installs the HTML-to-JSON helper only):
+1. Install dependencies (installs the helper scripts only):
    ```bash
    npm install
    ```
-2. Run any static file server from the project root (examples below) and open `http://localhost:8080/pages/index.html`:
+2. Build the deployable site into `_site/`:
    ```bash
-   npx http-server -p 8080 .
-   # or
-   python -m http.server 8080
+   npm run build
    ```
+3. Serve the `_site/` folder with any static server (examples):
+   ```bash
+   npx http-server _site -p 8080
+   # or
+   npx serve _site
+   ```
+   Then open `http://localhost:8080/index.html` (all other pages sit in the same folder).
 
-When you change the HTML templates in `pages/`, regenerate the structured content JSON by running:
+When you change the HTML templates in `pages/`, regenerate the structured content JSON for inline editing by running:
 ```bash
 npm run generate:content
 ```
-This keeps the files in `content/pages/` in sync with the inline editing bindings used by CloudCannon.
+This keeps the files under `content/pages/` in sync with the `data-sb-field-path` bindings.
 
 ## CloudCannon Setup
 
-1. Connect the repository/branch to CloudCannon.
-2. In **Settings -> Build**, set:
+1. Connect the repository or branch to CloudCannon.
+2. The `.cloudcannon/config.yml` already sets the correct build commands:
    - Install command: `npm install`
-   - Build command: `npm run build` (prints a status message only)
-   - Output path: `.` (the pages are already static inside the repo)
-3. Under **Files**, the Visual Editor will serve the HTML from `pages/`. Every page is linked to a JSON data file in `content/pages/` through `data-sb-field-path` bindings, so text and images can be edited inline.
-4. Image uploads from the editor go to `image/uploads/` (preserved via `.cloudcannon/config.yml`).
+   - Build command: `npm run build`
+   - Output path: `_site`
+3. The Visual Editor serves the HTML output from `_site/`, so visiting `/` shows `index.html` and the other pages resolve at their root URLs (for example `/properties.html`).
+4. Image uploads through the editor go to `image/uploads/` and are preserved by the config.
 
 ### Editing Pages
-- Open a page in the Visual Editor and change copy or images directly. Saving updates the matching JSON file inside `content/pages/`.
-- For bulk updates, edit the JSON files inside the `Page Content` collection (CloudCannon automatically exposes the folder defined in `.cloudcannon/config.yml`).
+- Open any page in the Visual Editor and adjust copy or swap images. Saving writes to the matching JSON under `content/pages/`.
+- For broader edits, use the `Page Content` collection (CloudCannon exposes the folder defined in the config).
 
 ### Managing Listings and Blog Posts
-CloudCannon collections power the structured content:
-- **Properties** (`data/properties.json` -> key `properties`)
-- **Rentals** (`data/rentals.json` -> key `rentals`)
-- **Blogs** (`data/blogs.json` -> key `blogs`)
+CloudCannon collection schemas map to the JSON data files:
+- **Properties** (`data/properties.json`, key `properties`)
+- **Rentals** (`data/rentals.json`, key `rentals`)
+- **Blogs** (`data/blogs.json`, key `blogs`)
 
-Each collection has a schema describing the fields (slug, title, price, address, gallery, etc.). Adding or editing entries through CloudCannon updates the corresponding JSON file, which the front-end JavaScript reads to render listings.
+Add or edit items through the editor to update the JSON consumed by the front-end filters.
 
 ### Adding New Assets
 - Upload images through CloudCannon to `image/uploads/` to keep paths consistent.
-- When referencing uploads in JSON or page data, use `/image/uploads/filename.ext` so the static pages resolve correctly both locally and on CloudCannon.
+- Reference uploads as `/image/uploads/filename.ext` in JSON or page content so they resolve locally, in the editor, and on the published site.
 
 ## Helpful Scripts
-- `npm run generate:content` – re-generates `content/pages/*.json` and `content/properties/*.json` from the HTML templates.
-- `npm run build` – placeholder build that satisfies CloudCannon (prints a confirmation message).
+- `npm run generate:content` – rebuilds the JSON backing CloudCannon inline editing.
+- `npm run build` – copies assets and normalises HTML paths into `_site/` for CloudCannon hosting or any static deployment.
 
 ## Repository Structure
-- `pages/` – HTML pages consumed directly by CloudCannon as the static site.
-- `content/` – JSON data backing the inline editor bindings.
-- `data/` – JSON collections consumed by front-end scripts for listings.
+- `pages/` – source HTML files tied to CloudCannon visual editing.
+- `content/` – JSON data used by the `data-sb-field-path` attributes.
+- `data/` – JSON collections consumed by the front-end scripts.
 - `js/` – Front-end JavaScript (filters, data loading, etc.).
 - `.cloudcannon/config.yml` – CloudCannon project configuration and collection schemas.
-
+- `_site/` – build output (generated by `npm run build`).

@@ -188,7 +188,8 @@ collections_config:
             rows: 3
 
 build:
-  install: ''
-  command: ''
-  output_path: '.'
+  install: npm install
+  command: npm run build
+  output_path: _site
+
 
