@@ -1,0 +1,41 @@
+{
+  "aboutTeaser": {
+    "image": "Vandore Heritage"
+  },
+  "backToTop": {
+    "href": "#"
+  },
+  "hero": {
+    "image": {
+      "desktop": "Vandore Heritage",
+      "mobile": "Vandore Heritage"
+    }
+  },
+  "heroHeading": "Tas nav tikai bizness. Tā ir attieksme.",
+  "heroSubheading": "Mēs pārstāvam īpašības, kas runā, un klienti, kuri vērtē tiek uzklausīti. Vandore Heritage ir mūsu solījums: strādāt uzmanīgi, palikt klāt ārpus darījuma.",
+  "nav": {
+    "logo": {
+      "alt": "Vandore Heritage",
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025"
+    },
+    "menuTitle": "Menu",
+    "toggle": {
+      "label": "Menu"
+    }
+  },
+  "sections": [
+    {
+      "heading": "Mūsu stāsts",
+      "text": "Vandore Heritage sākās ar sarunu - nevis par vairāk pārdošanu, bet gan par to, kā rīkoties pareizi. Mēs skatāmies ārpus kvadrātmetriem un darījumiem, kā telpa liek justies, kā tā veido lēmumus, un lomu, ko mēs spēlējam šajos stāstos."
+    },
+    {
+      "heading": "Kāpēc viņi mūs mīl",
+      "text": "Atklājiet mūsu apmierināto klientu balsis, kuri ir pieredzējuši ārkārtas situāciju \n Pakalpojumi un kompetence, ko mēs sniedzam, palīdzot viņiem atrast savas sapņu mājas."
+    }
+  ],
+  "seo": {
+    "favicon": "../image/red_LOGO_Vandore.png?v=2025"
+  },
+  "title": "Vandore Heritage - mājas lapa"
+}

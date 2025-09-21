@@ -1,0 +1,115 @@
+{
+  "filters": {
+    "apply": "Filtrēt",
+    "bedrooms": {
+      "label": "Guļamistabas",
+      "options": [
+        "Visas",
+        "1",
+        "2",
+        "3",
+        "4+"
+      ]
+    },
+    "clear": "Notīrīt",
+    "heading": "Filtri",
+    "location": {
+      "label": "Pilsēta",
+      "placeholder": "Rīga, Jūrmala..."
+    },
+    "maxPrice": {
+      "label": "Cena līdz (EUR)",
+      "placeholder": "1000"
+    },
+    "minPrice": {
+      "label": "Cena no (EUR)",
+      "placeholder": "100"
+    },
+    "type": {
+      "label": "Īres veids",
+      "options": [
+        "Visi piedāvājumi",
+        "Ilgtermiņa īre",
+        "Īstermiņa īre"
+      ]
+    }
+  },
+  "footer": {
+    "contactLabel": "Sazināties",
+    "email": {
+      "href": "mailto:info@vandoreheritage.lv",
+      "label": "info@vandoreheritage.lv"
+    },
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ]
+  },
+  "hero": {
+    "actions": [
+      {
+        "href": "#rentals-grid",
+        "label": "Skatīt pieejamos"
+      },
+      {
+        "href": "contact.html",
+        "label": "Sazināties ar mums"
+      }
+    ],
+    "heading": "Īre un īstermiņa piedāvājumi",
+    "subheading": "Atlasīti, pārvaldīti īres īpašumi visā Latvijā. Katram piedāvājumam pievienoti vizuālie materiāli un pilna informācija, lai ātri pieņemtu lēmumu."
+  },
+  "list": {
+    "countDefault": "Notiek ielāde...",
+    "emptyState": "Pašlaik filtru kritērijiem neatbilst neviens piedāvājums.",
+    "heading": "Pieejamie piedāvājumi"
+  },
+  "nav": {
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ],
+    "logo": {
+      "alt": "Vandore Heritage",
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025"
+    }
+  },
+  "title": "Vandore Heritage - Īre un īstermiņa īre"
+}

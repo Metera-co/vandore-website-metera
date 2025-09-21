@@ -1,0 +1,65 @@
+{
+  "footer": {
+    "contactLabel": "Sazināties",
+    "email": {
+      "href": "mailto:info@vandoreheritage.lv",
+      "label": "info@vandoreheritage.lv"
+    },
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ]
+  },
+  "hero": {
+    "heading": "Jaunākie raksti",
+    "subheading": "Analītika, iedvesma un padomi nekustamo īpašumu īpašniekiem un investoriem."
+  },
+  "nav": {
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ],
+    "logo": {
+      "alt": "Vandore Heritage",
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025"
+    }
+  },
+  "title": "Vandore Heritage - Blogs"
+}

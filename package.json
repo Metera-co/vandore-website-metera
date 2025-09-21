@@ -4,6 +4,10 @@
   "private": true,
   "description": "Static CloudCannon site",
   "scripts": {
-    "build": "echo 'Static site – no build'"
+    "build": "node -e \"console.log(\\\"Static site build step not required\\\")\"",
+    "generate:content": "node scripts/extract-content.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.1.2"
   }
 }

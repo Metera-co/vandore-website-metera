@@ -1,0 +1,100 @@
+{
+  "filters": {
+    "apply": "Filtrēt",
+    "bedrooms": {
+      "label": "Guļamistabas",
+      "options": [
+        "Visas",
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "clear": "Notīrīt",
+    "clearLink": {
+      "label": "Notīrīt filtrus"
+    },
+    "heading": "Filtri",
+    "location": {
+      "label": "Pilsēta vai rajons",
+      "placeholder": "Centrs, Pārdaugava..."
+    },
+    "maxPrice": {
+      "label": "Cena līdz (EUR)",
+      "placeholder": "500000"
+    },
+    "minPrice": {
+      "label": "Cena no (EUR)",
+      "placeholder": "50000"
+    }
+  },
+  "footer": {
+    "contactLabel": "Sazināties",
+    "email": {
+      "href": "mailto:info@vandoreheritage.lv",
+      "label": "info@vandoreheritage.lv"
+    },
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ]
+  },
+  "hero": {
+    "heading": "Premium īpašumu katalogs",
+    "subheading": "Ekskluzīvi īpašumi un attītības projekti ar augstu pievienoto vērtību. Izpētiet aktuālos piedāvājumus un sazinieties ar mūsu komandu, lai uzzinātu vairāk."
+  },
+  "list": {
+    "countDefault": "Notiek ielāde...",
+    "emptyState": "Pēc izvēlētajiem filtriem netika atrasts neviens piedāvājums.",
+    "heading": "Aktuālie īpašumi"
+  },
+  "nav": {
+    "links": [
+      {
+        "href": "index.html",
+        "label": "Sākums"
+      },
+      {
+        "href": "properties.html",
+        "label": "Īpašumi"
+      },
+      {
+        "href": "rentals.html",
+        "label": "Īre"
+      },
+      {
+        "href": "blog.html",
+        "label": "Blogs"
+      },
+      {
+        "href": "contact.html",
+        "label": "Kontakti"
+      }
+    ],
+    "logo": {
+      "alt": "Vandore Heritage",
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025"
+    }
+  },
+  "title": "Vandore Heritage - Īpašumi pārdošanā"
+}

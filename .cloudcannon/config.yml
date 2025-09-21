@@ -12,9 +12,16 @@ collections_config:
     include: '**/*.html'
     editor:
       default: visual
+  page_content:
+    path: content/pages
+    name: Page Content
+    icon: description
+    include: '**/*.json'
+    format: json
+    output: false
   rentals:
     path: data/rentals.json
-    name: Content Rentals
+    name: Rentals
     icon: holiday_village
     format: json
     output: false
@@ -22,23 +29,61 @@ collections_config:
     schema:
       name: Rental
       fields:
-        - { type: text, name: slug, label: Slug, required: true }
-        - { type: text, name: title, label: Nosaukums, required: true }
-        - { type: text, name: price, label: Cena }
-        - { type: text, name: address, label: Adrese }
-        - { type: textarea, name: description, label: Apraksts, rows: 4 }
-        - { type: select, name: type, label: Īres veids, options: [ { label: Ilgtermiņa, value: long }, { label: Īstermiņa, value: short } ] }
-        - { type: number, name: bedrooms, label: Guļamistabas }
-        - { type: number, name: bathrooms, label: Vannas istabas }
-        - { type: number, name: area, label: Platība (m²) }
-        - { type: number, name: floors, label: Stāvs }
-        - { type: image, name: image_1, label: Galvenais attēls, directory: image/uploads }
-        - { type: text, name: image_1_alt, label: Galvenā attēla alternatīvais teksts }
-        - { type: image, name: image_2, label: Otrais attēls, directory: image/uploads }
-        - { type: text, name: image_2_alt, label: Otrā attēla alternatīvais teksts }
+        - type: text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          name: price
+          label: Cena
+        - type: text
+          name: address
+          label: Adrese
+        - type: textarea
+          name: description
+          label: Apraksts
+          rows: 4
+        - type: select
+          name: type
+          label: Īres veids
+          options:
+            - label: Ilgtermiņa
+              value: long
+            - label: Īstermiņa
+              value: short
+        - type: number
+          name: bedrooms
+          label: Guļamistabas
+        - type: number
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          name: area
+          label: Platība (m2)
+        - type: number
+          name: floors
+          label: Stāvs
+        - type: image
+          name: image_1
+          label: Galvenais attēls
+          directory: image/uploads
+        - type: text
+          name: image_1_alt
+          label: Galvenā attēla alternatīvais teksts
+        - type: image
+          name: image_2
+          label: Otrais attēls
+          directory: image/uploads
+        - type: text
+          name: image_2_alt
+          label: Otrā attēla alternatīvais teksts
   properties:
     path: data/properties.json
-    name: Content Properties
+    name: Properties
     icon: real_estate_agent
     format: json
     output: false
@@ -46,28 +91,59 @@ collections_config:
     schema:
       name: Property
       fields:
-        - { type: text, name: slug, label: Slug, required: true }
-        - { type: text, name: title, label: Nosaukums, required: true }
-        - { type: text, name: price, label: Cena }
-        - { type: text, name: address, label: Adrese }
-        - { type: textarea, name: description, label: Apraksts, rows: 4 }
-        - { type: number, name: bedrooms, label: Guļamistabas }
-        - { type: number, name: bathrooms, label: Vannas istabas }
-        - { type: number, name: area, label: Platība (m²) }
-        - { type: number, name: floors, label: Stāvs }
-        - { type: image, name: image, label: Galvenais attēls, directory: image/uploads }
+        - type: text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          name: price
+          label: Cena
+        - type: text
+          name: address
+          label: Adrese
+        - type: textarea
+          name: description
+          label: Apraksts
+          rows: 4
+        - type: number
+          name: bedrooms
+          label: Guļamistabas
+        - type: number
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          name: area
+          label: Platība (m2)
+        - type: number
+          name: floors
+          label: Stāvs
+        - type: image
+          name: image
+          label: Galvenais attēls
+          directory: image/uploads
         - type: array
           name: gallery
           label: Galerija
           schema:
             name: Gallery Image
             fields:
-              - { type: image, name: src, label: Attēls, directory: image/uploads }
-              - { type: text, name: alt, label: Alternatīvais teksts }
-              - { type: text, name: caption, label: Paraksts }
+              - type: image
+                name: src
+                label: Attēls
+                directory: image/uploads
+              - type: text
+                name: alt
+                label: Alternatīvais teksts
+              - type: text
+                name: caption
+                label: Paraksts
   blogs:
     path: data/blogs.json
-    name: Content Blogs
+    name: Blogs
     icon: article
     format: json
     output: false
@@ -75,14 +151,34 @@ collections_config:
     schema:
       name: BlogPost
       fields:
-        - { type: text, name: slug, label: Slug, required: true }
-        - { type: text, name: title, label: Virsraksts, required: true }
-        - { type: date, name: date, label: Publicēšanas datums }
-        - { type: text, name: readingTime, label: Lasīšanas laiks }
-        - { type: text, name: author, label: Autors }
-        - { type: textarea, name: summary, label: Kopsavilkums, rows: 3 }
-        - { type: image, name: image, label: Galvenais attēls, directory: image/uploads }
-        - { type: text, name: image_alt, label: Attēla alternatīvais teksts }
+        - type: text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          name: title
+          label: Virsraksts
+          required: true
+        - type: date
+          name: date
+          label: Publicēšanas datums
+        - type: text
+          name: readingTime
+          label: Lasīšanas laiks
+        - type: text
+          name: author
+          label: Autors
+        - type: textarea
+          name: summary
+          label: Kopsavilkums
+          rows: 3
+        - type: image
+          name: image
+          label: Galvenais attēls
+          directory: image/uploads
+        - type: text
+          name: image_alt
+          label: Attēla alternatīvais teksts
         - type: array
           name: content
           label: Raksta saturs
