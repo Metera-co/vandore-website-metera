@@ -1,0 +1,420 @@
+﻿source: /
+base_url: /
+paths:
+  source: /
+  uploads:
+    path: image/uploads
+    preserve: true
+
+collection_groups:
+  - heading: Content
+    collections:
+      - pages
+      - rentals
+      - properties
+      - blog
+
+_enabled_editors:
+  - visual
+  - content
+  - data
+
+_inputs:
+  plain_text:
+    type: text
+    label: Text
+  long_text:
+    type: textarea
+    options:
+      rows: 4
+  rich_text:
+    type: markdown
+    comment: Rich text body copy
+    options:
+      toolbar:
+        - bold
+        - italic
+        - underline
+        - link
+        - bulleted_list
+        - numbered_list
+        - quote
+        - image
+  image_upload:
+    type: image
+    label: Image
+    options:
+      paths:
+        uploads: image/uploads
+      allowed_sources:
+        - site-files
+        - uploads
+      auto_rename: true
+      select_existing: true
+  select_rental_type:
+    type: select
+    options:
+      values: _select_data.rental_types
+
+_select_data:
+  rental_types:
+    - label: Ilgtermina
+      value: long
+    - label: Istermina
+      value: short
+  blog_tags:
+    - Aktualitates
+    - Dizains
+    - Ipasumi
+
+_editables:
+  defaults:
+    bold: true
+    italic: true
+    underline: true
+    link: true
+    image: true
+    bulleted_list: true
+    numbered_list: true
+    quote: true
+    undo: true
+    redo: true
+
+_snippets_imports:
+  html:
+    include:
+      - pages/snippets/**/*.html
+    base_path: pages/snippets
+
+_snippets:
+  hero_cta:
+    name: Hero CTA Button
+    description: Reusable hero call-to-action link
+    icon: outbound
+    file: pages/index.html
+    selector: 'a[data-sb-href-field="hero.cta.href"]'
+
+markdown:
+  engine: commonmark
+  smartypants: true
+
+timezone: Europe/Riga
+
+commit_templates:
+  - template_string: '[{collection}] {message}'
+
+source_editor:
+  theme: github
+  tab_size: 2
+  show_gutter: true
+  wrap_enabled: true
+  wrap_line_length: 120
+
+editor:
+  default_path: /collections/pages/
+  new_preview_url: /
+
+data_config:
+  page_data:
+    path: content/pages
+    name: Page JSON
+    icon: dataset
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+
+file_config:
+  - glob: pages/**/*.html
+    _enabled_editors:
+      - visual
+      - content
+  - glob: content/**/*.json
+    _enabled_editors:
+      - data
+  - glob: css/**/*.css
+    source_editor:
+      tab_size: 2
+      theme: github
+  - glob: image/uploads/**
+    editor:
+      disable_file_actions: false
+
+collections_config:
+  pages:
+    path: pages
+    glob:
+      - '*.html'
+    name: Pages
+    singular_name: Page
+    icon: wysiwyg
+    url: '/{file_stem}/'
+    new_preview_url: '/'
+    description: Core site pages rendered as HTML with Stackbit bindings for CloudCannon editing.
+    _enabled_editors:
+      - visual
+      - content
+    create:
+      path: pages/{title|slugify}.html
+      contents: |
+        <!DOCTYPE html>
+        <html lang="lv" data-sb-object-id="content/pages/{title|slugify}.json">
+          <head>
+            <meta charset="UTF-8">
+            <title data-sb-field-path="title">{title}</title>
+          </head>
+          <body>
+            <main>
+              <section>
+                <h1 data-sb-field-path="heroHeading">{title}</h1>
+                <p data-sb-field-path="heroSubheading"></p>
+              </section>
+            </main>
+          </body>
+        </html>
+  rentals:
+    path: data/rentals.json
+    name: Rentals
+    singular_name: Rental
+    icon: holiday_village
+    format: json
+    output: false
+    value_key: rentals
+    url: '/rentals/{slug}/'
+    description: Long and short term rental listings that power the rentals page.
+    _enabled_editors:
+      - data
+    create:
+      path: data/rentals.json
+      data:
+        rentals:
+          - slug: '{title|slugify}'
+            title: '{title}'
+            price: ''
+            address: ''
+            description: ''
+            type: long
+            bedrooms: 0
+            bathrooms: 0
+            area: 0
+            floors: 0
+            image_1: ''
+            image_1_alt: ''
+            image_2: ''
+            image_2_alt: ''
+    schema:
+      name: Rental
+      fields:
+        - type: text
+          input: plain_text
+          name: slug
+          label: Slug
+          required: true
+          comment: Used for rental detail URLs.
+        - type: text
+          input: plain_text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          input: plain_text
+          name: price
+          label: Cena
+        - type: text
+          input: plain_text
+          name: address
+          label: Adrese
+        - type: textarea
+          input: long_text
+          name: description
+          label: Apraksts
+        - type: select
+          input: select_rental_type
+          name: type
+          label: Ires veids
+          options:
+            values: _select_data.rental_types
+        - type: number
+          name: bedrooms
+          label: Gulamistabas
+        - type: number
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          name: area
+          label: Platiba (m2)
+        - type: number
+          name: floors
+          label: Stavs
+        - type: image
+          input: image_upload
+          name: image_1
+          label: Galvenais attels
+        - type: text
+          input: plain_text
+          name: image_1_alt
+          label: Galvena attela altern. teksts
+        - type: image
+          input: image_upload
+          name: image_2
+          label: Otrais attels
+        - type: text
+          input: plain_text
+          name: image_2_alt
+          label: Otra attela altern. teksts
+  properties:
+    path: data/properties.json
+    name: Properties
+    singular_name: Property
+    icon: real_estate_agent
+    format: json
+    output: false
+    value_key: properties
+    url: '/properties/{slug}/'
+    description: Property listings with gallery support.
+    _enabled_editors:
+      - data
+    create:
+      path: data/properties.json
+      data:
+        properties:
+          - slug: '{title|slugify}'
+            title: '{title}'
+            price: ''
+            address: ''
+            description: ''
+            image: ''
+            bedrooms: 0
+            bathrooms: 0
+            area: 0
+            floors: 0
+            gallery: []
+    schema:
+      name: Property
+      fields:
+        - type: text
+          input: plain_text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          input: plain_text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          input: plain_text
+          name: price
+          label: Cena
+        - type: text
+          input: plain_text
+          name: address
+          label: Adrese
+        - type: textarea
+          input: long_text
+          name: description
+          label: Apraksts
+        - type: image
+          input: image_upload
+          name: image
+          label: Galvenais attels
+        - type: number
+          name: bedrooms
+          label: Gulamistabas
+        - type: number
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          name: area
+          label: Platiba (m2)
+        - type: number
+          name: floors
+          label: Stavs
+        - type: array
+          name: gallery
+          label: Galerija
+          schema:
+            name: Gallery Image
+            fields:
+              - type: image
+                input: image_upload
+                name: src
+                label: Attels
+              - type: text
+                input: plain_text
+                name: alt
+                label: Alternativais teksts
+              - type: text
+                input: plain_text
+                name: caption
+                label: Paraksts
+  blog:
+    path: data/blogs.json
+    name: Blog
+    singular_name: Blog Post
+    icon: article
+    format: json
+    output: false
+    value_key: blogs
+    url: '/blog/{slug}/'
+    description: Long-form articles for the blog page.
+    _enabled_editors:
+      - content
+      - data
+    create:
+      path: data/blogs.json
+      data:
+        blogs:
+          - slug: '{title|slugify}'
+            title: '{title}'
+            date: '{date|today}'
+            readingTime: ''
+            author: ''
+            summary: ''
+            image: ''
+            image_alt: ''
+            content: []
+    schema:
+      name: Blog Post
+      fields:
+        - type: text
+          input: plain_text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          input: plain_text
+          name: title
+          label: Virsraksts
+          required: true
+        - type: date
+          name: date
+          label: Publicesanas datums
+        - type: text
+          input: plain_text
+          name: readingTime
+          label: Lasisanas laiks
+        - type: text
+          input: plain_text
+          name: author
+          label: Autors
+        - type: textarea
+          input: long_text
+          name: summary
+          label: Kopsavilkums
+        - type: image
+          input: image_upload
+          name: image
+          label: Galvenais attels
+        - type: text
+          input: plain_text
+          name: image_alt
+          label: Attela altern. teksts
+        - type: array
+          name: content
+          label: Raksta saturs
+          schema:
+            type: textarea
+            input: rich_text
+            label: Paragrafs
+            rows: 4
