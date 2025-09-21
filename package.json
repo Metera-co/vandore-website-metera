@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "vandore-website",
   "version": "1.0.0",
   "private": true,
@@ -8,6 +8,7 @@
     "generate:content": "node scripts/extract-content.js"
   },
   "devDependencies": {
-    "cheerio": "^1.1.2"
+    "cheerio": "1.0.0-rc.12"
   }
 }
+
