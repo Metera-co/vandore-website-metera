@@ -16,7 +16,7 @@ collections_config:
     icon: contact_page
     disable_add: false
     disable_add_folder: false
-    disable_file_actions: false
+    di sable_file_actions: false
   content_properties:
     path: content/properties
     name: Content Properties
