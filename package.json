@@ -1,0 +1,9 @@
+﻿{
+  "name": "vandore-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static CloudCannon site",
+  "scripts": {
+    "build": "echo 'Static site – no build'"
+  }
+}
