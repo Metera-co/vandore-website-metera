@@ -1,7 +1,0 @@
-{
-  "address": "{{Property_location}}",
-  "description": "Apraksts",
-  "image": "../{{MAIN_IMAGE}}",
-  "price": "669 000 USD",
-  "title": "{{PROPERTY_TITLE}}"
-}

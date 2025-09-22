@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const propertiesGrid = document.getElementById('property-grid');
   const propertyDetail = document.getElementById('property-detail');
   let properties = [];
@@ -84,14 +84,15 @@
 
     const badges = document.createElement('div');
     badges.className = 'd-flex gap-3 flex-wrap';
-    if (item.bedrooms) badges.appendChild(createBadge(`${item.bedrooms} guļamist.`));
+    if (item.bedrooms) badges.appendChild(createBadge(`${item.bedrooms} gu\u013Camist.`));
     if (item.bathrooms) badges.appendChild(createBadge(`${item.bathrooms} vann.`));
+    if (item.area) badges.appendChild(createBadge(`${item.area} m\u00B2`));
     footer.appendChild(badges);
 
     const link = document.createElement('a');
     link.className = 'btn btn-accent btn-sm';
     link.href = propertyUrl(item.slug);
-    link.innerHTML = '<span>Skatīt</span><i class="rtmicon rtmicon-arrow-up-right ms-1"></i>';
+    link.innerHTML = '<span>Skat\u012Bt</span><i class="rtmicon rtmicon-arrow-up-right ms-1"></i>';
     footer.appendChild(link);
 
     body.appendChild(footer);
@@ -106,17 +107,92 @@
     items.forEach(item => propertiesGrid.appendChild(createCard(item)));
 
     const count = document.getElementById('property-count');
-    if (count) count.textContent = `${items.length} īpašumi atrasti`;
+    if (count) count.textContent = `${items.length} \u012bp\u0101\u0161umi atrasti`;
 
     const empty = document.getElementById('empty-state');
     if (empty) empty.style.display = items.length ? 'none' : 'block';
-    propertiesGrid.style.display = items.length ? '' : 'none';
+    if (propertiesGrid) propertiesGrid.style.display = items.length ? '' : 'none';
+  }
+
+  function updateGallery(gallery) {
+    const container = propertyDetail?.querySelector('[data-property-gallery]');
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll('[data-property-gallery-item]'));
+    const template = items[0] ? items[0].cloneNode(true) : null;
+
+    if (gallery.length === 0) {
+      items.forEach((item, index) => {
+        if (index === 0) {
+          const img = item.querySelector('[data-property-gallery-image]');
+          const caption = item.querySelector('[data-property-gallery-caption]');
+          if (img) {
+            img.src = '';
+            img.alt = '';
+          }
+          if (caption) caption.textContent = '';
+          item.style.display = 'none';
+        } else {
+          item.remove();
+        }
+      });
+      return;
+    }
+
+    while (items.length < gallery.length && template) {
+      const clone = template.cloneNode(true);
+      clone.removeAttribute('data-sb-field-path');
+      clone.querySelectorAll('[data-sb-field-path]').forEach(node => node.removeAttribute('data-sb-field-path'));
+      clone.removeAttribute('data-property-gallery-index');
+      container.appendChild(clone);
+      items.push(clone);
+    }
+
+    items.forEach((figure, index) => {
+      const data = gallery[index];
+      if (!data) {
+        figure.style.display = 'none';
+        return;
+      }
+      figure.style.display = '';
+      const img = figure.querySelector('[data-property-gallery-image]');
+      if (img) {
+        img.src = data.src || '';
+        img.alt = data.alt || '';
+      }
+      const caption = figure.querySelector('[data-property-gallery-caption]');
+      if (caption) caption.textContent = data.caption || '';
+    });
+  }
+
+  function updateDetailTemplate(item) {
+    const textField = (name, value) => {
+      const el = propertyDetail.querySelector(`[data-property-field="${name}"]`);
+      if (el) el.textContent = value ?? '';
+    };
+
+    textField('badge', item.badge || 'P\u0101rdo\u0161an\u0101');
+    textField('title', item.title || '');
+    textField('price', item.price || '');
+    textField('address', item.address || '');
+    textField('description', item.description || '');
+    textField('area', item.area ?? '');
+    textField('bedrooms', item.bedrooms ?? '');
+    textField('bathrooms', item.bathrooms ?? '');
+    textField('floors', item.floors ?? '');
+
+    updateGallery(Array.isArray(item.gallery) ? item.gallery : []);
   }
 
   function renderDetail(item) {
     if (!propertyDetail) return;
     if (!item) {
       propertyDetail.innerHTML = '<div class="alert alert-warning">Īpašums nav atrasts.</div>';
+      return;
+    }
+
+    if (propertyDetail.querySelector('[data-property-field]')) {
+      updateDetailTemplate(item);
       return;
     }
 
@@ -134,18 +210,18 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <span class="badge bg-primary mb-3">Pārdošanā</span>
+          <span class="badge bg-primary mb-3">${item.badge || 'P\u0101rdo\u0161an\u0101'}</span>
           <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
           ${item.price ? `<p class="h4 text-accent mb-3">${item.price}</p>` : ''}
           ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
           ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
           <div class="d-flex flex-wrap gap-3 mb-4">
-            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m²</span>` : ''}
-            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guļamistabas</span>` : ''}
-            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas</span>` : ''}
-            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stāvs</span>` : ''}
+            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m\u00B2</span>` : ''}
+            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} gu\u013Camistabas</span>` : ''}
+            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas istabas</span>` : ''}
+            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. st\u0101vs</span>` : ''}
           </div>
-          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Sazināties</a>
+          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Sazin\u0101ties</a>
         </div>
       </div>`;
   }
@@ -177,7 +253,7 @@
 
     ['clear-filters', 'clear-filters-link', 'clear-filters-mobile'].forEach(id => {
       const btn = document.getElementById(id);
-      btn?.addEventListener('click', (event) => {
+      btn?.addEventListener('click', event => {
         event?.preventDefault();
         ['location-search', 'min-price', 'max-price', 'bedrooms-prop'].forEach(field => {
           const el = document.getElementById(field);
@@ -199,11 +275,12 @@
       if (propertyDetail) {
         const slug = new URLSearchParams(window.location.search).get('slug');
         const selected = properties.find(item => item.slug === slug) || properties[0];
-        renderDetail(selected);
+        if (selected) {
+          renderDetail(selected);
+        }
       }
     })
     .catch(() => {
-      if (propertiesGrid) propertiesGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īpašumu sarakstu.</div>';
+      if (propertiesGrid) propertiesGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t \u012bp\u0101\u0161umu sarakstu.</div>';
     });
 })();
-

@@ -1,7 +1,12 @@
-(function () {
+﻿(function () {
   const rentalsGrid = document.getElementById('rentals-grid');
   const rentalDetail = document.getElementById('rental-detail');
   let rentals = [];
+
+  const TYPE_LABELS = {
+    short: '\u012Astermi\u0146a',
+    long: 'Ilgtermi\u0146a'
+  };
 
   function dataPath(name) {
     return window.location.pathname.includes('/pages/') ? `../data/${name}` : `data/${name}`;
@@ -63,7 +68,7 @@
 
     const badge = document.createElement('span');
     badge.className = `badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'}`;
-    badge.textContent = item.type === 'short' ? 'Īstermiņa' : 'Īre';
+    badge.textContent = `${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre`;
     header.appendChild(badge);
 
     body.appendChild(header);
@@ -96,13 +101,13 @@
     meta.className = 'd-flex gap-3 text-muted small flex-wrap';
     if (item.bedrooms) meta.appendChild(makeBadge(`${item.bedrooms} ist.`));
     if (item.bathrooms) meta.appendChild(makeBadge(`${item.bathrooms} vann.`));
-    if (item.area) meta.appendChild(makeBadge(`${item.area} m²`));
+    if (item.area) meta.appendChild(makeBadge(`${item.area} m\u00B2`));
     footer.appendChild(meta);
 
     const more = document.createElement('a');
     more.className = 'btn btn-outline-secondary btn-sm';
     more.href = rentalUrl(item.slug);
-    more.textContent = 'Skatīt';
+    more.textContent = 'Skat\u012Bt';
     footer.appendChild(more);
 
     body.appendChild(footer);
@@ -117,16 +122,53 @@
     items.forEach(item => rentalsGrid.appendChild(createCard(item)));
 
     const count = document.getElementById('rentals-count');
-    if (count) count.textContent = `${items.length} piedāvājumi`;
+    if (count) count.textContent = `${items.length} pied\u0101v\u0101jumi`;
 
     const empty = document.getElementById('rentals-empty');
     if (empty) empty.classList.toggle('d-none', items.length > 0);
   }
 
+  function updateDetailTemplate(item) {
+    const textField = (name, value) => {
+      const el = rentalDetail.querySelector(`[data-rental-field="${name}"]`);
+      if (el) el.textContent = value ?? '';
+    };
+
+    textField('type', `${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre`);
+    textField('title', item.title || '');
+    textField('price', item.price || '');
+    textField('address', item.address || '');
+    textField('description', item.description || '');
+    textField('bedrooms', item.bedrooms ?? '');
+    textField('bathrooms', item.bathrooms ?? '');
+    textField('area', item.area ?? '');
+    textField('floors', item.floors ?? '');
+
+    const updateImage = (field, src, alt) => {
+      const img = rentalDetail.querySelector(`[data-rental-src="${field}"]`);
+      if (!img) return;
+      if (src) img.src = src;
+      if (alt) img.alt = alt;
+    };
+
+    updateImage('image_1', item.image_1, item.image_1_alt || item.title);
+    updateImage('image_2', item.image_2, item.image_2_alt || item.title);
+
+    const cta = rentalDetail.querySelector('[data-rental-href="cta"]');
+    if (cta && item.cta_href) {
+      cta.setAttribute('href', item.cta_href);
+    }
+  }
+
   function renderDetail(item) {
     if (!rentalDetail) return;
     if (!item) {
-      rentalDetail.innerHTML = '<div class="alert alert-warning">Piedāvājums nav atrasts.</div>';
+      rentalDetail.innerHTML = '<div class="alert alert-warning">Pied\u0101v\u0101jums nav atrasts.</div>';
+      return;
+    }
+
+    if (rentalDetail.querySelector('[data-rental-field]')) {
+      updateDetailTemplate(item);
       return;
     }
 
@@ -139,18 +181,18 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <span class="badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'} mb-3">${item.type === 'short' ? 'Īstermiņa' : 'Ilgtermiņa'}</span>
+          <span class="badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'} mb-3">${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre</span>
           <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
           ${item.price ? `<p class="h4 text-accent mb-2">${item.price}</p>` : ''}
           ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
           ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
           <div class="d-flex flex-wrap gap-3 mb-4">
-            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guļamistabas</span>` : ''}
-            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas</span>` : ''}
-            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m²</span>` : ''}
-            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stāvs</span>` : ''}
+            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} gu\u013Camistabas</span>` : ''}
+            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas istabas</span>` : ''}
+            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m\u00B2</span>` : ''}
+            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. st\u0101vs</span>` : ''}
           </div>
-          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Pieteikt pieejamību</a>
+          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Pieteikt pieejam\u012Bbu</a>
         </div>
       </div>`;
   }
@@ -182,7 +224,7 @@
     renderList(filtered);
   }
 
-  function w\u012AreFilters() {
+  function wireFilters() {
     ['location', 'price-min', 'price-max'].forEach(id => {
       const input = document.getElementById(id);
       if (input) input.addEventListener('input', () => setTimeout(applyFilters, 150));
@@ -208,16 +250,17 @@
       rentals = Array.isArray(json.rentals) ? json.rentals : [];
       if (rentalsGrid) {
         renderList(rentals);
-        w\u012AreFilters();
+        wireFilters();
       }
       if (rentalDetail) {
         const slug = new URLSearchParams(window.location.search).get('slug');
         const selected = rentals.find(item => item.slug === slug) || rentals[0];
-        renderDetail(selected);
+        if (selected) {
+          renderDetail(selected);
+        }
       }
     })
     .catch(() => {
-      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īres piedāvājumus.</div>';
+      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t \u012bres pied\u0101v\u0101jumus.</div>';
     });
 })();
-      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t \u012bres pied\u0101v\u0101jumus.</div>';

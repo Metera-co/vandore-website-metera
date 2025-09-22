@@ -1,0 +1,24 @@
+﻿{
+  "slug": "modern-city-loft",
+  "title": "Modern City Loft",
+  "price": "\u20ac 245 000",
+  "address": "Br\u012bv\u012bbas iela 45, R\u012bga",
+  "description": "Augsti griesti, panor\u0101mas logi un atv\u0113rta tipa viesistaba loft tipa dz\u012bvokl\u012b ar skatu uz pils\u0113tu.",
+  "area": 78,
+  "bedrooms": 1,
+  "bathrooms": 1,
+  "floors": 6,
+  "image": "/image/dummy-img-600x600.jpg",
+  "gallery": [
+    {
+      "src": "/image/dummy-img-600x600.jpg",
+      "alt": "Atv\u0113rta tipa viesistaba",
+      "caption": "Lofts ar pla\u0161u, atv\u0113rtu pl\u0101nojumu"
+    },
+    {
+      "src": "/image/dummy-img-600x500.jpg",
+      "alt": "Skats uz pils\u0113tu no balkona",
+      "caption": "Priv\u0101ts balkons ar skatu uz pils\u0113tu"
+    }
+  ]
+}

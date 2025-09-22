@@ -1,5 +1,8 @@
 ﻿version: 1
 
+ssg: none
+source: .
+
 site:
   base_url: /
   timezone: Europe/Riga
@@ -11,12 +14,13 @@ paths:
   content: content
 
 preserve_files:
-  - image/uploads
+  - image/uploads/**
 
 collection_groups:
   - heading: Pages
     collections:
       - pages
+      - page_content
   - heading: Listings
     collections:
       - rentals
@@ -59,9 +63,9 @@ inputs:
     type: select
     options:
       values:
-        - label: Ilgtermina
+        - label: Ilgtermiņa
           value: long
-        - label: Istermina
+        - label: Īstermiņa
           value: short
 
 collections_config:
@@ -80,6 +84,17 @@ collections_config:
     _enabled_editors:
       - visual
       - source
+  page_content:
+    name: Page Content
+    path: content/pages
+    icon: description
+    glob:
+      - '*.json'
+    format: json
+    output: false
+    new_item_extension: json
+    _enabled_editors:
+      - data
   rentals:
     name: Rentals
     path: data/rentals.json
@@ -87,7 +102,8 @@ collections_config:
     format: json
     output: false
     value_key: rentals
-    url: /rentals/{slug}/
+    url: /rental.html?slug={slug}
+    new_item_extension: json
     _enabled_editors:
       - data
     schema:
@@ -153,12 +169,14 @@ collections_config:
           input: short_text
   properties:
     name: Properties
-    path: data/properties.json
+    path: content/properties
     icon: real_estate_agent
+    glob:
+      - '*.json'
     format: json
-    output: false
-    value_key: properties
-    url: /properties/{slug}/
+    output: true
+    new_item_extension: json
+    url: /property.html?slug={slug}
     _enabled_editors:
       - data
     schema:
@@ -186,10 +204,10 @@ collections_config:
           label: Description
           type: textarea
           input: long_text
-        - name: image
-          label: Featured Image
-          type: image
-          input: image
+        - name: area
+          label: Area (m2)
+          type: number
+          input: number
         - name: bedrooms
           label: Bedrooms
           type: number
@@ -198,14 +216,14 @@ collections_config:
           label: Bathrooms
           type: number
           input: number
-        - name: area
-          label: Area (m2)
-          type: number
-          input: number
         - name: floors
           label: Floor
           type: number
           input: number
+        - name: image
+          label: Featured Image
+          type: image
+          input: image
         - name: gallery
           label: Gallery Images
           type: array
@@ -231,7 +249,8 @@ collections_config:
     format: json
     output: false
     value_key: blogs
-    url: /blog/{slug}/
+    url: /single_blog.html?slug={slug}
+    new_item_extension: json
     _enabled_editors:
       - data
     schema:
@@ -286,6 +305,9 @@ file_config:
   - glob: content/pages/**/*.json
     _enabled_editors:
       - data
+  - glob: content/properties/**/*.json
+    _enabled_editors:
+      - data
   - glob: data/**/*.json
     _enabled_editors:
       - data
@@ -294,12 +316,10 @@ source_editor:
   enabled: true
   commit_templates:
     - label: Content update
-      template: "content: {{ collection }} {{ title | default: slug | default: 'entry' }}"
-    - label: Quick fix
-      template: "fix: {{ collection }} {{ title | default: slug | default: 'content' }}"
+      template: "content: update {{ collection }}"
 
 build:
-  install: npm install
-  command: npm run build
-  output_path: _site
+  install: ""
+  command: ""
+  output_path: .
 

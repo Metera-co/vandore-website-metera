@@ -1,65 +1,60 @@
-{
+﻿{
+  "title": "Vandore Heritage - \u012Are\u0161 pied\u0101v\u0101jums",
+  "nav": {
+    "logo": {
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025",
+      "alt": "Vandore Heritage"
+    },
+    "links": [
+      { "href": "index.html", "label": "S\u0101kums" },
+      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "rentals.html", "label": "\u012Are" },
+      { "href": "blog.html", "label": "Blogs" },
+      { "href": "contact.html", "label": "Kontakti" }
+    ]
+  },
   "breadcrumb": {
     "href": "rentals.html",
-    "label": "← Atpakaļ uz īres sarakstu"
+    "label": "\u2190 Atpaka\u013c uz \u012bres sarakstu"
+  },
+  "detail": {
+    "type": "Ilgtermi\u0146a \u012Bre",
+    "title": "Divistabu dz\u012bvoklis centr\u0101",
+    "price": "\u20ac 650/m\u0113n",
+    "address": "R\u012bga, Centrs",
+    "description": "Gai\u0161s un m\u0101j\u012bgs dz\u012bvoklis ar div\u0101m gu\u013camistab\u0101m, pla\u0161u dz\u012bvotavu un piln\u012bb\u0101 apr\u012bkotu virtuvi. Ide\u0101li piem\u0113rots \u0123imen\u0113m vai profesion\u0101\u013ciem, kas mekl\u0113 komfortu pa\u0161\u0101 centra sird\u012b.",
+    "stats": {
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "area": 65,
+      "floors": 5
+    },
+    "primary_image": {
+      "src": "../image/dummy-img-600x400.jpg",
+      "alt": "Viesistaba ar lieliem logiem"
+    },
+    "secondary_image": {
+      "src": "../image/dummy-img-900x600.jpg",
+      "alt": "Gu\u013camistaba ar dabisko apgaismojumu"
+    },
+    "cta": {
+      "href": "mailto:info@vandoreheritage.lv",
+      "label": "Pieteikt pieejam\u012bbu"
+    }
   },
   "footer": {
-    "contactLabel": "Sazināties",
+    "contactLabel": "Sazin\u0101ties",
     "email": {
       "href": "mailto:info@vandoreheritage.lv",
       "label": "info@vandoreheritage.lv"
     },
     "links": [
-      {
-        "href": "index.html",
-        "label": "Sākums"
-      },
-      {
-        "href": "properties.html",
-        "label": "Īpašumi"
-      },
-      {
-        "href": "rentals.html",
-        "label": "Īre"
-      },
-      {
-        "href": "blog.html",
-        "label": "Blogs"
-      },
-      {
-        "href": "contact.html",
-        "label": "Kontakti"
-      }
+      { "href": "index.html", "label": "S\u0101kums" },
+      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "rentals.html", "label": "\u012Are" },
+      { "href": "blog.html", "label": "Blogs" },
+      { "href": "contact.html", "label": "Kontakti" }
     ]
-  },
-  "nav": {
-    "links": [
-      {
-        "href": "index.html",
-        "label": "Sākums"
-      },
-      {
-        "href": "properties.html",
-        "label": "Īpašumi"
-      },
-      {
-        "href": "rentals.html",
-        "label": "Īre"
-      },
-      {
-        "href": "blog.html",
-        "label": "Blogs"
-      },
-      {
-        "href": "contact.html",
-        "label": "Kontakti"
-      }
-    ],
-    "logo": {
-      "alt": "Vandore Heritage",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
-    }
-  },
-  "title": "Vandore Heritage - Īres piedāvājums"
+  }
 }

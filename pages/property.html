@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="lv" data-sb-object-id="content/pages/property.json">
 <head>
   <meta charset="utf-8" />
@@ -33,7 +33,38 @@
       <nav class="mb-4" aria-label="Atpakaļ uz katalogu" data-sb-field-path="breadcrumb">
         <a class="link d-inline-flex align-items-center gap-2" href="properties.html" data-sb-field-path="breadcrumb.href#@href"><span data-sb-field-path="breadcrumb.label">← Atpakaļ uz īpašumu sarakstu</span></a>
       </nav>
-      <div id="property-detail" data-sb-field-path="detail"></div>
+      <div id="property-detail" class="row gy-4 align-items-start" data-sb-field-path="detail">
+        <div class="col-lg-7">
+          <div class="property-gallery d-grid gap-4" data-property-gallery>
+            <figure class="m-0" data-property-gallery-item data-property-gallery-index="0" data-sb-field-path="gallery[0]">
+              <img class="img-fluid rounded-4" loading="lazy" src="../image/dummy-img-900x700.jpg" alt="Plaša viesistaba" data-sb-field-path="gallery[0].src#@src" data-sb-alt-field="gallery[0].alt" data-property-gallery-image />
+              <figcaption class="text-muted small mt-2" data-sb-field-path="gallery[0].caption" data-property-gallery-caption>Saulains un silts dzīvoklis</figcaption>
+            </figure>
+            <figure class="m-0" data-property-gallery-item data-property-gallery-index="1" data-sb-field-path="gallery[1]">
+              <img class="img-fluid rounded-4" loading="lazy" src="../image/dummy-img-900x600.jpg" alt="Pilnībā aprīkota virtuve" data-sb-field-path="gallery[1].src#@src" data-sb-alt-field="gallery[1].alt" data-property-gallery-image />
+              <figcaption class="text-muted small mt-2" data-sb-field-path="gallery[1].caption" data-property-gallery-caption>Virtuve ar iebūvētu tehniku</figcaption>
+            </figure>
+            <figure class="m-0" data-property-gallery-item data-property-gallery-index="2" data-sb-field-path="gallery[2]">
+              <img class="img-fluid rounded-4" loading="lazy" src="../image/dummy-img-600x400.jpg" alt="Mājīga guļamistaba" data-sb-field-path="gallery[2].src#@src" data-sb-alt-field="gallery[2].alt" data-property-gallery-image />
+              <figcaption class="text-muted small mt-2" data-sb-field-path="gallery[2].caption" data-property-gallery-caption>Guļamistaba ar skatu uz pagalmu</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex flex-column gap-3">
+          <span class="badge bg-primary align-self-start" data-sb-field-path="badge" data-property-field="badge">Pārdošanā</span>
+          <h1 class="display-5 fw-semibold mb-2" data-sb-field-path="title" data-property-field="title">Sample Apartment</h1>
+          <p class="h4 text-accent mb-1" data-sb-field-path="price" data-property-field="price">€ 120 000</p>
+          <p class="text-muted" data-sb-field-path="address" data-property-field="address">Example iela 10, Rīga</p>
+          <p class="mb-4" data-sb-field-path="description" data-property-field="description">Mūsdienīgs divistabu dzīvoklis ar plašu dzīvojamo zonu un klusu pagalmu pilsētas centrā.</p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.area" data-property-field="area">65</span> m²</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.bedrooms" data-property-field="bedrooms">2</span> guļamistabas</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.bathrooms" data-property-field="bathrooms">1</span> vannas istaba</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.floors" data-property-field="floors">5</span>. stāvs</span>
+          </div>
+          <a class="btn btn-accent btn-lg align-self-start" href="mailto:info@vandoreheritage.lv">Sazināties</a>
+        </div>
+      </div>
     </div>
   </main>
 

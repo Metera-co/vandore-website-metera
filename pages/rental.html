@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="lv" data-sb-object-id="content/pages/rental.json">
 <head>
   <meta charset="utf-8" />
@@ -33,7 +33,32 @@
       <nav class="mb-4" aria-label="Atpakaļ uz piedāvājumiem" data-sb-field-path="breadcrumb">
         <a class="link d-inline-flex align-items-center gap-2" href="rentals.html" data-sb-field-path="breadcrumb.href#@href"><span data-sb-field-path="breadcrumb.label">← Atpakaļ uz īres sarakstu</span></a>
       </nav>
-      <div id="rental-detail" data-sb-field-path="detail"></div>
+      <div id="rental-detail" class="row gy-4 align-items-start" data-sb-field-path="detail">
+        <div class="col-lg-6">
+          <div class="d-flex flex-column gap-3">
+            <figure class="m-0">
+              <img class="img-fluid rounded-4" loading="lazy" src="../image/dummy-img-600x400.jpg" alt="Viesistaba ar lieliem logiem" data-sb-field-path="primary_image.src#@src" data-sb-alt-field="primary_image.alt" data-rental-src="image_1" data-rental-alt="image_1_alt" />
+            </figure>
+            <figure class="m-0">
+              <img class="img-fluid rounded-4" loading="lazy" src="../image/dummy-img-900x600.jpg" alt="Gulamistaba ar dabisko apgaismojumu" data-sb-field-path="secondary_image.src#@src" data-sb-alt-field="secondary_image.alt" data-rental-src="image_2" data-rental-alt="image_2_alt" />
+            </figure>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex flex-column gap-3">
+          <span class="badge bg-primary align-self-start" data-sb-field-path="type" data-rental-field="type">Ilgtermiņa īre</span>
+          <h1 class="display-5 fw-semibold mb-2" data-sb-field-path="title" data-rental-field="title">Divistabu dzīvoklis centrā</h1>
+          <p class="h4 text-accent mb-1" data-sb-field-path="price" data-rental-field="price">€ 650/mēn</p>
+          <p class="text-muted" data-sb-field-path="address" data-rental-field="address">Rīga, Centrs</p>
+          <p class="mb-4" data-sb-field-path="description" data-rental-field="description">Gaišs un mājīgs dzīvoklis ar divām guļamistabām, plašu dzīvojamo zonu un pilnībā aprīkotu virtuvi. Ideāli piemērots ģimenēm vai profesionāļiem, kas meklē komfortu pašā centra sirdī.</p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.bedrooms" data-rental-field="bedrooms">2</span> guļamistabas</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.bathrooms" data-rental-field="bathrooms">1</span> vannas istaba</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.area" data-rental-field="area">65</span> m²</span>
+            <span class="badge bg-light text-dark px-3 py-2"><span data-sb-field-path="stats.floors" data-rental-field="floors">5</span>. stāvs</span>
+          </div>
+          <a class="btn btn-accent btn-lg align-self-start" href="mailto:info@vandoreheritage.lv" data-sb-field-path="cta.href#@href" data-rental-href="cta"><span data-sb-field-path="cta.label">Pieteikt pieejamību</span></a>
+        </div>
+      </div>
     </div>
   </main>
 

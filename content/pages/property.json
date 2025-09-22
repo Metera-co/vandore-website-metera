@@ -1,65 +1,65 @@
-{
+﻿{
+  "title": "Vandore Heritage - \u012Ap\u0101\u0161uma pied\u0101v\u0101jums",
+  "nav": {
+    "logo": {
+      "href": "index.html",
+      "src": "../image/red_LOGO_Vandore.png?v=2025",
+      "alt": "Vandore Heritage"
+    },
+    "links": [
+      { "href": "index.html", "label": "S\u0101kums" },
+      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "rentals.html", "label": "\u012Are" },
+      { "href": "blog.html", "label": "Blogs" },
+      { "href": "contact.html", "label": "Kontakti" }
+    ]
+  },
   "breadcrumb": {
     "href": "properties.html",
-    "label": "← Atpakaļ uz īpašumu sarakstu"
+    "label": "\u2190 Atpaka\u013c uz \u012ap\u0101\u0161umu sarakstu"
+  },
+  "detail": {
+    "badge": "P\u0101rdo\u0161an\u0101",
+    "title": "Sample Apartment",
+    "price": "\u20ac 120 000",
+    "address": "Example iela 10, R\u012bga",
+    "description": "M\u016bzdien\u012bgs divistabu dz\u012bvoklis ar pla\u0161u dz\u012bvotavu un klusu pagalmu pils\u0113tas centr\u0101.",
+    "stats": {
+      "area": 65,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "floors": 5
+    },
+    "gallery": [
+      {
+        "src": "../image/dummy-img-900x700.jpg",
+        "alt": "Pla\u0161a viesistaba ar skatu uz pagalmu",
+        "caption": "Saulains un silts dz\u012bvoklis"
+      },
+      {
+        "src": "../image/dummy-img-900x600.jpg",
+        "alt": "Piln\u012bb\u0101 apr\u012bkota virtuve",
+        "caption": "Virtuve ar ieb\u016bv\u0113tu tehniku"
+      },
+      {
+        "src": "../image/dummy-img-600x400.jpg",
+        "alt": "M\u0101j\u012bga gu\u013camistaba",
+        "caption": "Gu\u013camistaba ar skatu uz pagalmu"
+      }
+    ]
   },
   "footer": {
-    "contactLabel": "Sazināties",
+    "contactLabel": "Sazin\u0101ties",
     "email": {
       "href": "mailto:info@vandoreheritage.lv",
       "label": "info@vandoreheritage.lv"
     },
     "links": [
-      {
-        "href": "index.html",
-        "label": "Sākums"
-      },
-      {
-        "href": "properties.html",
-        "label": "Īpašumi"
-      },
-      {
-        "href": "rentals.html",
-        "label": "Īre"
-      },
-      {
-        "href": "blog.html",
-        "label": "Blogs"
-      },
-      {
-        "href": "contact.html",
-        "label": "Kontakti"
-      }
+      { "href": "index.html", "label": "S\u0101kums" },
+      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "rentals.html", "label": "\u012Are" },
+      { "href": "blog.html", "label": "Blogs" },
+      { "href": "contact.html", "label": "Kontakti" }
     ]
-  },
-  "nav": {
-    "links": [
-      {
-        "href": "index.html",
-        "label": "Sākums"
-      },
-      {
-        "href": "properties.html",
-        "label": "Īpašumi"
-      },
-      {
-        "href": "rentals.html",
-        "label": "Īre"
-      },
-      {
-        "href": "blog.html",
-        "label": "Blogs"
-      },
-      {
-        "href": "contact.html",
-        "label": "Kontakti"
-      }
-    ],
-    "logo": {
-      "alt": "Vandore Heritage",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
-    }
-  },
-  "title": "Vandore Heritage - Īpašuma piedāvājums"
+  }
 }

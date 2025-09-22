@@ -1,9 +1,8 @@
-node_modules/
+﻿node_modules/
 .history/
 .vscode/
 .env
 .env.*
 !.env.example
-data/
 public/uploads/
 _site/
