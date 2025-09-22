@@ -4,12 +4,12 @@
   let rentals = [];
 
   const TYPE_LABELS = {
-    short: '\u012Astermi\u0146a',
-    long: 'Ilgtermi\u0146a'
+    short: 'Īstermiņa',
+    long: 'Ilgtermiņa'
   };
 
   function dataPath(name) {
-    return window.location.pathname.includes('/pages/') ? `../data/${name}` : `data/${name}`;
+    return `/data/${name}`;
   }
 
   function numericValue(value) {
@@ -35,7 +35,7 @@
   }
 
   function rentalUrl(slug) {
-    return `rental.html?slug=${encodeURIComponent(slug)}`;
+    return `/rental.html?slug=${encodeURIComponent(slug)}`;
   }
 
   function createCard(item) {
@@ -68,7 +68,7 @@
 
     const badge = document.createElement('span');
     badge.className = `badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'}`;
-    badge.textContent = `${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre`;
+    badge.textContent = `${TYPE_LABELS[item.type] || 'Ilgtermiņa'} īre`;
     header.appendChild(badge);
 
     body.appendChild(header);
@@ -101,13 +101,13 @@
     meta.className = 'd-flex gap-3 text-muted small flex-wrap';
     if (item.bedrooms) meta.appendChild(makeBadge(`${item.bedrooms} ist.`));
     if (item.bathrooms) meta.appendChild(makeBadge(`${item.bathrooms} vann.`));
-    if (item.area) meta.appendChild(makeBadge(`${item.area} m\u00B2`));
+    if (item.area) meta.appendChild(makeBadge(`${item.area} m²`));
     footer.appendChild(meta);
 
     const more = document.createElement('a');
     more.className = 'btn btn-outline-secondary btn-sm';
     more.href = rentalUrl(item.slug);
-    more.textContent = 'Skat\u012Bt';
+    more.textContent = 'Skatīt';
     footer.appendChild(more);
 
     body.appendChild(footer);
@@ -122,7 +122,7 @@
     items.forEach(item => rentalsGrid.appendChild(createCard(item)));
 
     const count = document.getElementById('rentals-count');
-    if (count) count.textContent = `${items.length} pied\u0101v\u0101jumi`;
+    if (count) count.textContent = `${items.length} piedāvājumi`;
 
     const empty = document.getElementById('rentals-empty');
     if (empty) empty.classList.toggle('d-none', items.length > 0);
@@ -134,7 +134,7 @@
       if (el) el.textContent = value ?? '';
     };
 
-    textField('type', `${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre`);
+    textField('type', `${TYPE_LABELS[item.type] || 'Ilgtermiņa'} īre`);
     textField('title', item.title || '');
     textField('price', item.price || '');
     textField('address', item.address || '');
@@ -163,7 +163,7 @@
   function renderDetail(item) {
     if (!rentalDetail) return;
     if (!item) {
-      rentalDetail.innerHTML = '<div class="alert alert-warning">Pied\u0101v\u0101jums nav atrasts.</div>';
+      rentalDetail.innerHTML = '<div class="alert alert-warning">Piedāvājums nav atrasts.</div>';
       return;
     }
 
@@ -181,18 +181,18 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <span class="badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'} mb-3">${TYPE_LABELS[item.type] || 'Ilgtermi\u0146a'} \u012Bre</span>
+          <span class="badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'} mb-3">${TYPE_LABELS[item.type] || 'Ilgtermiņa'} īre</span>
           <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
           ${item.price ? `<p class="h4 text-accent mb-2">${item.price}</p>` : ''}
           ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
           ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
           <div class="d-flex flex-wrap gap-3 mb-4">
-            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} gu\u013Camistabas</span>` : ''}
+            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guļamistabas</span>` : ''}
             ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas istabas</span>` : ''}
-            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m\u00B2</span>` : ''}
-            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. st\u0101vs</span>` : ''}
+            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m²</span>` : ''}
+            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stāvs</span>` : ''}
           </div>
-          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Pieteikt pieejam\u012Bbu</a>
+          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Pieteikt pieejamību</a>
         </div>
       </div>`;
   }
@@ -224,7 +224,7 @@
     renderList(filtered);
   }
 
-  function wireFilters() {
+  function wĪreFilters() {
     ['location', 'price-min', 'price-max'].forEach(id => {
       const input = document.getElementById(id);
       if (input) input.addEventListener('input', () => setTimeout(applyFilters, 150));
@@ -250,7 +250,7 @@
       rentals = Array.isArray(json.rentals) ? json.rentals : [];
       if (rentalsGrid) {
         renderList(rentals);
-        wireFilters();
+        wĪreFilters();
       }
       if (rentalDetail) {
         const slug = new URLSearchParams(window.location.search).get('slug');
@@ -261,6 +261,13 @@
       }
     })
     .catch(() => {
-      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t \u012bres pied\u0101v\u0101jumus.</div>';
+      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īres piedāvājumus.</div>';
     });
 })();
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@
   let properties = [];
 
   function dataPath(name) {
-    return window.location.pathname.includes('/pages/') ? `../data/${name}` : `data/${name}`;
+    return `/data/${name}`;
   }
 
   function numericValue(value) {
@@ -84,15 +84,15 @@
 
     const badges = document.createElement('div');
     badges.className = 'd-flex gap-3 flex-wrap';
-    if (item.bedrooms) badges.appendChild(createBadge(`${item.bedrooms} gu\u013Camist.`));
+    if (item.bedrooms) badges.appendChild(createBadge(`${item.bedrooms} guļamist.`));
     if (item.bathrooms) badges.appendChild(createBadge(`${item.bathrooms} vann.`));
-    if (item.area) badges.appendChild(createBadge(`${item.area} m\u00B2`));
+    if (item.area) badges.appendChild(createBadge(`${item.area} m²`));
     footer.appendChild(badges);
 
     const link = document.createElement('a');
     link.className = 'btn btn-accent btn-sm';
     link.href = propertyUrl(item.slug);
-    link.innerHTML = '<span>Skat\u012Bt</span><i class="rtmicon rtmicon-arrow-up-right ms-1"></i>';
+    link.innerHTML = '<span>Skatīt</span><i class="rtmicon rtmicon-arrow-up-right ms-1"></i>';
     footer.appendChild(link);
 
     body.appendChild(footer);
@@ -107,7 +107,7 @@
     items.forEach(item => propertiesGrid.appendChild(createCard(item)));
 
     const count = document.getElementById('property-count');
-    if (count) count.textContent = `${items.length} \u012bp\u0101\u0161umi atrasti`;
+    if (count) count.textContent = `${items.length} īpāšumi atrasti`;
 
     const empty = document.getElementById('empty-state');
     if (empty) empty.style.display = items.length ? 'none' : 'block';
@@ -171,7 +171,7 @@
       if (el) el.textContent = value ?? '';
     };
 
-    textField('badge', item.badge || 'P\u0101rdo\u0161an\u0101');
+    textField('badge', item.badge || 'Pārdošanā');
     textField('title', item.title || '');
     textField('price', item.price || '');
     textField('address', item.address || '');
@@ -210,18 +210,18 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <span class="badge bg-primary mb-3">${item.badge || 'P\u0101rdo\u0161an\u0101'}</span>
+          <span class="badge bg-primary mb-3">${item.badge || 'Pārdošanā'}</span>
           <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
           ${item.price ? `<p class="h4 text-accent mb-3">${item.price}</p>` : ''}
           ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
           ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
           <div class="d-flex flex-wrap gap-3 mb-4">
-            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m\u00B2</span>` : ''}
-            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} gu\u013Camistabas</span>` : ''}
+            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} m²</span>` : ''}
+            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guļamistabas</span>` : ''}
             ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas istabas</span>` : ''}
-            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. st\u0101vs</span>` : ''}
+            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stāvs</span>` : ''}
           </div>
-          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Sazin\u0101ties</a>
+          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Sazināties</a>
         </div>
       </div>`;
   }
@@ -243,7 +243,7 @@
     renderList(filtered);
   }
 
-  function wireFilters() {
+  function wĪreFilters() {
     ['location-search', 'min-price', 'max-price'].forEach(id => {
       const input = document.getElementById(id);
       if (input) input.addEventListener('input', () => setTimeout(applyFilters, 150));
@@ -270,7 +270,7 @@
       properties = Array.isArray(json.properties) ? json.properties : [];
       if (propertiesGrid) {
         renderList(properties);
-        wireFilters();
+        wĪreFilters();
       }
       if (propertyDetail) {
         const slug = new URLSearchParams(window.location.search).get('slug');
@@ -281,6 +281,18 @@
       }
     })
     .catch(() => {
-      if (propertiesGrid) propertiesGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t \u012bp\u0101\u0161umu sarakstu.</div>';
+      if (propertiesGrid) propertiesGrid.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt īpāšumu sarakstu.</div>';
     });
 })();
+
+
+
+
+
+
+
+
+
+
+
+

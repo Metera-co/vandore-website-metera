@@ -1,8 +1,8 @@
-{
+﻿{
   "filters": {
-    "apply": "Filtrēt",
+    "apply": "FiltrÄ“t",
     "bedrooms": {
-      "label": "Guļamistabas",
+      "label": "GuÄ¼amistabas",
       "options": [
         "Visas",
         "1",
@@ -11,14 +11,14 @@
         "4+"
       ]
     },
-    "clear": "Notīrīt",
+    "clear": "NotÄ«rÄ«t",
     "heading": "Filtri",
     "location": {
-      "label": "Pilsēta",
-      "placeholder": "Rīga, Jūrmala..."
+      "label": "PilsÄ“ta",
+      "placeholder": "RÄ«ga, JÅ«rmala..."
     },
     "maxPrice": {
-      "label": "Cena līdz (EUR)",
+      "label": "Cena lÄ«dz (EUR)",
       "placeholder": "1000"
     },
     "minPrice": {
@@ -26,39 +26,39 @@
       "placeholder": "100"
     },
     "type": {
-      "label": "Īres veids",
+      "label": "Äªres veids",
       "options": [
-        "Visi piedāvājumi",
-        "Ilgtermiņa īre",
-        "Īstermiņa īre"
+        "Visi piedÄvÄjumi",
+        "IlgtermiÅ†a Ä«re",
+        "ÄªstermiÅ†a Ä«re"
       ]
     }
   },
   "footer": {
-    "contactLabel": "Sazināties",
+    "contactLabel": "SazinÄties",
     "email": {
       "href": "mailto:info@vandoreheritage.lv",
       "label": "info@vandoreheritage.lv"
     },
     "links": [
       {
-        "href": "index.html",
-        "label": "Sākums"
+        "href": "/",
+        "label": "SÄkums"
       },
       {
-        "href": "properties.html",
-        "label": "Īpašumi"
+        "href": "/properties.html",
+        "label": "ÄªpaÅ¡umi"
       },
       {
-        "href": "rentals.html",
-        "label": "Īre"
+        "href": "/rentals.html",
+        "label": "Äªre"
       },
       {
-        "href": "blog.html",
+        "href": "/blog.html",
         "label": "Blogs"
       },
       {
-        "href": "contact.html",
+        "href": "/contact.html",
         "label": "Kontakti"
       }
     ]
@@ -67,49 +67,54 @@
     "actions": [
       {
         "href": "#rentals-grid",
-        "label": "Skatīt pieejamos"
+        "label": "SkatÄ«t pieejamos"
       },
       {
-        "href": "contact.html",
-        "label": "Sazināties ar mums"
+        "href": "/contact.html",
+        "label": "SazinÄties ar mums"
       }
     ],
-    "heading": "Īre un īstermiņa piedāvājumi",
-    "subheading": "Atlasīti, pārvaldīti īres īpašumi visā Latvijā. Katram piedāvājumam pievienoti vizuālie materiāli un pilna informācija, lai ātri pieņemtu lēmumu."
+    "heading": "Äªre un Ä«stermiÅ†a piedÄvÄjumi",
+    "subheading": "AtlasÄ«ti, pÄrvaldÄ«ti Ä«res Ä«paÅ¡umi visÄ LatvijÄ. Katram piedÄvÄjumam pievienoti vizuÄlie materiÄli un pilna informÄcija, lai Ätri pieÅ†emtu lÄ“mumu."
   },
   "list": {
-    "countDefault": "Notiek ielāde...",
-    "emptyState": "Pašlaik filtru kritērijiem neatbilst neviens piedāvājums.",
-    "heading": "Pieejamie piedāvājumi"
+    "countDefault": "Notiek ielÄde...",
+    "emptyState": "PaÅ¡laik filtru kritÄ“rijiem neatbilst neviens piedÄvÄjums.",
+    "heading": "Pieejamie piedÄvÄjumi"
   },
   "nav": {
     "links": [
       {
-        "href": "index.html",
-        "label": "Sākums"
+        "href": "/",
+        "label": "SÄkums"
       },
       {
-        "href": "properties.html",
-        "label": "Īpašumi"
+        "href": "/properties.html",
+        "label": "ÄªpaÅ¡umi"
       },
       {
-        "href": "rentals.html",
-        "label": "Īre"
+        "href": "/rentals.html",
+        "label": "Äªre"
       },
       {
-        "href": "blog.html",
+        "href": "/blog.html",
         "label": "Blogs"
       },
       {
-        "href": "contact.html",
+        "href": "/contact.html",
         "label": "Kontakti"
       }
     ],
     "logo": {
       "alt": "Vandore Heritage",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
+      "href": "/",
+      "src": "/image/red_LOGO_Vandore.png?v=2025"
     }
   },
-  "title": "Vandore Heritage - Īre un īstermiņa īre"
+  "title": "Vandore Heritage - Äªre un Ä«stermiÅ†a Ä«re"
 }
+
+
+
+
+

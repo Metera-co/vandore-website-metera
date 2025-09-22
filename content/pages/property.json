@@ -2,20 +2,20 @@
   "title": "Vandore Heritage - \u012Ap\u0101\u0161uma pied\u0101v\u0101jums",
   "nav": {
     "logo": {
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025",
+      "href": "/",
+      "src": "/image/red_LOGO_Vandore.png?v=2025",
       "alt": "Vandore Heritage"
     },
     "links": [
-      { "href": "index.html", "label": "S\u0101kums" },
-      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
-      { "href": "rentals.html", "label": "\u012Are" },
-      { "href": "blog.html", "label": "Blogs" },
-      { "href": "contact.html", "label": "Kontakti" }
+      { "href": "/", "label": "S\u0101kums" },
+      { "href": "/properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "/rentals.html", "label": "\u012Are" },
+      { "href": "/blog.html", "label": "Blogs" },
+      { "href": "/contact.html", "label": "Kontakti" }
     ]
   },
   "breadcrumb": {
-    "href": "properties.html",
+    "href": "/properties.html",
     "label": "\u2190 Atpaka\u013c uz \u012ap\u0101\u0161umu sarakstu"
   },
   "detail": {
@@ -32,17 +32,17 @@
     },
     "gallery": [
       {
-        "src": "../image/dummy-img-900x700.jpg",
+        "src": "/image/dummy-img-900x700.jpg",
         "alt": "Pla\u0161a viesistaba ar skatu uz pagalmu",
         "caption": "Saulains un silts dz\u012bvoklis"
       },
       {
-        "src": "../image/dummy-img-900x600.jpg",
+        "src": "/image/dummy-img-900x600.jpg",
         "alt": "Piln\u012bb\u0101 apr\u012bkota virtuve",
         "caption": "Virtuve ar ieb\u016bv\u0113tu tehniku"
       },
       {
-        "src": "../image/dummy-img-600x400.jpg",
+        "src": "/image/dummy-img-600x400.jpg",
         "alt": "M\u0101j\u012bga gu\u013camistaba",
         "caption": "Gu\u013camistaba ar skatu uz pagalmu"
       }
@@ -55,11 +55,15 @@
       "label": "info@vandoreheritage.lv"
     },
     "links": [
-      { "href": "index.html", "label": "S\u0101kums" },
-      { "href": "properties.html", "label": "\u012Ap\u0101\u0161umi" },
-      { "href": "rentals.html", "label": "\u012Are" },
-      { "href": "blog.html", "label": "Blogs" },
-      { "href": "contact.html", "label": "Kontakti" }
+      { "href": "/", "label": "S\u0101kums" },
+      { "href": "/properties.html", "label": "\u012Ap\u0101\u0161umi" },
+      { "href": "/rentals.html", "label": "\u012Are" },
+      { "href": "/blog.html", "label": "Blogs" },
+      { "href": "/contact.html", "label": "Kontakti" }
     ]
   }
 }
+
+
+
+

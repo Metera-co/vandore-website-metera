@@ -1,11 +1,11 @@
-{
+﻿{
   "heroHeading": "Sazinieties ar mums",
   "heroSubheading": "Sazinieties ar mums, lai sanemtu personalizetus padomus par nekustamo ipa?umu un pakalpojumiem.",
   "nav": {
     "logo": {
       "alt": "Vandore Heritage",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
+      "href": "/",
+      "src": "/image/red_LOGO_Vandore.png?v=2025"
     },
     "menuTitle": "Menu",
     "toggle": {
@@ -19,7 +19,12 @@
     }
   ],
   "seo": {
-    "favicon": "../image/red_LOGO_Vandore.png?v=2025"
+    "favicon": "/image/red_LOGO_Vandore.png?v=2025"
   },
   "title": "Vandore Heritage - sazinieties ar mums"
 }
+
+
+
+
+

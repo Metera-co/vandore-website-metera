@@ -8,10 +8,45 @@ site:
   timezone: Europe/Riga
 
 paths:
-  static: pages
+  static: .
   uploads: image/uploads
   data: data
   content: content
+
+routing:
+  routes:
+    - path: /
+      file: pages/index.html
+    - path: /about.html
+      file: pages/about.html
+    - path: /blog.html
+      file: pages/blog.html
+    - path: /contact.html
+      file: pages/contact.html
+    - path: /faq.html
+      file: pages/faq.html
+    - path: /price_plan.html
+      file: pages/price_plan.html
+    - path: /properties.html
+      file: pages/properties.html
+    - path: /property.html
+      file: pages/property.html
+    - path: /property_details.html
+      file: pages/property_details.html
+    - path: /property-detail-template.html
+      file: pages/property-detail-template.html
+    - path: /rental.html
+      file: pages/rental.html
+    - path: /rentals.html
+      file: pages/rentals.html
+    - path: /service.html
+      file: pages/service.html
+    - path: /single_blog.html
+      file: pages/single_blog.html
+    - path: /team.html
+      file: pages/team.html
+    - path: /404.html
+      file: pages/404.html
 
 preserve_files:
   - image/uploads/**
@@ -174,7 +209,7 @@ collections_config:
     glob:
       - '*.json'
     format: json
-    output: true
+    output: false
     new_item_extension: json
     url: /property.html?slug={slug}
     _enabled_editors:
@@ -322,4 +357,13 @@ build:
   install: ""
   command: ""
   output_path: .
+
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-{
+﻿{
   "about": {
     "image": "Vandore Heritage team members working together"
   },
@@ -10,37 +10,37 @@
     "logo": "Vandore Heritage",
     "nav": {
       "0": {
-        "href": "index.html",
+        "href": "/",
         "label#text()": [
           "Majas"
         ]
       },
       "1": {
-        "href": "about.html",
+        "href": "/about.html",
         "label#text()": [
           "Pret"
         ]
       },
       "2": {
-        "href": "properties.html",
+        "href": "/properties.html",
         "label#text()": [
           "Ipa?ibas"
         ]
       },
       "3": {
-        "href": "rentals.html",
+        "href": "/rentals.html",
         "label#text()": [
-          "Ire"
+          "Īre"
         ]
       },
       "4": {
-        "href": "service.html",
+        "href": "/service.html",
         "label#text()": [
           "Sakarto?ana"
         ]
       },
       "5": {
-        "href": "contact.html",
+        "href": "/contact.html",
         "label#text()": [
           "Sazinieties ar mums"
         ]
@@ -51,12 +51,12 @@
     "image": "Vandore Heritage"
   },
   "heroHeading": "Par mums",
-  "heroSubheading": "Vandore Heritage sakas ar sarunu - nevis par to, ka pardot vairak, bet gan par to, ka rikoties pareizi.",
+  "heroSubheading": "Vandore Heritage sakas ar sarunu - nevis par to, ka pardot vairāk, bet gan par to, ka rikoties pareizi.",
   "nav": {
     "logo": {
       "alt": "Vandore Heritage Logo",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
+      "href": "/",
+      "src": "/image/red_LOGO_Vandore.png?v=2025"
     },
     "menuTitle": "Menu",
     "toggle": {
@@ -70,7 +70,7 @@
     }
   ],
   "seo": {
-    "favicon": "../image/red_LOGO_Vandore.png?v=2025"
+    "favicon": "/image/red_LOGO_Vandore.png?v=2025"
   },
   "subscribe": {
     "invalidMessage": "Ludzu, noradiet derigu e -pasta formatu (piemeram, \nuser@example.com)."
@@ -85,3 +85,8 @@
   ],
   "title": "Vandore Heritage - par mums"
 }
+
+
+
+
+

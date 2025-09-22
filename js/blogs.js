@@ -1,14 +1,14 @@
-(function () {
+﻿(function () {
   const blogList = document.getElementById('blog-grid');
   const blogDetail = document.getElementById('blog-detail');
   let posts = [];
 
   function dataPath(name) {
-    return window.location.pathname.includes('/pages/') ? `../data/${name}` : `data/${name}`;
+    return `/data/${name}`;
   }
 
   function blogUrl(slug) {
-    return `single_blog.html?slug=${encodeURIComponent(slug)}`;
+    return `/single_blog.html?slug=${encodeURIComponent(slug)}`;
   }
 
   function formatDate(value) {
@@ -39,7 +39,8 @@
 
     const meta = document.createElement('p');
     meta.className = 'text-muted small mb-2';
-    meta.textContent = `${formatDate(post.date)} \u2022 ${post.readingTime || '—'}`;
+    const segments = [formatDate(post.date), post.readingTime, post.author].filter(Boolean);
+    meta.textContent = segments.join(' • ');
     body.appendChild(meta);
 
     const title = document.createElement('h3');
@@ -65,7 +66,7 @@
     const link = document.createElement('a');
     link.className = 'btn btn-outline-secondary btn-sm';
     link.href = blogUrl(post.slug);
-    link.textContent = 'Las\u012Bt vair\u0101k';
+    link.textContent = 'Lasīt vairāk';
     footer.appendChild(link);
 
     body.appendChild(footer);
@@ -87,19 +88,20 @@
       return;
     }
 
-    const body = Array.isArray(post.content)
-      ? post.content.map(paragraph => `<p class="mb-4">${paragraph}</p>`).join('')
+    const pieces = [formatDate(post.date), post.readingTime, post.author].filter(Boolean).join(' • ');
+    const paragraphs = Array.isArray(post.content)
+      ? post.content.map(text => `<p class="mb-4">${text}</p>`).join('')
       : '';
 
     blogDetail.innerHTML = `
       <header class="mb-5">
-        <p class="text-muted">${formatDate(post.date)} \u2022 ${post.readingTime || '—'} \u2022 ${post.author || ''}</p>
+        <p class="text-muted">${pieces}</p>
         <h1 class="display-5 fw-semibold">${post.title}</h1>
       </header>
       ${post.image ? `<figure class="mb-5"><img class="img-fluid rounded-4" loading="lazy" src="${post.image}" alt="${post.image_alt || post.title}"></figure>` : ''}
-      ${body}
+      ${paragraphs}
       <div class="mt-5">
-        <a class="btn btn-outline-secondary" href="blog.html">Atpaka\u013C uz blogu</a>
+        <a class="btn btn-outline-secondary" href="/blog.html">Atpakaļ uz blogu</a>
       </div>
     `;
   }
@@ -116,12 +118,11 @@
       }
     })
     .catch(() => {
-      if (blogList) blogList.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt rakstus.</div>';
-      if (blogList) blogList.innerHTML = '<div class="alert alert-warning w-100">Neizdev\u0101s iel\u0101d\u0113t rakstus.</div>';
+      if (blogList) {
+        blogList.innerHTML = '<div class="alert alert-warning w-100">Neizdevās ielādēt rakstus.</div>';
+      }
+    });
 })();
-
-
-
 
 
 

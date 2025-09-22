@@ -1,8 +1,8 @@
-{
+﻿{
   "filters": {
-    "apply": "Filtrēt",
+    "apply": "FiltrÄ“t",
     "bedrooms": {
-      "label": "Guļamistabas",
+      "label": "GuÄ¼amistabas",
       "options": [
         "Visas",
         "1",
@@ -11,17 +11,17 @@
         "4"
       ]
     },
-    "clear": "Notīrīt",
+    "clear": "NotÄ«rÄ«t",
     "clearLink": {
-      "label": "Notīrīt filtrus"
+      "label": "NotÄ«rÄ«t filtrus"
     },
     "heading": "Filtri",
     "location": {
-      "label": "Pilsēta vai rajons",
-      "placeholder": "Centrs, Pārdaugava..."
+      "label": "PilsÄ“ta vai rajons",
+      "placeholder": "Centrs, PÄrdaugava..."
     },
     "maxPrice": {
-      "label": "Cena līdz (EUR)",
+      "label": "Cena lÄ«dz (EUR)",
       "placeholder": "500000"
     },
     "minPrice": {
@@ -30,71 +30,76 @@
     }
   },
   "footer": {
-    "contactLabel": "Sazināties",
+    "contactLabel": "SazinÄties",
     "email": {
       "href": "mailto:info@vandoreheritage.lv",
       "label": "info@vandoreheritage.lv"
     },
     "links": [
       {
-        "href": "index.html",
-        "label": "Sākums"
+        "href": "/",
+        "label": "SÄkums"
       },
       {
-        "href": "properties.html",
-        "label": "Īpašumi"
+        "href": "/properties.html",
+        "label": "ÄªpaÅ¡umi"
       },
       {
-        "href": "rentals.html",
-        "label": "Īre"
+        "href": "/rentals.html",
+        "label": "Äªre"
       },
       {
-        "href": "blog.html",
+        "href": "/blog.html",
         "label": "Blogs"
       },
       {
-        "href": "contact.html",
+        "href": "/contact.html",
         "label": "Kontakti"
       }
     ]
   },
   "hero": {
-    "heading": "Premium īpašumu katalogs",
-    "subheading": "Ekskluzīvi īpašumi un attītības projekti ar augstu pievienoto vērtību. Izpētiet aktuālos piedāvājumus un sazinieties ar mūsu komandu, lai uzzinātu vairāk."
+    "heading": "Premium Ä«paÅ¡umu katalogs",
+    "subheading": "EkskluzÄ«vi Ä«paÅ¡umi un attÄ«tÄ«bas projekti ar augstu pievienoto vÄ“rtÄ«bu. IzpÄ“tiet aktuÄlos piedÄvÄjumus un sazinieties ar mÅ«su komandu, lai uzzinÄtu vairÄk."
   },
   "list": {
-    "countDefault": "Notiek ielāde...",
-    "emptyState": "Pēc izvēlētajiem filtriem netika atrasts neviens piedāvājums.",
-    "heading": "Aktuālie īpašumi"
+    "countDefault": "Notiek ielÄde...",
+    "emptyState": "PÄ“c izvÄ“lÄ“tajiem filtriem netika atrasts neviens piedÄvÄjums.",
+    "heading": "AktuÄlie Ä«paÅ¡umi"
   },
   "nav": {
     "links": [
       {
-        "href": "index.html",
-        "label": "Sākums"
+        "href": "/",
+        "label": "SÄkums"
       },
       {
-        "href": "properties.html",
-        "label": "Īpašumi"
+        "href": "/properties.html",
+        "label": "ÄªpaÅ¡umi"
       },
       {
-        "href": "rentals.html",
-        "label": "Īre"
+        "href": "/rentals.html",
+        "label": "Äªre"
       },
       {
-        "href": "blog.html",
+        "href": "/blog.html",
         "label": "Blogs"
       },
       {
-        "href": "contact.html",
+        "href": "/contact.html",
         "label": "Kontakti"
       }
     ],
     "logo": {
       "alt": "Vandore Heritage",
-      "href": "index.html",
-      "src": "../image/red_LOGO_Vandore.png?v=2025"
+      "href": "/",
+      "src": "/image/red_LOGO_Vandore.png?v=2025"
     }
   },
-  "title": "Vandore Heritage - Īpašumi pārdošanā"
+  "title": "Vandore Heritage - ÄªpaÅ¡umi pÄrdoÅ¡anÄ"
 }
+
+
+
+
+

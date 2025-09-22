@@ -2,10 +2,10 @@
   "properties": [
     {
       "slug": "sample-apartment",
-      "title": "Sample Apartment",
-      "price": "\u20ac 120 000",
-      "address": "Example iela 10, R\u012bga",
-      "description": "M\u016bzdien\u012bgs divistabu dz\u012bvoklis ar pla\u0161u dz\u012bvotavu un klusu pagalmu pils\u0113tas centr\u0101.",
+      "title": "Parauga dzīvoklis",
+      "price": "€ 120 000",
+      "address": "Example iela 10, Rīga",
+      "description": "Mūsdienīgs divistabu dzīvoklis ar plašu dzīvojamo zonu un klusu pagalmu pilsētas centrā.",
       "image": "/image/dummy-img-900x700.jpg",
       "bedrooms": 2,
       "bathrooms": 1,
@@ -14,27 +14,27 @@
       "gallery": [
         {
           "src": "/image/dummy-img-900x700.jpg",
-          "alt": "Pla\u0161a viesistaba ar skatu uz pagalmu",
-          "caption": "Saulains un silts dz\u012bvoklis"
+          "alt": "Plaša viesistaba ar skatu uz pagalmu",
+          "caption": "Saulains un silts dzīvojamais stūris"
         },
         {
           "src": "/image/dummy-img-900x600.jpg",
-          "alt": "Piln\u012bb\u0101 apr\u012bkota virtuve",
-          "caption": "Virtuve ar ieb\u016bv\u0113tu tehniku"
+          "alt": "Pilnībā aprīkota virtuve",
+          "caption": "Virtuve ar iebūvētu tehniku"
         },
         {
           "src": "/image/dummy-img-600x400.jpg",
-          "alt": "M\u0101j\u012bga gu\u013camistaba",
-          "caption": "Gu\u013camistaba ar skatu uz pagalmu"
+          "alt": "Mājīga guļamistaba",
+          "caption": "Guļamistaba ar skatu uz pagalmu"
         }
       ]
     },
     {
       "slug": "modern-city-loft",
-      "title": "Modern City Loft",
-      "price": "\u20ac 245 000",
-      "address": "Br\u012bv\u012bbas iela 45, R\u012bga",
-      "description": "Augsti griesti, panor\u0101mas logi un atv\u0113rta tipa viesistaba loft tipa dz\u012bvokl\u012b ar skatu uz pils\u0113tu.",
+      "title": "Moderns pilsētas lofts",
+      "price": "€ 245 000",
+      "address": "Brīvības iela 45, Rīga",
+      "description": "Augsti griesti, panorāmas logi un atvērta tipa viesistaba loft tipa dzīvoklī ar skatu uz pilsētu.",
       "image": "/image/dummy-img-600x600.jpg",
       "bedrooms": 1,
       "bathrooms": 1,
@@ -43,15 +43,18 @@
       "gallery": [
         {
           "src": "/image/dummy-img-600x600.jpg",
-          "alt": "Atv\u0113rta tipa viesistaba",
-          "caption": "Lofts ar pla\u0161u, atv\u0113rtu pl\u0101nojumu"
+          "alt": "Atvērta tipa viesistaba",
+          "caption": "Lofts ar plašu, atvērtu plānojumu"
         },
         {
           "src": "/image/dummy-img-600x500.jpg",
-          "alt": "Skats uz pils\u0113tu no balkona",
-          "caption": "Priv\u0101ts balkons ar skatu uz pils\u0113tu"
+          "alt": "Skats uz pilsētu no balkona",
+          "caption": "Privāts balkons ar skatu uz pilsētu"
         }
       ]
     }
   ]
 }
+
+
+
