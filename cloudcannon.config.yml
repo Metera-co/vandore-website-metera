@@ -4,47 +4,289 @@ paths:
   static: pages
 preserve_files:
   - image/uploads
+
+collection_groups:
+  - heading: Pages
+    collections:
+      - pages
+  - heading: Listings
+    collections:
+      - rentals
+      - properties
+  - heading: Blog
+    collections:
+      - blog
+
+_enabled_editors:
+  - visual
+  - content
+  - data
+
+_inputs:
+  short_text:
+    type: text
+  long_text:
+    type: textarea
+    options:
+      rows: 4
+  rich_text:
+    type: markdown
+    options:
+      toolbar:
+        - bold
+        - italic
+        - underline
+        - link
+        - bulleted_list
+        - numbered_list
+        - quote
+  image_upload:
+    type: image
+    options:
+      paths:
+        uploads: image/uploads
+      select_existing: true
+      auto_rename: true
+      allowed_sources:
+        - site-files
+        - uploads
+  integer_input:
+    type: number
+    options:
+      min: 0
+
+_select_data:
+  rental_types:
+    - label: Ilgtermina
+      value: long
+    - label: Istermina
+      value: short
+
 collections_config:
   pages:
     path: pages
     name: Pages
     icon: wysiwyg
+    glob:
+      - '*.html'
     _enabled_editors:
       - visual
       - content
-  content_pages:
-    path: content/pages
-    name: Page Content
-    icon: description
+  rentals:
+    path: data/rentals.json
+    name: Rentals
+    icon: holiday_village
     format: json
     output: false
+    value_key: rentals
+    url: /rentals/{slug}/
     _enabled_editors:
       - data
-  content_properties:
-    path: content/properties
-    name: Property Content
+    schema:
+      name: Rental
+      fields:
+        - type: text
+          input: short_text
+          name: slug
+          label: Slug
+          required: true
+          comment: Used for rental page URLs.
+        - type: text
+          input: short_text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          input: short_text
+          name: price
+          label: Cena
+        - type: text
+          input: short_text
+          name: address
+          label: Adrese
+        - type: textarea
+          input: long_text
+          name: description
+          label: Apraksts
+        - type: select
+          name: type
+          label: Ires veids
+          options:
+            values: _select_data.rental_types
+        - type: number
+          input: integer_input
+          name: bedrooms
+          label: Gulamistabas
+        - type: number
+          input: integer_input
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          input: integer_input
+          name: area
+          label: Platiba (m2)
+        - type: number
+          input: integer_input
+          name: floors
+          label: Stavs
+        - type: image
+          input: image_upload
+          name: image_1
+          label: Galvenais attels
+        - type: text
+          input: short_text
+          name: image_1_alt
+          label: Galvenais attels alt teksts
+        - type: image
+          input: image_upload
+          name: image_2
+          label: Otrais attels
+        - type: text
+          input: short_text
+          name: image_2_alt
+          label: Otra attela alt teksts
+  properties:
+    path: data/properties.json
+    name: Properties
     icon: real_estate_agent
     format: json
     output: false
+    value_key: properties
+    url: /properties/{slug}/
     _enabled_editors:
       - data
-timezone: Europe/Riga
+    schema:
+      name: Property
+      fields:
+        - type: text
+          input: short_text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          input: short_text
+          name: title
+          label: Nosaukums
+          required: true
+        - type: text
+          input: short_text
+          name: price
+          label: Cena
+        - type: text
+          input: short_text
+          name: address
+          label: Adrese
+        - type: textarea
+          input: long_text
+          name: description
+          label: Apraksts
+        - type: image
+          input: image_upload
+          name: image
+          label: Galvenais attels
+        - type: number
+          input: integer_input
+          name: bedrooms
+          label: Gulamistabas
+        - type: number
+          input: integer_input
+          name: bathrooms
+          label: Vannas istabas
+        - type: number
+          input: integer_input
+          name: area
+          label: Platiba (m2)
+        - type: number
+          input: integer_input
+          name: floors
+          label: Stavs
+        - type: array
+          name: gallery
+          label: Galerija
+          schema:
+            name: Gallery Image
+            fields:
+              - type: image
+                input: image_upload
+                name: src
+                label: Attels
+              - type: text
+                input: short_text
+                name: alt
+                label: Alt teksts
+              - type: text
+                input: short_text
+                name: caption
+                label: Paraksts
+  blog:
+    path: data/blogs.json
+    name: Blog
+    icon: article
+    format: json
+    output: false
+    value_key: blogs
+    url: /blog/{slug}/
+    _enabled_editors:
+      - data
+    schema:
+      name: Blog Post
+      fields:
+        - type: text
+          input: short_text
+          name: slug
+          label: Slug
+          required: true
+        - type: text
+          input: short_text
+          name: title
+          label: Virsraksts
+          required: true
+        - type: date
+          name: date
+          label: Publicesanas datums
+        - type: text
+          input: short_text
+          name: readingTime
+          label: Lasisanas laiks
+        - type: text
+          input: short_text
+          name: author
+          label: Autors
+        - type: textarea
+          input: long_text
+          name: summary
+          label: Kopsavilkums
+        - type: image
+          input: image_upload
+          name: image
+          label: Galvenais attels
+        - type: text
+          input: short_text
+          name: image_alt
+          label: Attela alt teksts
+        - type: array
+          name: content
+          label: Raksta saturs
+          schema:
+            type: markdown
+            input: rich_text
+            label: Paragrafs
+
 markdown:
   engine: commonmark
-  options:
-    xhtml: false
-    breaks: false
-    linkify: false
-    typographer: false
-    spaced_lists: false
-    sentence_per_line: false
-    gfm: false
-    code_block_fences: '```'
-    escape_snippets_in_code_blocks: false
-    treat_indentation_as_code: false
-    table: false
-    strikethrough: false
-    subscript: false
-    superscript: false
-    heading_ids: false
-    attributes: false
+
+timezone: Europe/Riga
+
+source_editor:
+  theme: github
+  tab_size: 2
+  show_gutter: true
+
+file_config:
+  - glob: pages/**/*.html
+    _enabled_editors:
+      - visual
+      - content
+  - glob: data/**/*.json
+    _enabled_editors:
+      - data
