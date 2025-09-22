@@ -1,195 +1,305 @@
-﻿paths:
-  uploads: image/uploads
+﻿version: 1
+
+site:
+  base_url: /
+  timezone: Europe/Riga
+
+paths:
   static: pages
+  uploads: image/uploads
+  data: data
+  content: content
+
 preserve_files:
   - image/uploads
 
+collection_groups:
+  - heading: Pages
+    collections:
+      - pages
+  - heading: Listings
+    collections:
+      - rentals
+      - properties
+  - heading: Blog
+    collections:
+      - blog
+
+inputs:
+  short_text:
+    type: text
+  long_text:
+    type: textarea
+    options:
+      rows: 4
+  rich_text:
+    type: markdown
+    options:
+      toolbar:
+        - bold
+        - italic
+        - underline
+        - link
+        - bulleted_list
+        - numbered_list
+        - quote
+  image:
+    type: image
+    options:
+      paths:
+        uploads: image/uploads
+      select_existing: true
+      auto_rename: true
+      show_alt: true
+  number:
+    type: number
+    options:
+      min: 0
+  rental_type:
+    type: select
+    options:
+      values:
+        - label: Ilgtermina
+          value: long
+        - label: Istermina
+          value: short
+
 collections_config:
   pages:
-    path: pages
     name: Pages
+    path: pages
     icon: wysiwyg
-    include: '**/*.html'
+    glob:
+      - '*.html'
+    output: true
+    base_url: /
+    new_item_extension: html
     editor:
       default: visual
-  page_content:
-    path: content/pages
-    name: Page Content
-    icon: description
-    include: '**/*.json'
-    format: json
-    output: false
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
   rentals:
-    path: data/rentals.json
     name: Rentals
+    path: data/rentals.json
     icon: holiday_village
     format: json
     output: false
     value_key: rentals
+    url: /rentals/{slug}/
+    _enabled_editors:
+      - data
     schema:
       name: Rental
       fields:
-        - type: text
-          name: slug
+        - name: slug
           label: Slug
+          type: text
+          input: short_text
           required: true
-        - type: text
-          name: title
-          label: Nosaukums
+        - name: title
+          label: Title
+          type: text
+          input: short_text
           required: true
-        - type: text
-          name: price
-          label: Cena
-        - type: text
-          name: address
-          label: Adrese
-        - type: textarea
-          name: description
-          label: Apraksts
-          rows: 4
-        - type: select
-          name: type
-          label: Īres veids
-          options:
-            - label: Ilgtermiņa
-              value: long
-            - label: Īstermiņa
-              value: short
-        - type: number
-          name: bedrooms
-          label: Guļamistabas
-        - type: number
-          name: bathrooms
-          label: Vannas istabas
-        - type: number
-          name: area
-          label: Platība (m2)
-        - type: number
-          name: floors
-          label: Stāvs
-        - type: image
-          name: image_1
-          label: Galvenais attēls
-          directory: image/uploads
-        - type: text
-          name: image_1_alt
-          label: Galvenā attēla alternatīvais teksts
-        - type: image
-          name: image_2
-          label: Otrais attēls
-          directory: image/uploads
-        - type: text
-          name: image_2_alt
-          label: Otrā attēla alternatīvais teksts
+        - name: price
+          label: Price
+          type: text
+          input: short_text
+        - name: address
+          label: Address
+          type: text
+          input: short_text
+        - name: description
+          label: Description
+          type: textarea
+          input: long_text
+        - name: type
+          label: Rental Type
+          type: select
+          input: rental_type
+        - name: bedrooms
+          label: Bedrooms
+          type: number
+          input: number
+        - name: bathrooms
+          label: Bathrooms
+          type: number
+          input: number
+        - name: area
+          label: Area (m2)
+          type: number
+          input: number
+        - name: floors
+          label: Floor
+          type: number
+          input: number
+        - name: image_1
+          label: Primary Image
+          type: image
+          input: image
+        - name: image_1_alt
+          label: Primary Image Alt Text
+          type: text
+          input: short_text
+        - name: image_2
+          label: Secondary Image
+          type: image
+          input: image
+        - name: image_2_alt
+          label: Secondary Image Alt Text
+          type: text
+          input: short_text
   properties:
-    path: data/properties.json
     name: Properties
+    path: data/properties.json
     icon: real_estate_agent
     format: json
     output: false
     value_key: properties
+    url: /properties/{slug}/
+    _enabled_editors:
+      - data
     schema:
       name: Property
       fields:
-        - type: text
-          name: slug
+        - name: slug
           label: Slug
+          type: text
+          input: short_text
           required: true
-        - type: text
-          name: title
-          label: Nosaukums
+        - name: title
+          label: Title
+          type: text
+          input: short_text
           required: true
-        - type: text
-          name: price
-          label: Cena
-        - type: text
-          name: address
-          label: Adrese
-        - type: textarea
-          name: description
-          label: Apraksts
-          rows: 4
-        - type: number
-          name: bedrooms
-          label: Guļamistabas
-        - type: number
-          name: bathrooms
-          label: Vannas istabas
-        - type: number
-          name: area
-          label: Platība (m2)
-        - type: number
-          name: floors
-          label: Stāvs
-        - type: image
-          name: image
-          label: Galvenais attēls
-          directory: image/uploads
-        - type: array
-          name: gallery
-          label: Galerija
+        - name: price
+          label: Price
+          type: text
+          input: short_text
+        - name: address
+          label: Address
+          type: text
+          input: short_text
+        - name: description
+          label: Description
+          type: textarea
+          input: long_text
+        - name: image
+          label: Featured Image
+          type: image
+          input: image
+        - name: bedrooms
+          label: Bedrooms
+          type: number
+          input: number
+        - name: bathrooms
+          label: Bathrooms
+          type: number
+          input: number
+        - name: area
+          label: Area (m2)
+          type: number
+          input: number
+        - name: floors
+          label: Floor
+          type: number
+          input: number
+        - name: gallery
+          label: Gallery Images
+          type: array
           schema:
             name: Gallery Image
             fields:
-              - type: image
-                name: src
-                label: Attēls
-                directory: image/uploads
-              - type: text
-                name: alt
-                label: Alternatīvais teksts
-              - type: text
-                name: caption
-                label: Paraksts
-  blogs:
+              - name: src
+                label: Image
+                type: image
+                input: image
+              - name: alt
+                label: Alt Text
+                type: text
+                input: short_text
+              - name: caption
+                label: Caption
+                type: text
+                input: short_text
+  blog:
+    name: Blog
     path: data/blogs.json
-    name: Blogs
     icon: article
     format: json
     output: false
     value_key: blogs
+    url: /blog/{slug}/
+    _enabled_editors:
+      - data
     schema:
-      name: BlogPost
+      name: Blog Post
       fields:
-        - type: text
-          name: slug
+        - name: slug
           label: Slug
+          type: text
+          input: short_text
           required: true
-        - type: text
-          name: title
-          label: Virsraksts
+        - name: title
+          label: Title
+          type: text
+          input: short_text
           required: true
-        - type: date
-          name: date
-          label: Publicēšanas datums
-        - type: text
-          name: readingTime
-          label: Lasīšanas laiks
-        - type: text
-          name: author
-          label: Autors
-        - type: textarea
-          name: summary
-          label: Kopsavilkums
-          rows: 3
-        - type: image
-          name: image
-          label: Galvenais attēls
-          directory: image/uploads
-        - type: text
-          name: image_alt
-          label: Attēla alternatīvais teksts
-        - type: array
-          name: content
-          label: Raksta saturs
+        - name: date
+          label: Published Date
+          type: date
+        - name: readingTime
+          label: Reading Time
+          type: text
+          input: short_text
+        - name: author
+          label: Author
+          type: text
+          input: short_text
+        - name: summary
+          label: Summary
+          type: textarea
+          input: long_text
+        - name: image
+          label: Featured Image
+          type: image
+          input: image
+        - name: image_alt
+          label: Featured Image Alt Text
+          type: text
+          input: short_text
+        - name: content
+          label: Post Body
+          type: array
           schema:
-            type: textarea
-            label: Paragrāfs
-            rows: 3
+            name: Section
+            type: markdown
+            input: rich_text
+
+file_config:
+  - glob: pages/**/*.html
+    _enabled_editors:
+      - visual
+      - source
+  - glob: content/pages/**/*.json
+    _enabled_editors:
+      - data
+  - glob: data/**/*.json
+    _enabled_editors:
+      - data
+
+source_editor:
+  enabled: true
+  commit_templates:
+    - label: Content update
+      template: "content: {{ collection }} {{ title | default: slug | default: 'entry' }}"
+    - label: Quick fix
+      template: "fix: {{ collection }} {{ title | default: slug | default: 'content' }}"
 
 build:
   install: npm install
   command: npm run build
   output_path: _site
-
 
