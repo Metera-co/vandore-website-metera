@@ -1,46 +1,41 @@
-﻿{
-  "aboutTeaser": {
-    "image": "Vandore Heritage"
-  },
-  "backToTop": {
-    "href": "#"
-  },
-  "hero": {
-    "image": {
-      "desktop": "Vandore Heritage",
-      "mobile": "Vandore Heritage"
-    }
-  },
-  "heroHeading": "Tas nav tikai bizness. TÄ ir attieksme.",
-  "heroSubheading": "MÄ“s pÄrstÄvam Ä«paÅ¡Ä«bas, kas runÄ, un klienti, kuri vÄ“rtÄ“ tiek uzklausÄ«ti. Vandore Heritage ir mÅ«su solÄ«jums: strÄdÄt uzmanÄ«gi, palikt klÄt Ärpus darÄ«juma.",
-  "nav": {
-    "logo": {
-      "alt": "Vandore Heritage",
-      "href": "/",
-      "src": "/image/red_LOGO_Vandore.png?v=2025"
-    },
-    "menuTitle": "Menu",
-    "toggle": {
-      "label": "Menu"
-    }
-  },
-  "sections": [
-    {
-      "heading": "MÅ«su stÄsts",
-      "text": "Vandore Heritage sÄkÄs ar sarunu - nevis par vairÄk pÄrdoÅ¡anu, bet gan par to, kÄ rÄ«koties pareizi. MÄ“s skatÄmies Ärpus kvadrÄtmetriem un darÄ«jumiem, kÄ telpa liek justies, kÄ tÄ veido lÄ“mumus, un lomu, ko mÄ“s spÄ“lÄ“jam Å¡ajos stÄstos."
-    },
-    {
-      "heading": "KÄpÄ“c viÅ†i mÅ«s mÄ«l",
-      "text": "AtklÄjiet mÅ«su apmierinÄto klientu balsis, kuri ir pieredzÄ“juÅ¡i ÄrkÄrtas situÄciju \n Pakalpojumi un kompetence, ko mÄ“s sniedzam, palÄ«dzot viÅ†iem atrast savas sapÅ†u mÄjas."
-    }
-  ],
-  "seo": {
-    "favicon": "/image/red_LOGO_Vandore.png?v=2025"
-  },
-  "title": "Vandore Heritage - mÄjas lapa"
+{
+    "aboutTeaser":  {
+                        "image":  "Vandore Heritage"
+                    },
+    "backToTop":  {
+                      "href":  "#"
+                  },
+    "hero":  {
+                 "image":  {
+                               "desktop":  "Vandore Heritage",
+                               "mobile":  "Vandore Heritage"
+                           }
+             },
+    "heroHeading":  "Tas nav tikai bizness. Tā ir attieksme.",
+    "heroSubheading":  "Mēs pārstāvam īpašības, kas runā, un klienti, kuri vērtē, tiek uzklausīti. Vandore Heritage ir mūsu solījums: strādāt uzmanīgi, palikt klāt ārpus darījuma.",
+    "nav":  {
+                "logo":  {
+                             "alt":  "Vandore Heritage",
+                             "href":  "/",
+                             "src":  "/image/red_LOGO_Vandore.png?v=2025"
+                         },
+                "menuTitle":  "Menu",
+                "toggle":  {
+                               "label":  "Menu"
+                           }
+            },
+    "sections":  [
+                     {
+                         "heading":  "Mūsu stāsts",
+                         "text":  "Vandore Heritage sākās ar sarunu - nevis par vairāk pārdošanu, bet gan par to, kā rīkoties pareizi. Mēs skatāmies ārpus kvadrātmetriem un darījumiem, kā telpa liek justies, kā tā veido lēmumus, un lomu, ko mēs spēlējam šajos stāstos."
+                     },
+                     {
+                         "heading":  "Kāpēc viņi mūs mīl",
+                         "text":  "Atklājiet mūsu apmierināto klientu balsis, kuri ir pieredzējuši ārkārtas situācijas. Pakalpojumi un kompetence, ko mēs sniedzam, palīdzot viņiem atrast savas sapņu mājas."
+                     }
+                 ],
+    "seo":  {
+                "favicon":  "/image/red_LOGO_Vandore.png?v=2025"
+            },
+    "title":  "Vandore Heritage - mājas lapa"
 }
-
-
-
-
-

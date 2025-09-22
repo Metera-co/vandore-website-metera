@@ -1,24 +1,29 @@
 _schema: _schema
 source: /
 paths:
-  uploads: uploads
+  uploads: image/uploads
   static: ''
 collections_config:
   pages:
-    path: ''
+    path: pages
     name: Pages
     icon: wysiwyg
     disable_url: false
     description: ''
     _enabled_editors:
+      - visual
+      - source
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
-  content_pages:
+  page_content:
     path: content/pages
-    name: Content Pages
-    icon: contact_page
-    disable_url: false
+    name: Page Content
+    icon: description
+    disable_url: true
+    description: Structured JSON backing inline page editing.
+    _enabled_editors:
+      - data
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -26,7 +31,10 @@ collections_config:
     path: content/properties
     name: Content Properties
     icon: content_paste
-    disable_url: false
+    disable_url: true
+    description: JSON snippets for property page sections.
+    _enabled_editors:
+      - data
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -34,7 +42,10 @@ collections_config:
     path: data
     name: Data
     icon: data_usage
-    disable_url: false
+    disable_url: true
+    description: Structured datasets for listings and blog posts.
+    _enabled_editors:
+      - data
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
