@@ -55,7 +55,6 @@ collection_groups:
   - heading: Pages
     collections:
       - pages
-      - page_content
   - heading: Listings
     collections:
       - rentals
@@ -119,17 +118,6 @@ collections_config:
     _enabled_editors:
       - visual
       - source
-  page_content:
-    name: Page Content
-    path: content/pages
-    icon: description
-    glob:
-      - '*.json'
-    format: json
-    output: false
-    new_item_extension: json
-    _enabled_editors:
-      - data
   rentals:
     name: Rentals
     path: data/rentals.json
@@ -337,9 +325,6 @@ file_config:
     _enabled_editors:
       - visual
       - source
-  - glob: content/pages/**/*.json
-    _enabled_editors:
-      - data
   - glob: content/properties/**/*.json
     _enabled_editors:
       - data
@@ -357,6 +342,7 @@ build:
   install: ""
   command: ""
   output_path: .
+
 
 
 
