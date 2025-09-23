@@ -16,37 +16,37 @@ paths:
 routing:
   routes:
     - path: /
-      file: pages/index.html
+      file: index.html
     - path: /about.html
-      file: pages/about.html
+      file: about.html
     - path: /blog.html
-      file: pages/blog.html
+      file: blog.html
     - path: /contact.html
-      file: pages/contact.html
+      file: contact.html
     - path: /faq.html
-      file: pages/faq.html
+      file: faq.html
     - path: /price_plan.html
-      file: pages/price_plan.html
+      file: price_plan.html
     - path: /properties.html
-      file: pages/properties.html
+      file: properties.html
     - path: /property.html
-      file: pages/property.html
+      file: property.html
     - path: /property_details.html
-      file: pages/property_details.html
+      file: property_details.html
     - path: /property-detail-template.html
-      file: pages/property-detail-template.html
+      file: property-detail-template.html
     - path: /rental.html
-      file: pages/rental.html
+      file: rental.html
     - path: /rentals.html
-      file: pages/rentals.html
+      file: rentals.html
     - path: /service.html
-      file: pages/service.html
+      file: service.html
     - path: /single_blog.html
-      file: pages/single_blog.html
+      file: single_blog.html
     - path: /team.html
-      file: pages/team.html
+      file: team.html
     - path: /404.html
-      file: pages/404.html
+      file: 404.html
 
 preserve_files:
   - image/uploads/**
@@ -355,8 +355,9 @@ source_editor:
 
 build:
   install: ""
-  command: ""
+  command: "cp pages/*.html ."
   output_path: .
+
 
 
 
