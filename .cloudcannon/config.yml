@@ -106,7 +106,7 @@ inputs:
 collections_config:
   pages:
     name: Pages
-    path: pages
+    path: .
     icon: wysiwyg
     glob:
       - '*.html'
@@ -333,7 +333,7 @@ collections_config:
             input: rich_text
 
 file_config:
-  - glob: pages/**/*.html
+  - glob: *.html
     _enabled_editors:
       - visual
       - source
@@ -355,8 +355,11 @@ source_editor:
 
 build:
   install: ""
-  command: "cp pages/*.html ."
+  command: ""
   output_path: .
+
+
+
 
 
 
