@@ -1,273 +1,625 @@
-ï»¿(function () {
-  const rentalsGrid = document.getElementById('rentals-grid');
-  const rentalDetail = document.getElementById('rental-detail');
-  let rentals = [];
+(function () {
+  const DATA_URL = '/data/rentals.json';
+  const STORAGE_KEY = 'vh-rental-filters-v1';
 
   const TYPE_LABELS = {
-    short: 'ÄªstermiÅ†a',
-    long: 'IlgtermiÅ†a'
+    short: 'Istermina ire',
+    long: 'Ilgtermina ire'
   };
 
-  function dataPath(name) {
-    return `/data/${name}`;
+  const listContext = {
+    grid: document.getElementById('rentals-grid'),
+    count: document.getElementById('rentals-count'),
+    chips: document.getElementById('rental-filter-chips'),
+    empty: document.getElementById('rentals-empty'),
+    emptyReset: document.getElementById('rentals-empty-reset'),
+    form: document.getElementById('rental-filter-form')
+  };
+
+  const detailContext = {
+    root: document.querySelector('[data-rental-detail]'),
+    back: document.querySelector('[data-rental-back]'),
+    relatedGrid: document.getElementById('rental-related-grid')
+  };
+
+  const defaultFilters = Object.freeze({
+    location: '',
+    priceMin: '',
+    priceMax: '',
+    bedrooms: '',
+    type: ''
+  });
+
+  const chipLabels = {
+    location: (value) => `Atrašanas vieta: ${value}`,
+    priceMin: (value) => `Cena no ${formatNumber(value)} €`,
+    priceMax: (value) => `Cena lidz ${formatNumber(value)} €`,
+    bedrooms: (value) => value.includes('+') ? `Gulamistabas: ${value}` : `Gulamistabas: ${value}`,
+    type: (value) => TYPE_LABELS[value] || value
+  };
+
+  let rentals = [];
+  let appliedFilters = { ...defaultFilters };
+
+  function normalize(text) {
+    return (text || '').toString().trim().toLowerCase();
   }
 
   function numericValue(value) {
-    if (!value) return 0;
-    const digits = value.match(/\d+/g);
-    return digits ? parseInt(digits.join(''), 10) : 0;
+    if (value == null || value === '') return 0;
+    if (typeof value === 'number') return value;
+    const digits = String(value).match(/\d+/g);
+    if (!digits) return 0;
+    return Number.parseInt(digits.join(''), 10) || 0;
   }
 
-  function makeBadge(text) {
-    const span = document.createElement('span');
-    span.className = 'badge bg-light text-dark';
-    span.textContent = text;
-    return span;
-  }
-
-  function makeImage(src, alt, className) {
-    const img = document.createElement('img');
-    img.loading = 'lazy';
-    img.src = src;
-    img.alt = alt || '';
-    img.className = className;
-    return img;
+  function formatNumber(value) {
+    return new Intl.NumberFormat('lv-LV').format(Number(value));
   }
 
   function rentalUrl(slug) {
-    return `/rental.html?slug=${encodeURIComponent(slug)}`;
+    const params = new URLSearchParams(window.location.search);
+    params.set('slug', slug);
+    return `rental.html?${params.toString()}`;
+  }
+
+  function readStoredFilters() {
+    try {
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      if (!stored) return null;
+      const parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object') {
+        return { ...defaultFilters, ...parsed };
+      }
+    } catch (error) {
+      console.warn('Neizdevas nolasit saglabatos ires filtrus', error);
+    }
+    return null;
+  }
+
+  function readQueryFilters() {
+    const params = new URLSearchParams(window.location.search);
+    const filters = { ...defaultFilters };
+    params.forEach((value, key) => {
+      if (Object.prototype.hasOwnProperty.call(filters, key)) {
+        filters[key] = value;
+      }
+    });
+    return filters;
+  }
+
+  function mergeFilters() {
+    const stored = readStoredFilters();
+    const query = readQueryFilters();
+    return { ...defaultFilters, ...(stored || {}), ...query };
+  }
+
+  function persistFilters(filters) {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(filters));
+    } catch (error) {
+      console.warn('Neizdevas saglabat ires filtrus', error);
+    }
+  }
+
+  function updateFilterUrl(filters) {
+    if (!listContext.grid) return;
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) params.set(key, value);
+    });
+    const queryString = params.toString();
+    const newUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}`;
+    window.history.replaceState({}, '', newUrl);
+  }
+
+  function populateForm() {
+    const { form } = listContext;
+    if (!form) return;
+    Object.entries(appliedFilters).forEach(([key, value]) => {
+      const field = form.elements.namedItem(key);
+      if (field) {
+        field.value = value;
+      }
+    });
+  }
+
+  function clearFilters() {
+    appliedFilters = { ...defaultFilters };
+    persistFilters(appliedFilters);
+    populateForm();
+    renderChips();
+    updateFilterUrl(appliedFilters);
+  }
+
+  function collectFormFilters(formData) {
+    const nextFilters = { ...defaultFilters };
+    Object.keys(nextFilters).forEach((key) => {
+      const value = formData.get(key);
+      nextFilters[key] = value ? String(value).trim() : '';
+    });
+    return nextFilters;
+  }
+
+  function applyFilters(items) {
+    if (!Array.isArray(items)) return [];
+    return items.filter((item) => {
+      if (appliedFilters.location) {
+        const search = normalize(appliedFilters.location);
+        const haystack = `${item.title || ''} ${item.address || ''}`;
+        if (!normalize(haystack).includes(search)) {
+          return false;
+        }
+      }
+      if (appliedFilters.priceMin) {
+        if (numericValue(item.price) < numericValue(appliedFilters.priceMin)) {
+          return false;
+        }
+      }
+      if (appliedFilters.priceMax) {
+        if (numericValue(item.price) > numericValue(appliedFilters.priceMax)) {
+          return false;
+        }
+      }
+      if (appliedFilters.bedrooms) {
+        if (appliedFilters.bedrooms.includes('+')) {
+          const minRooms = Number.parseInt(appliedFilters.bedrooms.replace('+', ''), 10) || 0;
+          if ((Number(item.bedrooms) || 0) < minRooms) return false;
+        } else if ((Number(item.bedrooms) || 0) !== (Number(appliedFilters.bedrooms) || 0)) {
+          return false;
+        }
+      }
+      if (appliedFilters.type) {
+        if ((item.type || '').toLowerCase() !== appliedFilters.type.toLowerCase()) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  function renderList(items) {
+    if (!listContext.grid) return;
+    const fragment = document.createDocumentFragment();
+    items.forEach((item) => fragment.appendChild(createCard(item)));
+    listContext.grid.innerHTML = '';
+    if (items.length) {
+      listContext.grid.appendChild(fragment);
+      listContext.grid.hidden = false;
+      if (listContext.empty) listContext.empty.hidden = true;
+    } else {
+      listContext.grid.hidden = true;
+      if (listContext.empty) listContext.empty.hidden = false;
+    }
+    if (listContext.count) {
+      const total = items.length;
+      const label = total === 1 ? '1 piedavajums' : `${formatNumber(total)} piedavajumi`;
+      listContext.count.textContent = label;
+    }
+  }
+
+  function renderChips() {
+    if (!listContext.chips) return;
+    const activeEntries = Object.entries(appliedFilters).filter(([, value]) => Boolean(value));
+    listContext.chips.innerHTML = '';
+    if (!activeEntries.length) {
+      listContext.chips.setAttribute('hidden', '');
+      return;
+    }
+    listContext.chips.removeAttribute('hidden');
+    const fragment = document.createDocumentFragment();
+    activeEntries.forEach(([key, value]) => {
+      const chip = document.createElement('span');
+      chip.className = 'vh-chip';
+      chip.dataset.filterKey = key;
+      chip.textContent = chipLabels[key] ? chipLabels[key](value) : `${key}: ${value}`;
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'vh-chip__remove';
+      remove.setAttribute('aria-label', `Nonemt filtru ${chip.textContent}`);
+      remove.textContent = '×';
+      chip.appendChild(remove);
+      fragment.appendChild(chip);
+    });
+    listContext.chips.appendChild(fragment);
   }
 
   function createCard(item) {
-    const col = document.createElement('div');
-    col.className = 'col';
-    col.dataset.location = (item.address || '').toLowerCase();
-    col.dataset.price = numericValue(item.price);
-    col.dataset.bedrooms = item.bedrooms || '';
-    col.dataset.type = item.type || '';
+    const article = document.createElement('article');
+    article.className = 'vh-card';
+    article.dataset.slug = item.slug || '';
 
-    const card = document.createElement('div');
-    card.className = 'card h-100 border-0 shadow-sm overflow-hidden';
-
-    const images = document.createElement('div');
-    images.className = 'card-image-group';
-    if (item.image_1) images.appendChild(makeImage(item.image_1, item.image_1_alt || item.title, 'card-img-top card-img-primary'));
-    if (item.image_2) images.appendChild(makeImage(item.image_2, item.image_2_alt || item.title, 'card-img-top card-img-secondary'));
-    card.appendChild(images);
+    const media = document.createElement('div');
+    media.className = 'vh-card__media';
+    if (item.image_1) {
+      const img = document.createElement('img');
+      img.src = item.image_1;
+      img.alt = item.image_1_alt || item.title || 'Ires ipašums';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.width = 1200;
+      img.height = 900;
+      img.sizes = '(min-width: 1200px) 280px, (min-width: 992px) 32vw, (min-width: 768px) 45vw, 92vw';
+      media.appendChild(img);
+    }
+    const badge = document.createElement('span');
+    badge.className = 'vh-card__badge';
+    badge.textContent = TYPE_LABELS[item.type] || 'Ires piedavajums';
+    media.appendChild(badge);
+    article.appendChild(media);
 
     const body = document.createElement('div');
-    body.className = 'card-body d-flex flex-column p-4';
-
-    const header = document.createElement('div');
-    header.className = 'd-flex justify-content-between align-items-start mb-3';
+    body.className = 'vh-card__body';
 
     const title = document.createElement('h3');
-    title.className = 'h5 mb-0';
-    title.textContent = item.title || '';
-    header.appendChild(title);
-
-    const badge = document.createElement('span');
-    badge.className = `badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'}`;
-    badge.textContent = `${TYPE_LABELS[item.type] || 'IlgtermiÅ†a'} Ä«re`;
-    header.appendChild(badge);
-
-    body.appendChild(header);
+    title.className = 'vh-card__title';
+    title.textContent = item.title || 'Ires ipašums';
+    body.appendChild(title);
 
     if (item.price) {
       const price = document.createElement('p');
-      price.className = 'fw-semibold text-accent mb-2';
+      price.className = 'vh-card__subtitle';
       price.textContent = item.price;
       body.appendChild(price);
     }
 
     if (item.address) {
       const address = document.createElement('p');
-      address.className = 'text-muted small mb-3';
+      address.className = 'vh-card__subtitle';
       address.textContent = item.address;
       body.appendChild(address);
     }
 
     if (item.description) {
       const description = document.createElement('p');
-      description.className = 'flex-grow-1';
+      description.className = 'vh-card__description';
       description.textContent = item.description;
       body.appendChild(description);
     }
 
-    const footer = document.createElement('div');
-    footer.className = 'd-flex justify-content-between align-items-center mt-auto';
-
     const meta = document.createElement('div');
-    meta.className = 'd-flex gap-3 text-muted small flex-wrap';
-    if (item.bedrooms) meta.appendChild(makeBadge(`${item.bedrooms} ist.`));
-    if (item.bathrooms) meta.appendChild(makeBadge(`${item.bathrooms} vann.`));
-    if (item.area) meta.appendChild(makeBadge(`${item.area} mÂ²`));
-    footer.appendChild(meta);
+    meta.className = 'vh-card__meta';
+    if (item.area) meta.appendChild(createMetaChip(`${item.area} m²`));
+    if (item.bedrooms) meta.appendChild(createMetaChip(`${item.bedrooms} gulamist.`));
+    if (item.bathrooms) meta.appendChild(createMetaChip(`${item.bathrooms} vann.`));
+    body.appendChild(meta);
 
-    const more = document.createElement('a');
-    more.className = 'btn btn-outline-secondary btn-sm';
-    more.href = rentalUrl(item.slug);
-    more.textContent = 'SkatÄ«t';
-    footer.appendChild(more);
+    const cta = document.createElement('div');
+    cta.className = 'vh-card__cta';
+    const link = document.createElement('a');
+    link.className = 'vh-button vh-button--primary';
+    link.href = rentalUrl(item.slug || '');
+    link.rel = 'bookmark';
+    link.textContent = 'Skatit piedavajumu';
+    cta.appendChild(link);
+    body.appendChild(cta);
 
-    body.appendChild(footer);
-    card.appendChild(body);
-    col.appendChild(card);
-    return col;
+    article.appendChild(body);
+    return article;
   }
 
-  function renderList(items) {
-    if (!rentalsGrid) return;
-    rentalsGrid.innerHTML = '';
-    items.forEach(item => rentalsGrid.appendChild(createCard(item)));
-
-    const count = document.getElementById('rentals-count');
-    if (count) count.textContent = `${items.length} piedÄvÄjumi`;
-
-    const empty = document.getElementById('rentals-empty');
-    if (empty) empty.classList.toggle('d-none', items.length > 0);
+  function createMetaChip(label) {
+    const span = document.createElement('span');
+    span.textContent = label;
+    return span;
   }
 
-  function updateDetailTemplate(item) {
-    const textField = (name, value) => {
-      const el = rentalDetail.querySelector(`[data-rental-field="${name}"]`);
-      if (el) el.textContent = value ?? '';
-    };
-
-    textField('type', `${TYPE_LABELS[item.type] || 'IlgtermiÅ†a'} Ä«re`);
-    textField('title', item.title || '');
-    textField('price', item.price || '');
-    textField('address', item.address || '');
-    textField('description', item.description || '');
-    textField('bedrooms', item.bedrooms ?? '');
-    textField('bathrooms', item.bathrooms ?? '');
-    textField('area', item.area ?? '');
-    textField('floors', item.floors ?? '');
-
-    const updateImage = (field, src, alt) => {
-      const img = rentalDetail.querySelector(`[data-rental-src="${field}"]`);
-      if (!img) return;
-      if (src) img.src = src;
-      if (alt) img.alt = alt;
-    };
-
-    updateImage('image_1', item.image_1, item.image_1_alt || item.title);
-    updateImage('image_2', item.image_2, item.image_2_alt || item.title);
-
-    const cta = rentalDetail.querySelector('[data-rental-href="cta"]');
-    if (cta && item.cta_href) {
-      cta.setAttribute('href', item.cta_href);
+  function onChipClick(event) {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (!target.classList.contains('vh-chip__remove')) return;
+    const chip = target.closest('.vh-chip');
+    if (!chip) return;
+    const key = chip.dataset.filterKey;
+    if (key && Object.prototype.hasOwnProperty.call(appliedFilters, key)) {
+      appliedFilters[key] = '';
+      persistFilters(appliedFilters);
+      populateForm();
+      renderChips();
+      updateFilterUrl(appliedFilters);
     }
   }
 
-  function renderDetail(item) {
-    if (!rentalDetail) return;
-    if (!item) {
-      rentalDetail.innerHTML = '<div class="alert alert-warning">PiedÄvÄjums nav atrasts.</div>';
-      return;
-    }
+  function initListHandlers() {
+    const { form } = listContext;
+    if (!form) return;
 
-    if (rentalDetail.querySelector('[data-rental-field]')) {
-      updateDetailTemplate(item);
-      return;
-    }
-
-    rentalDetail.innerHTML = `
-      <div class="row gy-4 align-items-start">
-        <div class="col-lg-6">
-          <div class="d-flex flex-column gap-3">
-            ${item.image_1 ? `<img class="img-fluid rounded-4" loading="lazy" src="${item.image_1}" alt="${item.image_1_alt || item.title}">` : ''}
-            ${item.image_2 ? `<img class="img-fluid rounded-4" loading="lazy" src="${item.image_2}" alt="${item.image_2_alt || item.title}">` : ''}
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <span class="badge ${item.type === 'short' ? 'bg-success' : 'bg-primary'} mb-3">${TYPE_LABELS[item.type] || 'IlgtermiÅ†a'} Ä«re</span>
-          <h1 class="display-5 fw-semibold mb-3">${item.title}</h1>
-          ${item.price ? `<p class="h4 text-accent mb-2">${item.price}</p>` : ''}
-          ${item.address ? `<p class="text-muted mb-4"><i class="rtmicon rtmicon-location me-2"></i>${item.address}</p>` : ''}
-          ${item.description ? `<p class="mb-4">${item.description}</p>` : ''}
-          <div class="d-flex flex-wrap gap-3 mb-4">
-            ${item.bedrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bedrooms} guÄ¼amistabas</span>` : ''}
-            ${item.bathrooms ? `<span class="badge bg-light text-dark px-3 py-2">${item.bathrooms} vannas istabas</span>` : ''}
-            ${item.area ? `<span class="badge bg-light text-dark px-3 py-2">${item.area} mÂ²</span>` : ''}
-            ${item.floors ? `<span class="badge bg-light text-dark px-3 py-2">${item.floors}. stÄvs</span>` : ''}
-          </div>
-          <a class="btn btn-accent btn-lg" href="mailto:info@vandoreheritage.lv">Pieteikt pieejamÄ«bu</a>
-        </div>
-      </div>`;
-  }
-
-  function applyFilters() {
-    if (!rentalsGrid) return;
-    let filtered = [...rentals];
-
-    const location = (document.getElementById('location')?.value || '').trim().toLowerCase();
-    const min = parseInt(document.getElementById('price-min')?.value || '', 10);
-    const max = parseInt(document.getElementById('price-max')?.value || '', 10);
-    const bedrooms = document.getElementById('bedrooms')?.value || '';
-    const type = document.getElementById('rent-type')?.value || '';
-
-    if (location) filtered = filtered.filter(item => (item.address || '').toLowerCase().includes(location));
-    if (!Number.isNaN(min)) filtered = filtered.filter(item => numericValue(item.price) >= min);
-    if (!Number.isNaN(max)) filtered = filtered.filter(item => numericValue(item.price) <= max);
-    if (bedrooms) {
-      if (bedrooms.includes('+')) {
-        const minRooms = parseInt(bedrooms.replace('+', ''), 10) || 0;
-        filtered = filtered.filter(item => (item.bedrooms || 0) >= minRooms);
-      } else {
-        const exactRooms = parseInt(bedrooms, 10) || 0;
-        filtered = filtered.filter(item => (item.bedrooms || 0) === exactRooms);
-      }
-    }
-    if (type) filtered = filtered.filter(item => (item.type || '') === type);
-
-    renderList(filtered);
-  }
-
-  function wÄªreFilters() {
-    ['location', 'price-min', 'price-max'].forEach(id => {
-      const input = document.getElementById(id);
-      if (input) input.addEventListener('input', () => setTimeout(applyFilters, 150));
-    });
-    ['bedrooms', 'rent-type'].forEach(id => {
-      const select = document.getElementById(id);
-      select?.addEventListener('change', applyFilters);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      appliedFilters = collectFormFilters(formData);
+      persistFilters(appliedFilters);
+      renderChips();
+      updateFilterUrl(appliedFilters);
     });
 
-    document.getElementById('apply-rental-filters')?.addEventListener('click', applyFilters);
-    document.getElementById('clear-rental-filters')?.addEventListener('click', () => {
-      ['location', 'price-min', 'price-max', 'bedrooms', 'rent-type'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
+    form.addEventListener('reset', (event) => {
+      event.preventDefault();
+      clearFilters();
+    });
+
+    if (listContext.emptyReset) {
+      listContext.emptyReset.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearFilters();
       });
-      applyFilters();
-    });
+    }
+
+    if (listContext.chips) {
+      listContext.chips.addEventListener('click', onChipClick);
+    }
   }
 
-  fetch(dataPath('rentals.json'))
-    .then(res => res.json())
-    .then(json => {
-      rentals = Array.isArray(json.rentals) ? json.rentals : [];
-      if (rentalsGrid) {
-        renderList(rentals);
-        wÄªreFilters();
-      }
-      if (rentalDetail) {
-        const slug = new URLSearchParams(window.location.search).get('slug');
-        const selected = rentals.find(item => item.slug === slug) || rentals[0];
-        if (selected) {
-          renderDetail(selected);
-        }
-      }
-    })
-    .catch(() => {
-      if (rentalsGrid) rentalsGrid.innerHTML = '<div class="alert alert-warning w-100">NeizdevÄs ielÄdÄ“t Ä«res piedÄvÄjumus.</div>';
+  function buildListUrl(path) {
+    const params = new URLSearchParams();
+    Object.entries(appliedFilters).forEach(([key, value]) => {
+      if (value) params.set(key, value);
     });
+    const query = params.toString();
+    return `${path}${query ? `?${query}` : ''}`;
+  }
+
+  function hydrateDetail() {
+    if (!detailContext.root) return;
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    const item = slug ? rentals.find((entry) => entry.slug === slug) : rentals[0];
+
+    if (!item) {
+      detailContext.root.innerHTML = '<div class="vh-empty">Piedavajums nav atrasts.</div>';
+      if (detailContext.back) detailContext.back.href = '/rentals.html';
+      return;
+    }
+
+    updateHero(item);
+    updateSpecs(item);
+    updateSections(item);
+    setupGallery(detailContext.root.querySelector('[data-rental-gallery]'), buildGalleryData(item), item.title);
+    renderRelated(item);
+    updateBackLink();
+  }
+
+  function updateHero(item) {
+    const heroImage = detailContext.root.querySelector('[data-rental-hero-image]');
+    if (heroImage instanceof HTMLImageElement) {
+      if (item.image_1) heroImage.src = item.image_1;
+      heroImage.alt = item.image_1_alt || item.title || 'Ires ipašums';
+      heroImage.width = heroImage.width || 1440;
+      heroImage.height = heroImage.height || 900;
+    }
+    setText('[data-rental-type]', TYPE_LABELS[item.type] || 'Ires piedavajums');
+    setText('[data-rental-title]', item.title || 'Ires ipašums');
+    setText('[data-rental-price]', item.price || '');
+    setText('[data-rental-location]', item.address || '');
+  }
+
+  function updateSpecs(item) {
+    setText('[data-rental-bedrooms]', item.bedrooms != null ? String(item.bedrooms) : '—');
+    setText('[data-rental-bathrooms]', item.bathrooms != null ? String(item.bathrooms) : '—');
+    setText('[data-rental-area]', item.area ? `${item.area} m²` : '—');
+    setText('[data-rental-floors]', item.floors != null ? String(item.floors) : '—');
+    const summary = detailContext.root.querySelector('[data-rental-summary]');
+    if (summary) {
+      summary.textContent = item.description || summary.textContent || '';
+    }
+    const cta = detailContext.root.querySelector('[data-rental-cta]');
+    if (cta instanceof HTMLAnchorElement && item.cta_href) {
+      cta.href = item.cta_href;
+    }
+  }
+
+  function updateSections(item) {
+    setText('[data-rental-description]', item.description || '');
+    setText('[data-rental-address]', item.address || '');
+  }
+
+  function buildGalleryData(item) {
+    const slides = [];
+    if (item.image_1) {
+      slides.push({ src: item.image_1, alt: item.image_1_alt || item.title, caption: item.image_1_alt || '' });
+    }
+    if (item.image_2) {
+      slides.push({ src: item.image_2, alt: item.image_2_alt || item.title, caption: item.image_2_alt || '' });
+    }
+    return slides;
+  }
+
+  function setupGallery(gallery, galleryData, fallbackAlt) {
+    if (!gallery) return;
+    const viewport = gallery.querySelector('[data-gallery-viewport]');
+    if (!viewport) return;
+
+    let slides = Array.from(viewport.querySelectorAll('[data-gallery-item]'));
+    const template = slides[0];
+    const validData = (galleryData || []).filter((entry) => entry && entry.src);
+
+    if (!validData.length) {
+      const fallbackSlides = Array.from(viewport.querySelectorAll('[data-gallery-item]'));
+      fallbackSlides.forEach((slide, idx) => {
+        slide.removeAttribute('hidden');
+        slide.classList.toggle('is-active', idx === 0);
+      });
+      initGalleryNavigation(gallery);
+      return;
+    }
+
+    if (template && validData.length > slides.length) {
+      for (let i = slides.length; i < validData.length; i++) {
+        const clone = template.cloneNode(true);
+        clone.classList.remove('is-active');
+        viewport.appendChild(clone);
+      }
+      slides = Array.from(viewport.querySelectorAll('[data-gallery-item]'));
+    }
+
+    slides.forEach((slide, idx) => {
+      const data = validData[idx];
+      const img = slide.querySelector('[data-gallery-image]');
+      const caption = slide.querySelector('[data-gallery-caption]');
+      if (data) {
+        if (img instanceof HTMLImageElement) {
+          img.src = data.src;
+          img.alt = data.alt || fallbackAlt || 'Ires ipašums';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.width = img.width || 1280;
+          img.height = img.height || 840;
+        }
+        if (caption) {
+          caption.textContent = data.caption || '';
+        }
+        slide.removeAttribute('hidden');
+      } else {
+        slide.setAttribute('hidden', '');
+      }
+      slide.classList.remove('is-active');
+    });
+
+    const activeSlides = slides.filter((slide) => !slide.hasAttribute('hidden'));
+    if (activeSlides.length) {
+      activeSlides[0].classList.add('is-active');
+    }
+
+    initGalleryNavigation(gallery);
+  }
+
+  function initGalleryNavigation(gallery) {
+    const slides = Array.from(gallery.querySelectorAll('[data-gallery-item]')).filter((slide) => !slide.hasAttribute('hidden'));
+    const controlsWrapper = gallery.querySelector('[data-gallery-controls]');
+    const prev = gallery.querySelector('[data-gallery-prev]');
+    const next = gallery.querySelector('[data-gallery-next]');
+    const dotsContainer = gallery.querySelector('[data-gallery-dots]');
+
+    if (!slides.length) {
+      controlsWrapper?.setAttribute('hidden', '');
+      return;
+    }
+
+    const hasMultiple = slides.length > 1;
+    if (controlsWrapper) {
+      if (hasMultiple) controlsWrapper.removeAttribute('hidden');
+      else controlsWrapper.setAttribute('hidden', '');
+    }
+    if (prev instanceof HTMLButtonElement) prev.disabled = !hasMultiple;
+    if (next instanceof HTMLButtonElement) next.disabled = !hasMultiple;
+
+    const state = gallery.__vhGallery || { index: 0 };
+    state.index = Math.min(state.index, slides.length - 1);
+
+    function show(nextIndex) {
+      if (!slides.length) return;
+      state.index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('is-active', idx === state.index);
+      });
+      if (dotsContainer) {
+        Array.from(dotsContainer.children).forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === state.index);
+        });
+      }
+    }
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      if (hasMultiple) {
+        slides.forEach((slide, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'vh-gallery__dot' + (idx === state.index ? ' is-active' : '');
+          dot.setAttribute('aria-label', `Radit attelu ${idx + 1}`);
+          dot.addEventListener('click', () => show(idx));
+          dotsContainer.appendChild(dot);
+        });
+      }
+    }
+
+    if (hasMultiple) {
+      if (!state.initialized) {
+        prev?.addEventListener('click', () => show(state.index - 1));
+        next?.addEventListener('click', () => show(state.index + 1));
+        gallery.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowRight') show(state.index + 1);
+          if (event.key === 'ArrowLeft') show(state.index - 1);
+        });
+        state.initialized = true;
+      }
+    }
+
+    show(state.index || 0);
+    gallery.__vhGallery = state;
+  }
+
+  function renderRelated(current) {
+    if (!detailContext.relatedGrid) return;
+    const related = rentals.filter((item) => item.slug !== current.slug).slice(0, 3);
+    detailContext.relatedGrid.innerHTML = '';
+    const section = detailContext.relatedGrid.closest('[data-rental-related]');
+    if (!related.length) {
+      section?.setAttribute('hidden', '');
+      return;
+    }
+    section?.removeAttribute('hidden');
+    const fragment = document.createDocumentFragment();
+    related.forEach((item) => fragment.appendChild(createCard(item)));
+    detailContext.relatedGrid.appendChild(fragment);
+  }
+
+  function updateBackLink() {
+    if (!detailContext.back) return;
+    const url = buildListUrl('/rentals.html');
+    detailContext.back.href = `${url}#rentals-grid`;
+  }
+
+  function setText(selector, value) {
+    const element = detailContext.root?.querySelector(selector);
+    if (!element) return;
+    element.textContent = value || '';
+  }
+
+  function bootstrap() {
+    appliedFilters = mergeFilters();
+    persistFilters(appliedFilters);
+
+    if (listContext.grid) {
+      populateForm();
+      renderChips();
+      initListHandlers();
+      updateFilterUrl(appliedFilters);
+    } else if (detailContext.back) {
+      updateBackLink();
+    }
+  }
+
+  function hydrate() {
+    if (listContext.grid) {
+      renderList(applyFilters(rentals));
+    }
+    if (detailContext.root) {
+      hydrateDetail();
+    }
+  }
+
+  function init() {
+    fetch(DATA_URL)
+      .then((response) => response.json())
+      .then((json) => {
+        rentals = Array.isArray(json.rentals) ? json.rentals : [];
+        hydrate();
+      })
+      .catch((error) => {
+        console.error('Neizdevas ieladet ires datus', error);
+        if (listContext.grid) {
+          listContext.grid.innerHTML = '<div class="vh-empty">Neizdevas ieladet ires piedavajumus.</div>';
+        }
+        if (detailContext.root) {
+          detailContext.root.innerHTML = '<div class="vh-empty">Neizdevas ieladet piedavajumu.</div>';
+        }
+      });
+  }
+
+  bootstrap();
+  init();
 })();
-
-
-
-
 
 
 

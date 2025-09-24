@@ -1,144 +1,161 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="lv">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vandore Heritage - Īpašumi pārdošanā</title>
+  <title>Vandore Heritage � Premium ipa�umu katalogs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap&subset=latin-ext" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/changes.css" />
   <link rel="stylesheet" href="/css/custom.css" />
   <link rel="stylesheet" href="/css/fonts.css" />
-  <style>
-    .property-card-grid { row-gap: 2rem; }
-    .property-card { transition: transform .2s ease, box-shadow .2s ease; }
-    .property-card:hover { transform: translateY(-4px); box-shadow: 0 1.25rem 2.5rem rgba(16, 24, 40, 0.1); }
-    .property-card__image img { width: 100%; height: auto; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; }
-    .property-card__body { padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
-  </style>
+  <link rel="stylesheet" href="/css/estate.css" />
 </head>
-<body class="page properties-page">
-  <header class="site-header bg-accent-primary py-4">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
-      <a class="navbar-brand" href="/">
-        <img class="editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" height="48" />
+<body class="vh-page vh-page--properties">
+  <header class="vh-header" data-site-header>
+    <div class="vh-header__inner vh-container">
+      <a class="vh-logo" href="/">
+        <img class="vh-logo__image editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" width="164" height="48" decoding="async" />
       </a>
-      <nav class="d-flex gap-4 text-uppercase small fw-semibold">
-        <a href="/" class="link text-white">Sākums</a>
-        <a href="/properties.html" class="link text-white">Īpašumi</a>
-        <a href="/rentals.html" class="link text-white">Īre</a>
-        <a href="/blog.html" class="link text-white">Blogs</a>
-        <a href="/contact.html" class="link text-white">Kontakti</a>
+      <button class="vh-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation">
+        <span class="vh-nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="vh-nav-toggle__label">Izvelne</span>
+      </button>
+      <nav id="primary-navigation" class="vh-nav" data-primary-nav hidden>
+        <ul class="vh-nav__list">
+          <li><a class="vh-nav__link" href="/"><span class="editable">Sakums</span></a></li>
+          <li><a class="vh-nav__link" href="/properties.html" aria-current="page"><span class="editable">Ipa�umi</span></a></li>
+          <li><a class="vh-nav__link" href="/rentals.html"><span class="editable">Ire</span></a></li>
+          <li><a class="vh-nav__link" href="/blog.html"><span class="editable">Blogs</span></a></li>
+          <li><a class="vh-nav__link" href="/about.html"><span class="editable">Par mums</span></a></li>
+        </ul>
+        <div class="vh-nav__cta">
+          <a class="vh-button vh-button--primary" href="/contact.html"><span class="editable">Sazinaties ar komandu</span></a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="row gy-4 align-items-center">
-          <div class="col-lg-7">
-            <h1 class="display-4 fw-semibold mb-3 editable">Premium īpašumu katalogs</h1>
-            <p class="lead text-muted mb-4 editable">Ekskluzīvi īpašumi un projekti ar augstu pievienoto vērtību. Izvēlieties dzīvokli vai māju, kas vislabāk atbilst jūsu dzīves ritmam.</p>
-            <a class="btn btn-accent btn-lg" href="/contact.html">Sazināties ar konsultantu</a>
-          </div>
-          <div class="col-lg-5">
-            <div class="bg-white border rounded-4 shadow-sm p-4 d-flex flex-column gap-3">
-              <h2 class="h5 text-uppercase text-muted mb-1 editable">Pilns serviss</h2>
-              <p class="text-muted mb-0 editable">Mēs rūpējamies par visu procesu – no cenas noteikšanas līdz juridiskajai noformēšanai.</p>
-              <p class="text-muted mb-0 editable">Piedāvājam profesionālu foto un video, dekorēšanu, mārketingu un klientu atlasi.</p>
-              <p class="text-muted mb-0 editable">Jūs saņemat pārskatāmu ziņošanu un personalizētu stratēģiju katram īpašumam.</p>
+    <section class="vh-hero">
+      <div class="vh-container">
+        <div class="vh-hero__inner">
+          <div class="vh-stack">
+            <span class="vh-eyebrow editable">Ekskluzivi piedavajumi Latvija</span>
+            <h1 class="editable">Premium ipa�umu katalogs</h1>
+            <p class="editable">Atlasiti dzivokli, privatmajas un investiciju projekti ar parbauditu kvalitati. Piedavajam izcilu apkalpo�anu no pirmas konsultacijas lidz liguma paraksti�anai.</p>
+            <div class="vh-nav__cta">
+              <a class="vh-button vh-button--primary" href="/contact.html"><span class="editable">Pieteikt konsultaciju</span></a>
+              <a class="vh-button vh-button--ghost" href="#property-grid"><span class="editable">Skatit ipa�umus</span></a>
             </div>
           </div>
+          <aside class="vh-feature-panel">
+            <div class="vh-feature-panel__item">
+              <h2 class="vh-eyebrow editable">Pilns serviss</h2>
+              <p class="editable">Profesionala ipa�umu sagatavo�ana, juridiskais nodro�inajums un personalizetas pardo�anas strategijas.</p>
+            </div>
+            <div class="vh-feature-panel__item">
+              <h2 class="vh-eyebrow editable">Investoru atbalsts</h2>
+              <p class="editable">Sniedzam tirgus datus un finan�u aprekinus, lai palidzetu pienemt parliecino�us lemumus.</p>
+            </div>
+            <div class="vh-feature-panel__item">
+              <h2 class="vh-eyebrow editable">Latvijas komanda</h2>
+              <p class="editable">Darbs latvie�u, anglu un krievu valoda, vieteja ekspertize un starptautiska komunikacija.</p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="py-5">
-      <div class="container">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-          <div>
-            <h2 class="h4 mb-1 editable">Aktuālie īpašumi</h2>
-            <p class="text-muted mb-0 editable">Atlasiet īpašumu, kas vislabāk atbilst jūsu vajadzībām.</p>
+    <section class="vh-section">
+      <div class="vh-container vh-stack">
+        <div class="vh-filter-surface" aria-labelledby="property-filter-title">
+          <div class="vh-stack" style="gap: var(--vh-space-sm);">
+            <div>
+              <span id="property-filter-title" class="vh-eyebrow editable">Atlasiet ipa�umus</span>
+              <h2 class="editable">Iestatiet kriterijus savam velmem</h2>
+            </div>
+            <form id="property-filter-form" class="vh-filter-form" novalidate>
+              <div class="vh-filter-field" data-span="2">
+                <label class="vh-filter-label" for="property-location">Atra�anas vieta</label>
+                <input class="vh-filter-input" type="search" id="property-location" name="location" placeholder="Riga, Jurmala�" autocomplete="off" />
+              </div>
+              <div class="vh-filter-field">
+                <label class="vh-filter-label" for="property-price-min">Cena no</label>
+                <input class="vh-filter-input" type="number" id="property-price-min" name="priceMin" min="0" inputmode="numeric" placeholder="150000" />
+              </div>
+              <div class="vh-filter-field">
+                <label class="vh-filter-label" for="property-price-max">Cena lidz</label>
+                <input class="vh-filter-input" type="number" id="property-price-max" name="priceMax" min="0" inputmode="numeric" placeholder="450000" />
+              </div>
+              <div class="vh-filter-field">
+                <label class="vh-filter-label" for="property-bedrooms">Gulamistabas</label>
+                <select class="vh-filter-select" id="property-bedrooms" name="bedrooms">
+                  <option value="">Visas</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4+</option>
+                </select>
+              </div>
+              <div class="vh-filter-field">
+                <label class="vh-filter-label" for="property-area-min">Platiba no m�</label>
+                <input class="vh-filter-input" type="number" id="property-area-min" name="areaMin" min="0" inputmode="numeric" placeholder="60" />
+              </div>
+              <div class="vh-filter-field" data-span="2">
+                <div class="vh-filter-actions">
+                  <button class="vh-button vh-button--subtle" type="reset" id="property-reset">Notirit</button>
+                  <button class="vh-button vh-button--primary" type="submit" id="property-apply">Piemerot filtrus</button>
+                </div>
+              </div>
+            </form>
+            <div class="vh-filter-chips" id="property-filter-chips" hidden aria-live="polite" aria-label="Aktivie filtri"></div>
           </div>
         </div>
-        <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-1 g-4 property-card-grid">
-          <div class="col">
-            <article class="property-card border rounded-4 h-100 overflow-hidden shadow-sm">
-              <a href="property.html" class="property-card__image d-block">
-                <img class="editable editable-image" src="/image/dummy-img-900x700.jpg" alt="Elegants dzīvoklis centrā" />
-              </a>
-              <div class="property-card__body">
-                <span class="badge bg-primary align-self-start editable">Pārdošanā</span>
-                <h3 class="h5 mb-0 editable">Elegants dzīvoklis centrā</h3>
-                <p class="text-muted small editable">Gaišs trīsistabu dzīvoklis ar augstiem griestiem un vēsturiskām detaļām.</p>
-                <div class="d-flex flex-wrap gap-3 text-uppercase small">
-                  <span class="badge bg-light text-dark editable">€ 195 000</span>
-                  <span class="badge bg-light text-dark editable">78 m²</span>
-                  <span class="badge bg-light text-dark editable">3 istabas</span>
-                </div>
-                <a class="btn btn-accent align-self-start" href="property.html">Skatīt īpašumu</a>
-              </div>
-            </article>
+
+        <div class="vh-results-bar" role="status" aria-live="polite">
+          <div>
+            <h2 class="vh-eyebrow editable">Aktualie ipa�umi</h2>
+            <p class="vh-results-count" id="property-count">Notiek ielade�</p>
           </div>
-          <div class="col">
-            <article class="property-card border rounded-4 h-100 overflow-hidden shadow-sm">
-              <a href="property.html" class="property-card__image d-block">
-                <img class="editable editable-image" src="/image/dummy-img-900x600.jpg" alt="Ģimenes māja pie ezera" />
-              </a>
-              <div class="property-card__body">
-                <span class="badge bg-primary align-self-start editable">Jauns piedāvājums</span>
-                <h3 class="h5 mb-0 editable">Ģimenes māja pie ezera</h3>
-                <p class="text-muted small editable">Divstāvu māja ar privātu dārzu, garāžu un plašu terasi pie ūdens.</p>
-                <div class="d-flex flex-wrap gap-3 text-uppercase small">
-                  <span class="badge bg-light text-dark editable">€ 365 000</span>
-                  <span class="badge bg-light text-dark editable">160 m²</span>
-                  <span class="badge bg-light text-dark editable">5 istabas</span>
-                </div>
-                <a class="btn btn-accent align-self-start" href="property.html">Skatīt īpašumu</a>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="property-card border rounded-4 h-100 overflow-hidden shadow-sm">
-              <a href="property.html" class="property-card__image d-block">
-                <img class="editable editable-image" src="/image/dummy-img-900x500.jpg" alt="Lofts ar panorāmas skatu" />
-              </a>
-              <div class="property-card__body">
-                <span class="badge bg-primary align-self-start editable">Ekskluzīvi</span>
-                <h3 class="h5 mb-0 editable">Lofts ar panorāmas skatu</h3>
-                <p class="text-muted small editable">Divu līmeņu lofts ar stiklotu fasādi un privātu jumta terasi.</p>
-                <div class="d-flex flex-wrap gap-3 text-uppercase small">
-                  <span class="badge bg-light text-dark editable">€ 420 000</span>
-                  <span class="badge bg-light text-dark editable">110 m²</span>
-                  <span class="badge bg-light text-dark editable">4 istabas</span>
-                </div>
-                <a class="btn btn-accent align-self-start" href="property.html">Skatīt īpašumu</a>
-              </div>
-            </article>
-          </div>
+          <a class="vh-button vh-button--ghost" href="#property-grid"><span class="editable">Parlekt uz sarakstu</span></a>
+        </div>
+
+
+        <div id="property-grid" class="vh-grid vh-grid--responsive" aria-live="polite"></div>
+        <div id="property-empty" class="vh-empty" hidden role="status">
+          <p class="editable">Nav atrasts neviens ipa�ums, kas atbilst izveletajiem kriterijiem.</p>
+          <p><a href="#" id="property-empty-reset" class="editable">Atiestatit filtrus</a></p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-dark text-white py-4">
-    <div class="container d-flex flex-wrap justify-content-between gap-3">
-      <div>
-        <p class="text-uppercase small mb-1 editable">Sazināties</p>
-        <a class="text-white text-decoration-none" href="mailto:info@vandoreheritage.lv"><span>info@vandoreheritage.lv</span></a>
+  <footer class="vh-footer">
+    <div class="vh-container vh-footer__inner">
+      <div class="vh-footer__logo">
+        <img class="editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" width="164" height="48" loading="lazy" />
+        <p class="vh-text-muted editable">Vandore Heritage ir premium nekustamo ipa�umu agentura ar pilnu servisu investoriem un ipa�niekiem.</p>
       </div>
-      <nav class="d-flex gap-3 text-uppercase small">
-        <a href="/" class="link text-white">Sākums</a>
-        <a href="/properties.html" class="link text-white">Īpašumi</a>
-        <a href="/rentals.html" class="link text-white">Īre</a>
-        <a href="/blog.html" class="link text-white">Blogs</a>
-        <a href="/contact.html" class="link text-white">Kontakti</a>
+      <nav class="vh-footer__nav" aria-label="Galvena navigacija">
+        <a class="vh-footer__link" href="/"><span class="editable">Sakums</span></a>
+        <a class="vh-footer__link" href="/properties.html"><span class="editable">Ipa�umi</span></a>
+        <a class="vh-footer__link" href="/rentals.html"><span class="editable">Ire</span></a>
+        <a class="vh-footer__link" href="/blog.html"><span class="editable">Blogs</span></a>
+        <a class="vh-footer__link" href="/contact.html"><span class="editable">Kontakti</span></a>
       </nav>
+      <div class="vh-footer__meta">
+        <span class="editable">info@vandoreheritage.lv</span>
+        <span class="editable">+371 2000 0000</span>
+        <span class="editable">Baznicas iela 12, Riga, LV-1010</span>
+      </div>
     </div>
   </footer>
+
   <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="/js/properties.js"></script>
 </body>
 </html>
