@@ -11,6 +11,19 @@
   <link rel="stylesheet" href="/css/changes.css" />
   <link rel="stylesheet" href="/css/custom.css" />
   <link rel="stylesheet" href="/css/fonts.css" />
+  <style>
+    .property-gallery { display: flex; flex-direction: column; gap: 1.5rem; }
+    .property-gallery__viewport { position: relative; }
+    .property-gallery__item { display: none; margin: 0; }
+    .property-gallery__item.is-active { display: block; }
+    .property-gallery__image { width: 100%; border-radius: 1.5rem; }
+    .property-gallery__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+    .property-gallery__btn { background: var(--accent-primary, #d00000); color: #fff; border: none; width: 2.75rem; height: 2.75rem; border-radius: 50%; font-size: 1.25rem; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .property-gallery__btn:disabled { opacity: .4; cursor: not-allowed; }
+    .property-gallery__dots { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .property-gallery__dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: #d6d6d6; border: none; padding: 0; cursor: pointer; }
+    .property-gallery__dot.is-active { background: #222; }
+  </style>
 </head>
 <body class="page property-detail-page">
   <header class="site-header bg-accent-primary py-4">
@@ -19,11 +32,11 @@
         <img class="editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" height="48" />
       </a>
       <nav class="d-flex gap-4 text-uppercase small fw-semibold">
-        <a href="/" class="link text-white"><span>Sākums</span></a>
-        <a href="/properties.html" class="link text-white"><span>Īpašumi</span></a>
-        <a href="/rentals.html" class="link text-white"><span>Īre</span></a>
-        <a href="/blog.html" class="link text-white"><span>Blogs</span></a>
-        <a href="/contact.html" class="link text-white"><span>Kontakti</span></a>
+        <a href="/" class="link text-white">Sākums</a>
+        <a href="/properties.html" class="link text-white">Īpašumi</a>
+        <a href="/rentals.html" class="link text-white">Īre</a>
+        <a href="/blog.html" class="link text-white">Blogs</a>
+        <a href="/contact.html" class="link text-white">Kontakti</a>
       </nav>
     </div>
   </header>
@@ -31,36 +44,55 @@
   <main class="py-5">
     <div class="container">
       <nav class="mb-4" aria-label="Atpakaļ uz katalogu">
-        <a class="link d-inline-flex align-items-center gap-2" href="/properties.html"><span>← Atpakaļ uz īpašumu sarakstu</span></a>
+        <a class="link d-inline-flex align-items-center gap-2" href="/properties.html"><span class="editable">← Atpakaļ uz īpašumu sarakstu</span></a>
       </nav>
-      <div id="property-detail" class="row gy-4 align-items-start">
+      <div class="row gy-4 align-items-start">
         <div class="col-lg-7">
-          <div class="property-gallery d-grid gap-4" data-property-gallery>
-            <figure class="m-0" data-property-gallery-item data-property-gallery-index="0">
-              <img class="img-fluid rounded-4 editable editable-image" loading="lazy" src="/image/dummy-img-900x700.jpg" alt="Plaša viesistaba" data-property-gallery-image />
-              <figcaption class="text-muted small mt-2" data-property-gallery-caption>Saulains un silts dzīvoklis</figcaption>
-            </figure>
-            <figure class="m-0" data-property-gallery-item data-property-gallery-index="1">
-              <img class="img-fluid rounded-4 editable editable-image" loading="lazy" src="/image/dummy-img-900x600.jpg" alt="Pilnībā aprīkota virtuve" data-property-gallery-image />
-              <figcaption class="text-muted small mt-2" data-property-gallery-caption>Virtuve ar iebūvētu tehniku</figcaption>
-            </figure>
-            <figure class="m-0" data-property-gallery-item data-property-gallery-index="2">
-              <img class="img-fluid rounded-4 editable editable-image" loading="lazy" src="/image/dummy-img-600x400.jpg" alt="Mājīga guļamistaba" data-property-gallery-image />
-              <figcaption class="text-muted small mt-2" data-property-gallery-caption>Guļamistaba ar skatu uz pagalmu</figcaption>
-            </figure>
+          <div class="property-gallery" data-gallery>
+            <div class="property-gallery__viewport">
+              <figure class="property-gallery__item is-active" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-900x700.jpg" alt="Plaša viesistaba ar skatu" />
+                <figcaption class="text-muted small mt-2 editable">Saulains dzīvojamais stūris ar panorāmas skatu.</figcaption>
+              </figure>
+              <figure class="property-gallery__item" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-900x600.jpg" alt="Virtuve ar iebūvētu tehniku" />
+                <figcaption class="text-muted small mt-2 editable">Pilnībā aprīkota virtuve ērtai ikdienai.</figcaption>
+              </figure>
+              <figure class="property-gallery__item" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-600x400.jpg" alt="Mājīga guļamistaba" />
+                <figcaption class="text-muted small mt-2 editable">Guļamistaba ar garderobes sistēmu.</figcaption>
+              </figure>
+              <figure class="property-gallery__item" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-600x400.jpg" alt="Plaša vannas istaba" />
+                <figcaption class="text-muted small mt-2 editable">Vannas istaba ar apsildāmu grīdu.</figcaption>
+              </figure>
+              <figure class="property-gallery__item" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-900x500.jpg" alt="Skats no terases" />
+                <figcaption class="text-muted small mt-2 editable">Privāta terase ar vakara sauli.</figcaption>
+              </figure>
+              <figure class="property-gallery__item" data-gallery-item>
+                <img class="property-gallery__image editable editable-image" loading="lazy" src="/image/dummy-img-600x400.jpg" alt="Daudzfunkcionāla darba zona" />
+                <figcaption class="text-muted small mt-2 editable">Darba zona ar dabisko apgaismojumu.</figcaption>
+              </figure>
+            </div>
+            <div class="property-gallery__controls" data-gallery-controls>
+              <button type="button" class="property-gallery__btn" data-gallery-prev aria-label="Iepriekšējais attēls">‹</button>
+              <div class="property-gallery__dots" data-gallery-dots></div>
+              <button type="button" class="property-gallery__btn" data-gallery-next aria-label="Nākamais attēls">›</button>
+            </div>
           </div>
         </div>
         <div class="col-lg-5 d-flex flex-column gap-3">
-          <span class="badge bg-primary align-self-start" data-property-field="badge">Pārdošanā</span>
-          <h1 class="display-5 fw-semibold mb-2 editable" data-property-field="title">Sample Apartment</h1>
-          <p class="h4 text-accent mb-1 editable" data-property-field="price">€ 120 000</p>
-          <p class="text-muted editable" data-property-field="address">Example iela 10, Rīga</p>
-          <p class="mb-4 editable" data-property-field="description">Mūsdienīgs divistabu dzīvoklis ar plašu dzīvojamo zonu un klusu pagalmu pilsētas centrā.</p>
+          <span class="badge bg-primary align-self-start editable">Pārdošanā</span>
+          <h1 class="display-5 fw-semibold mb-2 editable">Sample Apartment</h1>
+          <p class="h4 text-accent mb-1 editable">€ 120 000</p>
+          <p class="text-muted editable">Example iela 10, Rīga</p>
+          <p class="mb-4 editable">Mūsdienīgs divistabu dzīvoklis ar plašu dzīvojamo zonu un klusu pagalmu pilsētas centrā.</p>
           <div class="d-flex flex-wrap gap-3 mb-4">
-            <span class="badge bg-light text-dark px-3 py-2"><span data-property-field="area">65</span> m²</span>
-            <span class="badge bg-light text-dark px-3 py-2"><span data-property-field="bedrooms">2</span> guļamistabas</span>
-            <span class="badge bg-light text-dark px-3 py-2"><span data-property-field="bathrooms">1</span> vannas istaba</span>
-            <span class="badge bg-light text-dark px-3 py-2"><span data-property-field="floors">5</span>. stāvs</span>
+            <span class="badge bg-light text-dark px-3 py-2"><strong class="editable">65</strong> m²</span>
+            <span class="badge bg-light text-dark px-3 py-2"><strong class="editable">2</strong> guļamistabas</span>
+            <span class="badge bg-light text-dark px-3 py-2"><strong class="editable">1</strong> vannas istaba</span>
+            <span class="badge bg-light text-dark px-3 py-2"><strong class="editable">5</strong>. stāvs</span>
           </div>
           <a class="btn btn-accent btn-lg align-self-start" href="mailto:info@vandoreheritage.lv">Sazināties</a>
         </div>
@@ -75,23 +107,78 @@
         <a class="text-white text-decoration-none" href="mailto:info@vandoreheritage.lv"><span>info@vandoreheritage.lv</span></a>
       </div>
       <nav class="d-flex gap-3 text-uppercase small">
-        <a href="/" class="link text-white"><span>Sākums</span></a>
-        <a href="/properties.html" class="link text-white"><span>Īpašumi</span></a>
-        <a href="/rentals.html" class="link text-white"><span>Īre</span></a>
-        <a href="/blog.html" class="link text-white"><span>Blogs</span></a>
-        <a href="/contact.html" class="link text-white"><span>Kontakti</span></a>
+        <a href="/" class="link text-white">Sākums</a>
+        <a href="/properties.html" class="link text-white">Īpašumi</a>
+        <a href="/rentals.html" class="link text-white">Īre</a>
+        <a href="/blog.html" class="link text-white">Blogs</a>
+        <a href="/contact.html" class="link text-white">Kontakti</a>
       </nav>
     </div>
   </footer>
   <script src="/js/vendor/bootstrap.bundle.min.js"></script>
-  <script src="/js/properties.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const gallery = document.querySelector('[data-gallery]');
+      if (!gallery) return;
+      const items = Array.from(gallery.querySelectorAll('[data-gallery-item]'));
+      const validItems = items.filter(item => {
+        const img = item.querySelector('img');
+        if (!img) return false;
+        const src = (img.getAttribute('src') || '').trim();
+        return src && src !== '#';
+      });
+      const controls = gallery.querySelector('[data-gallery-controls]');
+      if (!validItems.length) {
+        if (controls) controls.classList.add('d-none');
+        return;
+      }
+      let index = 0;
+      const dotsContainer = gallery.querySelector('[data-gallery-dots]');
+      const prevBtn = gallery.querySelector('[data-gallery-prev]');
+      const nextBtn = gallery.querySelector('[data-gallery-next]');
+
+      const renderDots = () => {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        validItems.forEach((item, dotIndex) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'property-gallery__dot' + (dotIndex === index ? ' is-active' : '');
+          dot.setAttribute('aria-label', `Rādīt attēlu ${dotIndex + 1}`);
+          dot.addEventListener('click', () => show(dotIndex));
+          dotsContainer.appendChild(dot);
+        });
+      };
+
+      const updateButtons = () => {
+        const disabled = validItems.length <= 1;
+        if (prevBtn) prevBtn.disabled = disabled;
+        if (nextBtn) nextBtn.disabled = disabled;
+      };
+
+      const show = (nextIndex) => {
+        index = (nextIndex + validItems.length) % validItems.length;
+        validItems.forEach((item, itemIndex) => {
+          item.classList.toggle('is-active', itemIndex === index);
+        });
+        if (dotsContainer) {
+          Array.from(dotsContainer.children).forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === index);
+          });
+        }
+      };
+
+      items.forEach(item => item.classList.remove('is-active'));
+      validItems.forEach(item => item.classList.remove('is-active'));
+      renderDots();
+      show(0);
+      updateButtons();
+
+      if (prevBtn) prevBtn.addEventListener('click', () => show(index - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => show(index + 1));
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
 
 

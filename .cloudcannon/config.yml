@@ -58,7 +58,6 @@ collection_groups:
   - heading: Listings
     collections:
       - rentals
-      - properties
   - heading: Blog
     collections:
       - blog
@@ -190,81 +189,6 @@ collections_config:
           label: Secondary Image Alt Text
           type: text
           input: short_text
-  properties:
-    name: Properties
-    path: content/properties
-    icon: real_estate_agent
-    glob:
-      - '*.json'
-    format: json
-    output: false
-    new_item_extension: json
-    url: /property.html?slug={slug}
-    _enabled_editors:
-      - data
-    schema:
-      name: Property
-      fields:
-        - name: slug
-          label: Slug
-          type: text
-          input: short_text
-          required: true
-        - name: title
-          label: Title
-          type: text
-          input: short_text
-          required: true
-        - name: price
-          label: Price
-          type: text
-          input: short_text
-        - name: address
-          label: Address
-          type: text
-          input: short_text
-        - name: description
-          label: Description
-          type: textarea
-          input: long_text
-        - name: area
-          label: Area (m2)
-          type: number
-          input: number
-        - name: bedrooms
-          label: Bedrooms
-          type: number
-          input: number
-        - name: bathrooms
-          label: Bathrooms
-          type: number
-          input: number
-        - name: floors
-          label: Floor
-          type: number
-          input: number
-        - name: image
-          label: Featured Image
-          type: image
-          input: image
-        - name: gallery
-          label: Gallery Images
-          type: array
-          schema:
-            name: Gallery Image
-            fields:
-              - name: src
-                label: Image
-                type: image
-                input: image
-              - name: alt
-                label: Alt Text
-                type: text
-                input: short_text
-              - name: caption
-                label: Caption
-                type: text
-                input: short_text
   blog:
     name: Blog
     path: data/blogs.json
@@ -325,9 +249,6 @@ file_config:
     _enabled_editors:
       - visual
       - source
-  - glob: content/properties/**/*.json
-    _enabled_editors:
-      - data
   - glob: data/**/*.json
     _enabled_editors:
       - data
@@ -342,6 +263,9 @@ build:
   install: ""
   command: ""
   output_path: .
+
+
+
 
 
 
