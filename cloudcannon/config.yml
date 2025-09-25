@@ -16,37 +16,37 @@ paths:
 routing:
   routes:
     - path: /
-      file: index.html
+      file: pages/index.html
     - path: /about.html
-      file: about.html
+      file: pages/about.html
     - path: /blog.html
-      file: blog.html
+      file: pages/blog.html
     - path: /contact.html
-      file: contact.html
+      file: pages/contact.html
     - path: /faq.html
-      file: faq.html
+      file: pages/faq.html
     - path: /price_plan.html
-      file: price_plan.html
+      file: pages/price_plan.html
     - path: /properties.html
-      file: properties.html
+      file: pages/properties.html
     - path: /property.html
-      file: property.html
+      file: pages/property.html
     - path: /property_details.html
-      file: property_details.html
+      file: pages/property_details.html
     - path: /property-detail-template.html
-      file: property-detail-template.html
+      file: pages/property-detail-template.html
     - path: /rental.html
-      file: rental.html
+      file: pages/rental.html
     - path: /rentals.html
-      file: rentals.html
+      file: pages/rentals.html
     - path: /service.html
-      file: service.html
+      file: pages/service.html
     - path: /single_blog.html
-      file: single_blog.html
+      file: pages/single_blog.html
     - path: /team.html
-      file: team.html
+      file: pages/team.html
     - path: /404.html
-      file: 404.html
+      file: pages/404.html
 
 preserve_files:
   - image/uploads/**
@@ -57,6 +57,7 @@ collection_groups:
       - pages
   - heading: Listings
     collections:
+      - properties
       - rentals
   - heading: Blog
     collections:
@@ -104,11 +105,10 @@ inputs:
 collections_config:
   pages:
     name: Pages
-    path: .
+    path: pages
     icon: wysiwyg
     glob:
-      - '*.html'
-    output: true
+      - '**/*.html'
     base_url: /
     new_item_extension: html
     editor:
@@ -117,6 +117,65 @@ collections_config:
     _enabled_editors:
       - visual
       - source
+  properties:
+    name: Properties
+    path: data/properties.json
+    icon: home
+    format: json
+    output: false
+    value_key: properties
+    url: /property.html?slug={slug}
+    new_item_extension: json
+    _enabled_editors:
+      - data
+    schema:
+      name: Property
+      fields:
+        - name: slug
+          label: Slug
+          type: text
+        - name: title
+          label: Title
+          type: text
+        - name: price
+          label: Price
+          type: text
+        - name: address
+          label: Address
+          type: text
+        - name: description
+          label: Description
+          type: textarea
+        - name: bedrooms
+          label: Bedrooms
+          type: number
+        - name: bathrooms
+          label: Bathrooms
+          type: number
+        - name: area
+          label: Area (m²)
+          type: number
+        - name: floors
+          label: Floors
+          type: number
+        - name: image
+          label: Primary Image
+          type: image
+        - name: gallery
+          label: Gallery
+          type: array
+          schema:
+            name: Gallery Image
+            fields:
+              - name: src
+                label: Image
+                type: image
+              - name: alt
+                label: Alt
+                type: text
+              - name: caption
+                label: Caption
+                type: text
   rentals:
     name: Rentals
     path: data/rentals.json
@@ -245,7 +304,7 @@ collections_config:
             input: rich_text
 
 file_config:
-  - glob: *.html
+  - glob: pages/**/*.html
     _enabled_editors:
       - visual
       - source
@@ -263,6 +322,12 @@ build:
   install: ""
   command: ""
   output_path: .
+
+
+
+
+
+
 
 
 
