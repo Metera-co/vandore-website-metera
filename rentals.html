@@ -1,164 +1,642 @@
-<!doctype html>
-<html lang="lv">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vandore Heritage � Ires un istermina piedavajumi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap&subset=latin-ext" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/changes.css" />
-  <link rel="stylesheet" href="/css/custom.css" />
-  <link rel="stylesheet" href="/css/fonts.css" />
-  <link rel="stylesheet" href="/css/estate.css" />
+<!DOCTYPE html><html lang="lv" data-sb-object-id="content/pages/rentals.json"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
+    <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025" data-sb-field-path="seo.favicon#@href">
+    <title data-i18n="vandore_heritage_rentals" data-sb-field-path="title">Vandore Heritage - īres piedāvājumi</title>
+    <meta name="description" data-sb-field-path="seo.description" content="">
+    <meta property="og:title" data-sb-field-path="seo.og.title" content="">
+    <meta property="og:description" data-sb-field-path="seo.og.description" content="">
+    <meta name="twitter:title" data-sb-field-path="seo.twitter.title" content="">
 </head>
-<body class="vh-page vh-page--rentals">
-  <header class="vh-header" data-site-header>
-    <div class="vh-header__inner vh-container">
-      <a class="vh-logo" href="/">
-        <img class="vh-logo__image editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" width="164" height="48" decoding="async" />
-      </a>
-      <button class="vh-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation">
-        <span class="vh-nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="vh-nav-toggle__label">Izvelne</span>
-      </button>
-      <nav id="primary-navigation" class="vh-nav" data-primary-nav hidden>
-        <ul class="vh-nav__list">
-          <li><a class="vh-nav__link" href="/"><span class="editable">Sakums</span></a></li>
-          <li><a class="vh-nav__link" href="/properties.html"><span class="editable">Ipa�umi</span></a></li>
-          <li><a class="vh-nav__link" href="/rentals.html" aria-current="page"><span class="editable">Ire</span></a></li>
-          <li><a class="vh-nav__link" href="/blog.html"><span class="editable">Blogs</span></a></li>
-          <li><a class="vh-nav__link" href="/about.html"><span class="editable">Par mums</span></a></li>
-        </ul>
-        <div class="vh-nav__cta">
-          <a class="vh-button vh-button--primary" href="/contact.html"><span class="editable">Sazinaties ar komandu</span></a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="vh-hero">
-      <div class="vh-container">
-        <div class="vh-hero__inner">
-          <div class="vh-stack">
-            <span class="vh-eyebrow editable">Ilgtermina un istermina ire</span>
-            <h1 class="editable">Atlasiti ires piedavajumi</h1>
-            <p class="editable">Dzivesvietas un atputas ipa�umi, kas parbauditi pec kvalitates un ertibam. Atra sazina, skaidri ligumi un uzticama parvaldiba.</p>
-            <div class="vh-nav__cta">
-              <a class="vh-button vh-button--primary" href="#rentals-grid"><span class="editable">Skatit pieejamos</span></a>
-              <a class="vh-button vh-button--ghost" href="/contact.html"><span class="editable">Ieteikt man ipa�umu</span></a>
-            </div>
-          </div>
-          <aside class="vh-feature-panel">
-            <div class="vh-feature-panel__item">
-              <h2 class="vh-eyebrow editable">Parvalditi ipa�umi</h2>
-              <p class="editable">Vandore Heritage nodro�ina uzraudzibu, uzkop�anu un tehnisko apkalpo�anu visam musu portfelim.</p>
-            </div>
-            <div class="vh-feature-panel__item">
-              <h2 class="vh-eyebrow editable">Elastigi termini</h2>
-              <p class="editable">Piedavajam elastigus liguma nosacijumus, lai pielagotos jusu grafikiem un vajadzibam.</p>
-            </div>
-            <div class="vh-feature-panel__item">
-              <h2 class="vh-eyebrow editable">Dro�as rezervacijas</h2>
-              <p class="editable">Digitala rezervacija un ligumu paraksti�ana, pazinojumi un atbalsts vairakas valodas.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="vh-section">
-      <div class="vh-container vh-stack">
-        <div class="vh-filter-surface" aria-labelledby="rental-filter-title">
-          <div class="vh-stack" style="gap: var(--vh-space-sm);">
-            <div>
-              <span id="rental-filter-title" class="vh-eyebrow editable">Filtrejiet iri</span>
-              <h2 class="editable">Atrodiet piemerotako ipa�umu</h2>
-            </div>
-            <form id="rental-filter-form" class="vh-filter-form" novalidate>
-              <div class="vh-filter-field" data-span="2">
-                <label class="vh-filter-label" for="rental-location">Atra�anas vieta</label>
-                <input class="vh-filter-input" type="search" id="rental-location" name="location" placeholder="Riga, Jurmala�" autocomplete="off" />
-              </div>
-              <div class="vh-filter-field">
-                <label class="vh-filter-label" for="rental-price-min">Cena no</label>
-                <input class="vh-filter-input" type="number" id="rental-price-min" name="priceMin" min="0" inputmode="numeric" placeholder="50" />
-              </div>
-              <div class="vh-filter-field">
-                <label class="vh-filter-label" for="rental-price-max">Cena lidz</label>
-                <input class="vh-filter-input" type="number" id="rental-price-max" name="priceMax" min="0" inputmode="numeric" placeholder="1500" />
-              </div>
-              <div class="vh-filter-field">
-                <label class="vh-filter-label" for="rental-bedrooms">Gulamistabas</label>
-                <select class="vh-filter-select" id="rental-bedrooms" name="bedrooms">
-                  <option value="">Visas</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4+">4+</option>
-                </select>
-              </div>
-              <div class="vh-filter-field">
-                <label class="vh-filter-label" for="rental-type">Ires veids</label>
-                <select class="vh-filter-select" id="rental-type" name="type">
-                  <option value="">Visi piedavajumi</option>
-                  <option value="long">Ilgtermina ire</option>
-                  <option value="short">Istermina ire</option>
-                </select>
-              </div>
-              <div class="vh-filter-field" data-span="2">
-                <div class="vh-filter-actions">
-                  <button class="vh-button vh-button--subtle" type="reset" id="rental-reset">Notirit</button>
-                  <button class="vh-button vh-button--primary" type="submit" id="rental-apply">Piemerot filtrus</button>
+<body class="rentals-page">
+    <!-- Header -->
+    <header class="bg-accent-primary px-5">
+        <nav class="navbar" data-sb-field-path="content/pages/rentals.json:nav">
+            <div class="container-fluid ps-3 gap-3">
+                <div class="me-auto"></div>
+                <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
+                    <a class="navbar-brand" href="index.html" data-sb-field-path="content/pages/rentals.json:nav.logo.href#@href">
+                        <img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid" data-sb-field-path="content/pages/rentals.json:nav.logo.src#@src" data-sb-alt-field="content/pages/rentals.json:nav.logo.alt">
+                    </a>
                 </div>
-              </div>
-            </form>
-            <div class="vh-filter-chips" id="rental-filter-chips" hidden aria-live="polite" aria-label="Aktivie filtri"></div>
-          </div>
+                <div class="w-max-content" style="margin-top: 0.5cm;">
+                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars" data-sb-field-path="content/pages/rentals.json:nav.toggle.icon"></i>
+                        <span data-sb-field-path="content/pages/rentals.json:nav.toggle.label">Menu</span></button>
+
+                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header bg-transparent">
+                            <h5 id="offcanvasRightLabel" data-sb-field-path="content/pages/rentals.json:nav.menuTitle">Menu</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="r-container">
+                                <div class="row row-cols-xl-2 row-cols-1">
+                                    <div class="col col-xl-10 mb-3">
+                                        <div class="d-flex flex-column">
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="01_homepage">01. Mājas lapa</span>
+                                                <img src="/image/img6.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="index.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="02_properties">02. Īpašumi</span>
+                                                <img src="/image/img5.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="properties.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="03_short_form_rentals">03. Īsas formas īre</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="rentals.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="04_about_us">04. Par mums</span>
+                                                <img src="/image/img33.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="about.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="05_services">05. Pakalpojumi</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="service.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="06_contact">06. Sazinieties</span>
+                                                <img src="/image/img29.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="contact.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="07_news">07. Jaunumi</span>
+                                                <img src="/image/img26.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="blog.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-2 mb-3">
+                                        <div class="d-flex flex-column gap-5 accent-primary text-end">
+                                           <div class="d-flex flex-column gap-4">
+                                                <h6 data-i18n="riga_latvia">Rīga, Latvija</h6>
+                                                <div class="d-flex flex-column gap-3">
+                                                    <span data-i18n="skanstes_iela_29a91_rga_latvia">
+                                                        Skanstes Iela 29A - 91, Rīga, Latvija
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main -->
+    <main data-sb-object-id="content/pages/rentals.json">
+        <!-- Banner -->
+        <div class="section position-relative bg-attach-cover">
+            <div class="r-container position-relative h-100">
+                <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
+                    <div class="row row-cols-2">
+                        <div class="col-3 col-xl-2"></div>
+                        <div class="col-9 col-xl-10">
+                            <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="hero.image#@src" data-sb-alt-field="hero.image#@alt">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
+                    <div class="d-flex flex-column gap-2 h-100">
+                        <div><h1 class="display" style="max-width: 700px;" data-i18n="rentals" data-sb-field-path="heroHeading">Īre</h1>
+                        <div class="row row-xl-cols-2 row-cols-1">
+                            <div class="col col-xl-2">
+                                <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                                    <p data-i18n="discover_curated_short_stays" data-sb-field-path="heroSubheading">Atklājiet rūpīgi atlasītas īstermiņa īres un apartamentus visā Rīgā, izvēloties to komfortu, atrašanās vietu un raksturu.</p></div>
+                                    <div class="devider"></div>
+                                </div>
+                            </div>
+                            <div class="col col-xl-10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section Featured Properties -->
+        <div class="section">
+            <div class="r-container d-flex flex-column gap-5">
+                <div class="row row-cols-xl-2 row-cols-1 align-items-end">
+                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
+                        <h3 style="max-width: 400px;" data-i18n="explore_featured_rentals">Izpētiet piedāvātās īres</h3>
+                    </div>
+                    <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
+                        <div class="d-flex flex-column gap-2 align-items-end">
+                            <div class="w-max-content" style="justify-self: end;">
+                                <a href="property_details.html" class="btn btn-accent d-flex flex-row gap-2 justify-content-center" data-sb-href-field="ctaAgents.href">
+                                    <span data-i18n="contact_our_hosts">Sazinieties ar mūsu komandu</span>
+                                    <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="filter-bar card p-4">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-12 col-md-4">
+                                    <label for="location-search" data-i18n="location">Atrašanās vieta</label>
+                                    <input type="text" id="location-search" class="form-control" placeholder="Pilsēta / rajons / apkaime">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label for="min-price" data-i18n="min_price">Min. cena (€/nakts)</label>
+                                    <input type="number" id="min-price" class="form-control" placeholder="0" min="0">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label for="max-price" data-i18n="max_price">Maks. cena (€/nakts)</label>
+                                    <input type="number" id="max-price" class="form-control" placeholder="100000" min="0">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label for="bedrooms-prop" data-i18n="bedrooms">Guļamistabas</label>
+                                    <select id="bedrooms-prop" class="form-select">
+                                        <option value="" data-i18n="all">Visas</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3+</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" id="apply-filters" data-i18n="apply">Piemērot</button>
+                                        <button class="btn btn-secondary" id="clear-filters" data-i18n="clear">Notīrīt</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="active-filters my-3">
+                            <span id="filter-chips"></span>
+                            <span id="property-count" class="ms-2"></span>
+                        </div>
+                        <div class="filter-drawer d-none">
+                            <button class="btn btn-primary w-100 mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#filter-drawer" aria-controls="filter-drawer" data-i18n="filters">
+                                Filtri
+                            </button>
+                        </div>
+                        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="filter-drawer" aria-labelledby="filter-drawer-label" style="display:none">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="filter-drawer-label" data-i18n="filters" data-sb-field-path="filters.title">Filtri</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#filter-drawer" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="filter-bar">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="location-search" data-i18n="location">Atrašanās vieta</label>
+                                                <input type="text" id="location-search-mobile" class="form-control" placeholder="Pilsēta/Rajons/Apkaime">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label data-i18n="price_range">Cenu diapazons</label>
+                                            <div class="input-group">
+                                                <input type="number" id="min-price-mobile" class="form-control" placeholder="Min €/nakts" min="0">
+                                                <input type="number" id="max-price-mobile" class="form-control" placeholder="Max €/nakts" min="0">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label data-i18n="bedrooms">Guļamistabas</label>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" data-i18n="all">Viss</button>
+                                                <button type="button" class="btn btn-outline-primary" data-i18n="1">Viens</button>
+                                                <button type="button" class="btn btn-outline-primary" data-i18n="2">Rādītājs</button>
+                                                <button type="button" class="btn btn-outline-primary" data-i18n="3">3</button>
+                                                <button type="button" class="btn btn-outline-primary" data-i18n="4">4</button>
+                                                <button type="button" class="btn btn-outline-primary" data-i18n="5+">5+</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-primary" id="apply-filters-mobile" data-i18n="apply">Piemērot</button>
+                                                <button class="btn btn-secondary" id="clear-filters-mobile" data-i18n="clear">Noskaidrot</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-bar d-none d-lg-block bg-white p-3 rounded-3" style="display:none">
+                            <div class="row g-3">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="form-group">
+                                        <label for="location-search" data-i18n="location">Atrašanās vieta</label>
+                                        <input type="text" id="location-search" class="form-control" placeholder="Pilsēta/Rajons/Apkaime">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <label data-i18n="price_range">Cenu diapazons</label>
+                                    <div class="input-group">
+                                        <input type="number" id="min-price" class="form-control" placeholder="Min €/nakts" min="0">
+                                        <input type="number" id="max-price" class="form-control" placeholder="Max €/nakts" min="0">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <label data-i18n="bedrooms">Guļamistabas</label>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-primary active" data-i18n="all">Viss</button>
+                                        <button type="button" class="btn btn-outline-primary" data-i18n="1">Viens</button>
+                                        <button type="button" class="btn btn-outline-primary" data-i18n="2">Rādītājs</button>
+                                        <button type="button" class="btn btn-outline-primary" data-i18n="3">3</button>
+                                        <button type="button" class="btn btn-outline-primary" data-i18n="4">4</button>
+                                        <button type="button" class="btn btn-outline-primary" data-i18n="5+">5+</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-12">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" id="apply-filters" data-i18n="apply">Piemērot</button>
+                                        <button class="btn btn-secondary" id="clear-filters" data-i18n="clear">Noskaidrot</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="active-filters my-3">
+                            <span id="filter-chips"></span>
+                            <span id="property-count" class="ms-2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="property-grid" class="row row-cols-xl-3 row-cols-lg-2 row-cols-1" data-sb-field-path="rentals">
+                    <div class="col mb-4" data-location="veceriga loft" data-price="190" data-bedrooms="2">
+                        <div class="card h-100" data-sb-field-path="rentals[0]">
+                            <img src="/image/dummy-img-900x700.jpg" class="card-img-top" alt="Sample Property" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[0].image#@src" data-sb-alt-field="rentals[0].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[0].title">Vecpilsētas lofts</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[0].price">€190 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[0].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[0].address">Vecrīga, Rīga</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[0].description">Gaišs lofts ar skatu uz Daugavu, ideāli piemērots pārim vai mazai ģimenei.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[0].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">2 guļamistabas</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">1 vannas istaba</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[0].url#@href">
+                                        <span data-sb-field-path="rentals[0].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4" data-location="skanstes district" data-price="160" data-bedrooms="1">
+                        <div class="card h-100" data-sb-field-path="rentals[1]">
+                            <img src="/image/dummy-img-900x600.jpg" class="card-img-top" alt="Modern Apartment" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[1].image#@src" data-sb-alt-field="rentals[1].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[1].title">Moderns apartaments Skanstē</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[1].price">€160 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[1].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[1].address">Skanstes rajons, Rīga</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[1].description">Stilīgs divistabu apartaments ar darba zonu un autostāvvietu pazemes garāžā.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[1].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">1 guļamistaba</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">1 vannas istaba</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[1].url#@href">
+                                        <span data-sb-field-path="rentals[1].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4" data-location="mezaparks villa" data-price="320" data-bedrooms="4">
+                        <div class="card h-100" data-sb-field-path="rentals[2]">
+                            <img src="/image/dummy-img-600x400.jpg" class="card-img-top" alt="Historic Villa" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[2].image#@src" data-sb-alt-field="rentals[2].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[2].title">Ģimenes villa Mežaparkā</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[2].price">€320 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[2].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[2].address">Mežaparks, Rīga</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[2].description">Plaša četru guļamistabu villa ar privātu dārzu, saunu un ģimenēm draudzīgām ērtībām.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[2].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">4 guļamistabas</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">3 vannas istabas</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[2].url#@href">
+                                        <span data-sb-field-path="rentals[2].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4" data-location="imaras townhouse" data-price="140" data-bedrooms="2">
+                        <div class="card h-100" data-sb-field-path="rentals[3]">
+                            <img src="/image/dummy-img-600x600.jpg" class="card-img-top" alt="Cozy Townhouse" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[3].image#@src" data-sb-alt-field="rentals[3].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[3].title">Mājīgs rindu mājas dzīvoklis</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[3].price">€140 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[3].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[3].address">Imantas apkaime, Rīga</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[3].description">Silts un mājīgs trīs istabu mājas dzīvoklis ar nelielu pagalmu un bērnu spēļu zonu.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[3].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">2 guļamistabas</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">2 vannas istabas</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[3].url#@href">
+                                        <span data-sb-field-path="rentals[3].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4" data-location="centra penthouse" data-price="280" data-bedrooms="2">
+                        <div class="card h-100" data-sb-field-path="rentals[4]">
+                            <img src="/image/dummy-img-900x500.jpg" class="card-img-top" alt="Luxury Penthouse" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[4].image#@src" data-sb-alt-field="rentals[4].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[4].title">Penthouse ar jumta terasi</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[4].price">€280 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[4].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[4].address">Rīgas centrs</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[4].description">Ekskluzīvs divistabu penthouse ar plašu terasi, panorāmas skatu un privātu liftu.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[4].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">2 guļamistabas</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">2 vannas istabas</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[4].url#@href">
+                                        <span data-sb-field-path="rentals[4].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4" data-location="daugava waterfront" data-price="220" data-bedrooms="3">
+                        <div class="card h-100" data-sb-field-path="rentals[5]">
+                            <img src="/image/dummy-img-600x500.jpg" class="card-img-top" alt="Waterfront Residence" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="rentals[5].image#@src" data-sb-alt-field="rentals[5].image#@alt">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0" data-sb-field-path="rentals[5].title">Upes krasta apartamenti</h5>
+                                    <h6 class="text-accent fw-bold" data-sb-field-path="rentals[5].price">€220 / nakts</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2" data-sb-field-path="rentals[5].location.icon"></i>
+                                    <span class="text-muted" data-sb-field-path="rentals[5].address">Krasta iela, Rīga</span>
+                                </div>
+                                <p class="card-text flex-grow-1" data-sb-field-path="rentals[5].description">Elegs trīs guļamistabu apartaments ar balkonu un tiešu piekļuvi promenādei.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3" data-sb-field-path="rentals[5].badges">
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".0">3 guļamistabas</span>
+                                        <span class="badge bg-light text-dark" data-sb-field-path=".1">2 vannas istabas</span>
+                                    </div>
+                                    <a href="property_details.html" class="btn btn-accent btn-sm" data-sb-field-path="rentals[5].url#@href">
+                                        <span data-sb-field-path="rentals[5].url.label">View Details</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="empty-state" class="text-center py-5" style="display: none;">
+                    <h3 data-i18n="no_properties_found">Nekādas īpašības nav atrasti</h3>
+                    <p data-i18n="try_adjusting_filters_or">Mēģiniet pielāgot filtrus vai</p>
+                    <a href="#" id="clear-filters-link" class="link" data-i18n="clear_all_filters">Notīriet visus filtrus</a>
+                </div>
+            </div>
+        </div>
+        <div class="section bg-attach-cover" style="background-image: url(/image/bg_cta.png);" data-sb-field-path="howItWorks.bg.src">
+            <!-- Section How It Work -->
+            <div class="r-container d-flex flex-column" style="gap: 140px;">
+                <div class="d-flex flex-xl-row flex-column gap-5 justify-content-between align-items-center position-relative  scrollanimation animated fadeIn adr-7" data-sb-field-path="howItWorks.steps">
+                    <div class="devider-progress"></div>
+                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".0">
+                        <div class="icon-box active position-relative">
+                            <i class="rtmicon rtmicon-search" data-sb-field-path=".icon"></i>
+                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
+                                <h6 class="accent-primary m-0" data-i18n="1" data-sb-field-path=".stepNumber">1.</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <h4 data-i18n="explore_properties">Izpētiet īpašumus</h4>
+                            <p class="accent-color-4" style="max-width: 300px;" data-i18n="browse_curated_listings_and_find_a_space_that_truly_fits_your_needs">Pārlūkojiet veidotus sarakstus un atrodiet vietu, kas patiesi atbilst jūsu vajadzībām.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".1">
+                        <div class="icon-box position-relative">
+                            <i class="rtmicon rtmicon-client-happy" data-sb-field-path=".icon"></i>
+                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
+                                <h6 class="accent-primary m-0" data-i18n="2" data-sb-field-path=".stepNumber">2.</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <h4 data-i18n="connect_with_our_team">Sazinieties ar mūsu komandu</h4>
+                            <p class="accent-color-4" style="max-width: 300px;" data-i18n="receive_clear_practical_guidance_from_advisors_who_stay_with_you_through_the_entire_process">Saņemiet skaidrus, praktiskus norādījumus no padomniekiem, kuri paliek pie jums visā procesā.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-5 align-items-center" data-sb-field-path=".2">
+                        <div class="icon-box position-relative">
+                            <i class="rtmicon rtmicon-envelope-dollar" data-sb-field-path=".icon"></i>
+                            <div class="position-absolute top-0 end-0 p-1 align-items-center text-center justify-content-center rounded-pill bg-black-1" style="width: 36px; height: 36px; margin-top: -15px; margin-right: -15px;">
+                                <h6 class="accent-primary m-0" data-i18n="3" data-sb-field-path=".stepNumber">3.</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <h4 data-i18n="seal_the_deal">Aizzīmogot darījumu</h4>
+                                <p class="accent-color-4" style="max-width: 300px;" data-i18n="move_through_negotiations_and_closing_with_confidence_and_care">Pārvietojieties sarunās un ar pārliecību un rūpību slēgšanu.</p>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="text-center text-accent fst-italic  scrollanimation animated fadeInDown adr-7" data-i18n="from_exploring_listings_to_expert_advice_and_closing_vandore_heritage_guides_you_every_step_of_the_way">Sākot ar sarakstu izpēti un beidzot ar ekspertu padomiem un slēgšanu, Vandore Heritage vada jūs ik uz soļa.</h4>
+            </div>
+
+            <!-- Section CTA -->
+            <div class="r-container d-flex flex-column gap-3" style="margin-block: 6em;">
+                <div class="row row-cols-xl-2 row-cols-1 align-items-center">
+                    <div class="col col-xl-7 mb-3 scrollanimation animated fadeInLeft">
+                        <div class="d-flex flex-column gap-5 pe-xl-5">
+                            <h3 data-i18n="ready_to_book_your_stay">Vai esat gatavs rezervēt nākamo uzturēšanos?</h3>
+                            <h6 data-i18n="leave_your_email">Atstājiet savu e -pastu</h6>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast success_msg_subscribe bg-dark-transparent text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body" data-i18n="your_subscribe_send_successfully">
+                                                Jūsu abonēšana veiksmīgi nosūta!.
+                                            </div>
+                                            <button type="button" class="btn me-2 m-auto text-white" data-bs-dismiss="toast" aria-label="Close">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <form class="d-flex flex-column h-100 justify-content-center w-100 needs-validation form" novalidate="">
+                                        <input type="text" name="action" value="subscribe" hidden="">
+                                        <div class="input-group gap-3 mb-xl-2 mb-0 position-relative">
+                                            <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="Join Our Newsletter" name="email" required="" data-sb-field-path="subscribe.placeholder">
+                                            <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3" type="submit"><i class="rtmicon rtmicon-arrow-right fw-bold" data-sb-field-path="subscribe.icon"></i></button>
+                                            <div class="invalid-feedback text-white" data-i18n="please_enter_a_valid_email_eg_userexamplecom" data-sb-field-path="subscribe.invalidMessage">
+                                                Lūdzu, ievadiet derīgu e -pastu (piemēram, user@example.com).
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-xl-5 mb-3 scrollanimation animated fadeInRight">
+                        <img src="/image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vandore Heritage" data-sb-field-path="subscribe.image#@src" data-sb-alt-field="subscribe.image#@alt">
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="vh-results-bar" role="status" aria-live="polite">
-          <div>
-            <h2 class="vh-eyebrow editable">Pieejamie piedavajumi</h2>
-            <p class="vh-results-count" id="rentals-count">Notiek ielade�</p>
-          </div>
-          <a class="vh-button vh-button--ghost" href="#rentals-grid"><span class="editable">Parlekt uz rezultatiem</span></a>
+    </main>
+
+    <footer>
+        <div class="section position-relative bg-black-1" style="height: 90vh;">
+            <div class="row row-cols-xl-2 row-cols-1 h-100">
+                <div class="col col-xl-8 mb-3">
+                    <div class="d-flex flex-column gap-3 justify-content-between h-100">
+                        <div class="d-flex flex-column accent-primary">
+                            <p class="gray" data-i18n="get_contact">Sazināties</p>
+                            <h1 class="fw-normal" data-i18n="infovandoreheritagelv">info@vandoreheritage.lv</h1>
+                        </div>
+                        <img src="/image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid" width="938" data-sb-field-path="content/pages/rentals.json:footer.logo#@src" data-sb-alt-field="content/pages/rentals.json:footer.logo#@alt">
+                    </div>
+                </div>
+                <div class="col col-xl-4 mb-3">
+                    <div class="d-flex flex-column gap-5 justify-content-between accent-primary h-100">
+                        <div class="d-flex flex-row gap-5">
+                            <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
+                                <li>
+                                    <a href="index.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home">
+                                        Mājas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="about">
+                                        Pret
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="properties.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="properties">
+                                        Īpašības
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="rentals.html" class="link active d-flex flex-row gap-3 align-items-center" data-i18n="rentals">
+                                        Īre
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service">
+                                        Sakārtošana
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us">
+                                        Sazinieties ar mums
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="d-flex flex-column gap-3">
+                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilsēta,+Rīga,+LV-1013,+Latvia" class="link" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
+                                    Skanstes Iela 29A - 91, Rīga, Latvija
+                                </a>
+                                <a href="tel:+37129713030" class="link" data-i18n="371_29_71_3030">
+                                    +371 29 71 3030
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row gap-3">
+                            <div class="border-end pe-3 border-gray">
+                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="terms_conditions">
+                                    Noteikumi un nosacījumi
+                                </a>
+                            </div>
+                            <div>
+                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="privacy_notice">
+                                    Paziņojums par privātumu
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <div id="rentals-grid" class="vh-grid vh-grid--responsive" aria-live="polite"></div>
-        <div id="rentals-empty" class="vh-empty" hidden role="status">
-          <p class="editable">Nav pieejamu ires piedavajumu atbilsto�i filtriem.</p>
-          <p><a href="#" id="rentals-empty-reset" class="editable">Atiestatit filtrus</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="vh-footer">
-    <div class="vh-container vh-footer__inner">
-      <div class="vh-footer__logo">
-        <img class="editable editable-image" src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" width="164" height="48" loading="lazy" />
-        <p class="vh-text-muted editable">Atlasam ires ipa�umus ar garantetu kvalitati, uzticamu parvaldibu un personigu servisu.</p>
-      </div>
-      <nav class="vh-footer__nav" aria-label="Galvena navigacija">
-        <a class="vh-footer__link" href="/"><span class="editable">Sakums</span></a>
-        <a class="vh-footer__link" href="/properties.html"><span class="editable">Ipa�umi</span></a>
-        <a class="vh-footer__link" href="/rentals.html"><span class="editable">Ire</span></a>
-        <a class="vh-footer__link" href="/blog.html"><span class="editable">Blogs</span></a>
-        <a class="vh-footer__link" href="/contact.html"><span class="editable">Kontakti</span></a>
-      </nav>
-      <div class="vh-footer__meta">
-        <span class="editable">rentals@vandoreheritage.lv</span>
-        <span class="editable">+371 2000 0100</span>
-        <span class="editable">Baznicas iela 12, Riga, LV-1010</span>
-      </div>
-    </div>
-  </footer>
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" data-sb-field-path="content/pages/rentals.json:backToTop.href#@href"><i class="rtmicon rtmicon-arrow-up" data-sb-field-path="content/pages/rentals.json:backToTop.icon"></i></a>
 
-  <script src="/js/vendor/bootstrap.bundle.min.js"></script>
-  <script src="/js/custom.js"></script>
-  <script src="/js/rentals.js"></script>
-</body>
-</html>
+    <!-- Scripts -->
+    <script src="/js/vendor/jquery.min.js"></script>
+    <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/js/vendor/swiper-bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/swiper-script.js"></script>
+    <script src="/js/submit-form.js"></script>
+    <script src="/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="/js/video_embedded.js"></script>
+    <script src="/js/vendor/fslightbox.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+
+
+
+</body></html>

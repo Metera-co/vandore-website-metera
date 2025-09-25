@@ -1,7 +1,8 @@
-﻿<!doctype html>
-<html lang="lv"><head>
+<!DOCTYPE html>
+<html lang="lv" data-sb-object-id="content/pages/property-details.json">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -10,98 +11,122 @@
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
-    <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025">
-    <title data-i18n="vandore_heritage_property_details">Vandore Heritage - ipa?uma informacija</title>
+    <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025" data-sb-field-path="seo.favicon#@href">
+    <title data-i18n="vandore_heritage_property_details" data-sb-field-path="seo.title">Vandore Heritage - Property details</title>
+    <meta name="description" data-sb-field-path="seo.description" content="Discover a premium property with a rich photo gallery, market insights, and key facts.">
+    <style>
+        .property-gallery { position: relative; }
+        .property-gallery__main { border-radius: 20px; overflow: hidden; }
+        .property-gallery__main .swiper-slide { height: clamp(260px, 55vh, 520px); }
+        .property-gallery__main img { width: 100%; height: 100%; object-fit: cover; }
+        .property-gallery__thumbs { margin-top: 16px; }
+        .property-gallery__thumbs .swiper-slide { opacity: .5; cursor: pointer; border-radius: 14px; overflow: hidden; height: 110px; }
+        .property-gallery__thumbs .swiper-slide-thumb-active { opacity: 1; box-shadow: 0 0 0 2px rgba(255,255,255,.8); }
+        .property-gallery__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+        .property-gallery__nav { position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
+        .property-gallery__nav button { pointer-events: all; border: 0; background: rgba(0,0,0,.42); color: #fff; width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; transition: background .2s ease; }
+        .property-gallery__nav button:hover { background: rgba(0,0,0,.6); }
+        .property-gallery__nav .swiper-button-prev::after,
+        .property-gallery__nav .swiper-button-next::after { display: none; }
+        .property-meta { display: grid; gap: 24px; }
+        .property-meta__facts { display: grid; gap: 16px; }
+        .property-meta__facts li { display: flex; align-items: center; gap: 12px; }
+        .property-meta__facts li span { color: var(--black-1); }
+        .property-meta__facts li i { color: var(--accent, #f3c76f); }
+        @media (min-width: 992px) {
+            .property-meta { grid-template-columns: minmax(0,2fr) minmax(0,1fr); align-items: start; }
+        }
+    </style>
 </head>
-
-<body>
-    <!-- Header -->
+<body class="property-page">
     <header class="bg-accent-primary px-5">
-        <nav class="navbar">
+        <nav class="navbar" data-sb-field-path="content/pages/property-details.json:nav">
             <div class="container-fluid ps-3 gap-3">
                 <div class="me-auto"></div>
                 <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
-                    <a class="navbar-brand" href="/"><img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image"></a>
+                    <a class="navbar-brand" href="/" data-sb-field-path=".logo.href#@href">
+                        <img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid" data-sb-field-path=".logo.src#@src" data-sb-alt-field=".logo.alt">
+                    </a>
                 </div>
-                <div class="w-max-content" style="margin-top: 0.5cm;">
-                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars"></i>
-                        Menu</button>
+                <div class="w-max-content" style="margin-top: .5cm;">
+                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav">
+                        <i class="fa-solid fa-bars"></i>
+                        <span data-sb-field-path=".toggle.label">Menu</span>
+                    </button>
 
-                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
                         <div class="offcanvas-header bg-transparent">
-                            <h5 class="editable" id="offcanvasRightLabel">Menu</h5>
+                            <h5 id="offcanvasNavLabel" data-sb-field-path=".menuTitle">Menu</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
                             <div class="r-container">
                                 <div class="row row-cols-xl-2 row-cols-1">
-                                    <div class="col col-xl-10 mb-3">
-                                        <div class="d-flex flex-column">
+                                    <div class="col col-xl-10 mb-3" data-sb-field-path=".menuCards">
+                                        <div class="d-flex flex-column" data-sb-object-id="content/pages/property-details.json:nav/menuCards/0">
                                             <div class="navigation">
-                                                <span class="header-text" data-i18n="01_homepage">01. Majas lapa</span>
-                                                <img src="/image/img6.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/" class="d-flex" style="justify-self: end;">
+                                                <span class="header-text" data-i18n="01_homepage" data-sb-field-path=".0.title">01. Homepage</span>
+                                                <img src="/image/img6.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Homepage" data-sb-field-path=".0.image#@src" data-sb-alt-field=".0.image#@alt">
+                                                <a href="/" class="d-flex" style="justify-self:end;" data-sb-field-path=".0.href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="02_properties">02. Ipa?umi</span>
-                                                <img src="/image/img5.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/properties.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/1">
+                                                <span class="header-text" data-i18n="02_properties" data-sb-field-path=".title">02. Properties</span>
+                                                <img src="/image/img5.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Properties" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/properties.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="03_short_form_rentals">03. Isas formas Īre</span>
-                                                <img src="/image/img18.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/rentals.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/2">
+                                                <span class="header-text" data-i18n="03_short_form_rentals" data-sb-field-path=".title">03. Short-term rentals</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Short-term rentals" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/rentals.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="04_about_us">04. Par mums</span>
-                                                <img src="/image/img33.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/about.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/3">
+                                                <span class="header-text" data-i18n="04_about_us" data-sb-field-path=".title">04. About us</span>
+                                                <img src="/image/img33.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="About us" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/about.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="05_services">05. Pakalpojumi</span>
-                                                <img src="/image/img18.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/service.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/4">
+                                                <span class="header-text" data-i18n="05_services" data-sb-field-path=".title">05. Services</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Services" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/service.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="06_contact">06. Sazinieties</span>
-                                                <img src="/image/img29.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/contact.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/5">
+                                                <span class="header-text" data-i18n="06_contact" data-sb-field-path=".title">06. Contact</span>
+                                                <img src="/image/img29.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Contact" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/contact.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                             <hr>
-                                            <div class="navigation">
-                                                <span class="header-text" data-i18n="07_news">07. Jaunumi</span>
-                                                <img src="/image/img26.png" class="img-fluid rounded-3 editable editable-image" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
-                                                <a href="/blog.html" class="d-flex" style="justify-self: end;">
+                                            <div class="navigation" data-sb-object-id="content/pages/property-details.json:nav/menuCards/6">
+                                                <span class="header-text" data-i18n="07_news" data-sb-field-path=".title">07. Jaunumi</span>
+                                                <img src="/image/img26.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Jaunumi" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                                                <a href="/blog.html" class="d-flex" style="justify-self:end;" data-sb-field-path=".href#@href">
                                                     <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col col-xl-2 mb-3">
-                                        <div class="d-flex flex-column gap-5 accent-primary text-end">
-                                           <div class="d-flex flex-column gap-4">
-                                                <h6 class="editable" data-i18n="riga_latvia">Riga, Latvija</h6>
+                                        <div class="d-flex flex-column gap-5 accent-primary text-end" data-sb-field-path=".contact">
+                                            <div class="d-flex flex-column gap-4">
+                                                <h6 data-i18n="riga_latvia" data-sb-field-path=".title">Riga, Latvia</h6>
                                                 <div class="d-flex flex-column gap-3">
-                                                    <span data-i18n="skanstes_iela_29a91_rga_latvia">
-                                                        Skanstes Iela 29A - 91, Riga, Latvija
-                                                    </span>
+                                                    <span data-i18n="skanstes_iela_29a91_rga_latvia" data-sb-field-path=".address">Skanstes iela 29A - 91, Riga, Latvia</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,291 +139,206 @@
             </div>
         </nav>
     </header>
-    <!-- End Header -->
 
-    <!-- Main -->
-    <main>
-        <!-- Banner -->
-        <div class="section position-relative bg-attach-cover">
+    <main data-sb-object-id="content/pages/property-details.json">
+        <section class="section position-relative bg-attach-cover">
             <div class="r-container position-relative h-100">
                 <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
                     <div class="row row-cols-2">
                         <div class="col-3 col-xl-2"></div>
                         <div class="col-9 col-xl-10">
-                            <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Vandore Heritage">
+                            <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Hero image" data-sb-field-path="hero.image#@src" data-sb-alt-field="hero.image#@alt">
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
-                        <div><h1 class="display editable" data-i18n="luxury_home_advisors">Luksusa majas konsultanti</h1>
-                        <div class="row row-xl-cols-2 row-cols-1">
-                            <div class="col col-xl-2">
-                                <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
-                                    <p class="editable" data-i18n="luxury_home_advisors_specialize_in_guiding_clients_through_buying_and_selling_highend_properties">Luksusa majas konsultanti specializejas klientu vadi?ana, perkot un pardodot 
-augstakas klases ipa?ibas.</p></div>
+                        <div>
+                            <h1 class="display" data-sb-field-path="hero.title" data-i18n="property_title">Old Town residence with skyline views</h1>
+                            <div class="row row-xl-cols-2 row-cols-1">
+                                <div class="col col-xl-2">
+                                    <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                                        <p data-sb-field-path="hero.subtitle" data-i18n="property_subtitle">An exclusive heritage loft with floor-to-ceiling windows, a private terrace, and curated interiors.</p>
+                                    </div>
                                     <div class="devider"></div>
                                 </div>
+                                <div class="col col-xl-10"></div>
                             </div>
-                            <div class="col col-xl-10"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Section Properties Details -->
-        <div class="section">
+        <section class="section">
             <div class="r-container d-flex flex-column gap-5">
-                <div class="row row-cols-xl-2 row-cols-1">
-                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
-                        <img src="/image/dummy-img-900x700.jpg" class="img-fluid rounded-2 h-100 editable editable-image" alt="Vandore Heritage">
-                    </div>
-                    <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
-                        <div class="d-flex flex-column gap-4">
-                            <img src="/image/dummy-img-900x600.jpg" class="img-fluid rounded-2 h-100 editable editable-image" alt="Vandore Heritage">
-                            <div class="row row-cols-xl-2 row-cols-1">
-                                <div class="col mb-xl-0 mb-3">
-                                    <img src="/image/dummy-img-600x600.jpg" class="img-fluid rounded-2 h-100 editable editable-image" style="aspect-ratio: 1/1;" alt="Vandore Heritage">
+                <div class="property-meta">
+                    <div class="property-gallery" data-sb-field-path="gallery">
+                        <div class="property-gallery__main swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/0">
+                                    <img src="/image/dummy-img-1920x900.jpg" alt="Living area" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
                                 </div>
-                                <div class="col mb-xl-0 mb-3">
-                                    <img src="/image/dummy-img-600x600.jpg" class="img-fluid rounded-2 h-100 editable editable-image" style="aspect-ratio: 1/1;" alt="Vandore Heritage">
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/1">
+                                    <img src="/image/dummy-img-900x600.jpg" alt="Kitchen" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/2">
+                                    <img src="/image/dummy-img-900x700.jpg" alt="Master suite" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/3">
+                                    <img src="/image/dummy-img-600x500.jpg" alt="Rooftop terrace" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                            </div>
+                            <div class="property-gallery__nav">
+                                <button class="swiper-button-prev" type="button" aria-label="Previous photo">
+                                    <i class="rtmicon rtmicon-arrow-left"></i>
+                                </button>
+                                <button class="swiper-button-next" type="button" aria-label="Next photo">
+                                    <i class="rtmicon rtmicon-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="property-gallery__thumbs swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/0">
+                                    <img src="/image/dummy-img-1920x900.jpg" alt="Living area" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/1">
+                                    <img src="/image/dummy-img-900x600.jpg" alt="Kitchen" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/2">
+                                    <img src="/image/dummy-img-900x700.jpg" alt="Master suite" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
+                                </div>
+                                <div class="swiper-slide" data-sb-object-id="content/pages/property-details.json:gallery/images/3">
+                                    <img src="/image/dummy-img-600x500.jpg" alt="Rooftop terrace" data-sb-field-path="image#@src" data-sb-alt-field="image#@alt">
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row row-cols-xl-2 row-cols-1">
-                    <div class="col col-xl-8 mb-3">
-                        <div class="d-flex flex-column gap-4 position-relative">
-                            <h4 class="editable" data-i18n="description">Apraksts</h4>
-                            <p class="editable" data-i18n="our_luxury_home_advisors_specialize_in_providing_personalized_professional_advice_to_help_you_find_the_perfect_luxury_property_whether_youre_searching_for_a_dream_home_a_vacation_estate_or_an_investment_property_our_team_brings_years_of_expertise_to_the_table_we_take_the_time_to_understand_your_unique_needs_and_preferences_ensuring_that_every_step_of_the_process_is_smooth_efficient_and_rewarding_from_selecting_prime_locations_to_negotiating_the_best_deals_we_offer_exclusive_insights_and_unmatched_service_to_guide_you_through_the_luxury_real_estate_market">
-                                Musu luksusa majas konsultanti specializejas personalizetu, profesionalu padomu snieg?ana 
-Palidziet jums atrast perfektu luksusa ipa?umu. Vai meklejat sapnu maju, a 
-atvalinajuma ipa?ums vai investiciju ipa?ums, musu komanda sniedz gadu kompetenci 
-galds. Mes veltam laiku, lai izprastu jusu unikalas vajadzibas un velmes, to nodro?inot 
-Katrs procesa solis ir gluds, efektivs un atalgojo?s. Izveloties Prime 
-Vietas, lai sarunatos par labakajiem piedāvājumiem, mes piedavajam ekskluzivas atzinas un neparspejamas 
-pakalpojums, lai palidzetu jums caur luksusa nekustama ipa?uma tirgu.
-                            </p>
-                            <div class="row row-cols-xl-2 row-cols-1">
-                                <div class="col mb-3">
-                                    <div class="overflow-hidden" style="object-fit: cover;">
-                                        <div class="position-relative h-100 overflow-hidden">
-                                            <div class="position-absolute start-0 top-0 w-100 h-100" style="z-index: 2;">
-                                                <div class="d-flex justify-content-center align-items-center h-100">
-                                                    <button type="button" class="request-loader" data-bs-toggle="modal" data-bs-target="#e119">
-                                                        <i class="fa-solid fa-play ms-1"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <img src="/image/dummy-img-600x400.jpg" class="img-fluid rounded-2 w-100 editable editable-image" style="aspect-ratio: 3/2;" alt="Vandore Heritage">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col mb-3">
-                                    <div class="d-flex flex-column gap-2">
-                                        <h4 class="editable" data-i18n="property_specifications">Ipa?uma specifikacijas </h4>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="property_type">Ipa?uma veids:</span>
-                                            <h6 class="editable" data-i18n="luxury_house">Luksusa maja</h6>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="bedrooms">Gulamistabas:</span>
-                                            <h6 class="editable" data-i18n="4">4</h6>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="bathrooms">Vannas istabas:</span>
-                                            <h6 class="editable" data-i18n="5">5</h6>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="building_area">Buvju zona:</span>
-                                            <h6 class="editable" data-i18n="3500_sq_ft">3500 kv pedas</h6>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="land_area">Zemes zona:</span>
-                                            <h6 class="editable" data-i18n="5000_sq_ft">5000 kvadratpedas</h6>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                            <span data-i18n="floors">Gridas:</span>
-                                            <h6 class="editable" data-i18n="2">Raditajs</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h4 class="editable" data-i18n="additional_features">Papildu funkcijas</h4>
-                            <p class="m-0 editable" data-i18n="whether_youre_searching_for_a_dream_home_a_vacation_estate_or_an_investment_property_our_team_brings_years_of_expertise_to_the_table_we_take_the_time_to_understand_your_unique_needs_and_preferences_ensuring_that_every_step_of_the_process_is_smooth_efficient_and_rewarding">
-                                Neatkarigi no ta, vai meklejat sapnu maju, brivdienu ipa?umu vai ieguldijumu ipa?umu, 
-Musu komanda sniedz galdam gadu kompetenci. Mes veltam laiku, lai saprastu jusu 
-unikalas vajadzibas un velmes, nodro?inot, ka katrs procesa posms ir vienmerigs, 
-efektivs un atalgojo?s.
-                            </p>
-                            <div class="d-flex flex-column gap-2">
-                                <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                    <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
-                                    <span class="text-color-2" data-i18n="virtual_tour_or_3d_walkthrough">Virtuala ture vai 3D gajiens</span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                    <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
-                                    <span class="text-color-2" data-i18n="ar_augmented_reality_feature">AR (papildinata realitate) funkcija</span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                    <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
-                                    <span class="text-color-2" data-i18n="home_cinema_room">Majas kino istaba</span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                    <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
-                                    <span class="text-color-2" data-i18n="secure_parking_for_up_to_5_vehicles">Dro?a autostavvieta lidz 5 transportlidzekliem</span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center font-2 gap-3">
-                                    <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
-                                    <span class="text-color-2" data-i18n="247_security_and_concierge_services">24/7 dro?ibas un konsjer?a pakalpojumi</span>
-                                </div>
-                            </div>
-                            <h4 class="editable" data-i18n="property_location">Ipa?uma vieta</h4>
-                            <div class="position-relative h-100">
-                                <iframe loading="lazy" class="maps" src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" title="London Eye, London, United Kingdom" aria-label="London Eye, London, United Kingdom"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-xl-4 mb-3">
-                        <div class="d-flex flex-column gap-4 ps-xl-3">
-                            <h4 class="m-0 editable" data-i18n="latest_properties">Jaunakie ipa?umi</h4>
-                            <hr class="m-0">
-                            <div class="d-flex flex-column gap-3">
-                                <img src="/image/dummy-img-600x400.jpg" class="img-fluid h-100 rounded-2 editable editable-image" style="aspect-ratio: 3/2;" alt="Vandore Heritage">
-                                <a href="">
-                                    <div class="d-flex flex-column black-1">
-                                        <div class="d-flex flex-row justify-content-between">
-                                            <div class="d-flex flex-column gap-2">
-                                                <div class="d-flex flex-row gap-2 align-items-center">
-                                                    <i class="rtmicon rtmicon-location fw-bold"></i>
-                                                    <span data-i18n="beverly_hills_california">Beverlihils, Kalifornija</span>
-                                                </div>
-                                            </div>
-                                            <h4 class="editable" data-i18n="669k">669 000 USD</h4>
-                                        </div>
-                                        <h4 class="editable" data-i18n="sunset_valley_retreat">Saulrieta ielejas atkap?anas</h4>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="d-flex flex-column gap-3">
-                                <img src="/image/dummy-img-600x400.jpg" class="img-fluid h-100 rounded-2 editable editable-image" style="aspect-ratio: 3/2;" alt="Vandore Heritage">
-                                <a href="">
-                                    <div class="d-flex flex-column black-1">
-                                        <div class="d-flex flex-row justify-content-between">
-                                            <div class="d-flex flex-column gap-2">
-                                                <div class="d-flex flex-row gap-2 align-items-center">
-                                                    <i class="rtmicon rtmicon-location fw-bold"></i>
-                                                    <span data-i18n="beverly_hills_california">Beverlihils, Kalifornija</span>
-                                                </div>
-                                            </div>
-                                            <h4 class="editable" data-i18n="769k">769 000 USD</h4>
-                                        </div>
-                                        <h4 class="editable" data-i18n="crystal_bay_residences">Crystal Bay dzivesvietas</h4>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="d-flex flex-column gap-3">
-                                <img src="/image/dummy-img-600x400.jpg" class="img-fluid h-100 rounded-2 editable editable-image" style="aspect-ratio: 3/2;" alt="Vandore Heritage">
-                                <a href="">
-                                    <div class="d-flex flex-column black-1">
-                                        <div class="d-flex flex-row justify-content-between">
-                                            <div class="d-flex flex-column gap-1">
-                                                <div class="d-flex flex-row gap-2 align-items-center">
-                                                    <i class="rtmicon rtmicon-location fw-bold"></i>
-                                                    <span data-i18n="beverly_hills_california">Beverlihils, Kalifornija</span>
-                                                </div>
-                                            </div>
-                                            <h4 class="editable" data-i18n="549k">USD 549K</h4>
-                                        </div>
-                                        <h4 class="editable" data-i18n="harbor_bay_residences">Ostas lica dzivesvietas</h4>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade bg-overlay" id="e119" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content bg-dark-color">
-                        <iframe class="ifr-video" src="https://www.youtube.com/embed/FK2RaJ1EfA8?autoplay=1"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+                    <div class="card border-0 rounded-3 p-4" data-sb-field-path="summary">
+                        <h3 class="mb-3" data-sb-field-path=".title" data-i18n="key_information">Key information</h3>
+                        <div class="d-flex flex-column gap-3">
+                            <p class="fs-3 fw-semibold" data-sb-field-path=".price" data-i18n="price_card">EUR 1,200,000</p>
+                            <div class="d-flex flex-wrap gap-3" data-sb-field-path=".tags">
+                                <span class="badge bg-light text-dark" data-sb-field-path=".0">250 sqm</span>
+                                <span class="badge bg-light text-dark" data-sb-field-path=".1">4 bedrooms</span>
+                                <span class="badge bg-light text-dark" data-sb-field-path=".2">3 bathrooms</span>
+                                <span class="badge bg-light text-dark" data-sb-field-path=".3">Private terrace</span>
+                            </div>
+                            <ul class="property-meta__facts list-unstyled" data-sb-field-path=".facts">
+                                <li data-sb-field-path=".0"><i class="rtmicon rtmicon-location"></i><span>Old Town, Riga</span></li>
+                                <li data-sb-field-path=".1"><i class="rtmicon rtmicon-calendar"></i><span>Built in 1912, fully renovated in 2024</span></li>
+                                <li data-sb-field-path=".2"><i class="rtmicon rtmicon-home"></i><span>Designer furnished with curated art</span></li>
+                            </ul>
+                            <a href="/contact.html" class="btn btn-accent w-100" data-sb-field-path=".cta.href#@href" data-i18n="contact_agent">Talk to an advisor</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row row-cols-xl-2 row-cols-1 g-5">
+                    <div class="col" data-sb-field-path="details">
+                        <h4 data-i18n="description" data-sb-field-path=".title">Description</h4>
+                        <div class="d-flex flex-column gap-3" data-sb-field-path=".paragraphs">
+                            <p data-sb-field-path=".0" data-i18n="description_paragraph_one">Our advisory team specialises in premium residential assets, offering personalised guidance for acquisitions and disposals. Whether you are searching for a flagship residence, a pied-a-terre, or a portfolio investment, we curate opportunities that match your goals.</p>
+                            <p data-sb-field-path=".1" data-i18n="description_paragraph_two">We manage every milestone transparently - from neighborhood analysis and due diligence to negotiations and closing. With a trusted partner ecosystem, we deliver best-in-class service at each step.</p>
+                        </div>
+                    </div>
+                    <div class="col" data-sb-field-path="highlights">
+                        <h4 data-i18n="highlights" data-sb-field-path=".title">Highlights</h4>
+                        <div class="d-flex flex-column gap-3" data-sb-field-path=".items">
+                            <div class="d-flex flex-row align-items-center font-2 gap-3" data-sb-field-path=".0">
+                                <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
+                                <span data-i18n="highlight_one">Floor-to-ceiling glazing with river views</span>
+                            </div>
+                            <div class="d-flex flex-row align-items-center font-2 gap-3" data-sb-field-path=".1">
+                                <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
+                                <span data-i18n="highlight_two">Private rooftop terrace with spa plunge</span>
+                            </div>
+                            <div class="d-flex flex-row align-items-center font-2 gap-3" data-sb-field-path=".2">
+                                <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
+                                <span data-i18n="highlight_three">Secure underground parking for up to five cars</span>
+                            </div>
+                            <div class="d-flex flex-row align-items-center font-2 gap-3" data-sb-field-path=".3">
+                                <i class="rtmicon rtmicon-arrow-up-right fs-5"></i>
+                                <span data-i18n="highlight_four">24/7 concierge, security, and lifestyle support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 data-i18n="property_location" data-sb-field-path="location.title">Location</h4>
+                    <div class="card bg-light border-0 rounded-3 p-4" data-sb-field-path="location">
+                        <p class="mb-0 text-dark" data-sb-field-path=".description" data-i18n="location_description">Located in central Riga with quick access to galleries, dining, and the waterfront promenade.</p>
+                        <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Riga" class="link mt-3 d-inline-flex align-items-center gap-2" target="_blank" data-sb-field-path=".cta.href#@href">
+                            <span data-i18n="view_on_maps" data-sb-field-path=".cta.label">Open in Google Maps</span>
+                            <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                        </a>
+                    </div>
+                </div>
+</div>
+        </section>
+
+        <section class="section bg-attach-cover" style="background-image:url(/image/bg_cta.png);" data-sb-field-path="cta">
+            <div class="r-container d-flex flex-column gap-5">
+                <div class="row row-cols-xl-2 row-cols-1 align-items-center">
+                    <div class="col col-xl-7 mb-3 scrollanimation animated fadeInLeft">
+                        <div class="d-flex flex-column gap-4 pe-xl-5">
+                            <h3 data-sb-field-path=".title" data-i18n="ready_to_book_viewing">Ready to schedule a private tour?</h3>
+                            <h6 data-sb-field-path=".subtitle" data-i18n="leave_your_email">Leave your email and our advisory team will respond within one business day.</h6>
+                            <form class="d-flex flex-column h-100 justify-content-center w-100 needs-validation form" novalidate data-sb-field-path=".form">
+                                <input type="hidden" name="action" value="subscribe">
+                                <div class="input-group gap-3 mb-xl-2 mb-0 position-relative">
+                                    <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="user@example.com" name="email" required data-sb-field-path=".email.placeholder">
+                                    <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3" type="submit" data-sb-field-path=".button.label"><span data-i18n="request_callback">Request callback</span><i class="rtmicon rtmicon-arrow-right fw-bold"></i></button>
+                                    <div class="invalid-feedback" data-i18n="please_enter_a_valid_email_eg_userexamplecom">Please enter a valid email (e.g., user@example.com).</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col col-xl-5 mb-3 scrollanimation animated fadeInRight">
+                        <img src="/image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Advisory team photo" data-sb-field-path=".image#@src" data-sb-alt-field=".image#@alt">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <div class="section position-relative bg-black-1" style="height: 90vh;">
+        <div class="section position-relative bg-black-1" style="height: 90vh;" data-sb-field-path="footer">
             <div class="row row-cols-xl-2 row-cols-1 h-100">
                 <div class="col col-xl-8 mb-3">
                     <div class="d-flex flex-column gap-3 justify-content-between h-100">
                         <div class="d-flex flex-column accent-primary">
-                            <p class="gray editable" data-i18n="get_contact">Sazinaties</p>
-                            <h1 class="fw-normal editable" data-i18n="infovandoreheritagelv">info@vandoreheritage.lv</h1>
+                            <p class="gray" data-i18n="get_contact" data-sb-field-path=".contactLabel">Get in touch</p>
+                            <h1 class="fw-normal" data-i18n="infovandoreheritagelv" data-sb-field-path=".email">info@vandoreheritage.lv</h1>
                         </div>
-                        <img src="/image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image" width="938">
+                        <img src="/image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid" width="938" data-sb-field-path=".logo#@src" data-sb-alt-field=".logo#@alt">
                     </div>
                 </div>
                 <div class="col col-xl-4 mb-3">
                     <div class="d-flex flex-column gap-5 justify-content-between accent-primary h-100">
                         <div class="d-flex flex-row gap-5">
-                            <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
-                                <li>
-                                    <a href="/" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home">
-                                        Majas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/about.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="about">
-                                        Pret
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/properties.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="properties">
-                                        Ipa?ibas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/rentals.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="rentals">
-                                        Īre
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service">
-                                        Sakarto?ana
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us">
-                                        Sazinieties ar mums
-                                    </a>
-                                </li>
+                            <ul class="list-unstyled d-flex flex-column gap-3 accent-color" data-sb-field-path=".links">
+                                <li><a href="/" class="link d-flex flex-row gap-3 align-items-center" data-i18n="home" data-sb-field-path=".0">Home</a></li>
+                                <li><a href="/about.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="about" data-sb-field-path=".1">About</a></li>
+                                <li><a href="/properties.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="properties" data-sb-field-path=".2">Properties</a></li>
+                                <li><a href="/rentals.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="rentals" data-sb-field-path=".3">Rentals</a></li>
+                                <li><a href="/service.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="service" data-sb-field-path=".4">Services</a></li>
+                                <li><a href="/contact.html" class="link d-flex flex-row gap-3 align-items-center" data-i18n="contact_us" data-sb-field-path=".5">Contact us</a></li>
                             </ul>
-                            <div class="d-flex flex-column gap-3">
-                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priek?pilseta,+Riga,+LV-1013,+Latvia" class="link" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
-                                    Skanstes Iela 29A - 91, Riga, Latvija
-                                </a>
-                                <a href="tel:+37129713030" class="link" data-i18n="371_29_71_3030">
-                                    +371 29 71 3030
-                                </a>
+                            <div class="d-flex flex-column gap-3" data-sb-field-path=".address">
+                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Riga" class="link" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">Skanstes iela 29A - 91, Riga, Latvia</a>
+
+                                <a href="tel:+37129713030" class="link" data-i18n="371_29_71_3030">+371 29 71 3030</a>
                             </div>
                         </div>
-                        <div class="d-flex flex-row gap-3">
-                            <div class="border-end pe-3 border-gray">
-                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="terms_conditions">
-                                    Noteikumi un nosacijumi
-                                </a>
-                            </div>
-                            <div>
-                                <a href="" class="link d-flex flex-row gap-3 align-items-center" data-i18n="privacy_notice">
-                                    Pazinojums par privatumu
-                                </a>
-                            </div>
+                        <div class="d-flex flex-row gap-3" data-sb-field-path=".legal">
+                            <div class="border-end pe-3 border-gray"><a href="#" class="link d-flex flex-row gap-3 align-items-center" data-i18n="terms_conditions">Terms & conditions</a></div>
+                            <div><a href="#" class="link d-flex flex-row gap-3 align-items-center" data-i18n="privacy_notice">Privacy notice</a></div>
                         </div>
                     </div>
                 </div>
@@ -406,11 +346,8 @@ efektivs un atalgojo?s.
         </div>
     </footer>
 
-
-    <!-- Back to top button -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="rtmicon rtmicon-arrow-up"></i></a>
 
-    <!-- Scripts -->
     <script src="/js/vendor/jquery.min.js"></script>
     <script src="/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="/js/vendor/swiper-bundle.min.js"></script>
@@ -422,17 +359,35 @@ efektivs un atalgojo?s.
     <script src="/js/vendor/fslightbox.js"></script>
     <script src="/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!window.Swiper) return;
+            const mainGallery = document.querySelector('.property-gallery__main');
+            const thumbsGallery = document.querySelector('.property-gallery__thumbs');
+            if (!mainGallery || !thumbsGallery) return;
 
+            const thumbs = new Swiper(thumbsGallery, {
+                spaceBetween: 12,
+                slidesPerView: 3,
+                watchSlidesProgress: true,
+                breakpoints: {
+                    768: { slidesPerView: 4 },
+                    1024: { slidesPerView: 5 }
+                }
+            });
 
-
-</body></html>
-
-
-
-
-
-
-
-
-
-
+            new Swiper(mainGallery, {
+                spaceBetween: 16,
+                mousewheel: { forceToAxis: true },
+                keyboard: { enabled: true },
+                pagination: { el: mainGallery.querySelector('.swiper-pagination'), clickable: true },
+                navigation: {
+                    nextEl: mainGallery.querySelector('.swiper-button-next'),
+                    prevEl: mainGallery.querySelector('.swiper-button-prev')
+                },
+                thumbs: { swiper: thumbs }
+            });
+        });
+    </script>
+</body>
+</html>
