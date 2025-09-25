@@ -1,3 +1,8 @@
+---
+permalink: blog.html
+layout: null
+eleventyExcludeFromCollections: true
+---
 ﻿<!DOCTYPE html><html lang="lv"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +20,7 @@
 </head>
 
 <body>
+    {% set pageData = pages['blog'] or {} %}
     <!-- Header -->
     <header class="bg-accent-primary px-5">
         <nav class="navbar">
@@ -129,12 +135,11 @@
                 </div>
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
-                        <div><h1 class="display" style="max-width: 700px;" data-i18n="blog">Blogot</h1>
+                        <div><h1 class="display" style="max-width: 700px;" data-i18n="blog" data-cms-bind="heroHeading">{{ pageData.heroHeading | default("Blogs") }}</h1>
                         <div class="row row-xl-cols-2 row-cols-1">
                             <div class="col col-xl-2">
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
-                                    <p data-i18n="stay_updated_with_the_latest_real_estate_trends_tips_and_market_insights">Palieciet atjaunināts ar jaunākajām nekustamā īpašuma tendencēm, padomiem un tirgus atziņām.
-                                    </p></div>
+                                    <p data-i18n="stay_updated_with_the_latest_real_estate_trends_tips_and_market_insights" data-cms-bind="heroSubheading">{{ pageData.heroSubheading | default("Palieciet atjauninati ar jaunakajam ipa�umu nozares zinam un padomiem.") }}</p></div>
                                     <div class="devider"></div>
                                 </div>
                             </div>

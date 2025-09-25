@@ -1,0 +1,8 @@
+---
+permalink: /hello/
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% set pageData = pages['hello'] or {} %}
+<h1 data-cms-bind=\"heroHeading\">{{ pageData.heroHeading }}</h1>
+<p data-cms-bind=\"heroSubheading\">{{ pageData.heroSubheading }}</p>

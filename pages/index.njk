@@ -1,3 +1,8 @@
+---
+permalink: /
+layout: null
+eleventyExcludeFromCollections: true
+---
 ﻿<!doctype html>
 <html lang="lv"><head>
     <meta charset="utf-8">
@@ -16,6 +21,7 @@
 </head>
 
 <body>
+    {% set pageData = pages['index'] or {} %}
     <!-- Header -->
     <header class="bg-accent-primary px-5">
         <nav class="navbar">
@@ -133,7 +139,7 @@
                 <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
                     <div>
                         <div class="d-flex flex-column gap-2 h-100">
-                        <h1 class="editable" style="max-width: 800px;" data-i18n="this_isnt_just_business_its_an_attitude">Tas nav tikai bizness. Tā ir attieksme.</h1>
+                        <h1 class="editable" style="max-width: 800px;" data-i18n="this_isnt_just_business_its_an_attitude" data-cms-bind="heroHeading">{{ pageData.heroHeading | default("Tas nav tikai bizness. Ta ir attieksme.") }}</h1>
                         <div class="row row-cols-1">
                             <div class="col col-xl-4">
                                 <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">

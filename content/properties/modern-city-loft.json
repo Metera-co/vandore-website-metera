@@ -1,0 +1,25 @@
+{
+  "slug": "modern-city-loft",
+  "title": "Moderns pilsētas lofts",
+  "price": "€ 245 000",
+  "address": "Brīvības iela 45, Rīga",
+  "description": "Augsti griesti, panorāmas logi un atvērta tipa viesistaba loft tipa dzīvoklī ar skatu uz pilsētu.",
+  "image": "/image/dummy-img-600x600.jpg",
+  "bedrooms": 1,
+  "bathrooms": 1,
+  "area": 78,
+  "floors": 6,
+  "gallery": [
+    {
+      "src": "/image/dummy-img-600x600.jpg",
+      "alt": "Atvērta tipa viesistaba",
+      "caption": "Lofts ar plašu, atvērtu plānojumu"
+    },
+    {
+      "src": "/image/dummy-img-600x500.jpg",
+      "alt": "Skats uz pilsētu no balkona",
+      "caption": "Privāts balkons ar skatu uz pilsētu"
+    }
+  ],
+  "imageAlt": "Atvērta tipa viesistaba"
+}
