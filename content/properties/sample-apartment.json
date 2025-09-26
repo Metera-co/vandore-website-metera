@@ -1,4 +1,4 @@
-{
+Ôªø{
     "copy":  {
                  "features":  [
                                   {
@@ -11,7 +11,7 @@
                                       "label":  "Privats balkons"
                                   }
                               ],
-                 "description":  "äis gaiöais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
+                 "description":  "≈†is gai≈°ais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
                  "amenities":  [
                                    {
                                        "label":  "Vieda majas sistema"
@@ -21,7 +21,7 @@
                                    }
                                ],
                  "notes":  "Ideali piemerots investicijai vai ka pamatmitne pilseta.",
-                 "summary":  "Plaös pilsetas dzivoklis ar panoramas logiem",
+                 "summary":  "Pla≈°s pilsetas dzivoklis ar panoramas logiem",
                  "nearby":  {
                                 "landmarks":  [
                                                   {
@@ -47,20 +47,13 @@
                       "date":  "2025-10-15",
                       "endTime":  "20:00",
                       "startTime":  "18:00",
-                      "notes":  "Ieprieköeja pieteiköanas ir obligata."
+                      "notes":  "Iepriek≈°eja pieteik≈°anas ir obligata."
                   },
-    "agents":  {
-                   "secondary":  [
-                                     "martins-elsons"
-                                 ],
-                   "primary":  "inesa-vandore",
-                   "office":  "Vandore Heritage"
-               },
     "media":  {
                   "gallery":  [
                                   {
                                       "caption":  "Saulains un silts dzivojamais sturis",
-                                      "alt":  "Plaöa viesistaba ar skatu uz pagalmu",
+                                      "alt":  "Pla≈°a viesistaba ar skatu uz pagalmu",
                                       "src":  "/image/dummy-img-900x700.jpg"
                                   },
                                   {
@@ -77,7 +70,7 @@
                   "brochure":  null,
                   "cover":  {
                                 "caption":  "Viesistaba ar panoramas logiem",
-                                "alt":  "Plaöa viesistaba",
+                                "alt":  "Pla≈°a viesistaba",
                                 "image":  "/image/dummy-img-900x700.jpg"
                             },
                   "virtualTourUrl":  null,
@@ -96,7 +89,7 @@
                   "view":  "Skats uz pagalmu",
                   "heating":  "Centrala",
                   "parking":  "1 vieta pazemes stavvieta",
-                  "interiorSize":  "65 m≤",
+                  "interiorSize":  "65 m¬≤",
                   "yearBuilt":  2015,
                   "floors":  5,
                   "lotSize":  " ",
@@ -123,14 +116,14 @@
                 "description":  "Divistabu dzivoklis ar panoramas logiem un privatu balkonu Rigas centra.",
                 "og":  {
                            "title":  "Parauga dzivoklis Riga",
-                           "description":  "Moderns pilsetas lofts ar augstiem griestiem un plaöu viesistabu.",
+                           "description":  "Moderns pilsetas lofts ar augstiem griestiem un pla≈°u viesistabu.",
                            "image":  "/image/dummy-img-900x700.jpg"
                        },
-                "canonical":  "https://vandoreheritage.lv/property.html?slug=sample-apartment"
+                "canonical":  "https://vandoreheritage.lv/properties/sample-apartment/"
             },
     "ctas":  {
                  "secondary":  {
-                                   "label":  "Lejupieladet broöuru",
+                                   "label":  "Lejupieladet bro≈°uru",
                                    "url":  "#",
                                    "style":  "secondary"
                                },
@@ -157,10 +150,10 @@
     "featured":  true,
     "title":  "Parauga dzivoklis",
     "image":  "/image/dummy-img-900x700.jpg",
-    "image_alt":  "Plaöa viesistaba",
-    "priceString":  "Ä 395000",
-    "priceLabel":  "Ä 395000",
-    "price":  "Ä 395000",
+    "image_alt":  "Pla≈°a viesistaba",
+    "priceString":  "‚Ç¨ 395000",
+    "priceLabel":  "‚Ç¨ 395000",
+    "price":  "‚Ç¨ 395000",
     "address":  "Example iela 10, Riga",
     "area":  "65",
     "bedrooms":  2,
@@ -169,7 +162,7 @@
     "gallery":  [
                     {
                         "caption":  "Saulains un silts dzivojamais sturis",
-                        "alt":  "Plaöa viesistaba ar skatu uz pagalmu",
+                        "alt":  "Pla≈°a viesistaba ar skatu uz pagalmu",
                         "src":  "/image/dummy-img-900x700.jpg"
                     },
                     {
@@ -183,7 +176,8 @@
                         "src":  "/image/dummy-img-600x400.jpg"
                     }
                 ],
-    "description":  "äis gaiöais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
-    "badge":  "Pardoöana",
+    "description":  "≈†is gai≈°ais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
+    "badge":  "Pardo≈°ana",
     "priceNumeric":  395000
 }
+

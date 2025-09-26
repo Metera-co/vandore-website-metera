@@ -23,24 +23,5 @@ layout: layouts/base.njk
 
 {% block scripts %}
   <script src="/js/rentals.js" defer></script>
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const slug = params.get('slug');
-      const articles = document.querySelectorAll('[data-rental-detail]');
-      if (!articles.length) return;
-      let found = false;
-      articles.forEach((article, index) => {
-        const match = slug ? article.dataset.slug === slug : index === 0;
-        article.hidden = !match;
-        article.setAttribute('aria-hidden', match ? 'false' : 'true');
-        if (match) found = true;
-      });
-      if (slug && !found) {
-        const first = articles[0];
-        first.hidden = false;
-        first.setAttribute('aria-hidden', 'false');
-      }
-    }());
-  </script>
 {% endblock %}
+

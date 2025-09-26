@@ -2,5 +2,6 @@
     "title":  "Hello",
     "heroHeading":  "Visual test",
     "heroSubheading":  "Edit me",
-    "slug":  "hello"
+    "slug":  "hello",
+    "permalink":  "/hello/"
 }

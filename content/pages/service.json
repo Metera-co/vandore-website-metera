@@ -70,5 +70,6 @@
                     "enableMap":  false,
                     "enableAnalytics":  true,
                     "enableChat":  false
-                }
+                },
+    "permalink":  "/service.html"
 }

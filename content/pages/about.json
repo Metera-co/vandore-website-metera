@@ -44,5 +44,6 @@
                     "enableMap":  false,
                     "enableAnalytics":  true,
                     "enableChat":  false
-                }
+                },
+    "permalink":  "/about.html"
 }

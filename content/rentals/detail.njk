@@ -1,0 +1,11 @@
+﻿---
+pagination:
+  data: collections.rentals
+  size: 1
+  alias: rental
+permalink: "/rentals/{{ rental.slug }}/"
+layout: layouts/rental.njk
+eleventyComputed:
+  title: "{{ rental.title }}"
+---
+

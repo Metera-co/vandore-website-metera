@@ -10,5 +10,6 @@
                          "type":  "rich-text"
                      }
                  ],
-    "slug":  "404"
+    "slug":  "404",
+    "permalink":  "/404.html"
 }

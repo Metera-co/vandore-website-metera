@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const DATA_URL = '/data/properties.json';
   const STORAGE_KEY = 'vh-property-filters-v1';
   const CONFIG_ID = 'property-filter-config';
@@ -96,14 +96,12 @@
   }
 
   function propertyUrl(slug) {
-    const params = new URLSearchParams(window.location.search);
-    if (slug) {
-      params.set('slug', slug);
-    } else {
-      params.delete('slug');
+    if (!slug) return '/properties/';
+    try {
+      return `/properties/${encodeURIComponent(slug)}/`;
+    } catch (error) {
+      return `/properties/${slug}/`;
     }
-    const query = params.toString();
-    return `property.html${query ? `?${query}` : ''}`;
   }
 
   function readStoredFilters() {
@@ -488,20 +486,44 @@
     return `${path}${query ? `?${query}` : ''}`;
   }
 
+  function getDetailSlug() {
+    if (detailContext.root && detailContext.root.dataset && detailContext.root.dataset.slug) {
+      return detailContext.root.dataset.slug;
+    }
+    const match = window.location.pathname.match(/\/properties\/([^/]+)\/?$/);
+    if (match && match[1]) {
+      try {
+        return decodeURIComponent(match[1]);
+      } catch (error) {
+        return match[1];
+      }
+    }
+    const params = new URLSearchParams(window.location.search);
+    const querySlug = params.get('slug');
+    if (querySlug) {
+      try {
+        return decodeURIComponent(querySlug);
+      } catch (error) {
+        return querySlug;
+      }
+    }
+    return null;
+  }
+
   function hydrateDetail() {
     if (!detailContext.root) return;
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug');
-    const item = slug ? properties.find((entry) => entry.slug === slug) : properties[0];
+    const slug = getDetailSlug();
+    const item = slug ? properties.find((entry) => entry.slug === slug) : null;
 
     if (!item) {
       detailContext.root.innerHTML = '<div class="vh-empty">Ipasums nav atrasts.</div>';
       if (detailContext.back) {
-        detailContext.back.href = '/properties.html';
+        detailContext.back.href = buildListUrl('/properties.html');
       }
       return;
     }
 
+    detailContext.root.dataset.slug = item.slug || '';
     updateHero(item);
     updateSpecs(item);
     updateSections(item);
@@ -527,10 +549,10 @@
   }
 
   function updateSpecs(item) {
-    setText('[data-property-area]', item.area ? `${item.area} m2` : '�');
-    setText('[data-property-bedrooms]', item.bedrooms != null ? String(item.bedrooms) : '�');
-    setText('[data-property-bathrooms]', item.bathrooms != null ? String(item.bathrooms) : '�');
-    setText('[data-property-floors]', item.floors != null ? String(item.floors) : '�');
+    setText('[data-property-area]', item.area ? `${item.area} m2` : 'ï¿½');
+    setText('[data-property-bedrooms]', item.bedrooms != null ? String(item.bedrooms) : 'ï¿½');
+    setText('[data-property-bathrooms]', item.bathrooms != null ? String(item.bathrooms) : 'ï¿½');
+    setText('[data-property-floors]', item.floors != null ? String(item.floors) : 'ï¿½');
     const summary = detailContext.root.querySelector('[data-property-summary]');
     if (summary) {
       summary.textContent = item.description || summary.textContent || '';
@@ -710,3 +732,4 @@
   bootstrap();
   init();
 })();
+

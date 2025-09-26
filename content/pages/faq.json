@@ -24,5 +24,6 @@
                          "type":  "faq"
                      }
                  ],
-    "slug":  "faq"
+    "slug":  "faq",
+    "permalink":  "/faq.html"
 }

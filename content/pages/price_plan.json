@@ -101,5 +101,6 @@
                     "enableMap":  false,
                     "enableAnalytics":  true,
                     "enableChat":  false
-                }
+                },
+    "permalink":  "/price_plan.html"
 }

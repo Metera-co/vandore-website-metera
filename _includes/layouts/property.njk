@@ -1,0 +1,14 @@
+﻿{% extends "layouts/base.njk" %}
+{% set dataSlug = property.slug %}
+{% set pageSeo = property.seo or {} %}
+{% set seoCollection = 'properties' %}
+{% set seoItem = property.slug %}
+{% import "components/property-detail.njk" as propertyComponents %}
+{% set propertyList = collections.properties or [] %}
+{% block content %}
+  {{ propertyComponents.property_detail(property, propertyList) }}
+{% endblock %}
+
+{% block scripts %}
+  <script src="/js/properties.js" defer></script>
+{% endblock %}

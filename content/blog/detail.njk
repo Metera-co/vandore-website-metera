@@ -1,0 +1,11 @@
+﻿---
+pagination:
+  data: collections.blog
+  size: 1
+  alias: post
+permalink: "/blog/{{ post.slug }}/"
+layout: layouts/blog-post.njk
+eleventyComputed:
+  title: "{{ post.title }}"
+---
+

@@ -1,0 +1,14 @@
+﻿{% extends "layouts/base.njk" %}
+{% set dataSlug = rental.slug %}
+{% set pageSeo = rental.seo or {} %}
+{% set seoCollection = 'rentals' %}
+{% set seoItem = rental.slug %}
+{% import "components/rental-detail.njk" as rentalComponents %}
+{% set rentalList = collections.rentals or [] %}
+{% block content %}
+  {{ rentalComponents.rental_detail(rental, rentalList) }}
+{% endblock %}
+
+{% block scripts %}
+  <script src="/js/rentals.js" defer></script>
+{% endblock %}

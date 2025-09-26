@@ -33,5 +33,6 @@
                     "enableMap":  true,
                     "enableAnalytics":  true,
                     "enableChat":  false
-                }
+                },
+    "permalink":  "/contact.html"
 }

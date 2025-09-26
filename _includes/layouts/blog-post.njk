@@ -1,0 +1,83 @@
+﻿{% extends "layouts/base.njk" %}
+{% set dataSlug = post.slug %}
+{% set pageSeo = post.seo or {} %}
+{% set seoCollection = 'blog' %}
+{% set seoItem = post.slug %}
+{% set posts = collections.blog or [] %}
+{% set relatedPosts = posts | withoutSlug(post.slug) %}
+{% block content %}
+  <section class="vh-section vh-section--blog-detail" data-blog-detail-root>
+    <div class="vh-container">
+      <article class="vh-blog-detail" data-blog-article data-slug="{{ post.slug }}" data-cms-collection="blog" data-cms-item="{{ post.slug }}">
+        <header class="vh-blog-detail__header">
+          <p class="vh-blog-detail__meta">
+            {% if post.date %}
+              <span data-cms-bind="date">{{ post.date }}</span>
+            {% endif %}
+            {% if post.readingTime %}
+              <span data-cms-bind="readingTime">{{ post.readingTime }}</span>
+            {% endif %}
+            {% if post.categories %}
+              {% for category in post.categories %}
+                <span class="vh-badge" data-cms-bind="categories[{{ loop.index0 }}]">{{ category }}</span>
+              {% endfor %}
+            {% endif %}
+          </p>
+          <h1 class="vh-blog-detail__title" data-cms-bind="title">{{ post.title }}</h1>
+          {% if post.summary %}
+            <p class="vh-blog-detail__summary" data-cms-bind="summary">{{ post.summary }}</p>
+          {% endif %}
+          {% if post.authorName %}
+            <p class="vh-blog-detail__author" data-cms-bind="authorName">{{ post.authorName }}</p>
+          {% endif %}
+        </header>
+
+        {% if post.image %}
+          <figure class="vh-blog-detail__hero">
+            <img src="{{ post.image }}" alt="{{ post.image_alt or post.title }}" data-cms-bind="image">
+            {% if post.image_alt %}
+              <figcaption data-cms-bind="image_alt">{{ post.image_alt }}</figcaption>
+            {% endif %}
+          </figure>
+        {% endif %}
+
+        <div class="vh-blog-detail__body">
+          {% if post.body %}
+            <div class="vh-rich-text" data-cms-bind="body">{{ post.body | safe }}</div>
+          {% elseif post.content %}
+            {% for paragraph in post.content %}
+              <p data-cms-bind="content[{{ loop.index0 }}]">{{ paragraph }}</p>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        {% if post.tags %}
+          <div class="vh-blog-detail__tags">
+            <h2>Tags</h2>
+            <ul>
+              {% for tag in post.tags %}
+                <li data-cms-bind="tags[{{ loop.index0 }}]">{{ tag }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if relatedPosts | length %}
+          <aside class="vh-blog-detail__related">
+            <h2>More Articles</h2>
+            <ul>
+              {% for other in relatedPosts %}
+                <li data-cms-collection="blog" data-cms-item="{{ other.slug }}">
+                  <a href="/blog/{{ other.slug }}/">
+                    <span>{{ other.title }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </aside>
+        {% endif %}
+      </article>
+    </div>
+  </section>
+{% endblock %}
+

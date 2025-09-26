@@ -14,6 +14,11 @@ collections_config:
     name: Pages
     path: content/pages
     create: true
+    editor:
+      default: visual
+    preview:
+      enabled: true
+      path: "{{ data.permalink }}"
     add_options:
       - label: New Page
         icon: article
@@ -27,30 +32,13 @@ collections_config:
             subheading: ""
             background:
               image: ""
-              video: ""
               overlay: 0.4
             ctas: []
           sections: []
-          widgets: []
           seo:
             title: ""
             description: ""
             canonical: ""
-            og:
-              title: ""
-              description: ""
-              image: ""
-            twitter:
-              title: ""
-              description: ""
-              image: ""
-          scripts:
-            enableMap: false
-            enableAnalytics: true
-            enableChat: false
-    editor:
-      default: visual
-      preview: true
     _inputs:
       slug:
         type: text
@@ -59,11 +47,10 @@ collections_config:
       title:
         type: text
         label: Page Title
-        required: true
       permalink:
         type: text
         label: Permalink
-        comment: Include leading slash for relative URLs.
+        comment: Include a leading slash (e.g. /about.html)
       hero.eyebrow:
         type: text
         label: Hero Eyebrow
@@ -72,18 +59,15 @@ collections_config:
         label: Hero Heading
       hero.subheading:
         type: textarea
+        label: Hero Subheading
         options:
           rows: 3
-        label: Hero Subheading
       hero.background.image:
         type: file
         label: Hero Background Image
-      hero.background.video:
-        type: text
-        label: Hero Background Video URL
       hero.background.overlay:
         type: number
-        label: Hero Overlay Opacity
+        label: Hero Overlay
         options:
           min: 0
           max: 1
@@ -91,44 +75,11 @@ collections_config:
       hero.ctas:
         type: array
         label: Hero CTAs
-        schema:
-          label: CTA
-          name: hero_cta
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
-            - name: style
-              label: Style
-              type: select
-              options:
-                values:
-                  - label: Primary
-                    value: primary
-                  - label: Secondary
-                    value: secondary
-                  - label: Link
-                    value: link
-            - name: target
-              label: Target
-              type: select
-              options:
-                values:
-                  - label: Same tab
-                    value: _self
-                  - label: New tab
-                    value: _blank
+        structure: cta
       sections:
         type: array
         label: Sections
-        structure: page_sections
-      widgets:
-        type: array
-        label: Widgets
-        structure: page_widgets
+        structure: page_section
       seo.title:
         type: text
         label: SEO Title
@@ -138,295 +89,16 @@ collections_config:
       seo.canonical:
         type: text
         label: Canonical URL
-      seo.og.title:
-        type: text
-        label: Open Graph Title
-      seo.og.description:
-        type: textarea
-        label: Open Graph Description
-      seo.og.image:
-        type: file
-        label: Open Graph Image
-      seo.twitter.title:
-        type: text
-        label: Twitter Title
-      seo.twitter.description:
-        type: textarea
-        label: Twitter Description
-      seo.twitter.image:
-        type: file
-        label: Twitter Image
-      scripts.enableMap:
-        type: checkbox
-        label: Enable Map Scripts
-      scripts.enableAnalytics:
-        type: checkbox
-        label: Enable Analytics Scripts
-      scripts.enableChat:
-        type: checkbox
-        label: Enable Chat Widget
-    _structures:
-      page_sections:
-        label: Page Section
-        singular_label: Section
-        add_label: Add Section
-        fields:
-          - name: enabled
-            label: Enabled
-            type: checkbox
-            default: true
-          - name: type
-            label: Layout Variant
-            type: select
-            options:
-              values:
-                - label: Rich Text
-                  value: rich-text
-                - label: Two Column
-                  value: two-column
-                - label: Feature Grid
-                  value: feature-grid
-                - label: Testimonial Slider
-                  value: testimonials
-                - label: FAQ List
-                  value: faq
-                - label: Map
-                  value: map
-                - label: Custom Embed
-                  value: custom
-          - name: theme
-            label: Theme
-            type: select
-            options:
-              values:
-                - label: Light
-                  value: light
-                - label: Dark
-                  value: dark
-          - name: heading
-            label: Heading
-            type: text
-          - name: subheading
-            label: Subheading
-            type: textarea
-          - name: body
-            label: Body
-            type: markdown
-          - name: media
-            label: Media
-            type: object
-            fields:
-              - name: image
-                label: Image
-                type: file
-              - name: alt
-                label: Alt Text
-                type: text
-              - name: caption
-                label: Caption
-                type: text
-              - name: video
-                label: Video URL
-                type: text
-          - name: background
-            label: Background
-            type: object
-            fields:
-              - name: image
-                label: Background Image
-                type: file
-              - name: color
-                label: Background Color
-                type: color
-              - name: overlay
-                label: Overlay Opacity
-                type: number
-              - name: pattern
-                label: Pattern
-                type: text
-          - name: alignment
-            label: Alignment
-            type: select
-            options:
-              values:
-                - label: Default
-                  value: default
-                - label: Left
-                  value: left
-                - label: Center
-                  value: center
-                - label: Right
-                  value: right
-          - name: spacing
-            label: Vertical Spacing
-            type: select
-            options:
-              values:
-                - label: Compact
-                  value: compact
-                - label: Comfortable
-                  value: comfortable
-                - label: Expanded
-                  value: expanded
-          - name: ctas
-            label: Section CTAs
-            type: array
-            schema:
-              label: CTA
-              name: section_cta
-              fields:
-                - name: label
-                  label: Label
-                  type: text
-                - name: url
-                  label: URL
-                  type: text
-                - name: style
-                  label: Style
-                  type: select
-                  options:
-                    values:
-                      - label: Primary
-                        value: primary
-                      - label: Secondary
-                        value: secondary
-                      - label: Link
-                        value: link
-          - name: items
-            label: Items
-            type: array
-            structure: section_items
-          - name: visibility
-            label: Visibility Controls
-            type: object
-            fields:
-              - name: showOnDesktop
-                label: Show on Desktop
-                type: checkbox
-              - name: showOnMobile
-                label: Show on Mobile
-                type: checkbox
-      section_items:
-        label: Section Item
-        singular_label: Item
-        add_label: Add Item
-        fields:
-          - name: title
-            label: Title
-            type: text
-          - name: description
-            label: Description
-            type: markdown
-          - name: media
-            label: Media
-            type: object
-            fields:
-              - name: image
-                label: Image
-                type: file
-              - name: alt
-                label: Alt Text
-                type: text
-              - name: icon
-                label: Icon Name
-                type: text
-          - name: badge
-            label: Badge
-            type: text
-          - name: metrics
-            label: Metrics
-            type: object
-            fields:
-              - name: label
-                label: Label
-                type: text
-              - name: value
-                label: Value
-                type: text
-          - name: link
-            label: Link
-            type: object
-            fields:
-              - name: label
-                label: Label
-                type: text
-              - name: url
-                label: URL
-                type: text
-              - name: target
-                label: Target
-                type: select
-                options:
-                  values:
-                    - label: Same tab
-                      value: _self
-                    - label: New tab
-                      value: _blank
-      page_widgets:
-        label: Widget
-        singular_label: Widget
-        add_label: Add Widget
-        fields:
-          - name: type
-            label: Component Type
-            type: select
-            options:
-              values:
-                - label: Card Grid
-                  value: card-grid
-                - label: Carousel
-                  value: carousel
-                - label: Testimonial Slider
-                  value: testimonial-slider
-                - label: Newsletter Signup
-                  value: newsletter
-                - label: FAQ Group
-                  value: faq
-                - label: Map
-                  value: map
-                - label: Custom Embed
-                  value: custom
-          - name: settings
-            label: Settings
-            type: object
-            fields:
-              - name: layout
-                label: Layout
-                type: select
-                options:
-                  values:
-                    - label: Two Columns
-                      value: two
-                    - label: Three Columns
-                      value: three
-                    - label: Carousel
-                      value: carousel
-              - name: autoplay
-                label: Autoplay
-                type: checkbox
-              - name: interval
-                label: Interval (ms)
-                type: number
-              - name: theme
-                label: Theme
-                type: select
-                options:
-                  values:
-                    - label: Light
-                      value: light
-                    - label: Dark
-                      value: dark
-              - name: background
-                label: Background Color
-                type: color
-          - name: items
-            label: Items
-            type: array
-            structure: section_items
+
   properties:
     name: Properties
     path: content/properties
     create: true
+    editor:
+      default: visual
+    preview:
+      enabled: true
+      path: "/properties/{{ data.slug }}/"
     add_options:
       - label: New Property Listing
         icon: real_estate_agent
@@ -437,19 +109,22 @@ collections_config:
           listingType: sale
           propertyType: house
           featured: false
-          price:
-            amount: 0
-            currency: EUR
-            label: ""
+          price: ""
+          priceLabel: ""
+          priceNumeric: 0
+          address: ""
           location:
             addressLine1: ""
-            city: "Riga"
-            country: "Latvija"
-          specs:
-            bedrooms: 0
-            bathrooms:
-              full: 0
-              half: 0
+            city: ""
+            region: ""
+            postalCode: ""
+            country: ""
+            neighborhood: ""
+          bedrooms: 0
+          bathrooms: 0
+          floors: 1
+          area: ""
+          description: ""
           media:
             cover:
               image: ""
@@ -457,10 +132,11 @@ collections_config:
             gallery: []
           copy:
             summary: ""
-            description: ""
+            amenities: []
           seo:
             title: ""
             description: ""
+            canonical: ""
     _inputs:
       slug:
         type: text
@@ -488,95 +164,37 @@ collections_config:
           values:
             - label: Sale
               value: sale
-            - label: Long-Term Rental
+            - label: Long-term Rental
               value: long-term
-            - label: Short-Term Rental
+            - label: Short-term Rental
               value: short-term
       propertyType:
-        type: select
+        type: text
         label: Property Type
-        options:
-          allow_other: true
-          values:
-            - label: House
-              value: house
-            - label: Apartment
-              value: apartment
-            - label: Villa
-              value: villa
-            - label: Penthouse
-              value: penthouse
-            - label: Townhouse
-              value: townhouse
-            - label: Plot
-              value: plot
       featured:
         type: checkbox
         label: Featured Listing
-      mlsId:
+      price:
         type: text
-        label: MLS / Internal ID
-      price.amount:
-        type: number
-        label: Price Amount
-      price.currency:
-        type: select
-        label: Currency
-        options:
-          values:
-            - label: EUR
-              value: EUR
-            - label: USD
-              value: USD
-      price.label:
+        label: Price Display
+      priceLabel:
         type: text
         label: Price Label
-      price.fees.hoa:
+      priceNumeric:
+        type: number
+        label: Numeric Price
+      address:
         type: text
-        label: HOA / Fees
-      price.fees.taxes:
-        type: text
-        label: Tax Information
-      price.rentalRates:
-        type: object
-        label: Rental Rates
-        fields:
-          - name: nightly
-            label: Nightly
-            type: text
-          - name: weekly
-            label: Weekly
-            type: text
-          - name: monthly
-            label: Monthly
-            type: text
-          - name: minimumNights
-            label: Minimum Nights
-            type: number
-          - name: maximumOccupancy
-            label: Maximum Occupancy
-            type: number
-          - name: securityDeposit
-            label: Security Deposit
-            type: text
-          - name: cleaningFee
-            label: Cleaning Fee
-            type: text
-          - name: discounts
-            label: Discounts
-            type: textarea
+        label: Address
       location.addressLine1:
         type: text
         label: Address Line 1
-      location.addressLine2:
-        type: text
-        label: Address Line 2
       location.city:
         type: text
         label: City
       location.region:
         type: text
-        label: State / Region
+        label: Region / State
       location.postalCode:
         type: text
         label: Postal Code
@@ -584,302 +202,93 @@ collections_config:
         type: text
         label: Country
       location.neighborhood:
-        type: select
+        type: text
         label: Neighborhood
-        options:
-          data: neighborhoods
       location.latitude:
-        type: number
+        type: text
         label: Latitude
       location.longitude:
-        type: number
+        type: text
         label: Longitude
       location.mapEmbed:
         type: text
         label: Map Embed URL
-      specs.bedrooms:
+      bedrooms:
         type: number
         label: Bedrooms
-      specs.bathrooms.full:
+      bathrooms:
         type: number
-        label: Bathrooms (Full)
-      specs.bathrooms.half:
-        type: number
-        label: Bathrooms (Half)
-      specs.parking:
-        type: text
-        label: Parking / Garage
-      specs.interiorSize:
-        type: text
-        label: Interior Size
-      specs.lotSize:
-        type: text
-        label: Lot Size / Acreage
-      specs.yearBuilt:
-        type: number
-        label: Year Built
-      specs.floors:
+        label: Bathrooms
+      floors:
         type: number
         label: Floors
-      specs.heating:
+      area:
         type: text
-        label: Heating
-      specs.cooling:
-        type: text
-        label: Cooling
-      specs.energyRating:
-        type: text
-        label: Energy Rating / Class
-      specs.orientation:
-        type: text
-        label: Orientation
-      specs.view:
-        type: text
-        label: View
-      specs.accessibility:
+        label: Area (m²)
+      description:
         type: textarea
-        label: Accessibility Features
-      specs.furnishing:
-        type: text
-        label: Furnishing
-      specs.petPolicy:
-        type: text
-        label: Pet Policy
+        label: Description
+      copy.summary:
+        type: textarea
+        label: Summary
+      copy.amenities:
+        type: array
+        label: Amenities
+        structure: amenity
       media.cover.image:
         type: file
         label: Cover Image
       media.cover.alt:
         type: text
         label: Cover Alt Text
-      media.cover.caption:
-        type: text
-        label: Cover Caption / Credit
       media.gallery:
         type: array
         label: Gallery
-        schema:
-          label: Gallery Image
-          name: gallery_image
-          fields:
-            - name: src
-              label: Image
-              type: file
-            - name: alt
-              label: Alt Text
-              type: text
-            - name: caption
-              label: Caption
-              type: text
-      media.floorplans:
-        type: array
-        label: Floorplans
-        schema:
-          label: Floorplan
-          name: floorplan
-          fields:
-            - name: src
-              label: File
-              type: file
-            - name: caption
-              label: Caption
-              type: text
-      media.brochure:
-        type: file
-        label: Brochure / File Download
-      media.videoUrl:
-        type: text
-        label: Video URL
-      media.virtualTourUrl:
-        type: text
-        label: 3D / Virtual Tour URL
-      copy.summary:
-        type: textarea
-        label: Summary / Lede
-      copy.description:
-        type: markdown
-        label: Full Description
-      copy.features:
-        type: array
-        label: Features / Amenities
-        schema:
-          label: Feature
-          name: feature
-          fields:
-            - name: label
-              label: Label
-              type: text
-      copy.amenities:
-        type: array
-        label: Amenity List
-        schema:
-          label: Amenity
-          name: amenity
-          fields:
-            - name: label
-              label: Label
-              type: text
-      copy.nearby.schools:
-        type: array
-        label: Nearby Schools
-        schema:
-          label: School
-          name: nearby_school
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: distance
-              label: Distance
-              type: text
-      copy.nearby.transit:
-        type: array
-        label: Nearby Transit
-        schema:
-          label: Transit Option
-          name: nearby_transit
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: distance
-              label: Distance
-              type: text
-      copy.nearby.landmarks:
-        type: array
-        label: Nearby Landmarks
-        schema:
-          label: Landmark
-          name: nearby_landmark
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: distance
-              label: Distance
-              type: text
-      copy.notes:
-        type: textarea
-        label: Private Notes
-      openHouse.date:
-        type: date
-        label: Open House Date
-      openHouse.startTime:
-        type: text
-        label: Start Time
-      openHouse.endTime:
-        type: text
-        label: End Time
-      openHouse.notes:
-        type: textarea
-        label: Open House Notes
-      agents.primary:
-        type: select
-        label: Primary Agent
-        options:
-          data: agents
-      agents.secondary:
-        type: multiselect
-        label: Co-listing Agents
-        options:
-          data: agents
-      agents.office:
-        type: text
-        label: Office Reference
-      ctas.scheduleTour:
-        type: text
-        label: Schedule Tour Link / ID
-      ctas.inquireForm:
-        type: text
-        label: Inquire Form ID
-      ctas.primary:
-        type: object
-        label: Primary CTA
-        fields:
-          - name: label
-            label: Label
-            type: text
-          - name: url
-            label: URL
-            type: text
-          - name: style
-            label: Style
-            type: select
-            options:
-              values:
-                - label: Primary
-                  value: primary
-                - label: Secondary
-                  value: secondary
-                - label: Link
-                  value: link
-      ctas.secondary:
-        type: object
-        label: Secondary CTA
-        fields:
-          - name: label
-            label: Label
-            type: text
-          - name: url
-            label: URL
-            type: text
-          - name: style
-            label: Style
-            type: select
-            options:
-              values:
-                - label: Primary
-                  value: primary
-                - label: Secondary
-                  value: secondary
-                - label: Link
-                  value: link
+        structure: gallery_image
       seo.title:
         type: text
         label: SEO Title
       seo.description:
         type: textarea
         label: Meta Description
-      seo.og.title:
-        type: text
-        label: OG Title
-      seo.og.description:
-        type: textarea
-        label: OG Description
-      seo.og.image:
-        type: file
-        label: OG Image
       seo.canonical:
         type: text
         label: Canonical URL
       structuredData.enabled:
         type: checkbox
         label: Include JSON-LD
-      structuredData.overrides:
-        type: object
-        label: Schema Overrides
-        fields:
-          - name: price
-            label: Price Override
-            type: text
-          - name: availability
-            label: Availability Override
-            type: text
-          - name: propertyType
-            label: Property Type Override
-            type: text
-    _select_data:
-      agents:
-        collection: agents
-        value_key: slug
-        label_key: name
-      neighborhoods:
-        collection: neighborhoods
-        value_key: slug
-        label_key: name
+
   rentals:
     name: Rentals
     path: content/rentals
     create: true
+    editor:
+      default: visual
+    preview:
+      enabled: true
+      path: "/rentals/{{ data.slug }}/"
+    add_options:
+      - label: New Rental Listing
+        icon: home
+        data:
+          slug: ""
+          title: "New Rental"
+          type: short
+          price: ""
+          priceLabel: ""
+          bedrooms: 0
+          bathrooms: 0
+          area: 0
+          floors: 1
+          address: ""
+          location:
+            city: ""
+            neighborhood: ""
+          description: ""
+          gallery: []
+          seo:
+            title: ""
+            description: ""
     _inputs:
       slug:
         type: text
@@ -889,181 +298,90 @@ collections_config:
         type: text
         label: Title
         required: true
-      status:
+      type:
         type: select
-        label: Status
+        label: Rental Type
         options:
           values:
-            - label: Available
-              value: available
-            - label: Booked
-              value: booked
-            - label: Inactive
-              value: inactive
-      listingType:
-        type: select
-        label: Listing Type
-        options:
-          values:
-            - label: Short-Term Rental
-              value: short-term
-            - label: Long-Term Rental
-              value: long-term
-      price.rateNightly:
+            - label: Short-term
+              value: short
+            - label: Long-term
+              value: long
+            - label: Holiday
+              value: holiday
+      price:
         type: text
-        label: Nightly Rate
-      price.rateWeekly:
+        label: Price Display
+      priceLabel:
         type: text
-        label: Weekly Rate
-      price.rateMonthly:
-        type: text
-        label: Monthly Rate
-      price.minimumNights:
-        type: number
-        label: Minimum Nights
-      price.cleaningFee:
-        type: text
-        label: Cleaning Fee
-      price.securityDeposit:
-        type: text
-        label: Security Deposit
-      price.bookingLink:
-        type: text
-        label: Booking Engine URL / ID
-      availability.calendarSource:
-        type: text
-        label: Availability Calendar Source
-      availability.checkIn:
-        type: text
-        label: Check-in Time
-      availability.checkOut:
-        type: text
-        label: Check-out Time
-      availability.houseRules:
-        type: textarea
-        label: House Rules
-      specs.maximumOccupancy:
-        type: number
-        label: Maximum Occupancy
-      specs.bedrooms:
+        label: Price Label
+      bedrooms:
         type: number
         label: Bedrooms
-      specs.bathrooms:
+      bathrooms:
         type: number
         label: Bathrooms
-      specs.area:
-        type: number
-        label: Area (m²)
-      specs.floors:
+      floors:
         type: number
         label: Floors
-      media.cover.image:
-        type: file
-        label: Cover Image
-      media.cover.alt:
+      area:
+        type: number
+        label: Area (m²)
+      address:
         type: text
-        label: Cover Alt Text
-      media.gallery:
-        type: array
-        label: Gallery
-        schema:
-          label: Gallery Image
-          name: rental_gallery
-          fields:
-            - name: src
-              label: Image
-              type: file
-            - name: alt
-              label: Alt Text
-              type: text
-            - name: caption
-              label: Caption
-              type: text
-      copy.summary:
-        type: textarea
-        label: Summary
-      copy.description:
-        type: markdown
-        label: Description
-      copy.amenities:
-        type: array
-        label: Amenities
-        schema:
-          label: Amenity
-          name: rental_amenity
-          fields:
-            - name: label
-              label: Label
-              type: text
-      copy.houseManual:
-        type: markdown
-        label: House Manual
-      location.addressLine1:
-        type: text
-        label: Address Line 1
+        label: Address
       location.city:
         type: text
         label: City
-      location.region:
-        type: text
-        label: Region
-      location.country:
-        type: text
-        label: Country
       location.neighborhood:
-        type: select
+        type: text
         label: Neighborhood
-        options:
-          data: neighborhoods
       location.latitude:
-        type: number
+        type: text
         label: Latitude
       location.longitude:
-        type: number
+        type: text
         label: Longitude
-      agents.primary:
-        type: select
-        label: Primary Agent
-        options:
-          data: agents
+      location.mapEmbed:
+        type: text
+        label: Map Embed URL
+      description:
+        type: textarea
+        label: Description
+      gallery:
+        type: array
+        label: Gallery
+        structure: gallery_image
       seo.title:
         type: text
         label: SEO Title
       seo.description:
         type: textarea
         label: Meta Description
-      seo.og.image:
-        type: file
-        label: OG Image
       seo.canonical:
         type: text
         label: Canonical URL
-    _select_data:
-      agents:
-        collection: agents
-        value_key: slug
-        label_key: name
-      neighborhoods:
-        collection: neighborhoods
-        value_key: slug
-        label_key: name
 
   blog:
-    name: Blog Posts
+    name: Blog
     path: content/blog
     create: true
+    editor:
+      default: visual
+    preview:
+      enabled: true
+      path: "/blog/{{ data.slug }}/"
     add_options:
-      - label: New Blog Post
+      - label: New Post
         icon: article
         data:
           slug: ""
-          title: ""
-          date: 2025-01-01T00:00:00Z
-          readingTime: "3 min"
-          categories: []
-          tags: []
+          title: "New Post"
+          date: ""
+          authorName: ""
           summary: ""
           body: ""
+          tags: []
     _inputs:
       slug:
         type: text
@@ -1075,284 +393,51 @@ collections_config:
         required: true
       date:
         type: datetime
-        label: Published Date
-      author:
-        type: select
-        label: Author
-        options:
-          data: agents
+        label: Publish Date
       readingTime:
         type: text
         label: Reading Time
-      categories:
-        type: multiselect
-        label: Categories
-        options:
-          values:
-            - label: Market
-              value: market
-            - label: Interiors
-              value: interiors
-            - label: Lifestyle
-              value: lifestyle
-            - label: News
-              value: news
-      tags:
-        type: multiselect
-        label: Tags
-        options:
-          allow_other: true
-          values: []
+      authorName:
+        type: text
+        label: Author Name
       summary:
         type: textarea
-        label: Summary / Lede
-      heroImage.src:
+        label: Summary
+      image:
         type: file
         label: Hero Image
-      heroImage.alt:
+      image_alt:
         type: text
         label: Hero Image Alt Text
       body:
         type: markdown
         label: Body
-      inlineImages:
+      content:
         type: array
-        label: Inline Images
-        schema:
-          label: Inline Image
-          name: inline_image
-          fields:
-            - name: src
-              label: Image
-              type: file
-            - name: alt
-              label: Alt Text
-              type: text
-            - name: caption
-              label: Caption
-              type: text
-      relatedPosts:
-        type: multiselect
-        label: Related Posts
-        options:
-          data: blog
-      ctas:
+        label: Paragraphs
+        structure: text_block
+      tags:
         type: array
-        label: Post CTAs
-        schema:
-          label: CTA
-          name: post_cta
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
-            - name: style
-              label: Style
-              type: select
-              options:
-                values:
-                  - label: Primary
-                    value: primary
-                  - label: Secondary
-                    value: secondary
-                  - label: Link
-                    value: link
+        label: Tags
+        structure: simple_tag
       seo.title:
         type: text
         label: SEO Title
       seo.description:
         type: textarea
         label: Meta Description
-      seo.og.image:
-        type: file
-        label: OG Image
       seo.canonical:
         type: text
         label: Canonical URL
-    _select_data:
-      agents:
-        collection: agents
-        value_key: slug
-        label_key: name
-      blog:
-        collection: blog
-        value_key: slug
-        label_key: title
 
-  agents:
-    name: Agents
-    path: content/agents
-    create: true
-    add_options:
-      - label: New Agent
-        icon: groups
-        data:
-          slug: ""
-          name: ""
-          title: ""
-          featured: false
-          order: 1
-    _inputs:
-      slug:
-        type: text
-        label: Slug
-        required: true
-      name:
-        type: text
-        label: Name
-        required: true
-      title:
-        type: text
-        label: Job Title
-      headshot:
-        type: file
-        label: Headshot
-      headshotAlt:
-        type: text
-        label: Headshot Alt Text
-      bio:
-        type: markdown
-        label: Bio
-      phonePrimary:
-        type: text
-        label: Primary Phone
-      phoneSecondary:
-        type: text
-        label: Secondary Phone
-      email:
-        type: text
-        label: Email
-      licenseId:
-        type: text
-        label: License / ID
-      socialLinks:
-        type: array
-        label: Social Links
-        schema:
-          label: Social Link
-          name: social_link
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
-            - name: icon
-              label: Icon
-              type: text
-      featured:
-        type: checkbox
-        label: Featured
-      order:
-        type: number
-        label: Ordering
-
-  neighborhoods:
-    name: Neighborhoods
-    path: content/neighborhoods
-    create: true
-    add_options:
-      - label: New Neighborhood
-        icon: map
-        data:
-          slug: ""
-          name: ""
-          overview: ""
-          highlights: []
-    _inputs:
-      slug:
-        type: text
-        label: Slug
-        required: true
-      name:
-        type: text
-        label: Name
-        required: true
-      heroImage:
-        type: file
-        label: Hero Image
-      heroImageAlt:
-        type: text
-        label: Hero Image Alt Text
-      overview:
-        type: markdown
-        label: Overview Copy
-      highlights:
-        type: array
-        label: Highlights
-        schema:
-          label: Highlight
-          name: highlight
-          fields:
-            - name: label
-              label: Label
-              type: text
-      amenities:
-        type: array
-        label: Amenities
-        schema:
-          label: Amenity
-          name: neighborhood_amenity
-          fields:
-            - name: label
-              label: Label
-              type: text
-      coordinates.lat:
-        type: number
-        label: Latitude
-      coordinates.lng:
-        type: number
-        label: Longitude
-      mapEmbed:
-        type: text
-        label: Map Embed URL
-      featuredListings:
-        type: multiselect
-        label: Featured Listings
-        options:
-          data: properties
-      gallery:
-        type: array
-        label: Gallery
-        schema:
-          label: Gallery Image
-          name: neighborhood_gallery
-          fields:
-            - name: src
-              label: Image
-              type: file
-            - name: alt
-              label: Alt Text
-              type: text
-            - name: caption
-              label: Caption
-              type: text
-      seo.title:
-        type: text
-        label: SEO Title
-      seo.description:
-        type: textarea
-        label: Meta Description
-      seo.og.image:
-        type: file
-        label: OG Image
-      seo.canonical:
-        type: text
-        label: Canonical URL
-    _select_data:
-      properties:
-        collection: properties
-        value_key: slug
-        label_key: title
-  settings:
-    name: Site Settings
+  site:
+    name: Site
     path: content/settings
     create: false
-    add_options: []
+    editor:
+      default: form
+    preview:
+      enabled: false
     _inputs:
       slug:
         type: text
@@ -1363,10 +448,10 @@ collections_config:
         label: Site Name
       branding.logoLight:
         type: file
-        label: Light Logo
+        label: Logo (Light)
       branding.logoDark:
         type: file
-        label: Dark Logo
+        label: Logo (Dark)
       branding.favicon:
         type: file
         label: Favicon
@@ -1385,142 +470,59 @@ collections_config:
       branding.palette.text:
         type: color
         label: Text Color
-      branding.typography.heading:
-        type: text
-        label: Heading Typeface
-      branding.typography.body:
-        type: text
-        label: Body Typeface
       navigation.header:
         type: array
         label: Header Navigation
-        schema:
-          label: Nav Item
-          name: nav_item
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
-            - name: target
-              label: Target
-              type: select
-              options:
-                values:
-                  - label: Same tab
-                    value: _self
-                  - label: New tab
-                    value: _blank
-            - name: style
-              label: Style
-              type: select
-              options:
-                values:
-                  - label: Link
-                    value: link
-                  - label: Button Primary
-                    value: button-primary
-                  - label: Button Secondary
-                    value: button-secondary
-            - name: children
-              label: Child Links
-              type: array
-              schema:
-                label: Child Nav
-                name: nav_child
-                fields:
-                  - name: label
-                    label: Label
-                    type: text
-                  - name: url
-                    label: URL
-                    type: text
-                  - name: target
-                    label: Target
-                    type: select
-                    options:
-                      values:
-                        - label: Same tab
-                          value: _self
-                        - label: New tab
-                          value: _blank
-      navigation.headerCta.label:
-        type: text
-        label: Header CTA Label
-      navigation.headerCta.url:
-        type: text
-        label: Header CTA URL
-      navigation.headerCta.style:
-        type: select
-        label: Header CTA Style
-        options:
-          values:
-            - label: Primary
-              value: button-primary
-            - label: Secondary
-              value: button-secondary
-            - label: Outline
-              value: button-outline
-      navigation.mobileMenuLabel:
-        type: text
-        label: Mobile Menu Label
+        structure: nav_item
+      navigation.headerCta:
+        type: object
+        label: Header CTA
+        fields:
+          - name: label
+            label: Label
+            type: text
+          - name: url
+            label: URL
+            type: text
+          - name: target
+            label: Target
+            type: select
+            options:
+              values:
+                - label: Same Tab
+                  value: _self
+                - label: New Tab
+                  value: _blank
+          - name: style
+            label: Style
+            type: text
       navigation.socialLinks:
         type: array
         label: Social Links
-        schema:
-          label: Social Link
-          name: global_social_link
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
-            - name: icon
-              label: Icon
-              type: text
+        structure: nav_social
       footer.columns:
         type: array
         label: Footer Columns
-        schema:
-          label: Column
-          name: footer_column
-          fields:
-            - name: title
-              label: Title
-              type: text
-            - name: links
-              label: Links
-              type: array
-              schema:
-                label: Footer Link
-                name: footer_link
-                fields:
-                  - name: label
-                    label: Label
-                    type: text
-                  - name: url
-                    label: URL
-                    type: text
+        structure: footer_column
       footer.legalLinks:
         type: array
         label: Legal Links
-        schema:
-          label: Legal Link
-          name: legal_link
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: url
-              label: URL
-              type: text
+        structure: nav_link
+      footer.newsletter.heading:
+        type: text
+        label: Newsletter Heading
+      footer.newsletter.formId:
+        type: text
+        label: Newsletter Form ID
+      footer.newsletter.successMessage:
+        type: text
+        label: Newsletter Success Message
+      footer.newsletter.errorMessage:
+        type: text
+        label: Newsletter Error Message
       footer.addressBlock.name:
         type: text
-        label: Business Name
+        label: Company Name
       footer.addressBlock.street:
         type: text
         label: Street
@@ -1539,109 +541,52 @@ collections_config:
       footer.addressBlock.email:
         type: text
         label: Email
-      footer.copyright:
-        type: textarea
-        label: Copyright Text
-      footer.newsletter.formId:
-        type: text
-        label: Newsletter Form ID
-      footer.newsletter.heading:
-        type: text
-        label: Newsletter Heading
-      footer.newsletter.successMessage:
-        type: textarea
-        label: Newsletter Success Message
-      footer.newsletter.errorMessage:
-        type: textarea
-        label: Newsletter Error Message
       search.enabled:
         type: checkbox
-        label: Enable Search & Filters
-      search.filters.propertyTypes:
-        type: multiselect
-        label: Property Types
-        options:
-          allow_other: true
-          values: []
-      search.filters.priceRanges:
-        type: array
-        label: Price Ranges
-        schema:
-          label: Price Range
-          name: price_range
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: min
-              label: Minimum
-              type: number
-            - name: max
-              label: Maximum
-              type: number
-      search.filters.bedroomSteps:
-        type: array
-        label: Bedroom Steps
-        schema:
-          label: Bedrooms
-          name: bedroom_step
-          fields:
-            - name: value
-              label: Value
-              type: number
-      search.filters.bathroomSteps:
-        type: array
-        label: Bathroom Steps
-        schema:
-          label: Bathrooms
-          name: bathroom_step
-          fields:
-            - name: value
-              label: Value
-              type: number
-      search.filters.sortOptions:
-        type: array
-        label: Sort Options
-        schema:
-          label: Sort Option
-          name: sort_option
-          fields:
-            - name: label
-              label: Label
-              type: text
-            - name: value
-              label: Value
-              type: text
-      search.filters.pagination.sizes:
-        type: array
-        label: Page Sizes
-        schema:
-          label: Page Size
-          name: page_size
-          fields:
-            - name: value
-              label: Value
-              type: number
-      search.filters.pagination.defaultSize:
-        type: number
-        label: Default Page Size
-      integrations.analytics.ga4:
+        label: Enable Search Filters
+      search.mapEmbed:
         type: text
-        label: GA4 Measurement ID
+        label: Map Embed URL
+      search.properties.filters.priceRanges:
+        type: array
+        label: Property Price Ranges
+        structure: price_range
+      search.properties.filters.bedroomSteps:
+        type: array
+        label: Property Bedroom Steps
+        structure: numeric_value
+      search.properties.filters.propertyTypes:
+        type: array
+        label: Property Types
+        structure: simple_value
+      search.rentals.filters.priceRanges:
+        type: array
+        label: Rental Price Ranges
+        structure: price_range
+      search.rentals.filters.types:
+        type: array
+        label: Rental Types
+        structure: simple_option
+      search.rentals.filters.bedroomSteps:
+        type: array
+        label: Rental Bedroom Steps
+        structure: numeric_value
+      search.rentals.filters.occupancySteps:
+        type: array
+        label: Rental Occupancy Steps
+        structure: numeric_value
+      search.rentals.pagination.defaultSize:
+        type: number
+        label: Rental Default Page Size
       integrations.analytics.gtm:
         type: text
-        label: GTM Container ID
+        label: Google Tag Manager ID
+      integrations.analytics.ga4:
+        type: text
+        label: GA4 ID
       integrations.maps.provider:
-        type: select
+        type: text
         label: Maps Provider
-        options:
-          values:
-            - label: Google Maps
-              value: google
-            - label: Mapbox
-              value: mapbox
-            - label: OpenStreetMap
-              value: osm
       integrations.maps.apiKey:
         type: text
         label: Maps API Key
@@ -1657,22 +602,19 @@ collections_config:
       integrations.booking.widgetId:
         type: text
         label: Booking Widget ID
-      integrations.spamProtection.recaptchaSite:
-        type: text
-        label: reCAPTCHA Site Key
-      integrations.spamProtection.recaptchaSecret:
-        type: text
-        label: reCAPTCHA Secret Key
       integrations.formRecipients:
         type: array
         label: Form Recipients
-        schema:
-          label: Recipient Email
-          name: recipient
-          fields:
-            - name: email
-              label: Email
-              type: text
+        structure: email_value
+      scripts.enableMap:
+        type: checkbox
+        label: Enable Map Scripts
+      scripts.enableAnalytics:
+        type: checkbox
+        label: Enable Analytics Scripts
+      scripts.enableChat:
+        type: checkbox
+        label: Enable Chat Scripts
       defaults.seo.titlePattern:
         type: text
         label: SEO Title Pattern
@@ -1681,19 +623,10 @@ collections_config:
         label: Default Meta Description
       defaults.seo.ogImage:
         type: file
-        label: Default OG Image
-      defaults.seo.twitterHandle:
-        type: text
-        label: Twitter Handle
+        label: Default Share Image
       defaults.seo.canonicalBase:
         type: text
         label: Canonical Base URL
-      defaults.schema.enableListings:
-        type: checkbox
-        label: Enable Listing Schema
-      defaults.schema.enableBlog:
-        type: checkbox
-        label: Enable Blog Schema
       defaults.formats.date:
         type: text
         label: Date Format
@@ -1705,31 +638,252 @@ collections_config:
         label: Currency Locale
       defaults.formats.currency.currency:
         type: text
-        label: Default Currency Code
+        label: Currency Code
       defaults.formats.currency.minimumFractionDigits:
         type: number
         label: Currency Fraction Digits
-      scripts.enableMap:
-        type: checkbox
-        label: Enable Map Script
-      scripts.enableAnalytics:
-        type: checkbox
-        label: Enable Analytics Script
-      scripts.enableChat:
-        type: checkbox
-        label: Enable Chat Script
+
+structures:
+  page_section:
+    label: Section
+    fields:
+      - name: type
+        label: Section Type
+        type: select
+        options:
+          values:
+            - label: Rich Text
+              value: rich-text
+            - label: Two Column
+              value: two-column
+            - label: Feature Grid
+              value: feature-grid
+            - label: Card Grid
+              value: card-grid
+            - label: FAQ
+              value: faq
+      - name: theme
+        label: Theme
+        type: select
+        options:
+          values:
+            - label: Light
+              value: light
+            - label: Dark
+              value: dark
+      - name: heading
+        label: Heading
+        type: text
+      - name: subheading
+        label: Subheading
+        type: text
+      - name: body
+        label: Body
+        type: textarea
+      - name: media
+        label: Media
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: file
+          - name: alt
+            label: Alt Text
+            type: text
+          - name: caption
+            label: Caption
+            type: text
+      - name: items
+        label: Items
+        type: array
+        structure: section_item
+      - name: ctas
+        label: CTAs
+        type: array
+        structure: cta
+  section_item:
+    label: Item
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: description
+        label: Description
+        type: textarea
+      - name: icon
+        label: Icon
+        type: text
+      - name: link
+        label: Link
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: text
+          - name: url
+            label: URL
+            type: text
+  cta:
+    label: CTA
+    fields:
+      - name: label
+        label: Label
+        type: text
+      - name: url
+        label: URL
+        type: text
+      - name: style
+        label: Style
+        type: select
+        options:
+          values:
+            - label: Primary
+              value: primary
+            - label: Secondary
+              value: secondary
+            - label: Link
+              value: link
+      - name: target
+        label: Target
+        type: select
+        options:
+          values:
+            - label: Same Tab
+              value: _self
+            - label: New Tab
+              value: _blank
+  gallery_image:
+    label: Gallery Image
+    fields:
+      - name: src
+        label: Image
+        type: file
+      - name: alt
+        label: Alt Text
+        type: text
+      - name: caption
+        label: Caption
+        type: text
+  amenity:
+    label: Amenity
+    fields:
+      - name: label
+        label: Label
+        type: text
+  text_block:
+    label: Paragraph
+    fields:
+      - name: value
+        label: Text
+        type: textarea
+  simple_tag:
+    label: Tag
+    fields:
+      - name: value
+        label: Tag
+        type: text
+  simple_value:
+    label: Value
+    fields:
+      - name: value
+        label: Value
+        type: text
+  numeric_value:
+    label: Number
+    fields:
+      - name: value
+        label: Value
+        type: number
+  simple_option:
+    label: Option
+    fields:
+      - name: value
+        label: Value
+        type: text
+      - name: label
+        label: Label
+        type: text
+  price_range:
+    label: Price Range
+    fields:
+      - name: label
+        label: Label
+        type: text
+      - name: min
+        label: Min
+        type: number
+      - name: max
+        label: Max
+        type: number
+  nav_item:
+    label: Navigation Item
+    fields:
+      - name: label
+        label: Label
+        type: text
+      - name: url
+        label: URL
+        type: text
+      - name: target
+        label: Target
+        type: select
+        options:
+          values:
+            - label: Same Tab
+              value: _self
+            - label: New Tab
+              value: _blank
+      - name: children
+        label: Child Links
+        type: array
+        structure: nav_link
+  nav_link:
+    label: Link
+    fields:
+      - name: label
+        label: Label
+        type: text
+      - name: url
+        label: URL
+        type: text
+  nav_social:
+    label: Social Link
+    fields:
+      - name: label
+        label: Label
+        type: text
+      - name: url
+        label: URL
+        type: text
+      - name: icon
+        label: Icon
+        type: text
+  footer_column:
+    label: Footer Column
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: links
+        label: Links
+        type: array
+        structure: nav_link
+  email_value:
+    label: Email
+    fields:
+      - name: email
+        label: Email
+        type: text
 
 collection_groups:
-  - heading: Pages & Settings
+  - heading: Pages & Site
     collections:
       - pages
-      - settings
+      - site
   - heading: Listings
     collections:
       - properties
       - rentals
-      - neighborhoods
   - heading: Editorial
     collections:
       - blog
-      - agents

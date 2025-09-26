@@ -19,7 +19,7 @@ layout: null
     {% set priceStep6 = priceStep5 | replace('/night', '') %}
     {% set priceStep7 = priceStep6 | replace('No', '') | replace('no', '') %}
     {% set priceValue = priceStep7 %}
-    {% set propertyUrl = property.seo and property.seo.canonical or (canonicalBase and canonicalBase ~ '/property.html?slug=' ~ property.slug) or '/property.html?slug=' ~ property.slug %}
+    {% set propertyUrl = property.seo and property.seo.canonical or (canonicalBase and canonicalBase ~ '/properties/' ~ property.slug ~ '/') or '/properties/' ~ property.slug ~ '/' %}
     {% set availability = overrides.availability or (property.status == 'sold' and 'SoldOut' or 'InStock') %}
     {% set propertyType = overrides.propertyType or property.propertyType or 'Residence' %}
     <script type="application/ld+json">
@@ -84,26 +84,5 @@ layout: null
 
 {% block scripts %}
   <script src="/js/properties.js" defer></script>
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const slug = params.get('slug');
-      const articles = document.querySelectorAll('[data-property-detail]');
-      if (!articles.length) return;
-      let found = false;
-      articles.forEach((article, index) => {
-        const match = slug ? article.dataset.slug === slug : index === 0;
-        article.hidden = !match;
-        article.setAttribute('aria-hidden', match ? 'false' : 'true');
-        if (match) {
-          found = true;
-        }
-      });
-      if (slug && !found) {
-        const first = articles[0];
-        first.hidden = false;
-        first.setAttribute('aria-hidden', 'false');
-      }
-    }());
-  </script>
 {% endblock %}
+

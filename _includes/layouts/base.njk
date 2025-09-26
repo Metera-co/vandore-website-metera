@@ -1,15 +1,23 @@
-{% set siteSettingsMap = settings or {} %}
+﻿{% set siteSettingsMap = settings or {} %}
 {% set siteSettings = siteSettingsMap.default or (siteSettingsMap | dictsort)[0][1] %}
 {% set pageSlug = dataSlug or page.fileSlug %}
 {% set pageContentMap = pages or {} %}
 {% set pageData = pageData or pageContentMap[pageSlug] or {} %}
-{% set hero = hero or pageData.hero %}
 {% set pageSeo = pageSeo or pageData.seo or (siteSettings.defaults and siteSettings.defaults.seo) or {} %}
 {% set siteSeoDefaults = siteSettings.defaults and siteSettings.defaults.seo or {} %}
+{% set seoCollectionKey = seoCollection or 'pages' %}
+{% set seoItemKey = seoItem or pageSlug %}
+{% set heroCollectionKey = heroCollection or 'pages' %}
+{% set heroItemKey = heroItem or pageSlug %}
 {% set seoTitle = pageSeo.title or page.title or siteSeoDefaults.titlePattern or siteSettings.siteName %}
 {% set metaDescription = pageSeo.description or siteSeoDefaults.metaDescription %}
 {% set ogImage = pageSeo.ogImage or siteSeoDefaults.ogImage %}
-{% set canonicalUrl = pageSeo.canonical or siteSeoDefaults.canonicalBase %}
+{% set canonicalUrl = pageSeo.canonical %}
+{% if not canonicalUrl and siteSeoDefaults.canonicalBase and page.url %}
+  {% set canonicalUrl = siteSeoDefaults.canonicalBase ~ page.url %}
+{% elif not canonicalUrl and siteSeoDefaults.canonicalBase %}
+  {% set canonicalUrl = siteSeoDefaults.canonicalBase %}
+{% endif %}
 {% set siteSlug = siteSettings.slug or 'default' %}
 <!DOCTYPE html>
 <html lang="{{ page.lang or 'lv' }}">
@@ -28,21 +36,21 @@
   {% if siteSettings.branding and siteSettings.branding.favicon %}
     <link rel="icon" type="image/x-icon" href="{{ siteSettings.branding.favicon }}" data-cms-collection="settings" data-cms-item="{{ siteSlug }}" data-cms-bind="branding.favicon">
   {% endif %}
-  <title data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.title">{{ seoTitle }}</title>
+  <title data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.title">{{ seoTitle }}</title>
   {% if metaDescription %}
-    <meta name="description" content="{{ metaDescription }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.description">
+    <meta name="description" content="{{ metaDescription }}" data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.description">
   {% endif %}
   {% if canonicalUrl %}
-    <link rel="canonical" href="{{ canonicalUrl }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.canonical">
+    <link rel="canonical" href="{{ canonicalUrl }}" data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.canonical">
   {% endif %}
   {% if pageSeo.ogTitle or seoTitle %}
-    <meta property="og:title" content="{{ pageSeo.ogTitle or seoTitle }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.title">
+    <meta property="og:title" content="{{ pageSeo.ogTitle or seoTitle }}" data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.og.title">
   {% endif %}
   {% if pageSeo.ogDescription or metaDescription %}
-    <meta property="og:description" content="{{ pageSeo.ogDescription or metaDescription }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.description">
+    <meta property="og:description" content="{{ pageSeo.ogDescription or metaDescription }}" data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.og.description">
   {% endif %}
   {% if ogImage %}
-    <meta property="og:image" content="{{ ogImage }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.image">
+    <meta property="og:image" content="{{ ogImage }}" data-cms-collection="{{ seoCollectionKey }}" data-cms-item="{{ seoItemKey }}" data-cms-bind="seo.og.image">
   {% endif %}
   {% block head_extra %}{% endblock %}
 </head>
@@ -93,7 +101,7 @@
 
   {% block hero %}
     {% if hero %}
-      <section class="vh-hero" data-cms-collection="pages" data-cms-item="{{ pageSlug }}">
+      <section class="vh-hero" data-cms-collection="{{ heroCollectionKey }}" data-cms-item="{{ heroItemKey }}">
         <div class="vh-hero__inner vh-container">
           <div class="vh-hero__content">
             {% if hero.eyebrow %}
@@ -143,7 +151,7 @@
         </p>
         <p>
           <a href="tel:{{ siteSettings.footer.addressBlock.phone }}" data-cms-bind="footer.addressBlock.phone">{{ siteSettings.footer.addressBlock.phone }}</a>
-          �
+          ·
           <a href="mailto:{{ siteSettings.footer.addressBlock.email }}" data-cms-bind="footer.addressBlock.email">{{ siteSettings.footer.addressBlock.email }}</a>
         </p>
       </div>
@@ -224,3 +232,10 @@
   {% block scripts %}{% endblock %}
 </body>
 </html>
+
+
+
+
+
+
+

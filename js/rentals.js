@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const DATA_URL = '/data/rentals.json';
   const STORAGE_KEY = 'vh-rental-filters-v1';
   const CONFIG_ID = 'rental-filter-config';
@@ -419,14 +419,12 @@
   }
 
   function rentalUrl(slug) {
-    const params = new URLSearchParams(window.location.search);
-    if (slug) {
-      params.set('slug', slug);
-    } else {
-      params.delete('slug');
+    if (!slug) return '/rentals/';
+    try {
+      return `/rentals/${encodeURIComponent(slug)}/`;
+    } catch (error) {
+      return `/rentals/${slug}/`;
     }
-    const query = params.toString();
-    return `rental.html${query ? `?${query}` : ''}`;
   }
 
   function createMetaChip(label) {
@@ -493,20 +491,44 @@
     return `${path}${query ? `?${query}` : ''}`;
   }
 
+  function getRentalSlug() {
+    if (detailContext.root && detailContext.root.dataset && detailContext.root.dataset.slug) {
+      return detailContext.root.dataset.slug;
+    }
+    const match = window.location.pathname.match(/\/rentals\/([^/]+)\/?$/);
+    if (match && match[1]) {
+      try {
+        return decodeURIComponent(match[1]);
+      } catch (error) {
+        return match[1];
+      }
+    }
+    const params = new URLSearchParams(window.location.search);
+    const querySlug = params.get('slug');
+    if (querySlug) {
+      try {
+        return decodeURIComponent(querySlug);
+      } catch (error) {
+        return querySlug;
+      }
+    }
+    return null;
+  }
+
   function hydrateDetail() {
     if (!detailContext.root) return;
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug');
-    const item = slug ? rentals.find((entry) => entry.slug === slug) : rentals[0];
+    const slug = getRentalSlug();
+    const item = slug ? rentals.find((entry) => entry.slug === slug) : null;
 
     if (!item) {
       detailContext.root.innerHTML = '<div class="vh-empty">Piedavajums nav atrasts.</div>';
       if (detailContext.back) {
-        detailContext.back.href = '/rentals.html';
+        detailContext.back.href = buildListUrl('/rentals.html');
       }
       return;
     }
 
+    detailContext.root.dataset.slug = item.slug || '';
     updateHero(item);
     updateSpecs(item);
     updateSections(item);
@@ -531,10 +553,10 @@
   }
 
   function updateSpecs(item) {
-    setText('[data-rental-bedrooms]', item.bedrooms != null ? String(item.bedrooms) : '�');
-    setText('[data-rental-bathrooms]', item.bathrooms != null ? String(item.bathrooms) : '�');
-    setText('[data-rental-area]', item.area ? `${item.area} m2` : '�');
-    setText('[data-rental-occupancy]', item.occupancy || item.maxGuests || '�');
+    setText('[data-rental-bedrooms]', item.bedrooms != null ? String(item.bedrooms) : 'ï¿½');
+    setText('[data-rental-bathrooms]', item.bathrooms != null ? String(item.bathrooms) : 'ï¿½');
+    setText('[data-rental-area]', item.area ? `${item.area} m2` : 'ï¿½');
+    setText('[data-rental-occupancy]', item.occupancy || item.maxGuests || 'ï¿½');
   }
 
   function updateSections(item) {
@@ -706,3 +728,4 @@
   bootstrap();
   init();
 })();
+
