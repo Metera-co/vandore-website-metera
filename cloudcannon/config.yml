@@ -18,35 +18,35 @@ routing:
     - path: /
       file: pages/index.html
     - path: /about.html
-      file: pages/about.html
+      file: pages/about.njk
     - path: /blog.html
       file: pages/blog.html
     - path: /contact.html
-      file: pages/contact.html
+      file: pages/contact.njk
     - path: /faq.html
-      file: pages/faq.html
+      file: pages/faq.njk
     - path: /price_plan.html
-      file: pages/price_plan.html
+      file: pages/price_plan.njk
     - path: /properties.html
       file: pages/properties.html
     - path: /property.html
-      file: pages/property.html
+      file: pages/property.njk
     - path: /property_details.html
-      file: pages/property_details.html
+      file: pages/property_details.njk
     - path: /property-detail-template.html
-      file: pages/property-detail-template.html
+      file: pages/property-detail-template.njk
     - path: /rental.html
-      file: pages/rental.html
+      file: pages/rental.njk
     - path: /rentals.html
       file: pages/rentals.html
     - path: /service.html
-      file: pages/service.html
+      file: pages/service.njk
     - path: /single_blog.html
-      file: pages/single_blog.html
+      file: pages/single_blog.njk
     - path: /team.html
-      file: pages/team.html
+      file: pages/team.njk
     - path: /404.html
-      file: pages/404.html
+      file: pages/404.njk
 
 preserve_files:
   - image/uploads/**

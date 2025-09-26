@@ -1,0 +1,14 @@
+{
+    "title":  "Lapa nav atrasta",
+    "hero":  {
+                 "heading":  "Ši lapa nav atrodama",
+                 "subheading":  "Iespejams, adrese ir mainita vai nonemta. Izmantojiet navigaciju, lai atgrieztos galvenajas sadalas."
+             },
+    "sections":  [
+                     {
+                         "body":  "\u003cp\u003eJa meklejat konkretu ipašumu vai pakalpojumu, sazinieties ar musu komandu un palidzesim atrast nepieciešamo informaciju.\u003c/p\u003e\u003cp\u003e\u003ca class=\"vh-button vh-button--primary\" href=\"/\"\u003eAtpakal uz sakumu\u003c/a\u003e\u003c/p\u003e",
+                         "type":  "rich-text"
+                     }
+                 ],
+    "slug":  "404"
+}

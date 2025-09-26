@@ -1,0 +1,37 @@
+{
+    "title":  "Kontakti",
+    "hero":  {
+                 "eyebrow":  "Sazinieties ar mums",
+                 "ctas":  [
+                              {
+                                  "label":  "Pieteikt viziti",
+                                  "url":  "#contact-form",
+                                  "style":  "primary"
+                              }
+                          ],
+                 "background":  {
+                                    "alt":  "Vandore birojs",
+                                    "overlay":  0.5,
+                                    "image":  "/image/dummy-img-900x600.jpg"
+                                },
+                 "heading":  "Piesakiet konsultaciju vai ipašuma apskati",
+                 "subheading":  "Mes esam gatavi palidzet ar jautajumiem par ipašumu parvaldibu, pardošanu vai iri."
+             },
+    "sections":  [
+                     {
+                         "media":  {
+                                       "image":  "/image/dummy-img-600x400.jpg",
+                                       "alt":  "Vandore Heritage birojs"
+                                   },
+                         "body":  "\u003cp\u003e\u003cstrong\u003eAdrese:\u003c/strong\u003e Skanstes iela 29A-91, Riga\u003cbr\u003e\u003cstrong\u003eTalrunis:\u003c/strong\u003e +371 29 71 30 30\u003cbr\u003e\u003cstrong\u003eE-pasts:\u003c/strong\u003e hello@vandoreheritage.lv\u003c/p\u003e\u003cp\u003eDarba laiks: pirmdiena–piektdiena, 09:00–18:00. Tikšanas arpus darba laika pec iepriekšejas vienošanas.\u003c/p\u003e",
+                         "heading":  "Biroja informacija",
+                         "type":  "two-column"
+                     }
+                 ],
+    "slug":  "contact",
+    "scripts":  {
+                    "enableMap":  true,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                }
+}

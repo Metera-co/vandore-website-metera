@@ -1,25 +1,179 @@
 {
-  "slug": "modern-city-loft",
-  "title": "Moderns pilsƒìtas lofts",
-  "price": "‚Ç¨ 245 000",
-  "address": "Brƒ´vƒ´bas iela 45, Rƒ´ga",
-  "description": "Augsti griesti, panorƒÅmas logi un atvƒìrta tipa viesistaba loft tipa dzƒ´voklƒ´ ar skatu uz pilsƒìtu.",
-  "image": "/image/dummy-img-600x600.jpg",
-  "bedrooms": 1,
-  "bathrooms": 1,
-  "area": 78,
-  "floors": 6,
-  "gallery": [
-    {
-      "src": "/image/dummy-img-600x600.jpg",
-      "alt": "Atvƒìrta tipa viesistaba",
-      "caption": "Lofts ar pla≈°u, atvƒìrtu plƒÅnojumu"
-    },
-    {
-      "src": "/image/dummy-img-600x500.jpg",
-      "alt": "Skats uz pilsƒìtu no balkona",
-      "caption": "PrivƒÅts balkons ar skatu uz pilsƒìtu"
-    }
-  ],
-  "imageAlt": "Atvƒìrta tipa viesistaba"
+    "copy":  {
+                 "features":  [
+                                  {
+                                      "label":  "Panoramas logi"
+                                  },
+                                  {
+                                      "label":  "Industrials interjers"
+                                  },
+                                  {
+                                      "label":  "Pazemes stavvieta"
+                                  }
+                              ],
+                 "description":  "Augsti griesti, panoramas logi un atverta planojuma viesistaba loft tipa dzivokli ar skatu uz pilsetu.",
+                 "amenities":  [
+                                   {
+                                       "label":  "Trenaûieru zale eka"
+                                   },
+                                   {
+                                       "label":  "Konsjerûa pakalpojumi"
+                                   }
+                               ],
+                 "notes":  "Pieejama pielagota interjera konsultacija pircejam.",
+                 "summary":  "Augstie griesti un panoramas logi pilsetas centra",
+                 "nearby":  {
+                                "landmarks":  [
+                                                  {
+                                                      "distance":  "12 min kajam",
+                                                      "label":  "Brivibas piemineklis"
+                                                  }
+                                              ],
+                                "schools":  [
+                                                {
+                                                    "distance":  "8 min auto",
+                                                    "label":  "Rigas Francu licejs"
+                                                }
+                                            ],
+                                "transit":  [
+                                                {
+                                                    "distance":  "1 min kajam",
+                                                    "label":  "Trolejbusa pietura"
+                                                }
+                                            ]
+                            }
+             },
+    "openHouse":  {
+                      "date":  "2025-09-25",
+                      "endTime":  "19:00",
+                      "startTime":  "17:00",
+                      "notes":  "Lofta apskate tikai pec ieprieköeja pieraksta."
+                  },
+    "agents":  {
+                   "secondary":  [
+
+                                 ],
+                   "primary":  "inesa-vandore",
+                   "office":  "Vandore Heritage"
+               },
+    "media":  {
+                  "gallery":  [
+                                  {
+                                      "caption":  "Lofts ar plaöu, atvertu planojumu",
+                                      "alt":  "Atverta tipa viesistaba",
+                                      "src":  "/image/dummy-img-600x600.jpg"
+                                  },
+                                  {
+                                      "caption":  "Privats balkons ar skatu uz pilsetu",
+                                      "alt":  "Skats uz pilsetu no balkona",
+                                      "src":  "/image/dummy-img-600x500.jpg"
+                                  }
+                              ],
+                  "brochure":  null,
+                  "cover":  {
+                                "caption":  "Plaöa viesistaba ar panoramas logiem",
+                                "alt":  "Lofta viesistaba",
+                                "image":  "/image/dummy-img-600x600.jpg"
+                            },
+                  "virtualTourUrl":  null,
+                  "floorplans":  [
+
+                                 ],
+                  "videoUrl":  null
+              },
+    "status":  "active",
+    "listingType":  "sale",
+    "specs":  {
+                  "petPolicy":  "Atlauti majdzivnieki pec vienoöanas",
+                  "bedrooms":  1,
+                  "furnishing":  "Daleji mebelets",
+                  "cooling":  "Gaisa kondicionieris",
+                  "view":  "Skats uz pilsetu",
+                  "heating":  "Individuala",
+                  "parking":  "2 vietas pazemes stavvieta",
+                  "interiorSize":  "78 m≤",
+                  "yearBuilt":  2018,
+                  "floors":  6,
+                  "lotSize":  "",
+                  "energyRating":  "A",
+                  "accessibility":  "Plaös lifts ar kartes piekluvi",
+                  "orientation":  "Rietumi",
+                  "bathrooms":  {
+                                    "full":  1,
+                                    "half":  0
+                                }
+              },
+    "structuredData":  {
+                           "overrides":  {
+                                             "price":  null,
+                                             "propertyType":  null,
+                                             "availability":  null
+                                         },
+                           "enabled":  true
+                       },
+    "propertyType":  "loft",
+    "slug":  "modern-city-loft",
+    "seo":  {
+                "title":  "Moderns pilsetas lofts",
+                "description":  "Lofts ar panoramas logiem un privatu stavvietu Rigas centra.",
+                "og":  {
+                           "title":  "Moderns pilsetas lofts",
+                           "description":  "Moderns pilsetas lofts ar plaöu viesistabu",
+                           "image":  "/image/dummy-img-600x600.jpg"
+                       },
+                "canonical":  "https://vandoreheritage.lv/property.html?slug=modern-city-loft"
+            },
+    "ctas":  {
+                 "secondary":  {
+                                   "label":  "Nosutit jautajumu",
+                                   "url":  "/contact.html#inquire",
+                                   "style":  "secondary"
+                               },
+                 "scheduleTour":  "schedule-form",
+                 "primary":  {
+                                 "label":  "Rezervet apskati",
+                                 "url":  "/contact.html#visit",
+                                 "style":  "primary"
+                             },
+                 "inquireForm":  "inquire-form"
+             },
+    "location":  {
+                     "postalCode":  "LV-1010",
+                     "neighborhood":  "mezaparks",
+                     "latitude":  56.9581,
+                     "city":  "Riga",
+                     "mapEmbed":  "https://maps.google.com/?q=Brivibas+iela+45,Riga",
+                     "longitude":  24.1265,
+                     "addressLine1":  "Brivibas iela 45",
+                     "country":  "Latvija",
+                     "region":  "Centrs"
+                 },
+    "mlsId":  "VH-002",
+    "featured":  false,
+    "title":  "Moderns pilsetas lofts",
+    "image":  "/image/dummy-img-600x600.jpg",
+    "image_alt":  "Lofta viesistaba",
+    "priceString":  "Ä 245000",
+    "priceLabel":  "Ä 245000",
+    "price":  "Ä 245000",
+    "address":  "Brivibas iela 45, Riga",
+    "area":  "78",
+    "bedrooms":  1,
+    "bathrooms":  1,
+    "floors":  6,
+    "gallery":  [
+                    {
+                        "caption":  "Lofts ar plaöu, atvertu planojumu",
+                        "alt":  "Atverta tipa viesistaba",
+                        "src":  "/image/dummy-img-600x600.jpg"
+                    },
+                    {
+                        "caption":  "Privats balkons ar skatu uz pilsetu",
+                        "alt":  "Skats uz pilsetu no balkona",
+                        "src":  "/image/dummy-img-600x500.jpg"
+                    }
+                ],
+    "description":  "Augsti griesti, panoramas logi un atverta planojuma viesistaba loft tipa dzivokli ar skatu uz pilsetu.",
+    "badge":  "Ekskluzivi",
+    "priceNumeric":  245000
 }

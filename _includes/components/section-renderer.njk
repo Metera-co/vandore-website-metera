@@ -1,0 +1,91 @@
+{% macro render_sections(pageSlug, sections) %}
+  {% for section in sections if section.enabled != false %}
+    {% set index = loop.index0 %}
+    {% set sectionPath = 'sections[' ~ index ~ ']' %}
+    <section class="vh-section vh-section--{{ section.theme or 'light' }}" data-section-type="{{ section.type or 'rich-text' }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}">
+      <div class="vh-container">
+        <div class="vh-section__header">
+          {% if section.eyebrow %}
+            <p class="vh-eyebrow" data-cms-bind="{{ sectionPath }}.eyebrow">{{ section.eyebrow }}</p>
+          {% endif %}
+          {% if section.heading %}
+            <h2 data-cms-bind="{{ sectionPath }}.heading">{{ section.heading }}</h2>
+          {% endif %}
+          {% if section.subheading %}
+            <p data-cms-bind="{{ sectionPath }}.subheading">{{ section.subheading }}</p>
+          {% endif %}
+        </div>
+
+        <div class="vh-section__body">
+          {% if section.type == 'two-column' %}
+            <div class="vh-grid vh-grid--two">
+              <div>
+                {% if section.body %}
+                  <div class="vh-rich-text" data-cms-bind="{{ sectionPath }}.body">{{ section.body | safe }}</div>
+                {% endif %}
+                {% if section.ctas %}
+                  <div class="vh-cta-group">
+                    {% for cta in section.ctas %}
+                      <a class="vh-button vh-button--{{ cta.style or 'primary' }}" href="{{ cta.url }}" data-cms-bind="{{ sectionPath }}.ctas[{{ loop.index0 }}].url">
+                        <span data-cms-bind="{{ sectionPath }}.ctas[{{ loop.index0 }}].label">{{ cta.label }}</span>
+                      </a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              <div>
+                {% if section.media and section.media.image %}
+                  <figure class="vh-media-block">
+                    <img src="{{ section.media.image }}" alt="{{ section.media.alt }}" data-cms-bind="{{ sectionPath }}.media.image">
+                    {% if section.media.caption %}
+                      <figcaption data-cms-bind="{{ sectionPath }}.media.caption">{{ section.media.caption }}</figcaption>
+                    {% endif %}
+                  </figure>
+                {% endif %}
+              </div>
+            </div>
+          {% elseif section.type in ['feature-grid','card-grid'] %}
+            <div class="vh-grid vh-grid--cards">
+              {% for item in section.items or [] %}
+                <article class="vh-card" data-cms-bind="{{ sectionPath }}.items[{{ loop.index0 }}]">
+                  {% if item.icon %}
+                    <div class="vh-card__icon">{{ item.icon }}</div>
+                  {% endif %}
+                  {% if item.title %}
+                    <h3>{{ item.title }}</h3>
+                  {% endif %}
+                  {% if item.description %}
+                    <p>{{ item.description }}</p>
+                  {% endif %}
+                  {% if item.link and item.link.url %}
+                    <a class="vh-link" href="{{ item.link.url }}">{{ item.link.label or 'Lasit vairak' }}</a>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            </div>
+          {% elseif section.type == 'faq' %}
+            <div class="vh-accordion">
+              {% for item in section.items or [] %}
+                <details data-cms-bind="{{ sectionPath }}.items[{{ loop.index0 }}]">
+                  <summary>{{ item.title }}</summary>
+                  <div class="vh-accordion__body">{{ item.description | safe }}</div>
+                </details>
+              {% endfor %}
+            </div>
+          {% else %}
+            {% if section.body %}
+              <div class="vh-rich-text" data-cms-bind="{{ sectionPath }}.body">{{ section.body | safe }}</div>
+            {% endif %}
+            {% if section.items %}
+              <ul class="vh-list">
+                {% for item in section.items %}
+                  <li data-cms-bind="{{ sectionPath }}.items[{{ loop.index0 }}]">{{ item.title or item.description }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+{% endmacro %}

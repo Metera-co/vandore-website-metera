@@ -1,0 +1,38 @@
+{
+    "gallery":  [
+                    {
+                        "caption":  "Saulrieta pastaigu vieta",
+                        "alt":  "Bulduri boardwalk",
+                        "src":  "/image/neighborhood-bulduri-boardwalk.jpg"
+                    }
+                ],
+    "slug":  "bulduri",
+    "heroImage":  "/image/neighborhood-bulduri.jpg",
+    "highlights":  [
+                       "Balta smilšu pludmale",
+                       "Spa un restorani",
+                       "Dzelzcela un šosejas savienojumi"
+                   ],
+    "overview":  "Bulduri apvieno Jurmalas pludmales dzivesveidu ar musdienigam ertibam un izcilu pieeju Rigas centram.",
+    "amenities":  [
+                      "Resort spas",
+                      "Fine dining",
+                      "Seasonal markets"
+                  ],
+    "mapEmbed":  "https://maps.google.com/?q=Bulduri,Jurmala",
+    "name":  "Bulduri",
+    "coordinates":  {
+                        "lat":  56.9878,
+                        "lng":  23.8112
+                    },
+    "featuredListings":  [
+
+                         ],
+    "seo":  {
+                "canonical":  "https://vandoreheritage.lv/neighborhoods/bulduri",
+                "title":  "Atklajiet Buldurus",
+                "description":  "Jurmalas Bulduru rajona piedavajums dzivei pie juras",
+                "ogImage":  "/image/neighborhood-bulduri-og.jpg"
+            },
+    "heroImageAlt":  "Beachfront in Bulduri"
+}

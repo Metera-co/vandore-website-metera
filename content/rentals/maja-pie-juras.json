@@ -1,16 +1,32 @@
 {
-  "slug": "maja-pie-juras",
-  "title": "Māja pie jūras",
-  "price": "No € 120/nakts",
-  "address": "Jūrmala",
-  "description": "Atpūtas māja ar skatu uz jūru, saulainu terasi un privātu dārzu īstermiņa īrei.",
-  "image_1": "/image/dummy-img-600x400.jpg",
-  "image_1_alt": "Koka terase ar dārzu",
-  "image_2": "/image/dummy-img-900x700.jpg",
-  "image_2_alt": "Skats uz jūru no dzīvojamās istabas",
-  "type": "short",
-  "bedrooms": 3,
-  "bathrooms": 2,
-  "area": 110,
-  "floors": 2
+    "slug":  "maja-pie-juras",
+    "title":  "Māja pie jūras",
+    "price":  "No € 120/nakts",
+    "description":  "Atpūtas māja ar skatu uz jūru, saulainu terasi un privātu dārzu īstermiņa īrei.",
+    "image_1":  "/image/dummy-img-600x400.jpg",
+    "image_1_alt":  "Koka terase ar dārzu",
+    "image_2":  "/image/dummy-img-900x700.jpg",
+    "image_2_alt":  "Skats uz jūru no dzīvojamās istabas",
+    "type":  "short",
+    "bedrooms":  3,
+    "bathrooms":  2,
+    "area":  110,
+    "floors":  2,
+    "image":  "/image/dummy-img-600x400.jpg",
+    "image_alt":  "Koka terase ar dārzu",
+    "gallery":  [
+                    {
+                        "caption":  "Koka terase ar dārzu",
+                        "alt":  "Koka terase ar dārzu",
+                        "src":  "/image/dummy-img-600x400.jpg"
+                    },
+                    {
+                        "caption":  "Skats uz jūru no dzīvojamās istabas",
+                        "alt":  "Skats uz jūru no dzīvojamās istabas",
+                        "src":  "/image/dummy-img-900x700.jpg"
+                    }
+                ],
+    "priceLabel":  "No € 120/nakts",
+    "badge":  "Brivdienu atputa",
+    "address":  "Jūrmala"
 }

@@ -1,0 +1,226 @@
+{% set siteSettingsMap = settings or {} %}
+{% set siteSettings = siteSettingsMap.default or (siteSettingsMap | dictsort)[0][1] %}
+{% set pageSlug = dataSlug or page.fileSlug %}
+{% set pageContentMap = pages or {} %}
+{% set pageData = pageData or pageContentMap[pageSlug] or {} %}
+{% set hero = hero or pageData.hero %}
+{% set pageSeo = pageSeo or pageData.seo or (siteSettings.defaults and siteSettings.defaults.seo) or {} %}
+{% set siteSeoDefaults = siteSettings.defaults and siteSettings.defaults.seo or {} %}
+{% set seoTitle = pageSeo.title or page.title or siteSeoDefaults.titlePattern or siteSettings.siteName %}
+{% set metaDescription = pageSeo.description or siteSeoDefaults.metaDescription %}
+{% set ogImage = pageSeo.ogImage or siteSeoDefaults.ogImage %}
+{% set canonicalUrl = pageSeo.canonical or siteSeoDefaults.canonicalBase %}
+{% set siteSlug = siteSettings.slug or 'default' %}
+<!DOCTYPE html>
+<html lang="{{ page.lang or 'lv' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/changes.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
+  {% if siteSettings.branding and siteSettings.branding.favicon %}
+    <link rel="icon" type="image/x-icon" href="{{ siteSettings.branding.favicon }}" data-cms-collection="settings" data-cms-item="{{ siteSlug }}" data-cms-bind="branding.favicon">
+  {% endif %}
+  <title data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.title">{{ seoTitle }}</title>
+  {% if metaDescription %}
+    <meta name="description" content="{{ metaDescription }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.description">
+  {% endif %}
+  {% if canonicalUrl %}
+    <link rel="canonical" href="{{ canonicalUrl }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.canonical">
+  {% endif %}
+  {% if pageSeo.ogTitle or seoTitle %}
+    <meta property="og:title" content="{{ pageSeo.ogTitle or seoTitle }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.title">
+  {% endif %}
+  {% if pageSeo.ogDescription or metaDescription %}
+    <meta property="og:description" content="{{ pageSeo.ogDescription or metaDescription }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.description">
+  {% endif %}
+  {% if ogImage %}
+    <meta property="og:image" content="{{ ogImage }}" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="seo.og.image">
+  {% endif %}
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+  <header class="vh-header" data-site-header data-cms-collection="settings" data-cms-item="{{ siteSlug }}">
+    <div class="vh-header__inner vh-container">
+      <a class="vh-logo" href="/" data-cms-bind="branding.logoLight">
+        <img class="vh-logo__image" src="{{ siteSettings.branding.logoLight or '/image/red_LOGO_Vandore.png?v=2025' }}" alt="{{ siteSettings.siteName }}" width="164" height="48" decoding="async">
+      </a>
+      <button class="vh-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation">
+        <span class="vh-nav-toggle__icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span data-cms-bind="navigation.mobileMenuLabel">{{ siteSettings.navigation.mobileMenuLabel or 'Navigacija' }}</span>
+      </button>
+      <nav id="primary-navigation" class="vh-nav" data-primary-nav hidden>
+        <ul class="vh-nav__list">
+          {% for item in siteSettings.navigation.header or [] %}
+            {% set index = loop.index0 %}
+            <li>
+              <a class="vh-nav__link" href="{{ item.url }}" target="{{ item.target or '_self' }}" data-cms-collection="settings" data-cms-item="{{ siteSlug }}" data-cms-bind="navigation.header[{{ index }}].url">
+                <span data-cms-bind="navigation.header[{{ index }}].label">{{ item.label }}</span>
+              </a>
+              {% if item.children %}
+                <ul class="vh-nav__submenu">
+                  {% for child in item.children %}
+                    <li>
+                      <a href="{{ child.url }}" target="{{ child.target or '_self' }}" data-cms-collection="settings" data-cms-item="{{ siteSlug }}" data-cms-bind="navigation.header[{{ index }}].children[{{ loop.index0 }}].url">
+                        <span data-cms-bind="navigation.header[{{ index }}].children[{{ loop.index0 }}].label">{{ child.label }}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% if siteSettings.navigation.headerCta %}
+          <div class="vh-nav__cta">
+            <a class="vh-button vh-button--primary" href="{{ siteSettings.navigation.headerCta.url }}" target="{{ siteSettings.navigation.headerCta.target or '_self' }}" data-cms-collection="settings" data-cms-item="{{ siteSlug }}" data-cms-bind="navigation.headerCta.url">
+              <span data-cms-bind="navigation.headerCta.label">{{ siteSettings.navigation.headerCta.label }}</span>
+            </a>
+          </div>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  {% block hero %}
+    {% if hero %}
+      <section class="vh-hero" data-cms-collection="pages" data-cms-item="{{ pageSlug }}">
+        <div class="vh-hero__inner vh-container">
+          <div class="vh-hero__content">
+            {% if hero.eyebrow %}
+              <p class="vh-hero__eyebrow" data-cms-bind="hero.eyebrow">{{ hero.eyebrow }}</p>
+            {% endif %}
+            {% if hero.heading %}
+              <h1 data-cms-bind="hero.heading">{{ hero.heading }}</h1>
+            {% endif %}
+            {% if hero.subheading %}
+              <p data-cms-bind="hero.subheading">{{ hero.subheading }}</p>
+            {% endif %}
+            {% if hero.ctas %}
+              <div class="vh-hero__ctas">
+                {% for cta in hero.ctas %}
+                  <a class="vh-button {{ 'vh-button--' ~ (cta.style or 'primary') }}" href="{{ cta.url }}" data-cms-bind="hero.ctas[{{ loop.index0 }}].url">
+                    <span data-cms-bind="hero.ctas[{{ loop.index0 }}].label">{{ cta.label }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          {% if hero.background and hero.background.image %}
+            <div class="vh-hero__media">
+              <img src="{{ hero.background.image }}" alt="{{ hero.background.alt or hero.heading }}" data-cms-bind="hero.background.image">
+            </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+  {% endblock %}
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="vh-footer" data-cms-collection="settings" data-cms-item="{{ siteSlug }}">
+    <div class="vh-footer__inner vh-container">
+      <div class="vh-footer__brand">
+        <a href="/" data-cms-bind="branding.logoDark">
+          <img src="{{ siteSettings.branding.logoDark or siteSettings.branding.logoLight }}" alt="{{ siteSettings.siteName }}">
+        </a>
+        <p data-cms-bind="footer.addressBlock.name">{{ siteSettings.footer.addressBlock.name }}</p>
+        <p>
+          <span data-cms-bind="footer.addressBlock.street">{{ siteSettings.footer.addressBlock.street }}</span>,
+          <span data-cms-bind="footer.addressBlock.city">{{ siteSettings.footer.addressBlock.city }}</span>,
+          <span data-cms-bind="footer.addressBlock.postalCode">{{ siteSettings.footer.addressBlock.postalCode }}</span>
+        </p>
+        <p>
+          <a href="tel:{{ siteSettings.footer.addressBlock.phone }}" data-cms-bind="footer.addressBlock.phone">{{ siteSettings.footer.addressBlock.phone }}</a>
+          ·
+          <a href="mailto:{{ siteSettings.footer.addressBlock.email }}" data-cms-bind="footer.addressBlock.email">{{ siteSettings.footer.addressBlock.email }}</a>
+        </p>
+      </div>
+      <div class="vh-footer__columns">
+        {% for column in siteSettings.footer.columns or [] %}
+          <div class="vh-footer__column">
+            <h4 data-cms-bind="footer.columns[{{ loop.index0 }}].title">{{ column.title }}</h4>
+            <ul>
+              {% for link in column.links %}
+                <li>
+                  <a href="{{ link.url }}" data-cms-bind="footer.columns[{{ loop.parent.index0 }}].links[{{ loop.index0 }}].url">
+                    <span data-cms-bind="footer.columns[{{ loop.parent.index0 }}].links[{{ loop.index0 }}].label">{{ link.label }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="vh-footer__legal">
+        {% for link in siteSettings.footer.legalLinks or [] %}
+          <a href="{{ link.url }}" data-cms-bind="footer.legalLinks[{{ loop.index0 }}].url">
+            <span data-cms-bind="footer.legalLinks[{{ loop.index0 }}].label">{{ link.label }}</span>
+          </a>
+        {% endfor %}
+      </div>
+      <div class="vh-footer__newsletter">
+        <h5 data-cms-bind="footer.newsletter.heading">{{ siteSettings.footer.newsletter.heading }}</h5>
+        <form data-newsletter-form>
+          <input type="email" placeholder="{{ siteSettings.footer.newsletter.placeholder or 'Enter email' }}">
+          <button type="submit">{{ siteSettings.footer.newsletter.ctaLabel or 'Subscribe' }}</button>
+        </form>
+        <p class="success" data-cms-bind="footer.newsletter.successMessage">{{ siteSettings.footer.newsletter.successMessage }}</p>
+        <p class="error" data-cms-bind="footer.newsletter.errorMessage">{{ siteSettings.footer.newsletter.errorMessage }}</p>
+      </div>
+    </div>
+    <div class="vh-footer__bottom">
+      <p data-cms-bind="footer.copyright">{{ siteSettings.footer.copyright }}</p>
+      <div class="vh-footer__social">
+        {% for link in siteSettings.navigation.socialLinks or [] %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener" data-cms-bind="navigation.socialLinks[{{ loop.index0 }}].url">
+            <span data-cms-bind="navigation.socialLinks[{{ loop.index0 }}].label">{{ link.label }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/vendor/jquery.min.js"></script>
+  <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/js/vendor/swiper-bundle.min.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/swiper-script.js"></script>
+  <script src="/js/submit-form.js"></script>
+  <script src="/js/vendor/isotope.pkgd.min.js"></script>
+  <script src="/js/video_embedded.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+  {% set integrations = siteSettings.integrations or {} %}
+  {% if siteSettings.scripts and siteSettings.scripts.enableAnalytics and integrations.analytics and integrations.analytics.gtm %}
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ integrations.analytics.gtm }}');
+    </script>
+  {% endif %}
+  {% if siteSettings.scripts and siteSettings.scripts.enableMap and integrations.maps and integrations.maps.provider == 'google' and integrations.maps.apiKey %}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ integrations.maps.apiKey }}" defer></script>
+  {% endif %}
+  {% if siteSettings.scripts and siteSettings.scripts.enableChat and integrations.chat and integrations.chat.provider == 'intercom' and integrations.chat.widgetId %}
+    <script>
+      window.intercomSettings = { app_id: '{{ integrations.chat.widgetId }}' };
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/{{ integrations.chat.widgetId }}';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(d.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    </script>
+  {% endif %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

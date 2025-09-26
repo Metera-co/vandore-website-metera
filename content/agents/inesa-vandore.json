@@ -1,0 +1,26 @@
+{
+    "headshot":  "/image/agent-inesa.jpg",
+    "phoneSecondary":  "+371 67 00 45 12",
+    "licenseId":  "LV-REA-2025",
+    "title":  "Managing Broker",
+    "order":  1,
+    "name":  "Inesa Vandore",
+    "featured":  true,
+    "phonePrimary":  "+371 29 71 30 30",
+    "socialLinks":  [
+                        {
+                            "label":  "LinkedIn",
+                            "icon":  "linkedin",
+                            "url":  "https://www.linkedin.com/in/inesa"
+                        },
+                        {
+                            "label":  "Instagram",
+                            "icon":  "instagram",
+                            "url":  "https://www.instagram.com/vandoreheritage"
+                        }
+                    ],
+    "slug":  "inesa-vandore",
+    "headshotAlt":  "Portrait of Inesa Vandore",
+    "bio":  "Inesa vada Vandore Heritage komandu, apvienojot divdesmit gadu pieredzi luksusa nekustamajos ipašumos un attistot personalizetu klientu aprupi.",
+    "email":  "inesa@vandoreheritage.lv"
+}

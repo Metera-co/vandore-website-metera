@@ -1,0 +1,31 @@
+{
+    "sections":  [
+
+                 ],
+    "slug":  "single_blog",
+    "seo":  {
+                "title":  "Blog Post",
+                "description":  "",
+                "og":  {
+                           "title":  "",
+                           "description":  "",
+                           "image":  ""
+                       },
+                "canonical":  "",
+                "twitter":  {
+                                "title":  "",
+                                "description":  "",
+                                "image":  ""
+                            }
+            },
+    "scripts":  {
+                    "enableMap":  false,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                },
+    "hero":  null,
+    "title":  "Blog Post",
+    "widgets":  [
+
+                ]
+}

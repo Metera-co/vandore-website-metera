@@ -1,0 +1,74 @@
+{
+    "title":  "Pakalpojumi",
+    "hero":  {
+                 "eyebrow":  "Vandore Heritage komanda",
+                 "ctas":  [
+                              {
+                                  "label":  "Sazinaties",
+                                  "url":  "/contact.html",
+                                  "style":  "primary"
+                              }
+                          ],
+                 "background":  {
+                                    "alt":  "Komanda strada pie strategijas",
+                                    "overlay":  0.45,
+                                    "image":  "/image/dummy-img-1920x300.jpg"
+                                },
+                 "heading":  "Pielagoti risinajumi ipašumu ipašniekiem un investoriem",
+                 "subheading":  "Piedavajam pilna cikla parvaldibas, marketinga un investiciju konsultaciju pakalpojumus ar caurspidigu komunikaciju."
+             },
+    "sections":  [
+                     {
+                         "items":  [
+                                       {
+                                           "title":  "Ipašumu parvaldiba",
+                                           "description":  "Operativa uzturešana, irnieku atlase, ligumu administrešana un finanšu kontrole.",
+                                           "icon":  "???"
+                                       },
+                                       {
+                                           "title":  "Marketings un pardošana",
+                                           "description":  "Profesionalas fotosesijas, copywriting, kanalu izvele un kampanu optimizacija.",
+                                           "icon":  "??"
+                                       },
+                                       {
+                                           "title":  "Investiciju strategija",
+                                           "description":  "Portfela analize, tirgus izpete un darijumu strukturešana, balstoties uz jusu merkiem.",
+                                           "icon":  "??"
+                                       }
+                                   ],
+                         "heading":  "Musu pamatpakalpojumi",
+                         "type":  "feature-grid"
+                     },
+                     {
+                         "media":  {
+                                       "caption":  "Partneriba ar caurspidigu komunikaciju",
+                                       "alt":  "Sadarbibas tikšanas",
+                                       "image":  "/image/dummy-img-600x500.jpg"
+                                   },
+                         "body":  "\u003col\u003e\u003cli\u003eKonsultacija un merku definešana.\u003c/li\u003e\u003cli\u003eObjekta sagatavošana – vizualais materials, apraksti un cenu strategija.\u003c/li\u003e\u003cli\u003eAktiva darijumu vadiba un ikmeneša parskati.\u003c/li\u003e\u003c/ol\u003e",
+                         "heading":  "Sadarbibas process",
+                         "type":  "two-column",
+                         "theme":  "light"
+                     },
+                     {
+                         "items":  [
+                                       {
+                                           "description":  "\u003cp\u003ePec sakotnejas konsultacijas sagatavojam planu 5 darba dienu laika un varam sakt darbu uzreiz pec liguma parakstišanas.\u003c/p\u003e",
+                                           "title":  "Cik atri var sakt sadarbibu?"
+                                       },
+                                       {
+                                           "description":  "\u003cp\u003eJa, musu modulu struktura lauj izveleties tikai marketingu, tikai parvaldibu vai kombinet pakalpojumus.\u003c/p\u003e",
+                                           "title":  "Vai varu izveleties tikai atseviškus pakalpojumus?"
+                                       }
+                                   ],
+                         "heading":  "Ko klienti bieži jauta?",
+                         "type":  "faq"
+                     }
+                 ],
+    "slug":  "service",
+    "scripts":  {
+                    "enableMap":  false,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                }
+}

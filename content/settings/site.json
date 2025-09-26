@@ -1,0 +1,389 @@
+{
+    "scripts":  {
+                    "enableMap":  true,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                },
+    "slug":  "default",
+    "footer":  {
+                   "copyright":  "� {{ year }} Vandore Heritage. Visas tiesibas aizsargatas.",
+                   "legalLinks":  [
+                                      {
+                                          "url":  "/privacy.html",
+                                          "label":  "Privatuma politika"
+                                      },
+                                      {
+                                          "url":  "/terms.html",
+                                          "label":  "Noteikumi"
+                                      }
+                                  ],
+                   "newsletter":  {
+                                      "successMessage":  "Paldies! Mes ar tevi sazinasimies.",
+                                      "formId":  "nl-main",
+                                      "heading":  "Pievienojies jaunumiem",
+                                      "errorMessage":  "Radas kluda. Ludzu, megini velreiz."
+                                  },
+                   "columns":  [
+                                   {
+                                       "links":  [
+                                                     {
+                                                         "url":  "/about.html",
+                                                         "label":  "Par mums"
+                                                     },
+                                                     {
+                                                         "url":  "/team.html",
+                                                         "label":  "Komanda"
+                                                     },
+                                                     {
+                                                         "url":  "/careers.html",
+                                                         "label":  "Karjera"
+                                                     }
+                                                 ],
+                                       "title":  "Uznemums"
+                                   },
+                                   {
+                                       "links":  [
+                                                     {
+                                                         "url":  "/service.html#management",
+                                                         "label":  "Ipa�umu parvaldiba"
+                                                     },
+                                                     {
+                                                         "url":  "/service.html#investment",
+                                                         "label":  "Investiciju konsultacijas"
+                                                     }
+                                                 ],
+                                       "title":  "Servisi"
+                                   },
+                                   {
+                                       "links":  [
+                                                     {
+                                                         "url":  "/blog.html",
+                                                         "label":  "Blogs"
+                                                     },
+                                                     {
+                                                         "url":  "/faq.html",
+                                                         "label":  "FAQ"
+                                                     }
+                                                 ],
+                                       "title":  "Resursi"
+                                   }
+                               ],
+                   "addressBlock":  {
+                                        "street":  "Skanstes iela 29A-91",
+                                        "name":  "Vandore Heritage",
+                                        "phone":  "+371 29 71 30 30",
+                                        "postalCode":  "LV-1013",
+                                        "city":  "Riga",
+                                        "email":  "hello@vandoreheritage.lv",
+                                        "country":  "Latvija"
+                                    }
+               },
+    "search":  {
+                   "enabled":  true,
+                   "mapEmbed":  "https://maps.google.com/?q=Vandore+Heritage+Riga",
+                   "properties":  {
+                                      "pagination":  {
+                                                         "defaultSize":  9,
+                                                         "sizes":  [
+                                                                       9,
+                                                                       18,
+                                                                       27
+                                                                   ]
+                                                     },
+                                      "sort":  {
+                                                   "default":  "newest",
+                                                   "options":  [
+                                                                   {
+                                                                       "value":  "newest",
+                                                                       "label":  "Jaunakie"
+                                                                   },
+                                                                   {
+                                                                       "value":  "price-asc",
+                                                                       "label":  "Cena augo�i"
+                                                                   },
+                                                                   {
+                                                                       "value":  "price-desc",
+                                                                       "label":  "Cena dilsto�i"
+                                                                   }
+                                                               ]
+                                               },
+                                      "filters":  {
+                                                      "locations":  [
+                                                                        "Centrs",
+                                                                        "Mezaparks",
+                                                                        "Teika",
+                                                                        "Jurmala"
+                                                                    ],
+                                                      "priceRanges":  [
+                                                                          {
+                                                                              "label":  "Lidz �250k",
+                                                                              "min":  0,
+                                                                              "max":  250000
+                                                                          },
+                                                                          {
+                                                                              "label":  "�250k - �500k",
+                                                                              "min":  250000,
+                                                                              "max":  500000
+                                                                          },
+                                                                          {
+                                                                              "label":  "�500k+",
+                                                                              "min":  500000,
+                                                                              "max":  null
+                                                                          }
+                                                                      ],
+                                                      "bedroomSteps":  [
+                                                                           1,
+                                                                           2,
+                                                                           3,
+                                                                           4
+                                                                       ],
+                                                      "bathroomSteps":  [
+                                                                            1,
+                                                                            2,
+                                                                            3
+                                                                        ],
+                                                      "propertyTypes":  [
+                                                                            "house",
+                                                                            "apartment",
+                                                                            "villa",
+                                                                            "plot",
+                                                                            "loft"
+                                                                        ],
+                                                      "areaSteps":  [
+                                                                        60,
+                                                                        90,
+                                                                        120,
+                                                                        180,
+                                                                        240
+                                                                    ]
+                                                  }
+                                  },
+                   "rentals":  {
+                                   "pagination":  {
+                                                      "defaultSize":  6,
+                                                      "sizes":  [
+                                                                    6,
+                                                                    12,
+                                                                    18
+                                                                ]
+                                                  },
+                                   "sort":  {
+                                                "default":  "newest",
+                                                "options":  [
+                                                                {
+                                                                    "value":  "newest",
+                                                                    "label":  "Jaunakie"
+                                                                },
+                                                                {
+                                                                    "value":  "price-asc",
+                                                                    "label":  "Cena augosi"
+                                                                },
+                                                                {
+                                                                    "value":  "price-desc",
+                                                                    "label":  "Cena dilstosi"
+                                                                }
+                                                            ]
+                                            },
+                                   "filters":  {
+                                                   "locations":  [
+                                                                     "Centrs",
+                                                                     "Mezaparks",
+                                                                     "Jurmala",
+                                                                     "Vecaki"
+                                                                 ],
+                                                   "priceRanges":  [
+                                                                       {
+                                                                           "label":  "Lidz �100/nakts",
+                                                                           "min":  0,
+                                                                           "max":  100
+                                                                       },
+                                                                       {
+                                                                           "label":  "�100 - �200/nakts",
+                                                                           "min":  100,
+                                                                           "max":  200
+                                                                       },
+                                                                       {
+                                                                           "label":  "�200+/nakts",
+                                                                           "min":  200,
+                                                                           "max":  null
+                                                                       }
+                                                                   ],
+                                                   "bedroomSteps":  [
+                                                                        1,
+                                                                        2,
+                                                                        3,
+                                                                        4
+                                                                    ],
+                                                   "types":  [
+                                                                 {
+                                                                     "value":  "short",
+                                                                     "label":  "Istermina ire"
+                                                                 },
+                                                                 {
+                                                                     "value":  "long",
+                                                                     "label":  "Ilgtermina ire"
+                                                                 },
+                                                                 {
+                                                                     "value":  "holiday",
+                                                                     "label":  "Atputas maja"
+                                                                 }
+                                                             ],
+                                                   "occupancySteps":  [
+                                                                          2,
+                                                                          4,
+                                                                          6,
+                                                                          8
+                                                                      ],
+                                                   "stayLengths":  [
+                                                                       1,
+                                                                       3,
+                                                                       7,
+                                                                       14
+                                                                   ]
+                                               }
+                               }
+               },
+    "defaults":  {
+                     "seo":  {
+                                 "titlePattern":  "%s | Vandore Heritage",
+                                 "metaDescription":  "Vandore Heritage piedava premium nekustama ipa�uma risinajumus Riga.",
+                                 "canonicalBase":  "https://vandoreheritage.lv",
+                                 "ogImage":  "/image/default-share.jpg",
+                                 "twitterHandle":  "@vandoreheritage"
+                             },
+                     "schema":  {
+                                    "enableListings":  true,
+                                    "enableBlog":  true
+                                },
+                     "formats":  {
+                                     "date":  "DD.MM.YYYY",
+                                     "time":  "HH:mm",
+                                     "currency":  {
+                                                      "currency":  "EUR",
+                                                      "minimumFractionDigits":  0,
+                                                      "locale":  "lv-LV"
+                                                  }
+                                 }
+                 },
+    "integrations":  {
+                         "formRecipients":  [
+                                                "sales@vandoreheritage.lv",
+                                                "support@vandoreheritage.lv"
+                                            ],
+                         "chat":  {
+                                      "widgetId":  "abc123",
+                                      "provider":  "intercom"
+                                  },
+                         "spamProtection":  {
+                                                "recaptchaSecret":  "RECAPTCHA_SECRET_KEY",
+                                                "recaptchaSite":  "RECAPTCHA_SITE_KEY"
+                                            },
+                         "analytics":  {
+                                           "gtm":  "GTM-XXXXXX",
+                                           "ga4":  "G-XXXXXXXX"
+                                       },
+                         "booking":  {
+                                         "widgetId":  "vh-book-01",
+                                         "provider":  "hostfully"
+                                     },
+                         "maps":  {
+                                      "apiKey":  "GOOGLE-MAPS-KEY",
+                                      "provider":  "google"
+                                  }
+                     },
+    "siteName":  "Vandore Heritage",
+    "branding":  {
+                     "logoLight":  "/image/red_LOGO_Vandore.png?v=2025",
+                     "logoDark":  "/image/logo-footer.png?v=2025",
+                     "palette":  {
+                                     "accent":  "#EEC373",
+                                     "secondary":  "#1B263B",
+                                     "primary":  "#C0392B",
+                                     "background":  "#FFFFFF",
+                                     "text":  "#1E1E1E"
+                                 },
+                     "favicon":  "/image/red_LOGO_Vandore.png?v=2025",
+                     "typography":  {
+                                        "body":  "Noto Sans",
+                                        "accent":  "Cinzel",
+                                        "heading":  "Noto Serif"
+                                    }
+                 },
+    "navigation":  {
+                       "headerCta":  {
+                                         "label":  "Sazinaties",
+                                         "url":  "/contact.html",
+                                         "target":  "_self",
+                                         "style":  "button-primary"
+                                     },
+                       "header":  [
+                                      {
+                                          "label":  "Sakums",
+                                          "url":  "/",
+                                          "target":  "_self",
+                                          "children":  [
+
+                                                       ],
+                                          "style":  "link"
+                                      },
+                                      {
+                                          "label":  "Ipa�umi",
+                                          "url":  "/properties.html",
+                                          "target":  "_self",
+                                          "children":  [
+                                                           {
+                                                               "label":  "Pardo�ana",
+                                                               "url":  "/properties.html?type=sale",
+                                                               "target":  "_self"
+                                                           },
+                                                           {
+                                                               "label":  "Jaunakie",
+                                                               "url":  "/properties.html?sort=new",
+                                                               "target":  "_self"
+                                                           }
+                                                       ],
+                                          "style":  "link"
+                                      },
+                                      {
+                                          "label":  "Ire",
+                                          "url":  "/rentals.html",
+                                          "target":  "_self",
+                                          "children":  [
+
+                                                       ],
+                                          "style":  "link"
+                                      },
+                                      {
+                                          "label":  "Blogs",
+                                          "url":  "/blog.html",
+                                          "target":  "_self",
+                                          "children":  [
+
+                                                       ],
+                                          "style":  "link"
+                                      },
+                                      {
+                                          "label":  "Par mums",
+                                          "url":  "/about.html",
+                                          "target":  "_self",
+                                          "children":  [
+
+                                                       ],
+                                          "style":  "link"
+                                      }
+                                  ],
+                       "socialLinks":  [
+                                           {
+                                               "label":  "Instagram",
+                                               "icon":  "instagram",
+                                               "url":  "https://www.instagram.com/vandoreheritage"
+                                           },
+                                           {
+                                               "label":  "Facebook",
+                                               "icon":  "facebook",
+                                               "url":  "https://www.facebook.com/vandoreheritage"
+                                           }
+                                       ],
+                       "mobileMenuLabel":  "Navigacija"
+                   }
+}

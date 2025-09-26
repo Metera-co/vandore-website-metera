@@ -1,0 +1,22 @@
+---
+permalink: property-detail-template.html
+layout: layouts/base.njk
+---
+{% import 'components/property-detail.njk' as propertyComponents %}
+{% set items = properties or [] %}
+{% set property = items | last %}
+{% block content %}
+<section class="vh-section">
+  <div class="vh-container">
+    {% if property %}
+      {{ propertyComponents.property_detail(property, items) }}
+    {% else %}
+      <div class="vh-empty">Nav atrasts neviens ipašums.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/js/properties.js" defer></script>
+{% endblock %}

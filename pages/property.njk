@@ -1,0 +1,109 @@
+---
+permalink: property.html
+layout: null
+---
+{% extends 'layouts/base.njk' %}
+{% import 'components/property-detail.njk' as propertyComponents %}
+{% set site = settings.default or {} %}
+{% set items = properties or [] %}
+{% block head_extra %}
+  {% set canonicalBase = site.defaults and site.defaults.seo and site.defaults.seo.canonicalBase %}
+  {% for property in items if property.structuredData and property.structuredData.enabled %}
+    {% set overrides = property.structuredData.overrides or {} %}
+    {% set rawPrice = overrides.price or property.price or property.priceLabel or property.priceString %}
+    {% set priceStep1 = rawPrice | replace('€', '') %}
+    {% set priceStep2 = priceStep1 | replace('EUR', '') %}
+    {% set priceStep3 = priceStep2 | replace(' ', '') %}
+    {% set priceStep4 = priceStep3 | replace(',', '') %}
+    {% set priceStep5 = priceStep4 | replace('/nakts', '') %}
+    {% set priceStep6 = priceStep5 | replace('/night', '') %}
+    {% set priceStep7 = priceStep6 | replace('No', '') | replace('no', '') %}
+    {% set priceValue = priceStep7 %}
+    {% set propertyUrl = property.seo and property.seo.canonical or (canonicalBase and canonicalBase ~ '/property.html?slug=' ~ property.slug) or '/property.html?slug=' ~ property.slug %}
+    {% set availability = overrides.availability or (property.status == 'sold' and 'SoldOut' or 'InStock') %}
+    {% set propertyType = overrides.propertyType or property.propertyType or 'Residence' %}
+    <script type="application/ld+json">
+      {{ {
+        '@context': 'https://schema.org',
+        '@type': 'Residence',
+        'name': property.title,
+        'description': property.description,
+        'url': propertyUrl,
+        'image': property.image,
+        'numberOfRooms': property.bedrooms,
+        'floorSize': property.area,
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': property.location and property.location.addressLine1 or property.address,
+          'addressLocality': property.location and property.location.city,
+          'postalCode': property.location and property.location.postalCode,
+          'addressCountry': property.location and property.location.country
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': priceValue,
+          'priceCurrency': site.defaults and site.defaults.formats and site.defaults.formats.currency and site.defaults.formats.currency.currency or 'EUR',
+          'availability': 'https://schema.org/' ~ availability
+        },
+        'additionalProperty': [
+          {
+            '@type': 'PropertyValue',
+            'name': 'Property type',
+            'value': propertyType
+          },
+          {
+            '@type': 'PropertyValue',
+            'name': 'Floors',
+            'value': property.floors
+          }
+        ]
+      } | json | safe }}
+    </script>
+  {% endfor %}
+{% endblock %}
+{% block content %}
+<section class="vh-section" data-property-page>
+  <div class="vh-container" data-property-root>
+    <nav class="vh-breadcrumb" aria-label="Atpakal uz sarakstu">
+      <a class="vh-button vh-button--subtle" data-property-back href="/properties.html">
+        <span aria-hidden="true"><</span>
+        <span>Atpakal uz ipasumu sarakstu</span>
+      </a>
+    </nav>
+
+    {% if items | length %}
+      {% for property in items %}
+        {{ propertyComponents.property_detail(property, items) }}
+      {% endfor %}
+    {% else %}
+      <div class="vh-empty">Nav atrasts neviens ipasums.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/js/properties.js" defer></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      const articles = document.querySelectorAll('[data-property-detail]');
+      if (!articles.length) return;
+      let found = false;
+      articles.forEach((article, index) => {
+        const match = slug ? article.dataset.slug === slug : index === 0;
+        article.hidden = !match;
+        article.setAttribute('aria-hidden', match ? 'false' : 'true');
+        if (match) {
+          found = true;
+        }
+      });
+      if (slug && !found) {
+        const first = articles[0];
+        first.hidden = false;
+        first.setAttribute('aria-hidden', 'false');
+      }
+    }());
+  </script>
+{% endblock %}

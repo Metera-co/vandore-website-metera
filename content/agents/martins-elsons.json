@@ -1,0 +1,20 @@
+{
+    "slug":  "martins-elsons",
+    "licenseId":  "LV-REA-1987",
+    "headshot":  "/image/agent-martins.jpg",
+    "featured":  false,
+    "socialLinks":  [
+                        {
+                            "label":  "LinkedIn",
+                            "icon":  "linkedin",
+                            "url":  "https://www.linkedin.com/in/martinselsons"
+                        }
+                    ],
+    "order":  2,
+    "email":  "martins@vandoreheritage.lv",
+    "headshotAlt":  "Portrait of Martinš Elsons",
+    "name":  "Martinš Elsons",
+    "title":  "Senior Realtor",
+    "phonePrimary":  "+371 26 55 42 11",
+    "bio":  "Martinš specializejas vesturisko ipašumu restauracija un palidz klientiem atrast majas ar izcilu raksturu visa Riga."
+}

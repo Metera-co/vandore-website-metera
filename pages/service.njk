@@ -1,0 +1,11 @@
+---
+permalink: service.html
+layout: layouts/base.njk
+---
+{% import 'components/section-renderer.njk' as sections %}
+{% set pageSlug = 'service' %}
+{% set pageData = pages[pageSlug] or {} %}
+{% set hero = pageData.hero %}
+{% block content %}
+  {{ sections.render_sections(pageSlug, pageData.sections or []) }}
+{% endblock %}

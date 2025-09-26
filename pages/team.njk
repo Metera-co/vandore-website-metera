@@ -1,0 +1,48 @@
+---
+permalink: team.html
+layout: layouts/base.njk
+---
+{% import 'components/section-renderer.njk' as sections %}
+{% set pageSlug = 'team' %}
+{% set pageData = pages[pageSlug] or {} %}
+{% set hero = pageData.hero %}
+{% block content %}
+  {{ sections.render_sections(pageSlug, pageData.sections or []) }}
+  <section class="vh-section" data-team-grid>
+    <div class="vh-container">
+      <div class="vh-grid vh-grid--cards">
+        {% for agent in agents %}
+          <article class="vh-card vh-card--team" data-cms-collection="agents" data-cms-item="{{ agent.slug }}">
+            {% if agent.headshot %}
+              <img class="vh-card__media" src="{{ agent.headshot }}" alt="{{ agent.headshotAlt or agent.name }}" data-cms-bind="headshot">
+            {% endif %}
+            <div class="vh-card__body">
+              <h3 data-cms-bind="name">{{ agent.name }}</h3>
+              {% if agent.title %}
+                <p class="vh-card__subtitle" data-cms-bind="title">{{ agent.title }}</p>
+              {% endif %}
+              {% if agent.bio %}
+                <div class="vh-card__text" data-cms-bind="bio">{{ agent.bio | safe }}</div>
+              {% endif %}
+              <ul class="vh-card__meta">
+                {% if agent.phonePrimary %}
+                  <li><a href="tel:{{ agent.phonePrimary }}" data-cms-bind="phonePrimary">{{ agent.phonePrimary }}</a></li>
+                {% endif %}
+                {% if agent.email %}
+                  <li><a href="mailto:{{ agent.email }}" data-cms-bind="email">{{ agent.email }}</a></li>
+                {% endif %}
+              </ul>
+              {% if agent.socialLinks %}
+                <div class="vh-card__links">
+                  {% for link in agent.socialLinks %}
+                    <a href="{{ link.url }}" target="_blank" rel="noopener" data-cms-bind="socialLinks[{{ loop.index0 }}].url">{{ link.label }}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

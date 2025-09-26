@@ -1,0 +1,28 @@
+{
+    "title":  "Biežak uzdotie jautajumi",
+    "hero":  {
+                 "eyebrow":  "Atbildes klientiem",
+                 "heading":  "Biežak uzdotie jautajumi par sadarbibu",
+                 "subheading":  "Ja neatrodat atbildi, sazinieties ar musu komandu – palidzesim atrast piemerotako risinajumu."
+             },
+    "sections":  [
+                     {
+                         "items":  [
+                                       {
+                                           "description":  "\u003cp\u003ePec pirmas konsultacijas nosutam personalizetu piedavajumu 5 darba dienu laika.\u003c/p\u003e",
+                                           "title":  "Ka atri sanemu cenu piedavajumu?"
+                                       },
+                                       {
+                                           "description":  "\u003cp\u003eBazes plana ietilpst apsaimniekošanas koordinacija, bet uzturešanas izmaksas tiek saskanotas atseviški.\u003c/p\u003e",
+                                           "title":  "Vai ipašuma parvaldibas maksa ietver uzturešanu?"
+                                       },
+                                       {
+                                           "description":  "\u003cp\u003eLiguma terminš un izbeigšanas noteikumi tiek defineti, balstoties uz izveleto planu un ipašuma specifiku.\u003c/p\u003e",
+                                           "title":  "Vai varu atteikties no pakalpojuma?"
+                                       }
+                                   ],
+                         "type":  "faq"
+                     }
+                 ],
+    "slug":  "faq"
+}

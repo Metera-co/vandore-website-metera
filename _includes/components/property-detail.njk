@@ -1,0 +1,122 @@
+{% macro property_detail(property, propertiesList) %}
+{% set propertySlug = property.slug %}
+{% set gallery = property.gallery or (property.media and property.media.gallery) or [] %}
+<article class="vh-stack vh-stack--2xl" data-property-detail data-slug="{{ propertySlug }}" data-cms-collection="properties" data-cms-item="{{ propertySlug }}">
+  <div class="vh-detail-hero" data-property-hero>
+    {% set cover = property.media and property.media.cover or {} %}
+    <img class="vh-detail-hero__image" data-property-hero-image src="{{ cover.image or property.image }}" alt="{{ cover.alt or property.image_alt or property.title }}" width="1440" height="900" decoding="async" data-cms-bind="media.cover.image">
+    <div class="vh-detail-hero__overlay">
+      <span class="vh-eyebrow" data-property-badge data-cms-bind="status">{{ property.status | capitalize }}</span>
+      <h1 class="vh-detail-hero__title" data-property-title data-cms-bind="title">{{ property.title }}</h1>
+      <div class="vh-detail-hero__meta">
+        <span class="vh-chip" data-property-price data-cms-bind="price">{{ property.price }}</span>
+        <span class="vh-chip" data-property-location data-cms-bind="address">{{ property.address }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vh-detail-layout">
+    <div class="vh-stack vh-stack--2xl">
+      <div class="vh-gallery" data-property-gallery>
+        <div class="vh-gallery__viewport" data-gallery-viewport>
+          {% for image in gallery %}
+            <figure class="vh-gallery__slide{{ ' is-active' if loop.first }}" data-gallery-item data-cms-bind="gallery[{{ loop.index0 }}]">
+              <img data-gallery-image src="{{ image.src }}" alt="{{ image.alt or property.title }}" loading="lazy" width="1280" height="840">
+              {% if image.caption %}
+                <figcaption class="vh-gallery__caption" data-gallery-caption>{{ image.caption }}</figcaption>
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+        <div class="vh-gallery__controls">
+          <button type="button" class="vh-gallery__control" data-gallery-prev aria-label="Previous image">‹</button>
+          <button type="button" class="vh-gallery__control" data-gallery-next aria-label="Next image">›</button>
+        </div>
+        <div class="vh-gallery__dots" data-gallery-dots></div>
+      </div>
+
+      <div class="vh-rich-text" data-property-sections>
+        {% if property.copy and property.copy.description %}
+          <section>
+            <h2>Apraksts</h2>
+            <p data-property-description data-cms-bind="copy.description">{{ property.copy.description }}</p>
+          </section>
+        {% elseif property.description %}
+          <section>
+            <h2>Apraksts</h2>
+            <p data-property-description data-cms-bind="description">{{ property.description }}</p>
+          </section>
+        {% endif %}
+        {% if property.copy and property.copy.amenities %}
+          <section>
+            <h2>Ertibas</h2>
+            <ul>
+              {% for amenity in property.copy.amenities %}
+                <li data-cms-bind="copy.amenities[{{ loop.index0 }}].label">{{ amenity.label }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+        {% if property.address %}
+          <section>
+            <h2>Atrašanas vieta</h2>
+            <p data-property-address data-cms-bind="address">{{ property.address }}</p>
+            {% if property.location and property.location.mapEmbed %}
+              <iframe src="{{ property.location.mapEmbed }}" loading="lazy" referrerpolicy="no-referrer" title="Karte"></iframe>
+            {% endif %}
+          </section>
+        {% endif %}
+        {% if property.copy and property.copy.notes %}
+          <section>
+            <h2>Piezimes</h2>
+            <p data-cms-bind="copy.notes">{{ property.copy.notes }}</p>
+          </section>
+        {% endif %}
+      </div>
+    </div>
+
+    <aside class="vh-spec-panel" data-property-spec>
+      <div class="vh-stack vh-stack--lg">
+        <div>
+          <span class="vh-eyebrow">Pamatinformacija</span>
+          <p data-property-summary data-cms-bind="copy.summary">{{ property.copy and property.copy.summary or property.description }}</p>
+        </div>
+        <div class="vh-spec-grid">
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Platiba</span>
+            <span data-property-area data-cms-bind="area">{{ property.area }}</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Gulamistabas</span>
+            <span data-property-bedrooms data-cms-bind="bedrooms">{{ property.bedrooms }}</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Vannas istabas</span>
+            <span data-property-bathrooms data-cms-bind="bathrooms">{{ property.bathrooms }}</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Stavs</span>
+            <span data-property-floors data-cms-bind="floors">{{ property.floors }}</span>
+          </div>
+        </div>
+        <div class="vh-stack vh-stack--sm">
+          <p data-cms-bind="ctas.secondary.label">{{ property.ctas and property.ctas.secondary and property.ctas.secondary.label or 'Velaties klatienes apskati?' }}</p>
+          {% if property.ctas and property.ctas.secondary %}
+            <a class="vh-button vh-button--ghost" href="{{ property.ctas.secondary.url }}" data-cms-bind="ctas.secondary.url">
+              <span data-cms-bind="ctas.secondary.label">{{ property.ctas.secondary.label }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="vh-related" aria-labelledby="property-related-title" data-property-related>
+    <div class="vh-related__header">
+      <h2 id="property-related-title">Saistitie ipašumi</h2>
+      <a class="vh-button vh-button--subtle" href="/properties.html">Skatit visus</a>
+    </div>
+    <div class="vh-related__grid vh-grid vh-grid--responsive" id="property-related-grid" aria-live="polite"></div>
+  </section>
+</article>
+{% endmacro %}

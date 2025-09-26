@@ -1,0 +1,46 @@
+---
+permalink: rental.html
+layout: layouts/base.njk
+---
+{% import 'components/rental-detail.njk' as rentalComponents %}
+{% set items = rentals or [] %}
+{% block content %}
+<section class="vh-section" data-rental-page>
+  <div class="vh-container">
+    <nav class="vh-breadcrumb" aria-label="Atpakal uz ires sarakstu">
+      <a class="vh-button vh-button--subtle" href="/rentals.html"><span aria-hidden="true"><</span> <span>Atpakal uz iri</span></a>
+    </nav>
+    {% if items | length %}
+      {% for rental in items %}
+        {{ rentalComponents.rental_detail(rental, items) }}
+      {% endfor %}
+    {% else %}
+      <div class="vh-empty">Nav atrasts neviens ires piedavajums.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/js/rentals.js" defer></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      const articles = document.querySelectorAll('[data-rental-detail]');
+      if (!articles.length) return;
+      let found = false;
+      articles.forEach((article, index) => {
+        const match = slug ? article.dataset.slug === slug : index === 0;
+        article.hidden = !match;
+        article.setAttribute('aria-hidden', match ? 'false' : 'true');
+        if (match) found = true;
+      });
+      if (slug && !found) {
+        const first = articles[0];
+        first.hidden = false;
+        first.setAttribute('aria-hidden', 'false');
+      }
+    }());
+  </script>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% macro rental_detail(rental, rentalsList) %}
+{% set rentalSlug = rental.slug %}
+{% set gallery = rental.gallery or [] %}
+<article class="vh-stack vh-stack--2xl" data-rental-detail data-slug="{{ rentalSlug }}" data-cms-collection="rentals" data-cms-item="{{ rentalSlug }}">
+  <div class="vh-detail-hero">
+    <img class="vh-detail-hero__image" src="{{ rental.image }}" alt="{{ rental.image_alt or rental.title }}" width="1440" height="900" decoding="async" data-cms-bind="image">
+    <div class="vh-detail-hero__overlay">
+      <span class="vh-eyebrow" data-cms-bind="badge">{{ rental.badge }}</span>
+      <h1 data-cms-bind="title">{{ rental.title }}</h1>
+      <div class="vh-detail-hero__meta">
+        <span class="vh-chip" data-cms-bind="price">{{ rental.price }}</span>
+        <span class="vh-chip" data-cms-bind="address">{{ rental.address }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vh-detail-layout">
+    <div class="vh-stack vh-stack--2xl">
+      {% if gallery %}
+        <div class="vh-gallery" data-rental-gallery>
+          <div class="vh-gallery__viewport">
+            {% for image in gallery %}
+              <figure class="vh-gallery__slide{{ ' is-active' if loop.first }}" data-cms-bind="gallery[{{ loop.index0 }}]">
+                <img src="{{ image.src }}" alt="{{ image.alt or rental.title }}" loading="lazy">
+                {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
+              </figure>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="vh-rich-text">
+        {% if rental.description %}
+          <section>
+            <h2>Apraksts</h2>
+            <p data-cms-bind="description">{{ rental.description }}</p>
+          </section>
+        {% endif %}
+        {% if rental.houseRules %}
+          <section>
+            <h2>Majas noteikumi</h2>
+            <p data-cms-bind="houseRules">{{ rental.houseRules }}</p>
+          </section>
+        {% endif %}
+      </div>
+    </div>
+
+    <aside class="vh-spec-panel">
+      <div class="vh-stack vh-stack--lg">
+        <div>
+          <span class="vh-eyebrow">Ires informacija</span>
+          <p>
+            {% if rental.priceLabel %}<span data-cms-bind="priceLabel">{{ rental.priceLabel }}</span>{% endif %}
+            {% if rental.minimumNights %}<br>Minimalais uzturešanas ilgums: <span data-cms-bind="minimumNights">{{ rental.minimumNights }}</span>{% endif %}
+          </p>
+        </div>
+        <div class="vh-spec-grid">
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Platiba</span>
+            <span data-cms-bind="area">{{ rental.area }} m²</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Gulamistabas</span>
+            <span data-cms-bind="bedrooms">{{ rental.bedrooms }}</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Vannas istabas</span>
+            <span data-cms-bind="bathrooms">{{ rental.bathrooms }}</span>
+          </div>
+          <div class="vh-spec-item">
+            <span class="vh-spec-item__label">Stavs</span>
+            <span data-cms-bind="floors">{{ rental.floors }}</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+{% endmacro %}

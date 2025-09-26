@@ -1,0 +1,48 @@
+{
+    "title":  "Par Vandore Heritage",
+    "hero":  {
+                 "eyebrow":  "Musu stasts",
+                 "background":  {
+                                    "alt":  "Vesturiska eka Riga",
+                                    "overlay":  0.4,
+                                    "image":  "/image/dummy-img-900x600.jpg"
+                                },
+                 "heading":  "Saglabajam ipašumu vertibu un mantojumu",
+                 "subheading":  "Vandore Heritage apvieno klasiskas vertibas ar musdienigu pieeju, lai raditu uzticamas ipašumu investicijas un parvaldibu."
+             },
+    "sections":  [
+                     {
+                         "media":  {
+                                       "image":  "/image/dummy-img-600x500.jpg",
+                                       "alt":  "Komandas diskusija biroja telpas"
+                                   },
+                         "body":  "\u003cp\u003eMusu komanda specializejas premium un vesturisko ipašumu tirgu, nodrošinot personalizetu strategiju katram klientam. Apvienojam tirgus analitiku, lokalo zinašanu un investiciju pieredzi, lai palielinatu ipašumu vertibu.\u003c/p\u003e\u003cp\u003eStradajam gan ar vietejiem ipašniekiem, gan starptautiskiem investoriem un sniedzam pilnu atbalstu – no objekta sagatavošanas lidz darijuma noslegumam.\u003c/p\u003e",
+                         "heading":  "Kapec izveleties Vandore Heritage",
+                         "type":  "two-column"
+                     },
+                     {
+                         "items":  [
+                                       {
+                                           "description":  "Detalizeta tirgus izpete, cenu noteikšana un ienemumu prognozes, balstoties uz realiem datiem.",
+                                           "title":  "Analitiska strategija"
+                                       },
+                                       {
+                                           "description":  "Caurspidiga komunikacija un regulari parskati klientiem ar praktiskiem ieteikumiem.",
+                                           "title":  "Uzticama parvaldiba"
+                                       },
+                                       {
+                                           "description":  "Sadarbiba ar arhitektiem, dizaineriem un juridiskajiem ekspertiem, nodrošinot visaptverošu atbalstu.",
+                                           "title":  "Partneriba"
+                                       }
+                                   ],
+                         "heading":  "Musu pieeja",
+                         "type":  "feature-grid"
+                     }
+                 ],
+    "slug":  "about",
+    "scripts":  {
+                    "enableMap":  false,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                }
+}

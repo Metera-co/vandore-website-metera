@@ -1,0 +1,105 @@
+{
+    "title":  "Cenu plani",
+    "hero":  {
+                 "eyebrow":  "Investiciju partneriba",
+                 "ctas":  [
+                              {
+                                  "label":  "Salidzinat planus",
+                                  "url":  "#plans",
+                                  "style":  "primary"
+                              },
+                              {
+                                  "label":  "Sazinaties ar konsultantu",
+                                  "url":  "/contact.html",
+                                  "style":  "secondary"
+                              }
+                          ],
+                 "background":  {
+                                    "alt":  "Elegants interjers ar lieliem logiem",
+                                    "overlay":  0.35,
+                                    "image":  "/image/dummy-img-1920x900.jpg"
+                                },
+                 "heading":  "Elastigi cenu plani ipašumu parvaldibai",
+                 "subheading":  "Izvelieties pakalpojumu limeni, kas atbilst jusu ipašuma strategijai – no pilna servisa parvaldibas lidz merktiecigam konsultacijam."
+             },
+    "sections":  [
+                     {
+                         "body":  "\u003cp\u003eMusu komanda pielago maksas strukturu ipašuma veidam, lokacijai un jusu investiciju merkiem. Sakam ar bezmaksas konsultaciju, analizejam tirgus datus un izveidojam piedavajumu ar fiksetam un mainigam komponentem.\u003c/p\u003e\u003cp\u003eKatrs plans ietver atbalstu ipašuma sagatavošana, marketingu, klientu atlasi un finanšu atskaites. Papildu pakalpojumus var pieslegt pec nepieciešamibas.\u003c/p\u003e",
+                         "subheading":  "Caurskatama struktura, skaidri rezultati",
+                         "ctas":  [
+                                      {
+                                          "label":  "Pieteikt bezmaksas konsultaciju",
+                                          "url":  "/contact.html#consult",
+                                          "style":  "primary"
+                                      }
+                                  ],
+                         "heading":  "Ka mes veidojam cenu piedavajumu",
+                         "type":  "two-column",
+                         "media":  {
+                                       "caption":  "Analitika un tirgus salidzinajumi",
+                                       "alt":  "Finanšu grafiki uz galda",
+                                       "image":  "/image/dummy-img-600x400.jpg"
+                                   },
+                         "theme":  "light"
+                     },
+                     {
+                         "items":  [
+                                       {
+                                           "title":  "Starta plans",
+                                           "description":  "Piemerots individualajiem ipašniekiem ar vienu objektu. Ietver marketingu, klientu atlasi un dokumentu sagatavošanu.",
+                                           "link":  {
+                                                        "url":  "/contact.html?plan=start",
+                                                        "label":  "Uzzinat vairak"
+                                                    },
+                                           "icon":  "???"
+                                       },
+                                       {
+                                           "title":  "Pilna servisa parvaldiba",
+                                           "description":  "Visaptveroša ipašuma parvaldiba ar 24/7 atbalstu, uzturešanas koordinaciju un finanšu parskatiem katru menesi.",
+                                           "link":  {
+                                                        "url":  "/contact.html?plan=full",
+                                                        "label":  "Pieteikties"
+                                                    },
+                                           "icon":  "??"
+                                       },
+                                       {
+                                           "title":  "Investoru programma",
+                                           "description":  "Portfela analitika, tirgus izpete un ilgtermina investiciju strategijas ar personalizetu konsultantu.",
+                                           "link":  {
+                                                        "url":  "/contact.html?plan=invest",
+                                                        "label":  "Rezervet tikšanos"
+                                                    },
+                                           "icon":  "??"
+                                       }
+                                   ],
+                         "heading":  "Tris sadarbibas modeli",
+                         "type":  "feature-grid",
+                         "theme":  "light"
+                     },
+                     {
+                         "items":  [
+                                       {
+                                           "description":  "\u003cp\u003eJa, bieži apvienojam pilna servisa parvaldibu ar investiciju konsultacijam, lai nodrošinatu gan ikdienas apriti, gan ilgtermina izaugsmi.\u003c/p\u003e",
+                                           "title":  "Vai planus var kombinet?"
+                                       },
+                                       {
+                                           "description":  "\u003cp\u003ePamata ir procentuala dala no transakcijas vai ienemumiem, papildus segtam izmaksam par pieprasitajiem papildu pakalpojumiem.\u003c/p\u003e",
+                                           "title":  "Ka tiek aprekinata komisija?"
+                                       },
+                                       {
+                                           "description":  "\u003cp\u003eKatrs klients sanem meneša parskatu ar ienakumu, izdevumu un noslogojuma datiem, ka ari ieteikumiem vertibas palielinašanai.\u003c/p\u003e",
+                                           "title":  "Vai piedavajat atskaites?"
+                                       }
+                                   ],
+                         "heading":  "Biežak uzdotie jautajumi",
+                         "type":  "faq",
+                         "theme":  "light"
+                     }
+                 ],
+    "slug":  "price_plan",
+    "scripts":  {
+                    "enableMap":  false,
+                    "enableAnalytics":  true,
+                    "enableChat":  false
+                }
+}

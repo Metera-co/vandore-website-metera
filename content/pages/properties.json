@@ -2,5 +2,9 @@
     "title":  "Vandore Heritage - Ipašibas",
     "heroHeading":  "Ipašibas",
     "slug":  "properties",
-    "heroSubheading":  "Atklajiet rupigi atlasitas majas un telpas visa Riga, izveloties to kvalitati, raksturu un individualitati."
+    "heroSubheading":  "Atklajiet rupigi atlasitas majas un telpas visa Riga, izveloties to kvalitati, raksturu un individualitati.",
+    "hero":  {
+                 "heading":  "Ipašibas",
+                 "subheading":  "Atklajiet rupigi atlasitas majas un telpas visa Riga, izveloties to kvalitati, raksturu un individualitati."
+             }
 }

@@ -1,0 +1,21 @@
+{
+    "title":  "Komanda",
+    "hero":  {
+                 "eyebrow":  "Musu komanda",
+                 "background":  {
+                                    "alt":  "Komandas foto",
+                                    "overlay":  0.4,
+                                    "image":  "/image/dummy-img-1920x300.jpg"
+                                },
+                 "heading":  "Eksperti, kas vada Vandore Heritage",
+                 "subheading":  "Pieredzejuši nekustama ipašuma specialisti, kas atbalsta jus katra posma – no strategijas lidz realizacijai."
+             },
+    "sections":  [
+                     {
+                         "body":  "\u003cp\u003eMusu brokeri, analitiki un klientu attiecibu vaditaji strada ka vienota komanda, nodrošinot individualu pieeju katram ipašumam. Zemak iepazistieties ar cilvekiem, kuri rupejas par jusu investiciju vertibu.\u003c/p\u003e",
+                         "type":  "rich-text",
+                         "theme":  "light"
+                     }
+                 ],
+    "slug":  "team"
+}

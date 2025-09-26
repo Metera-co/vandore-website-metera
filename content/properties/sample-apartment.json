@@ -1,30 +1,189 @@
 {
-  "slug": "sample-apartment",
-  "title": "Parauga dzƒ´voklis",
-  "price": "‚Ç¨ 120 000",
-  "address": "Example iela 10, Rƒ´ga",
-  "description": "M≈´sdienƒ´gs divistabu dzƒ´voklis ar pla≈°u dzƒ´vojamo zonu un klusu pagalmu pilsƒìtas centrƒÅ.",
-  "image": "/image/dummy-img-900x700.jpg",
-  "bedrooms": 2,
-  "bathrooms": 1,
-  "area": 65,
-  "floors": 5,
-  "gallery": [
-    {
-      "src": "/image/dummy-img-900x700.jpg",
-      "alt": "Pla≈°a viesistaba ar skatu uz pagalmu",
-      "caption": "Saulains un silts dzƒ´vojamais st≈´ris"
-    },
-    {
-      "src": "/image/dummy-img-900x600.jpg",
-      "alt": "Pilnƒ´bƒÅ aprƒ´kota virtuve",
-      "caption": "Virtuve ar ieb≈´vƒìtu tehniku"
-    },
-    {
-      "src": "/image/dummy-img-600x400.jpg",
-      "alt": "MƒÅjƒ´ga guƒºamistaba",
-      "caption": "Guƒºamistaba ar skatu uz pagalmu"
-    }
-  ],
-  "imageAlt": "Pla≈°a viesistaba ar skatu uz pagalmu"
+    "copy":  {
+                 "features":  [
+                                  {
+                                      "label":  "Augsti griesti"
+                                  },
+                                  {
+                                      "label":  "Dizaina virtuve"
+                                  },
+                                  {
+                                      "label":  "Privats balkons"
+                                  }
+                              ],
+                 "description":  "äis gaiöais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
+                 "amenities":  [
+                                   {
+                                       "label":  "Vieda majas sistema"
+                                   },
+                                   {
+                                       "label":  "Iebuveti garderobes skapji"
+                                   }
+                               ],
+                 "notes":  "Ideali piemerots investicijai vai ka pamatmitne pilseta.",
+                 "summary":  "Plaös pilsetas dzivoklis ar panoramas logiem",
+                 "nearby":  {
+                                "landmarks":  [
+                                                  {
+                                                      "distance":  "10 min kajam",
+                                                      "label":  "Esplanade"
+                                                  }
+                                              ],
+                                "schools":  [
+                                                {
+                                                    "distance":  "5 min auto",
+                                                    "label":  "Rigas Valsts 1. gimnazija"
+                                                }
+                                            ],
+                                "transit":  [
+                                                {
+                                                    "distance":  "2 min kajam",
+                                                    "label":  "Tramvaja pietura"
+                                                }
+                                            ]
+                            }
+             },
+    "openHouse":  {
+                      "date":  "2025-10-15",
+                      "endTime":  "20:00",
+                      "startTime":  "18:00",
+                      "notes":  "Ieprieköeja pieteiköanas ir obligata."
+                  },
+    "agents":  {
+                   "secondary":  [
+                                     "martins-elsons"
+                                 ],
+                   "primary":  "inesa-vandore",
+                   "office":  "Vandore Heritage"
+               },
+    "media":  {
+                  "gallery":  [
+                                  {
+                                      "caption":  "Saulains un silts dzivojamais sturis",
+                                      "alt":  "Plaöa viesistaba ar skatu uz pagalmu",
+                                      "src":  "/image/dummy-img-900x700.jpg"
+                                  },
+                                  {
+                                      "caption":  "Virtuve ar iebuvetu tehniku",
+                                      "alt":  "Pilniba aprikota virtuve",
+                                      "src":  "/image/dummy-img-900x600.jpg"
+                                  },
+                                  {
+                                      "caption":  "Gulamistaba ar skatu uz pagalmu",
+                                      "alt":  "Majiga gulamistaba",
+                                      "src":  "/image/dummy-img-600x400.jpg"
+                                  }
+                              ],
+                  "brochure":  null,
+                  "cover":  {
+                                "caption":  "Viesistaba ar panoramas logiem",
+                                "alt":  "Plaöa viesistaba",
+                                "image":  "/image/dummy-img-900x700.jpg"
+                            },
+                  "virtualTourUrl":  null,
+                  "floorplans":  [
+
+                                 ],
+                  "videoUrl":  null
+              },
+    "status":  "active",
+    "listingType":  "sale",
+    "specs":  {
+                  "petPolicy":  "Atlauti mazi majdzivnieki",
+                  "bedrooms":  2,
+                  "furnishing":  "Pilniba mebelets",
+                  "cooling":  "Gaisa kondicionieris",
+                  "view":  "Skats uz pagalmu",
+                  "heating":  "Centrala",
+                  "parking":  "1 vieta pazemes stavvieta",
+                  "interiorSize":  "65 m≤",
+                  "yearBuilt":  2015,
+                  "floors":  5,
+                  "lotSize":  " ",
+                  "energyRating":  "B",
+                  "accessibility":  "Lifts lidz dzivoklim",
+                  "orientation":  "Dienvidi",
+                  "bathrooms":  {
+                                    "full":  1,
+                                    "half":  0
+                                }
+              },
+    "structuredData":  {
+                           "overrides":  {
+                                             "price":  null,
+                                             "propertyType":  null,
+                                             "availability":  null
+                                         },
+                           "enabled":  true
+                       },
+    "propertyType":  "apartment",
+    "slug":  "sample-apartment",
+    "seo":  {
+                "title":  "Parauga dzivoklis Rigas centra",
+                "description":  "Divistabu dzivoklis ar panoramas logiem un privatu balkonu Rigas centra.",
+                "og":  {
+                           "title":  "Parauga dzivoklis Riga",
+                           "description":  "Moderns pilsetas lofts ar augstiem griestiem un plaöu viesistabu.",
+                           "image":  "/image/dummy-img-900x700.jpg"
+                       },
+                "canonical":  "https://vandoreheritage.lv/property.html?slug=sample-apartment"
+            },
+    "ctas":  {
+                 "secondary":  {
+                                   "label":  "Lejupieladet broöuru",
+                                   "url":  "#",
+                                   "style":  "secondary"
+                               },
+                 "scheduleTour":  "schedule-form",
+                 "primary":  {
+                                 "label":  "Pieteikt viziti",
+                                 "url":  "/contact.html#visit",
+                                 "style":  "primary"
+                             },
+                 "inquireForm":  "inquire-form"
+             },
+    "location":  {
+                     "postalCode":  "LV-1050",
+                     "neighborhood":  "mezaparks",
+                     "latitude":  56.9531,
+                     "city":  "Riga",
+                     "mapEmbed":  "https://maps.google.com/?q=Example+iela+10,Riga",
+                     "longitude":  24.1162,
+                     "addressLine1":  "Example iela 10",
+                     "country":  "Latvija",
+                     "region":  "Centrs"
+                 },
+    "mlsId":  "VH-001",
+    "featured":  true,
+    "title":  "Parauga dzivoklis",
+    "image":  "/image/dummy-img-900x700.jpg",
+    "image_alt":  "Plaöa viesistaba",
+    "priceString":  "Ä 395000",
+    "priceLabel":  "Ä 395000",
+    "price":  "Ä 395000",
+    "address":  "Example iela 10, Riga",
+    "area":  "65",
+    "bedrooms":  2,
+    "bathrooms":  1,
+    "floors":  5,
+    "gallery":  [
+                    {
+                        "caption":  "Saulains un silts dzivojamais sturis",
+                        "alt":  "Plaöa viesistaba ar skatu uz pagalmu",
+                        "src":  "/image/dummy-img-900x700.jpg"
+                    },
+                    {
+                        "caption":  "Virtuve ar iebuvetu tehniku",
+                        "alt":  "Pilniba aprikota virtuve",
+                        "src":  "/image/dummy-img-900x600.jpg"
+                    },
+                    {
+                        "caption":  "Gulamistaba ar skatu uz pagalmu",
+                        "alt":  "Majiga gulamistaba",
+                        "src":  "/image/dummy-img-600x400.jpg"
+                    }
+                ],
+    "description":  "äis gaiöais apartaments apvieno vesturiskas detalas ar musdienigu komfortu un pardomatu planojumu, kas piemerots gan gimenem, gan dinamiskam pilsetas dzives ritmam.",
+    "badge":  "Pardoöana",
+    "priceNumeric":  395000
 }

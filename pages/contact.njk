@@ -1,0 +1,55 @@
+---
+permalink: contact.html
+layout: layouts/base.njk
+---
+{% import 'components/section-renderer.njk' as sections %}
+{% set pageSlug = 'contact' %}
+{% set pageData = pages[pageSlug] or {} %}
+{% set hero = pageData.hero %}
+{% set site = settings.default or {} %}
+{% set mapEmbed = site.search and site.search.mapEmbed or (site.integrations and site.integrations.maps and site.integrations.maps.embedUrl) %}
+{% block content %}
+  {{ sections.render_sections(pageSlug, pageData.sections or []) }}
+  <section class="vh-section" id="contact-form">
+    <div class="vh-container vh-grid vh-grid--two">
+      <div>
+        <h2>Dazadas iespejas sazinaties</h2>
+        <form class="vh-form" data-cms-collection="pages" data-cms-item="{{ pageSlug }}" data-cms-bind="widgets[0]">
+          <input type="hidden" name="recipients" value="{{ site.integrations and site.integrations.formRecipients and site.integrations.formRecipients | join(',') }}">
+          <div class="vh-form__field">
+            <label for="name">Vards</label>
+            <input type="text" id="name" name="name" placeholder="Jusu vards" required>
+          </div>
+          <div class="vh-form__field">
+            <label for="email">E-pasts</label>
+            <input type="email" id="email" name="email" placeholder="jus@example.com" required>
+          </div>
+          <div class="vh-form__field">
+            <label for="phone">Talrunis</label>
+            <input type="tel" id="phone" name="phone" placeholder="+371 ...">
+          </div>
+          <div class="vh-form__field">
+            <label for="message">Zina</label>
+            <textarea id="message" name="message" rows="5" placeholder="Pastastiet, ka varam palidzet" required></textarea>
+          </div>
+          <button type="submit" class="vh-button vh-button--primary">Nosutit</button>
+        </form>
+      </div>
+      <div>
+        <h3>Kontakti</h3>
+        <p>
+          <strong>Adrese:</strong> {{ site.footer.addressBlock.street }}, {{ site.footer.addressBlock.city }} {{ site.footer.addressBlock.postalCode }}<br>
+          <strong>Talrunis:</strong> <a href="tel:{{ site.footer.addressBlock.phone }}">{{ site.footer.addressBlock.phone }}</a><br>
+          <strong>E-pasts:</strong> <a href="mailto:{{ site.footer.addressBlock.email }}">{{ site.footer.addressBlock.email }}</a>
+        </p>
+        {% if mapEmbed %}
+          <iframe src="{{ mapEmbed }}" loading="lazy" referrerpolicy="no-referrer" title="Karte"></iframe>
+        {% endif %}
+        {% if site.integrations and site.integrations.booking and site.integrations.booking.widgetId %}
+          <p>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
