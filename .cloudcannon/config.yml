@@ -10,106 +10,67 @@ site:
 paths:
   static: .
   uploads: image/uploads
-  data: data
-  content: content
 
 routing:
   routes:
     - path: /
       file: index.html
-    - path: /about.html
-      file: about.html
-    - path: /blog.html
-      file: blog.html
-    - path: /contact.html
-      file: contact.html
-    - path: /faq.html
-      file: faq.html
-    - path: /price_plan.html
-      file: price_plan.html
-    - path: /properties.html
-      file: properties.html
-    - path: /property.html
-      file: property.html
-    - path: /property_details.html
-      file: property_details.html
-    - path: /property-detail-template.html
-      file: property-detail-template.html
-    - path: /rental.html
-      file: rental.html
-    - path: /rentals.html
-      file: rentals.html
-    - path: /service.html
-      file: service.html
-    - path: /single_blog.html
-      file: single_blog.html
-    - path: /team.html
-      file: team.html
     - path: /404.html
       file: 404.html
-
-preserve_files:
-  - image/uploads/**
+    - path: /{page}.html
+      file: {page}.html
+    - path: /properties/{slug}/
+      file: properties/{slug}/index.html
+    - path: /rentals/{slug}/
+      file: rentals/{slug}/index.html
+    - path: /blog/{slug}/
+      file: blog/{slug}/index.html
 
 collection_groups:
-  - heading: Pages
+  - heading: Pages & Settings
     collections:
       - pages
   - heading: Listings
     collections:
+      - properties
       - rentals
-  - heading: Blog
+  - heading: Editorial
     collections:
       - blog
-
-inputs:
-  short_text:
-    type: text
-  long_text:
-    type: textarea
-    options:
-      rows: 4
-  rich_text:
-    type: markdown
-    options:
-      toolbar:
-        - bold
-        - italic
-        - underline
-        - link
-        - bulleted_list
-        - numbered_list
-        - quote
-  image:
-    type: image
-    options:
-      paths:
-        uploads: image/uploads
-      select_existing: true
-      auto_rename: true
-      show_alt: true
-  number:
-    type: number
-    options:
-      min: 0
-  rental_type:
-    type: select
-    options:
-      values:
-        - label: Ilgtermiņa
-          value: long
-        - label: Īstermiņa
-          value: short
 
 collections_config:
   pages:
     name: Pages
-    path: .
     icon: wysiwyg
+    path: .
     glob:
-      - '*.html'
+      - index.html
+      - about.html
+      - blog.html
+      - contact.html
+      - faq.html
+      - price_plan.html
+      - properties.html
+      - rentals.html
+      - service.html
+      - team.html
+      - 404.html
     output: true
-    base_url: /
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+  properties:
+    name: Properties
+    icon: holiday_village
+    path: properties
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
     new_item_extension: html
     editor:
       default: visual
@@ -117,167 +78,46 @@ collections_config:
     _enabled_editors:
       - visual
       - source
+
   rentals:
     name: Rentals
-    path: data/rentals.json
-    icon: holiday_village
-    format: json
-    output: false
-    value_key: rentals
-    url: /rental.html?slug={slug}
-    new_item_extension: json
-    _enabled_editors:
-      - data
-    schema:
-      name: Rental
-      fields:
-        - name: slug
-          label: Slug
-          type: text
-          input: short_text
-          required: true
-        - name: title
-          label: Title
-          type: text
-          input: short_text
-          required: true
-        - name: price
-          label: Price
-          type: text
-          input: short_text
-        - name: address
-          label: Address
-          type: text
-          input: short_text
-        - name: description
-          label: Description
-          type: textarea
-          input: long_text
-        - name: type
-          label: Rental Type
-          type: select
-          input: rental_type
-        - name: bedrooms
-          label: Bedrooms
-          type: number
-          input: number
-        - name: bathrooms
-          label: Bathrooms
-          type: number
-          input: number
-        - name: area
-          label: Area (m2)
-          type: number
-          input: number
-        - name: floors
-          label: Floor
-          type: number
-          input: number
-        - name: image_1
-          label: Primary Image
-          type: image
-          input: image
-        - name: image_1_alt
-          label: Primary Image Alt Text
-          type: text
-          input: short_text
-        - name: image_2
-          label: Secondary Image
-          type: image
-          input: image
-        - name: image_2_alt
-          label: Secondary Image Alt Text
-          type: text
-          input: short_text
-  blog:
-    name: Blog
-    path: data/blogs.json
-    icon: article
-    format: json
-    output: false
-    value_key: blogs
-    url: /single_blog.html?slug={slug}
-    new_item_extension: json
-    _enabled_editors:
-      - data
-    schema:
-      name: Blog Post
-      fields:
-        - name: slug
-          label: Slug
-          type: text
-          input: short_text
-          required: true
-        - name: title
-          label: Title
-          type: text
-          input: short_text
-          required: true
-        - name: date
-          label: Published Date
-          type: date
-        - name: readingTime
-          label: Reading Time
-          type: text
-          input: short_text
-        - name: author
-          label: Author
-          type: text
-          input: short_text
-        - name: summary
-          label: Summary
-          type: textarea
-          input: long_text
-        - name: image
-          label: Featured Image
-          type: image
-          input: image
-        - name: image_alt
-          label: Featured Image Alt Text
-          type: text
-          input: short_text
-        - name: content
-          label: Post Body
-          type: array
-          schema:
-            name: Section
-            type: markdown
-            input: rich_text
-
-file_config:
-  - glob: *.html
+    icon: home
+    path: rentals
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
     _enabled_editors:
       - visual
       - source
-  - glob: data/**/*.json
-    _enabled_editors:
-      - data
 
-source_editor:
-  enabled: true
-  commit_templates:
-    - label: Content update
-      template: "content: update {{ collection }}"
+  blog:
+    name: Blog
+    icon: article
+    path: blog
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+file_config:
+  - glob: '**/*.html'
+    _enabled_editors:
+      - visual
+      - source
 
 build:
-  install: ""
-  command: ""
+  install: ''
+  command: ''
   output_path: .
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
