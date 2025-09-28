@@ -8,7 +8,7 @@ site:
   timezone: Europe/Riga
 
 paths:
-  static: .
+  static: ''
   uploads: image/uploads
 
 routing:
@@ -17,8 +17,34 @@ routing:
       file: index.html
     - path: /404.html
       file: 404.html
-    - path: /{page}.html
-      file: {page}.html
+    - path: /about.html
+      file: about.html
+    - path: /blog.html
+      file: blog.html
+    - path: /contact.html
+      file: contact.html
+    - path: /faq.html
+      file: faq.html
+    - path: /price_plan.html
+      file: price_plan.html
+    - path: /properties.html
+      file: properties.html
+    - path: /rentals.html
+      file: rentals.html
+    - path: /service.html
+      file: service.html
+    - path: /team.html
+      file: team.html
+    - path: /property.html
+      file: property.html
+    - path: /rental.html
+      file: rental.html
+    - path: /property_details.html
+      file: property_details.html
+    - path: /property-detail-template.html
+      file: property-detail-template.html
+    - path: /single_blog.html
+      file: single_blog.html
     - path: /properties/{slug}/
       file: properties/{slug}/index.html
     - path: /rentals/{slug}/
@@ -44,17 +70,7 @@ collections_config:
     icon: wysiwyg
     path: .
     glob:
-      - index.html
-      - about.html
-      - blog.html
-      - contact.html
-      - faq.html
-      - price_plan.html
-      - properties.html
-      - rentals.html
-      - service.html
-      - team.html
-      - 404.html
+      - '*.html'
     output: true
     editor:
       default: visual
@@ -121,3 +137,4 @@ build:
   install: ''
   command: ''
   output_path: .
+

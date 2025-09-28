@@ -1,12 +1,139 @@
-collections_config:
-  pages:
-    path: ''
-    name: Pages
-    icon: wysiwyg
+﻿version: 1
+
+ssg: none
+source: .
+
+site:
+  base_url: /
+  timezone: Europe/Riga
+
 paths:
   static: ''
-  uploads: uploads
-timezone: Europe/Riga
-markdown:
-  engine: commonmark
-  options: {}
+  uploads: image/uploads
+
+routing:
+  routes:
+    - path: /
+      file: index.html
+    - path: /404.html
+      file: 404.html
+    - path: /about.html
+      file: about.html
+    - path: /blog.html
+      file: blog.html
+    - path: /contact.html
+      file: contact.html
+    - path: /faq.html
+      file: faq.html
+    - path: /price_plan.html
+      file: price_plan.html
+    - path: /properties.html
+      file: properties.html
+    - path: /rentals.html
+      file: rentals.html
+    - path: /service.html
+      file: service.html
+    - path: /team.html
+      file: team.html
+    - path: /property.html
+      file: property.html
+    - path: /rental.html
+      file: rental.html
+    - path: /property_details.html
+      file: property_details.html
+    - path: /property-detail-template.html
+      file: property-detail-template.html
+    - path: /single_blog.html
+      file: single_blog.html
+    - path: /properties/{slug}/
+      file: properties/{slug}/index.html
+    - path: /rentals/{slug}/
+      file: rentals/{slug}/index.html
+    - path: /blog/{slug}/
+      file: blog/{slug}/index.html
+
+collection_groups:
+  - heading: Pages & Settings
+    collections:
+      - pages
+  - heading: Listings
+    collections:
+      - properties
+      - rentals
+  - heading: Editorial
+    collections:
+      - blog
+
+collections_config:
+  pages:
+    name: Pages
+    icon: wysiwyg
+    path: .
+    glob:
+      - '*.html'
+    output: true
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+  properties:
+    name: Properties
+    icon: holiday_village
+    path: properties
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+  rentals:
+    name: Rentals
+    icon: home
+    path: rentals
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+  blog:
+    name: Blog
+    icon: article
+    path: blog
+    glob:
+      - '*/index.html'
+    output: true
+    create: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+
+file_config:
+  - glob: '**/*.html'
+    _enabled_editors:
+      - visual
+      - source
+
+build:
+  install: ''
+  command: ''
+  output_path: .
