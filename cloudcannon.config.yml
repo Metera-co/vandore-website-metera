@@ -70,6 +70,10 @@ collection_groups:
   - heading: Editorial
     collections:
       - blog
+_enabled_editors:
+  - visual
+  - content
+  - data
 file_config:
   - glob: '**/*.html'
     _enabled_editors:
