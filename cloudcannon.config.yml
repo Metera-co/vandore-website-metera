@@ -2,7 +2,94 @@
 
 ssg: none
 source: .
+<<<<<<< HEAD
 
+=======
+paths:
+  uploads: image/uploads
+  static: ''
+collections_config:
+  pages:
+    path: .
+    glob:
+      - '*.html'
+    name: Pages
+    icon: wysiwyg
+    disable_url: false
+    _enabled_editors:
+      - visual
+      - source
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  properties:
+    path: properties
+    glob:
+      - '*/index.html'
+    name: Properties
+    icon: holiday_village
+    disable_url: false
+    _enabled_editors:
+      - visual
+      - source
+    create: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  rentals:
+    path: rentals
+    glob:
+      - '*/index.html'
+    name: Rentals
+    icon: home
+    disable_url: false
+    _enabled_editors:
+      - visual
+      - source
+    create: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  blog:
+    path: blog
+    glob:
+      - '*/index.html'
+    name: Blog
+    icon: article
+    disable_url: false
+    _enabled_editors:
+      - visual
+      - source
+    create: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+collection_groups:
+  - heading: Pages & Settings
+    collections:
+      - pages
+  - heading: Listings
+    collections:
+      - properties
+      - rentals
+  - heading: Editorial
+    collections:
+      - blog
+_enabled_editors:
+  - visual
+  - content
+  - data
+file_config:
+  - glob: '**/*.html'
+    _enabled_editors:
+      - visual
+      - source
+editor:
+  default_path:
+timezone: Etc/UTC
+version: 1
+ssg: static
+>>>>>>> 6290917b58b5f8246d78b1b3dceed0c149f0e940
 site:
   base_url: /
   timezone: Europe/Riga
