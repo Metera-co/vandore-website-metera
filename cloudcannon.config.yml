@@ -79,6 +79,8 @@ file_config:
     _enabled_editors:
       - visual
       - source
+editor:
+  default_path:
 timezone: Etc/UTC
 version: 1
 ssg: static
