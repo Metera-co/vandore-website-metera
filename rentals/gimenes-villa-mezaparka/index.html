@@ -14,29 +14,6 @@
     <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025">
     <title data-i18n="vandore_heritage_property_details">Vandore Heritage - Gimenes villa Mezaparka</title>
     <meta name="description" content="Discover a premium property with a rich photo gallery, market insights, and key facts.">
-    <style>
-        .property-gallery { position: relative; }
-        .property-gallery__main { border-radius: 20px; overflow: hidden; }
-        .property-gallery__main .swiper-slide { height: clamp(260px, 55vh, 520px); }
-        .property-gallery__main img { width: 100%; height: 100%; object-fit: cover; }
-        .property-gallery__thumbs { margin-top: 16px; }
-        .property-gallery__thumbs .swiper-slide { opacity: .5; cursor: pointer; border-radius: 14px; overflow: hidden; height: 110px; }
-        .property-gallery__thumbs .swiper-slide-thumb-active { opacity: 1; box-shadow: 0 0 0 2px rgba(255,255,255,.8); }
-        .property-gallery__thumbs img { width: 100%; height: 100%; object-fit: cover; }
-        .property-gallery__nav { position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
-        .property-gallery__nav button { pointer-events: all; border: 0; background: rgba(0,0,0,.42); color: #fff; width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; transition: background .2s ease; }
-        .property-gallery__nav button:hover { background: rgba(0,0,0,.6); }
-        .property-gallery__nav .swiper-button-prev::after,
-        .property-gallery__nav .swiper-button-next::after { display: none; }
-        .property-meta { display: grid; gap: 24px; }
-        .property-meta__facts { display: grid; gap: 16px; }
-        .property-meta__facts li { display: flex; align-items: center; gap: 12px; }
-        .property-meta__facts li span { color: var(--black-1); }
-        .property-meta__facts li i { color: var(--accent, #f3c76f); }
-        @media (min-width: 992px) {
-            .property-meta { grid-template-columns: minmax(0,2fr) minmax(0,1fr); align-items: start; }
-        }
-    </style>
 </head>
 <body class="property-page">
     <header class="bg-accent-primary px-5">
@@ -134,17 +111,14 @@
     </header>
 
     <main>
-        <section class="section position-relative bg-attach-cover">
+        <section class="section position-relative bg-attach-cover property-hero">
             <div class="r-container position-relative h-100">
-                <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
-                    <div class="row row-cols-2">
-                        <div class="col-3 col-xl-2"></div>
-                        <div class="col-9 col-xl-10">
-                            <img src="/image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Hero image">
-                        </div>
-                    </div>
+                <div class="property-hero__media-wrapper">
+                    <figure class="property-hero__media">
+                        <img src="/image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Hero image">
+                    </figure>
                 </div>
-                <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
+                <div class="property-hero__content d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 padding-custom">
                     <div class="d-flex flex-column gap-2 h-100">
                         <div>
                             <h1 class="display editable" data-i18n="property_title">Gimenes villa Mezaparka</h1>
@@ -384,15 +358,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 

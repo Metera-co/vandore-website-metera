@@ -422,3 +422,178 @@ footer .link {
     line-height: 1;
     cursor: pointer;
 }
+/* Property & rental detail layout */
+.property-hero {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+}
+
+.property-hero .r-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: stretch;
+}
+
+.property-hero__content {
+    order: 1;
+    width: 100%;
+    max-width: 40rem;
+}
+
+.property-hero__media-wrapper {
+    order: 2;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.property-hero__media {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--gray-light, #f0eeea);
+}
+
+.property-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .property-hero .r-container {
+        align-items: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .property-hero .r-container {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .property-hero__content {
+        max-width: 34rem;
+        padding-right: clamp(1rem, 4vw, 3rem);
+    }
+
+    .property-hero__media-wrapper {
+        max-width: min(56%, 720px);
+    }
+
+    .property-hero__media {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+.property-gallery {
+    display: grid;
+    gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.property-gallery__main {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: var(--gray-light, #f6f5f2);
+}
+
+.property-gallery__main .swiper-wrapper,
+.property-gallery__main .swiper-slide {
+    height: 100%;
+}
+
+.property-gallery__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-gallery__nav {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    padding: 0 clamp(10px, 3vw, 18px);
+    z-index: 2;
+}
+
+.property-gallery__nav button {
+    pointer-events: all;
+    border: 0;
+    background: rgba(0, 0, 0, 0.48);
+    color: #fff;
+    width: clamp(34px, 9vw, 48px);
+    height: clamp(34px, 9vw, 48px);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease;
+}
+
+.property-gallery__nav button:hover {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.property-gallery__nav .swiper-button-prev::after,
+.property-gallery__nav .swiper-button-next::after {
+    display: none;
+}
+
+.property-gallery__thumbs {
+    margin-top: 16px;
+}
+
+.property-gallery__thumbs .swiper-slide {
+    height: clamp(56px, 12vw, 90px);
+    opacity: 0.55;
+    cursor: pointer;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.property-gallery__thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+}
+
+.property-gallery__thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.property-meta {
+    display: grid;
+    gap: 24px;
+}
+
+.property-meta__facts {
+    display: grid;
+    gap: 16px;
+}
+
+.property-meta__facts li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.property-meta__facts li span {
+    color: var(--black-1);
+}
+
+.property-meta__facts li i {
+    color: var(--accent, #f3c76f);
+}
+
+@media (min-width: 992px) {
+    .property-meta {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        align-items: start;
+    }
+}
