@@ -143,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <!-- Section Featured Īpašumi -->
+        <!-- Section Featured Properties -->
         <div class="section">
             <div class="r-container d-flex flex-column gap-5">
                 <div class="row row-cols-xl-2 row-cols-1 align-items-end">
@@ -587,7 +587,7 @@
                                 </li>
                             </ul>
                             <div class="d-flex flex-column gap-3">
-                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilsēta,+Rīga,+LV-1013,+Latvija" class="link editable" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
+                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilsēta,+Rīga,+LV-1013,+Latvia" class="link editable" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
                                     Skanstes iela 29A - 91, Rīga, Latvija
                                 </a>
                                 <a href="tel:+37129713030" class="link editable" data-i18n="371_29_71_3030">
@@ -633,9 +633,6 @@
 
 
 </body></html>
-
-
-
 
 
 
