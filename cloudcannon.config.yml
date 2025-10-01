@@ -1,4 +1,4 @@
-﻿version: 1
+version: 1
 
 ssg: none
 source: .
@@ -85,6 +85,7 @@ collections_config:
     output: true
     create: true
     new_item_extension: html
+    new_item_template: properties/_defaults/index.html
     editor:
       default: visual
       preview: true
