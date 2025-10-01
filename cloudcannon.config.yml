@@ -27,8 +27,6 @@ routing:
       file: contact.html
     - path: /faq.html
       file: faq.html
-    - path: /price_plan.html
-      file: price_plan.html
     - path: /properties.html
       file: properties.html
     - path: /rentals.html
@@ -37,16 +35,12 @@ routing:
       file: service.html
     - path: /team.html
       file: team.html
-    - path: /property.html
-      file: property.html
-    - path: /rental.html
-      file: rental.html
-    - path: /property_details.html
-      file: property_details.html
-    - path: /property-detail-template.html
-      file: property-detail-template.html
     - path: /single_blog.html
       file: single_blog.html
+    - path: /property_details.html
+      file: property_details.html
+    - path: /rental_details.html
+      file: rental_details.html
     - path: /properties/{slug}/
       file: properties/{slug}/index.html
     - path: /rentals/{slug}/
@@ -91,6 +85,7 @@ collections_config:
     output: true
     create: true
     new_item_extension: html
+    new_item_template: properties/_defaults/index.html
     editor:
       default: visual
       preview: true
