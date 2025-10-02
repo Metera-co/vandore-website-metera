@@ -1,6 +1,6 @@
 _schema: _schema
 version: 1
-ssg: static
+ssg: none
 timezone: Etc/UTC
 source: .
 paths:
@@ -16,7 +16,7 @@ collections_config:
       - '*.html'
     name: Pages
     icon: wysiwyg
-    url: /{filename}
+    url: "/{filename}"
     disable_url: false
     create: false
     output: true
@@ -131,6 +131,3 @@ build:
   install: ''
   command: ''
   output_path: .
-
-
-
