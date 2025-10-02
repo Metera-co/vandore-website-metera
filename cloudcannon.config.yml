@@ -6,9 +6,42 @@ source: .
 paths:
   uploads: ./image/uploads
   static: .
+  data: ./data
 site:
   base_url: /
   timezone: Europe/Riga
+_inputs:
+  seo.title:
+    type: text
+    label: SEO Title
+    comment: Appears in the <title> tag.
+  seo.description:
+    type: textarea
+    label: Meta Description
+    comment: Shown in search and social previews.
+  locale:
+    type: text
+    hidden: true
+  slug:
+    type: text
+    hidden: true
+  form.id:
+    type: text
+    label: Form Identifier
+    comment: Matches your CloudCannon inbox slug.
+  form.endpoint:
+    type: text
+    label: Submission Endpoint
+    comment: 'Use https://submit-form.cloudcannon.com/<INBOX-ID>'
+  form.success_message:
+    type: textarea
+    label: Success Message
+  form.error_message:
+    type: textarea
+    label: Error Message
+  form.button_label:
+    type: text
+    label: Button Label
 collections_config:
   pages:
     path: .
@@ -53,6 +86,7 @@ collections_config:
     create: true
     output: true
     new_item_extension: html
+    new_item_template: rentals/_defaults/index.html
     editor:
       default: visual
       preview: true
@@ -75,6 +109,14 @@ collections_config:
     _enabled_editors:
       - visual
       - source
+data_config:
+  navigation:
+    path: data/navigation.json
+    name: Navigation
+    icon: format_list_bulleted
+    format: json
+    editor:
+      preview: false
 collection_groups:
   - heading: Pages & Settings
     collections:
@@ -128,6 +170,13 @@ routing:
     - path: /blog/{slug}/
       file: blog/{slug}/index.html
 build:
-  install: ''
-  command: ''
-  output_path: .
+  install: npm install
+  command: npm run build
+  output_path: dist
+
+
+
+
+
+
+

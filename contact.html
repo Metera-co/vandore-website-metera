@@ -1,10 +1,23 @@
-﻿<!doctype html>
-<html lang="lv"><head>
+---
+locale: lv
+seo:
+  description: ''
+  title: Vandore Heritage - sazinieties ar mums
+slug: /contact
+form:
+  id: contact
+  endpoint: 'https://submit-form.cloudcannon.com/YOUR-FORM-ID'
+  success_message: Paldies! Jūsu ziņojums ir saņemts.
+  error_message: 'Atvainojiet, radās kļūda. Lūdzu, mēģiniet vēlreiz.'
+  button_label: Nosūtīt
+---
+<!doctype html>
+<html lang="{{ locale }}"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@700&amp;display=swap&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/changes.css">
     <link rel="stylesheet" href="/css/custom.css">
@@ -12,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
     <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025">
-    <title data-i18n="vandore_heritage_contact_us">Vandore Heritage - sazinieties ar mums</title>
+    <title data-i18n="vandore_heritage_contact_us">{{ seo.title }}</title>
 </head>
 
 <body>
@@ -37,66 +50,27 @@
                             <div class="r-container">
                                 <div class="row row-cols-xl-2 row-cols-1">
                                     <div class="col col-xl-10 mb-3">
-                                        <div class="d-flex flex-column">
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="01_homepage">01. Mājas lapa</span>
-                                                <a href="/" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="02_properties">02. īpašumi</span>
-                                                <a href="/properties.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="03_short_form_rentals">03. Isas formas Īre</span>
-                                                <a href="/rentals.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="04_about_us">04. Par mums</span>
-                                                <a href="/about.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="05_services">05. Pakalpojumi</span>
-                                                <a href="/service.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="06_contact">06. Sazinieties</span>
-                                                <a href="/contact.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
-                                            <hr>
-                                            <div class="navigation">
-                                                <span class="header-text editable" data-i18n="07_news">07. Jaunumi</span>
-                                                <a href="/blog.html" class="d-flex editable" style="justify-self: end;">
-                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
-                                                </a>
-                                            </div>
+                                        <div class="d-flex flex-column"><div data-nav-list=""></div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
                                         </div>
                                     </div>
                                     <div class="col col-xl-2 mb-3">
                                         <div class="d-flex flex-column gap-5 accent-primary text-end">
-                                           <div class="d-flex flex-column gap-4">
-                                                <h6 class="editable" data-i18n="Rīga_latvia">Rīga, Latvija</h6>
-                                                <div class="d-flex flex-column gap-3">
-                                                    <span class="editable" data-i18n="skanstes_iela_29a91_rga_latvia">
-                                                        Skanstes iela 29A - 91, Rīga, Latvija
-                                                    </span>
-                                                </div>
+                                           <div class="d-flex flex-column gap-4" data-nav-contact="">
+                                                
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -183,47 +157,43 @@
                             <div class="d-flex flex-column gap-3 w-100 p-5 bg-gray-hover rounded-2">
                                 <div class="success_msg toast align-items-center w-100 shadow-none mb-3 border border-success rounded-pill my-4" role="alert" aria-live="assertive" aria-atomic="true">
                                     <div class="d-flex p-2">
-                                        <div class="toast-body f-18 d-flex flex-row gap-3 align-items-center text-success">
-                                            <i class="fa-solid fa-check f-36 text-success"></i>
-                                            Your Message Successfully Send.
-                                        </div>
+                                        <div class="toast-body f-18 d-flex flex-row gap-3 align-items-center text-success"><i class="fa-solid fa-check f-36 text-success"></i>{{ form.success_message }}</div>
                                         <button type="button" class="me-2 m-auto bg-transparent border-0 ps-1 pe-0 text-success editable" data-bs-dismiss="toast" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                                     </div>
                                 </div>
                                 <div class="error_msg toast align-items-center w-100 shadow-none border-danger mb-3 my-4 border rounded-pill" role="alert" aria-live="assertive" aria-atomic="true">
                                     <div class="d-flex p-2">
-                                        <div class="toast-body f-18 d-flex flex-row gap-3 align-items-center text-danger">
-                                            <i class="fa-solid fa-triangle-exclamation f-36 text-danger"></i>
-                                            Something Wrong ! Send Form Failed.
-                                        </div>
+                                        <div class="toast-body f-18 d-flex flex-row gap-3 align-items-center text-danger"><i class="fa-solid fa-triangle-exclamation f-36 text-danger"></i>{{ form.error_message }}</div>
                                         <button type="button" class="me-2 m-auto bg-transparent border-0 ps-1 pe-0 text-danger editable" data-bs-dismiss="toast" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                                     </div>
                                 </div>
-                                <form class="d-flex flex-column gap-1 h-100 justify-content-center w-100 needs-validation form" novalidate="">
+                                <form class="d-flex flex-column gap-1 h-100 justify-content-center w-100 needs-validation form" novalidate="" method="post" action="{{ form.endpoint }}" data-cloudcannon-form="{{ form.id }}" data-form-id="{{ form.id }}">
+        <input type="hidden" name="form-name" value="{{ form.id }}">
+
                                     <div class="mb-3">
                                         <label for="name" class="form-label editable">Name<span class="accent-color editable">*</span></label>
-                                        <input type="text" class="form-control py-3 px-4" name="name" id="name" placeholder="Jūsu pilnais vards" requĪred="">
+                                        <input type="text" class="form-control py-3 px-4" name="name" id="name" placeholder="Jūsu pilnais vards" required="required">
                                         <div class="invalid-feedback" data-i18n="the_field_is_requĪred">
                                             Lauks ir nepieciesams.
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label editable">E-mail<span class="accent-color editable">*</span></label>
-                                        <input type="email" class="form-control py-3 px-4" name="email" id="email" placeholder="Jūsu e-pasts" requĪred="">
+                                        <input type="email" class="form-control py-3 px-4" name="email" id="email" placeholder="Jūsu e-pasts" required="required">
                                         <div class="invalid-feedback" data-i18n="the_field_is_requĪred">
                                             Lauks ir nepieciesams.
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="message" class="form-label editable">Message<span class="accent-color editable">*</span></label>
-                                        <textarea class="form-control py-3 px-4" id="message" name="message" rows="4" placeholder="Jūsu zinojums" requĪred=""></textarea>
+                                        <textarea class="form-control py-3 px-4" id="message" name="message" rows="4" placeholder="Jūsu zinojums" required="required"></textarea>
                                         <div class="invalid-feedback" data-i18n="the_field_is_requĪred">
                                             Lauks ir nepieciesams.
                                         </div>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-accent submit_form d-flex flex-row gap-2 justify-content-center gap-3 editable">
-                                            <span class="editable" data-i18n="send_message">Nosutit zinojumu</span>
+                                            <span class="editable" data-i18n="send_message">{{ form.button_label }}</span>
                                             <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
                                         </button>
                                     </div>
@@ -309,7 +279,7 @@
                                     </h2>
                                     <div id="faqContact4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionContact1">
                                         <div class="accordion-body" data-i18n="evaluation_strategy_improvements_cleaning_styling_professional_photosvideo">
-                                            Evaluation -> Strategy -> Improvements -> Cleaning -> Styling -> Professional photos/video.
+                                            Evaluation -&gt; Strategy -&gt; Improvements -&gt; Cleaning -&gt; Styling -&gt; Professional photos/video.
                                         </div>
                                     </div>
                                 </div>
@@ -375,7 +345,7 @@
                                     </h2>
                                     <div id="faqContact9" class="accordion-collapse collapse" data-bs-parent="#faqAccordionContact2">
                                         <div class="accordion-body" data-i18n="evaluation_strategy_improvements_cleaning_styling_professional_photosvideo">
-                                            Evaluation -> Strategy -> Improvements -> Cleaning -> Styling -> Professional photos/video.
+                                            Evaluation -&gt; Strategy -&gt; Improvements -&gt; Cleaning -&gt; Styling -&gt; Professional photos/video.
                                         </div>
                                     </div>
                                 </div>
@@ -493,37 +463,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/navigation.js" defer=""></script>
+
+
+
 </body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

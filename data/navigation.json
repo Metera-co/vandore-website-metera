@@ -1,0 +1,58 @@
+﻿{
+  "primary": [
+    {
+      "number": "01.",
+      "label": "Mājas lapa",
+      "href": "/",
+      "i18n": "01_homepage"
+    },
+    {
+      "number": "02.",
+      "label": "Īpašumi",
+      "href": "/properties.html",
+      "i18n": "02_properties"
+    },
+    {
+      "number": "03.",
+      "label": "Īstermiņa īre",
+      "href": "/rentals.html",
+      "i18n": "03_short_form_rentals"
+    },
+    {
+      "number": "04.",
+      "label": "Par mums",
+      "href": "/about.html",
+      "i18n": "04_about_us"
+    },
+    {
+      "number": "05.",
+      "label": "Pakalpojumi",
+      "href": "/service.html",
+      "i18n": "05_services"
+    },
+    {
+      "number": "06.",
+      "label": "Kontakti",
+      "href": "/contact.html",
+      "i18n": "06_contact"
+    },
+    {
+      "number": "07.",
+      "label": "Jaunumi",
+      "href": "/blog.html",
+      "i18n": "07_news"
+    }
+  ],
+  "contact": {
+    "heading": {
+      "text": "Rīga, Latvija",
+      "i18n": "riga_latvia"
+    },
+    "lines": [
+      {
+        "text": "Skanstes iela 29A - 91, Rīga, Latvija",
+        "i18n": "skanstes_iela_29a91_rga_latvia"
+      }
+    ]
+  }
+}
