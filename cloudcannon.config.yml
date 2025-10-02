@@ -8,8 +8,16 @@ paths:
   static: .
   data: ./data
 site:
-  base_url: /
+  base_url: https://vandore.lv
   timezone: Europe/Riga
+editor:
+  default: visual
+  preview: true
+source_editor: monaco
+_enabled_editors:
+  - visual
+  - source
+  - data
 _inputs:
   seo.title:
     type: text
@@ -26,9 +34,11 @@ _inputs:
     type: text
     hidden: true
   form.id:
-    type: text
+    type: select
     label: Form Identifier
     comment: Matches your CloudCannon inbox slug.
+    options:
+      values: select_data.form_ids
   form.endpoint:
     type: text
     label: Submission Endpoint
@@ -42,6 +52,49 @@ _inputs:
   form.button_label:
     type: text
     label: Button Label
+select_data:
+  form_ids:
+    - value: contact
+      label: Contact form
+structures:
+  nav_item:
+    label: Navigation Item
+    icon: menu
+    preview:
+      - text: '{{ number }} {{ label }}'
+    fields:
+      - name: number
+        type: text
+        label: Order Number
+        comment: Prefix shown before the label.
+      - name: label
+        type: text
+        label: Label
+      - name: href
+        type: text
+        label: Link URL
+        comment: Accepts relative or absolute URLs.
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key used by the site scripts.
+      - name: iconClass
+        type: text
+        label: Icon Class
+        comment: Optional icon override (defaults to the arrow icon).
+  nav_contact_line:
+    label: Contact Line
+    icon: place
+    preview:
+      - text: '{{ text }}'
+    fields:
+      - name: text
+        type: text
+        label: Text
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key matching the site i18n keys.
 collections_config:
   pages:
     path: .
@@ -117,6 +170,13 @@ data_config:
     format: json
     editor:
       preview: false
+    structures:
+      primary:
+        values:
+          - structure: nav_item
+      contact.lines:
+        values:
+          - structure: nav_contact_line
 collection_groups:
   - heading: Pages & Settings
     collections:
@@ -133,6 +193,11 @@ file_config:
     _enabled_editors:
       - visual
       - source
+markdown:
+  engine: kramdown
+  options:
+    input: GFM
+    hard_wrap: false
 routing:
   routes:
     - path: /index.html
@@ -173,10 +238,7 @@ build:
   install: npm install
   command: npm run build
   output_path: dist
-
-
-
-
-
-
-
+git:
+  commit_template: '{{ user.name }} updated {{ file.path }}'
+  upstream:
+    commit_template: 'chore(upstream): merge updates from CloudCannon'
