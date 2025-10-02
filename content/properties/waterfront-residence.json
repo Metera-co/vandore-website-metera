@@ -1,0 +1,22 @@
+{
+    "title": "Waterfront Residence",
+    "price": "890000",
+    "address": "Rigas krastmala",
+    "description": "Beautiful waterfront property with private dock and stunning river views.",
+    "image": "image/dummy-img-600x500.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "310 sqm",
+    "tags": [
+        "Private dock"
+    ],
+    "subtitle": "Beautiful waterfront property with private dock and stunning river views.",
+    "additionalDescription": "Expansive terraces overlook the river, with direct mooring for personal watercraft.",
+    "locationDescription": "Tranquil waterfront setting minutes from central Riga.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-600x500.jpg",
+        "image/dummy-img-900x600.jpg",
+        "image/dummy-img-900x700.jpg"
+    ]
+}

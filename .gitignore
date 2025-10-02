@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 .history/
 .vscode/
 .env
@@ -6,3 +6,5 @@
 !.env.example
 public/uploads/
 _site/
+dist/
+tmp/

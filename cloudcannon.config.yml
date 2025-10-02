@@ -1,6 +1,6 @@
-﻿version: 1
+version: 1
 
-ssg: none
+ssg: eleventy
 source: .
 
 site:
@@ -10,43 +10,50 @@ site:
 paths:
   static: .
   uploads: ./image/uploads
+  data: ./content
 
-routing:
-  routes:
-    - path: /index.html
-      file: index.html
-    - path: /
-      file: index.html
-    - path: /404.html
-      file: 404.html
-    - path: /about.html
-      file: about.html
-    - path: /blog.html
-      file: blog.html
-    - path: /contact.html
-      file: contact.html
-    - path: /faq.html
-      file: faq.html
-    - path: /properties.html
-      file: properties.html
-    - path: /rentals.html
-      file: rentals.html
-    - path: /service.html
-      file: service.html
-    - path: /team.html
-      file: team.html
-    - path: /single_blog.html
-      file: single_blog.html
-    - path: /property_details.html
-      file: property_details.html
-    - path: /rental_details.html
-      file: rental_details.html
-    - path: /properties/{slug}/
-      file: properties/{slug}/index.html
-    - path: /rentals/{slug}/
-      file: rentals/{slug}/index.html
-    - path: /blog/{slug}/
-      file: blog/{slug}/index.html
+editor:
+  default: visual
+  preview: true
+
+structures:
+  nav_item:
+    label: Navigation Item
+    icon: menu
+    preview:
+      - text: '{{ number }} {{ label }}'
+    fields:
+      - name: number
+        type: text
+        label: Order Number
+      - name: label
+        type: text
+        label: Label
+      - name: href
+        type: text
+        label: Link URL
+        comment: Accepts relative or absolute URLs.
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key used by the site scripts.
+      - name: iconClass
+        type: text
+        label: Icon Class
+        comment: Optional icon override (defaults to the arrow icon).
+  nav_contact_line:
+    label: Contact Line
+    icon: place
+    preview:
+      - text: '{{ text }}'
+    fields:
+      - name: text
+        type: text
+        label: Text
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key matching the site i18n keys.
 
 collection_groups:
   - heading: Pages & Settings
@@ -79,19 +86,20 @@ collections_config:
   properties:
     name: Properties
     icon: holiday_village
-    path: properties
+    path: content/properties
     glob:
-      - '*/index.html'
-    output: true
+      - '*.json'
+    output: false
     create: true
-    new_item_extension: html
+    new_item_extension: json
     editor:
-      default: visual
+      default: data
       preview: true
+    preview:
+      url: "/properties/{{ slug }}/"
     _enabled_editors:
-      - visual
+      - data
       - source
-
   rentals:
     name: Rentals
     icon: home
@@ -111,18 +119,63 @@ collections_config:
   blog:
     name: Blog
     icon: article
-    path: blog
+    path: content/blog
     glob:
-      - '*/index.html'
-    output: true
+      - '*.json'
+    output: false
     create: true
-    new_item_extension: html
+    new_item_extension: json
     editor:
-      default: visual
+      default: data
       preview: true
+    preview:
+      url: "/blog/{{ slug }}/"
     _enabled_editors:
-      - visual
+      - data
       - source
+data_config:
+  navigation:
+    path: data/navigation.json
+    name: Navigation
+    icon: format_list_bulleted
+    format: json
+    editor:
+      preview: false
+    structures:
+      primary:
+        values:
+          - structure: nav_item
+      contact.lines:
+        values:
+          - structure: nav_contact_line
+  page_data:
+    path: content/pages
+    name: Page Data
+    icon: description
+    format: json
+    editor:
+      preview: false
+  property_data:
+    path: content/properties
+    name: Property Data
+    icon: holiday_village
+    format: json
+    editor:
+      preview: false
+  rental_data:
+    path: content/rentals
+    name: Rental Data
+    icon: home
+    format: json
+    editor:
+      preview: false
+  blog_data:
+    path: content/blog
+    name: Blog Data
+    icon: article
+    format: json
+    editor:
+      preview: false
 
 file_config:
   - glob: '**/*.html'
@@ -130,8 +183,45 @@ file_config:
       - visual
       - source
 
+routing:
+  routes:
+    - path: /index.html
+      file: index.html
+    - path: /
+      file: index.html
+    - path: /404.html
+      file: 404.html
+    - path: /about.html
+      file: about.html
+    - path: /blog.html
+      file: blog.html
+    - path: /contact.html
+      file: contact.html
+    - path: /faq.html
+      file: faq.html
+    - path: /properties.html
+      file: properties.html
+    - path: /rentals.html
+      file: rentals.html
+    - path: /service.html
+      file: service.html
+    - path: /team.html
+      file: team.html
+    - path: /single_blog.html
+      file: single_blog.html
+    - path: /rental_details.html
+      file: rental_details.html
+    - path: /properties/{slug}/
+      file: properties/{slug}/index.html
+    - path: /rentals/{slug}/
+      file: rentals/{slug}/index.html
+    - path: /blog/{slug}/
+      file: blog/{slug}/index.html
+
 build:
-  install: ''
-  command: ''
-  output_path: .
+  install: npm ci
+  command: npm run build
+  output_path: _site
+
+
 

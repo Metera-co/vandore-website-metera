@@ -1,0 +1,22 @@
+{
+    "title": "Sample Property",
+    "price": "950000",
+    "address": "123 Heritage Lane, Riga",
+    "description": "Elegant historic residence with modern amenities and refined finishes.",
+    "image": "image/dummy-img-900x700.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "240 sqm",
+    "tags": [
+        "Move-in ready"
+    ],
+    "subtitle": "Elegant historic residence with modern amenities and refined finishes.",
+    "additionalDescription": "Thoughtfully updated interiors balance heritage features with contemporary comforts.",
+    "locationDescription": "Central location with boutiques, dining, and galleries on the doorstep.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-900x700.jpg",
+        "image/dummy-img-900x600.jpg",
+        "image/dummy-img-600x500.jpg"
+    ]
+}

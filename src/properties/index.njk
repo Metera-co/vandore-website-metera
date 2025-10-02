@@ -1,0 +1,505 @@
+---
+permalink: "properties/index.html"
+eleventyComputed:
+  pageData: "{{ pagesContent.properties }}"
+  sbObjectId: "{{ pagesContent.properties.objectPath }}"
+---<!DOCTYPE html><html lang="lv" data-sb-object-id="{{ sbObjectId }}"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
+    <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025">
+    <title data-i18n="vandore_heritage_properties">Vandore Heritage - ipa�ibas</title>
+    <meta name="description" content="{{ pageData.seo.description | default("") }}" data-sb-field-path="seo.description">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta name="twitter:title" content="">
+</head>
+
+<body class="properties-page">
+    <!-- Header -->
+    <header class="bg-accent-primary px-5">
+        <nav class="navbar">
+            <div class="container-fluid ps-3 gap-3">
+                <div class="me-auto"></div>
+                <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
+                    <a class="navbar-brand editable" href="/">
+                        <img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image">
+                    </a>
+                </div>
+                <div class="w-max-content" style="margin-top: 0.5cm;">
+                    <button class="btn btn-toggler-accent editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars"></i>
+                        <span class="editable">Izvelne</span></button>
+
+                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header bg-transparent">
+                            <h5 class="editable" id="offcanvasRightLabel">Izvelne</h5>
+                            <button type="button" class="btn-close btn-close-white editable" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="r-container">
+                                <div class="row row-cols-xl-2 row-cols-1">
+                                    <div class="col col-xl-10 mb-3">
+                                        <div class="d-flex flex-column">
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="01_homepage">01. Majas lapa</span>
+                                                <a href="/" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="02_properties">02. Ipa�umi</span>
+                                                <a href="/properties.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="03_short_form_rentals">03. Isas formas ire</span>
+                                                <a href="/rentals.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="04_about_us">04. Par mums</span>
+                                                <a href="/about.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="05_services">05. Pakalpojumi</span>
+                                                <a href="/service.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="06_contact">06. Sazinieties</span>
+                                                <a href="/contact.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text editable" data-i18n="07_news">07. Jaunumi</span>
+                                                <a href="/blog.html" class="d-flex editable" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-2 mb-3">
+                                        <div class="d-flex flex-column gap-5 accent-primary text-end">
+                                           <div class="d-flex flex-column gap-4">
+                                                <h6 class="editable" data-i18n="Riga_latvia">Riga, Latvija</h6>
+                                                <div class="d-flex flex-column gap-3">
+                                                    <span class="editable" data-i18n="skanstes_iela_29a91_rga_latvia">
+                                                        Skanstes iela 29A - 91, Riga, Latvija
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main -->
+    <main data-sb-object-id="{{ sbObjectId }}">
+        <!-- Banner -->
+        <div class="section position-relative bg-attach-cover">
+            <div class="r-container position-relative h-100">
+                <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
+                    <div class="row row-cols-2">
+                        <div class="col-3 col-xl-2"></div>
+                        <div class="col-9 col-xl-10">
+                            <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Vandore Heritage">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
+                    <div class="d-flex flex-column gap-2 h-100">
+                        <div><h1 class="display editable" style="max-width: 700px;" data-i18n="properties">Ipa�ibas</h1>
+                        <div class="row row-xl-cols-2 row-cols-1">
+                            <div class="col col-xl-2">
+                                <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                                    <p class="editable" data-i18n="discover_carefully_selected_homes_and_spaces_across_Riga_chosen_for_their_quality_character_and_individuality">Atklajiet rupigi atlasitas majas un telpas visa Riga, izveloties to kvalitati, raksturu un individualitati.</p></div>
+                                    <div class="devider"></div>
+                                </div>
+                            </div>
+                            <div class="col col-xl-10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section Featured Ipa�umi -->
+        <div class="section">
+            <div class="r-container d-flex flex-column gap-5">
+                <div class="row row-cols-xl-2 row-cols-1 align-items-end">
+                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
+                        <h3 class="editable" style="max-width: 400px;" data-i18n="explore_featured_homes">Izpetiet piedavatas majas</h3>
+                    </div>
+                    <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
+                        <div class="d-flex flex-column gap-2 align-items-end">
+                            <div class="w-max-content" style="justify-self: end;">
+                                <a href="/contact.html" class="btn btn-accent d-flex flex-row gap-2 justify-content-center editable">
+                                    <span class="editable" data-i18n="contact_our_agents">Sazinieties ar musu agentiem</span>
+                                    <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="filter-bar card p-4">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-12 col-md-4">
+                                    <label class="editable" for="location-search" data-i18n="location">Atra�anas vieta</label>
+                                    <input type="text" id="location-search" class="form-control" placeholder="Pilseta / rajons / apkaime">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label class="editable" for="min-price" data-i18n="min_price">Min. cena (€)</label>
+                                    <input type="number" id="min-price" class="form-control" placeholder="0" min="0">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label class="editable" for="max-price" data-i18n="max_price">Maks. cena (€)</label>
+                                    <input type="number" id="max-price" class="form-control" placeholder="100000" min="0">
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label class="editable" for="bedrooms-prop" data-i18n="bedrooms">Gulamistabas</label>
+                                    <select id="bedrooms-prop" class="form-select">
+                                        <option value="" data-i18n="all">Visas</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3+</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary editable" id="apply-filters" data-i18n="apply">Piemerot</button>
+                                        <button class="btn btn-secondary editable" id="clear-filters" data-i18n="clear">Notirit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="active-filters my-3">
+                            <span class="editable" id="filter-chips"></span>
+                            <span id="property-count" class="ms-2 editable"></span>
+                        </div>
+                        <div class="filter-drawer d-none">
+                            <button class="btn btn-primary w-100 mb-3 editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#filter-drawer" aria-controls="filter-drawer" data-i18n="filters">
+                                Filtri
+                            </button>
+                        </div>
+                        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="filter-drawer" aria-labelledby="filter-drawer-label" style="display:none">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title editable" id="filter-drawer-label" data-i18n="filters">Filtri</h5>
+                                <button type="button" class="btn-close editable" data-bs-dismiss="offcanvas" data-bs-target="#filter-drawer" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="filter-bar">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="editable" for="location-search" data-i18n="location">Atra�anas vieta</label>
+                                                <input type="text" id="location-search-mobile" class="form-control" placeholder="Pilseta/rajons/apkaime">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="editable" data-i18n="price_range">Cenu diapazons</label>
+                                            <div class="input-group">
+                                                <input type="number" id="min-price-mobile" class="form-control" placeholder="Min €" min="0">
+                                                <input type="number" id="max-price-mobile" class="form-control" placeholder="Max €" min="0">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="editable" data-i18n="bedrooms">Gulamistabas</label>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active editable" data-i18n="all">Viss</button>
+                                                <button type="button" class="btn btn-outline-primary editable" data-i18n="1">Viens</button>
+                                                <button type="button" class="btn btn-outline-primary editable" data-i18n="2">Raditajs</button>
+                                                <button type="button" class="btn btn-outline-primary editable" data-i18n="3">3</button>
+                                                <button type="button" class="btn btn-outline-primary editable" data-i18n="4">4</button>
+                                                <button type="button" class="btn btn-outline-primary editable" data-i18n="5+">5+</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-primary editable" id="apply-filters-mobile" data-i18n="apply">Piemerot</button>
+                                                <button class="btn btn-secondary editable" id="clear-filters-mobile" data-i18n="clear">Noskaidrot</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-bar d-none d-lg-block bg-white p-3 rounded-3" style="display:none">
+                            <div class="row g-3">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="form-group">
+                                        <label class="editable" for="location-search" data-i18n="location">Atra�anas vieta</label>
+                                        <input type="text" id="location-search" class="form-control" placeholder="Pilseta/rajons/apkaime">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <label class="editable" data-i18n="price_range">Cenu diapazons</label>
+                                    <div class="input-group">
+                                        <input type="number" id="min-price" class="form-control" placeholder="Min €" min="0">
+                                        <input type="number" id="max-price" class="form-control" placeholder="Max €" min="0">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <label class="editable" data-i18n="bedrooms">Gulamistabas</label>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-primary active editable" data-i18n="all">Viss</button>
+                                        <button type="button" class="btn btn-outline-primary editable" data-i18n="1">Viens</button>
+                                        <button type="button" class="btn btn-outline-primary editable" data-i18n="2">Raditajs</button>
+                                        <button type="button" class="btn btn-outline-primary editable" data-i18n="3">3</button>
+                                        <button type="button" class="btn btn-outline-primary editable" data-i18n="4">4</button>
+                                        <button type="button" class="btn btn-outline-primary editable" data-i18n="5+">5+</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-12">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary editable" id="apply-filters" data-i18n="apply">Piemerot</button>
+                                        <button class="btn btn-secondary editable" id="clear-filters" data-i18n="clear">Noskaidrot</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="active-filters my-3">
+                            <span class="editable" id="filter-chips"></span>
+                            <span id="property-count" class="ms-2 editable"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="property-grid" class="row row-cols-xl-3 row-cols-lg-2 row-cols-1">
+                    {% for property in properties %}
+                    <div class="col mb-4" data-location="{{ property.address | default('') }}" data-price="{{ property.price }}" data-bedrooms="{{ property.bedrooms }}">
+                        <div class="card h-100" data-sb-object-id="{{ property.objectPath }}">
+                            <img src="{{ property.image | withLeadingSlash }}" class="card-img-top editable editable-image" alt="{{ property.title }}" style="aspect-ratio: 3/2; object-fit: cover;" data-sb-field-path="image">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0 editable" data-sb-field-path="title">{{ property.title }}</h5>
+                                    <h6 class="text-accent fw-bold editable" data-sb-field-path="price">{{ property.price | formatPrice }}</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="rtmicon rtmicon-location me-2"></i>
+                                    <span class="text-muted editable" data-sb-field-path="address">{{ property.address }}</span>
+                                </div>
+                                <p class="card-text flex-grow-1 editable" data-sb-field-path="description">{{ property.description }}</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <div class="d-flex gap-3">
+                                        {% if property.bedrooms %}
+                                        <span class="badge bg-light text-dark editable" data-sb-field-path="bedrooms">{{ property.bedrooms }} bed</span>
+                                        {% endif %}
+                                        {% if property.bathrooms %}
+                                        <span class="badge bg-light text-dark editable" data-sb-field-path="bathrooms">{{ property.bathrooms }} bath</span>
+                                        {% endif %}
+                                        {% if property.badges %}
+                                        {% for badge in property.badges %}
+                                        <span class="badge bg-light text-dark editable" data-sb-field-path="badges[{{ loop.index0 }}]">{{ badge }}</span>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <a href="/properties/{{ property.slug }}/" class="btn btn-accent btn-sm editable">
+                                        <span class="editable">Skatit sikak</span>
+                                        <i class="rtmicon rtmicon-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- Section CTA -->
+            <div class="r-container d-flex flex-column gap-3" style="margin-block: 6em;">
+                <div class="row row-cols-xl-2 row-cols-1 align-items-center">
+                    <div class="col col-xl-7 mb-3 scrollanimation animated fadeInLeft">
+                        <div class="d-flex flex-column gap-5 pe-xl-5">
+                            <h3 class="editable" data-i18n="ready_to_find_your_next_home">Vai esat gatavs atrast savas nakamas majas?</h3>
+                            <h6 class="editable" data-i18n="leave_your_email">Atstajiet savu e -pastu</h6>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast success_msg_subscribe bg-dark-transparent text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex">
+                                            <div class="toast-body" data-i18n="your_subscribe_send_successfully">
+                                                Jusu abone�ana veiksmigi nosuta!.
+                                            </div>
+                                            <button type="button" class="btn me-2 m-auto text-white editable" data-bs-dismiss="toast" aria-label="Close">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <form class="d-flex flex-column h-100 justify-content-center w-100 needs-validation form" novalidate="">
+                                        <input type="text" name="action" value="subscribe" hidden="">
+                                        <div class="input-group gap-3 mb-xl-2 mb-0 position-relative">
+                                            <input type="email" class="form-control rounded-0 mb-xl-0 mb-3 subscribe" placeholder="Join Our Newsletter" name="email" requIred="">
+                                            <button class="btn btn-accent submit_subscribe rounded-0 gap-2 px-4 py-3 editable" type="submit"><i class="rtmicon rtmicon-arrow-right fw-bold"></i></button>
+                                            <div class="invalid-feedback text-white" data-i18n="please_enter_a_valid_email_eg_userexamplecom">
+                                                Ludzu, ievadiet derigu e -pastu (piemeram, user@example.com).
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-xl-5 mb-3 scrollanimation animated fadeInRight">
+                        <img src="/image/dummy-img-900x600.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Vandore Heritage">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="section position-relative bg-black-1" style="height: 90vh;">
+            <div class="row row-cols-xl-2 row-cols-1 h-100">
+                <div class="col col-xl-8 mb-3">
+                    <div class="d-flex flex-column gap-3 justify-content-between h-100">
+                        <div class="d-flex flex-column accent-primary">
+                            <p class="gray editable" data-i18n="get_contact">Sazinaties</p>
+                            <h1 class="fw-normal editable" data-i18n="infovandoreheritagelv">info@vandoreheritage.lv</h1>
+                        </div>
+                        <img src="/image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image" width="938">
+                    </div>
+                </div>
+                <div class="col col-xl-4 mb-3">
+                    <div class="d-flex flex-column gap-5 justify-content-between accent-primary h-100">
+                        <div class="d-flex flex-row gap-5">
+                            <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
+                                <li class="editable">
+                                    <a href="/" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="home">
+                                        Majas
+                                    </a>
+                                </li>
+                                <li class="editable">
+                                    <a href="/about.html" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="about">
+                                        Pret
+                                    </a>
+                                </li>
+                                <li class="editable">
+                                    <a href="/properties.html" class="link active d-flex flex-row gap-3 align-items-center editable" data-i18n="properties">
+                                        Ipa�ibas
+                                    </a>
+                                </li>
+                                <li class="editable">
+                                    <a href="/rentals.html" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="rentals">
+                                        Ire
+                                    </a>
+                                </li>
+                                <li class="editable">
+                                    <a href="/service.html" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="service">
+                                        Sakarto�ana
+                                    </a>
+                                </li>
+                                <li class="editable">
+                                    <a href="/contact.html" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="contact_us">
+                                        Sazinieties ar mums
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="d-flex flex-column gap-3">
+                                <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priek�pilseta,+Riga,+LV-1013,+Latvija" class="link editable" target="_blank" data-i18n="skanstes_iela_29a91_rga_latvia">
+                                    Skanstes iela 29A - 91, Riga, Latvija
+                                </a>
+                                <a href="tel:+37129713030" class="link editable" data-i18n="371_29_71_3030">
+                                    +371 29 71 3030
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row gap-3">
+                            <div class="border-end pe-3 border-gray">
+                                <a href="" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="terms_conditions">
+                                    Noteikumi un nosacijumi
+                                </a>
+                            </div>
+                            <div>
+                                <a href="" class="link d-flex flex-row gap-3 align-items-center editable" data-i18n="privacy_notice">
+                                    Pazinojums par privatumu
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center editable"><i class="rtmicon rtmicon-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="/js/vendor/jquery.min.js"></script>
+    <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/js/vendor/swiper-bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/swiper-script.js"></script>
+    <script src="/js/submit-form.js"></script>
+    <script src="/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="/js/video_embedded.js"></script>
+    <script src="/js/vendor/fslightbox.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+
+
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

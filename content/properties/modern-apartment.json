@@ -1,0 +1,22 @@
+{
+    "title": "Modern Apartment",
+    "price": "750000",
+    "address": "Downtown Riga",
+    "description": "Contemporary living space with premium finishes and city views.",
+    "image": "image/dummy-img-900x600.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "250 sqm",
+    "tags": [
+        "Private terrace"
+    ],
+    "subtitle": "Contemporary living space with premium finishes and city views.",
+    "additionalDescription": "We manage every milestone transparently - from neighborhood analysis and due diligence to negotiations and closing. With a trusted partner ecosystem, we deliver best-in-class service at each step.",
+    "locationDescription": "Contemporary living space with premium finishes and city views.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-900x600.jpg",
+        "image/dummy-img-900x700.jpg",
+        "image/dummy-img-600x500.jpg"
+    ]
+}

@@ -1,0 +1,208 @@
+---
+permalink: "rental_details.html"
+eleventyComputed:
+  pageData: "{{ pagesContent.rental_details }}"
+  sbObjectId: "{{ pagesContent.rental_details.objectPath }}"
+---
+<!DOCTYPE html><html lang="lv" data-sb-object-id="content/pages/rental_details.json"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css">
+    <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025">
+    <title data-i18n="vandore_heritage_property_details" data-sb-field-path="title" data-sb-field-path="seo.title">{{ pageData.seo.title | default("Vandore Heritage - ires piedavajums") }}</title>
+</head>
+
+<body>
+    <header class="bg-accent-primary px-5">
+        <nav class="navbar">
+            <div class="container-fluid ps-3 gap-3">
+                <div class="me-auto"></div>
+                <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
+                    <a class="navbar-brand" href="index.html"><img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid"></a>
+                </div>
+                <div class="w-max-content" style="margin-top: 0.5cm;">
+                    <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark"><i class="fa-solid fa-bars"></i> Menu</button>
+
+                    <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header bg-transparent">
+                            <h5 id="offcanvasRightLabel">Menu</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="r-container">
+                                <div class="row row-cols-xl-2 row-cols-1">
+                                    <div class="col col-xl-10 mb-3">
+                                        <div class="d-flex flex-column">
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="01_homepage">01. Majas lapa</span>
+                                                <img src="/image/img6.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="index.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="02_properties">02. Ipašumi</span>
+                                                <img src="/image/img5.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="properties.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="03_short_form_rentals">03. Isas formas ire</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="rentals.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="04_about_us">04. Par mums</span>
+                                                <img src="/image/img33.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="about.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="05_services">05. Pakalpojumi</span>
+                                                <img src="/image/img18.png" class="img-fluid rounded-3" style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="service.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="06_contact">06. Sazinieties</span>
+                                                <img src="/image/img29.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="contact.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                            <hr>
+                                            <div class="navigation">
+                                                <span class="header-text" data-i18n="07_news">07. Jaunumi</span>
+                                                <img src="/image/img26.png" class="img-fluid rounded-3 " style="aspect-ratio: 9/5;" height="175" width="311" alt="Vandore Heritage">
+                                                <a href="blog.html" class="d-flex" style="justify-self: end;">
+                                                    <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-2 mb-3">
+                                        <div class="d-flex flex-column gap-5 accent-primary text-end">
+                                           <div class="d-flex flex-column gap-4">
+                                                <h6 data-i18n="riga_latvia">Riga, Latvija</h6>
+                                                <div class="d-flex flex-column gap-3">
+                                                    <span data-i18n="skanstes_iela_29a91_rga_latvia">
+                                                        Skanstes Iela 29A - 91, Riga, Latvija
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main data-sb-object-id="content/pages/rental_details.json">
+        <section class="section position-relative bg-attach-cover property-hero">
+            <div class="r-container position-relative h-100">
+                <div class="property-hero__media-wrapper">
+                    <figure class="property-hero__media">
+                        <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100" alt="Vakara skats no lofta">
+                    </figure>
+                </div>
+                <div class="property-hero__content d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 padding-custom">
+                    <div class="d-flex flex-column gap-2 h-100">
+                        <div>
+                            <h1 class="display" data-i18n="rental_title">Vecpilsetas lofts ar panoramas skatu</h1>
+                            <div class="row row-xl-cols-2 row-cols-1">
+                                <div class="col col-xl-2">
+                                    <div class="d-flex flex-column gap-2 align-items-xl-center alignments-start">
+                                        <p data-i18n="rental_subtitle">Elegants ires lofts ar panoramas logiem, privatu terasi un rupigi atlasitiem interjera akcentiem.</p>
+                                    </div>
+                                    <div class="devider"></div>
+                                </div>
+                                <div class="col col-xl-10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="r-container d-flex flex-column gap-5">
+                <div class="property-meta">
+                                                                                                                                                                <div class="property-gallery" data-property-gallery>
+                                                                                    <div class="property-gallery__featured">
+                                                                                        <button class="property-gallery__nav property-gallery__nav--prev" type="button" aria-label="Previous photo" data-gallery-prev>
+                                                                                            <i class="rtmicon rtmicon-arrow-left"></i>
+                                                                                        </button>
+                                                                                        <img data-gallery-current="true" src="/image/dummy-img-1920x900.jpg" alt="Plaša dzivojama zona">
+                                                                                        <button class="property-gallery__nav property-gallery__nav--next" type="button" aria-label="Next photo" data-gallery-next>
+                                                                                            <i class="rtmicon rtmicon-arrow-right"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="property-gallery__thumbs" role="list">
+                                                                                        <button class="property-gallery__thumb is-active" type="button" data-gallery-index="0" aria-label="Show image 1" role="listitem">
+                                                                                            <img data-gallery-current="true" src="/image/dummy-img-1920x900.jpg" alt="Plaša dzivojama zona">
+                                                                                        </button>
+                                                                                        <button class="property-gallery__thumb" type="button" data-gallery-index="1" aria-label="Show image 2" role="listitem">
+                                                                                            <img src="/image/dummy-img-900x600.jpg" alt="Virtuve ar panoramas logiem">
+                                                                                        </button>
+                                                                                        <button class="property-gallery__thumb" type="button" data-gallery-index="2" aria-label="Show image 3" role="listitem">
+                                                                                            <img src="/image/dummy-img-600x600.jpg" alt="Galvena gulamistava">
+                                                                                        </button>
+                                                                                        <button class="property-gallery__thumb" type="button" data-gallery-index="3" aria-label="Show image 4" role="listitem">
+                                                                                            <img src="/image/dummy-img-900x700.jpg" alt="Privata terase">
+                                                                                        </button>
+                                                                                        <button class="property-gallery__thumb" type="button" data-gallery-index="4" aria-label="Show image 5" role="listitem">
+                                                                                            <img src="/image/dummy-img-600x500.jpg" alt="Spa zona">
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+
+<div class="card border-0 rounded-3 p-4">
+                        <h3 class="mb-3" data-i18n="key_information">Ires informacija</h3>
+                        <div class="d-flex flex-column gap-3">
+                            <p class="fs-3 fw-semibold" data-i18n="price_card">EUR 320 / nakts</p>
+                            <div class="d-flex flex-wrap gap-3">
+                                <span class="badge bg-light text-dark">120 m²</span>
+                                <span class="badge bg-light text-dark">2 gulamistabas</span>
+                                <span class="badge bg-light text-dark">2 vannas istabas</span>
+                                <span class="badge bg-light text-dark">Privata terase</span>
+                            </div>
+                            <ul class="property-meta__facts list-unstyled">
+                                <li><i class="rtmicon rtmicon-Atrasanas vieta"></i><span>Vecriga, Riga</span></li>
+                                <li><i class="rtmicon rtmicon-calendar"></i><span>Pilniba aprikots, pieejams visu gadu</span></li>
+                                <li><i class="rtmicon rtmicon-home"></i><span>Ieklauts uzkopšanas un concierge serviss</span></li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-accent w-100" data-i18n="contact_agent">Rezervet uzturešanos</a>
+                        </div>
+                    </div>
+                </div>
+                ...
+
+
+
+
+
+
+
+
+

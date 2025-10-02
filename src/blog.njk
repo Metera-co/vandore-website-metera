@@ -1,0 +1,233 @@
+---
+permalink: "blog.html"
+eleventyComputed:
+  pageData: "{{ pagesContent.blog }}"
+  sbObjectId: "{{ pagesContent.blog.objectPath }}"
+---
+<!DOCTYPE html>
+<html lang="lv" data-sb-object-id="{{ sbObjectId }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&display=swap&subset=latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/changes.css" />
+  <link rel="stylesheet" href="/css/custom.css" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.2/animation_utility.css" />
+  <link rel="icon" type="image/x-icon" href="/image/red_LOGO_Vandore.png?v=2025" />
+  <title data-sb-field-path="seo.title">{{ pageData.seo.title | default("Vandore Heritage - emuars") }}</title>
+</head>
+<body class="blog-page">
+  <header class="bg-accent-primary px-5">
+    <nav class="navbar">
+      <div class="container-fluid ps-3 gap-3">
+        <div class="me-auto"></div>
+        <div class="logo-container position-absolute start-50 translate-middle-x" style="margin-top: 2cm;">
+          <a class="navbar-brand editable" href="/">
+            <img src="/image/red_LOGO_Vandore.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image" />
+          </a>
+        </div>
+        <div class="w-max-content" style="margin-top: 0.5cm;">
+          <button class="btn btn-toggler-accent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark">
+            <i class="fa-solid fa-bars"></i>
+            <span class="editable">Izvelne</span>
+          </button>
+          <div class="offcanvas offcanvas-end offcanvas-fullwidth text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header bg-transparent">
+              <h5 class="editable" id="offcanvasRightLabel">Izvelne</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="r-container">
+                <div class="row row-cols-xl-2 row-cols-1">
+                  <div class="col col-xl-10 mb-3">
+                    <div class="d-flex flex-column">
+                      <div class="navigation">
+                        <span class="header-text editable">01. Majas lapa</span>
+                        <a href="/" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">02. Ipašumi</span>
+                        <a href="/properties.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">03. Isas formas ire</span>
+                        <a href="/rentals.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">04. Par mums</span>
+                        <a href="/about.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">05. Pakalpojumi</span>
+                        <a href="/service.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">06. Sazinieties</span>
+                        <a href="/contact.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                      <hr />
+                      <div class="navigation">
+                        <span class="header-text editable">07. Jaunumi</span>
+                        <a href="/blog.html" class="d-flex">
+                          <i class="rtmicon rtmicon-arrow-right fs-1 fw-bold"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-xl-2 mb-3">
+                    <div class="d-flex flex-column gap-5 accent-primary text-end">
+                      <div class="d-flex flex-column gap-4">
+                        <h6 class="editable">Riga, Latvija</h6>
+                        <div class="d-flex flex-column gap-3">
+                          <span class="editable">Skanstes iela 29A–91, Riga, Latvija</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main data-sb-object-id="{{ sbObjectId }}">
+    <section class="section position-relative bg-attach-cover">
+      <div class="r-container position-relative h-100">
+        <div class="position-absolute top-0 start-0 end-0 bottom-0 h-100 w-100" style="margin-top: 10rem;">
+          <div class="row row-cols-2">
+            <div class="col-3 col-xl-2"></div>
+            <div class="col-9 col-xl-10">
+              <img src="/image/dummy-img-1920x900.jpg" class="img-fluid custom-border rounded-2 w-100 editable editable-image" alt="Vandore Heritage" />
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-5 justify-content-between scrollanimation animated fadeInLeft adr-7 h-100 padding-custom">
+          <div class="d-flex flex-column gap-2 h-100">
+            <h1 class="display editable" style="max-width: 700px;">Emuars</h1>
+            <div class="row row-xl-cols-2 row-cols-1">
+              <div class="col col-xl-2">
+                <div class="d-flex flex-column gap-2 align-items-xl-center align-items-start">
+                  <p class="editable">Palieciet informeti par jaunakajam nekustamo ipašumu tendencem, padomiem un tirgus atzinam.</p>
+                </div>
+                <div class="devider"></div>
+              </div>
+              <div class="col col-xl-10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="r-container d-flex flex-column gap-5">
+        <div class="row row-cols-xl-2 row-cols-1 align-items-end">
+          <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
+            <h3 class="editable" style="max-width: 600px;">Raksti, kas saistiti ar estetisku majas dizainu</h3>
+          </div>
+          <div class="col mb-3 scrollanimation animated fadeInDown adr-7">
+            <div class="d-flex flex-column gap-2 align-items-end">
+              <div class="w-max-content" style="justify-self: end;">
+                <a href="/blog.html" class="btn btn-accent-outline d-flex flex-row gap-2 justify-content-center">
+                  <span class="editable">Parlukot visus rakstus</span>
+                  <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-xl-2 row-cols-1 g-4">
+          {% for post in blogPosts %}
+          <div class="col scrollanimation animated fadeInLeft adr-7">
+            <div class="card d-flex flex-column gap-4 h-100" data-sb-object-id="{{ post.objectPath }}">
+              <img src="{{ post.image | withLeadingSlash }}" alt="{{ post.imageAlt | default(post.title) }}" class="img-fluid editable editable-image" style="aspect-ratio: 5/3;" data-sb-field-path="image" />
+              <a href="/blog/{{ post.slug }}/" class="editable">
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex flex-row gap-3">
+                    <p class="m-0 editable" data-sb-field-path="date">{{ post.date }}</p>
+                    <p class="m-0 editable" data-sb-field-path="meta">{{ post.meta | default(post.readTime ~ ' min · ' ~ post.author) }}</p>
+                  </div>
+                  <h4 class="black-1 editable" data-sb-field-path="title">{{ post.title }}</h4>
+                  <p class="editable" data-sb-field-path="excerpt">{{ post.excerpt }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black-1 text-white py-5">
+    <div class="container d-flex flex-wrap justify-content-between gap-4">
+      <div class="d-flex flex-column gap-3">
+        <p class="gray editable">Sazinaties</p>
+        <h1 class="fw-normal editable">info@vandoreheritage.lv</h1>
+        <img src="/image/logo-footer.png?v=2025" alt="Vandore Heritage" class="img-fluid editable editable-image" width="280" />
+      </div>
+      <div class="d-flex flex-column gap-4">
+        <ul class="list-unstyled d-flex flex-column gap-3 accent-color">
+          <li><a href="/" class="link editable d-flex gap-2 align-items-center">Majas</a></li>
+          <li><a href="/about.html" class="link editable d-flex gap-2 align-items-center">Par mums</a></li>
+          <li><a href="/properties.html" class="link editable d-flex gap-2 align-items-center">Ipašumi</a></li>
+          <li><a href="/rentals.html" class="link editable d-flex gap-2 align-items-center">Ire</a></li>
+          <li><a href="/service.html" class="link editable d-flex gap-2 align-items-center">Pakalpojumi</a></li>
+          <li><a href="/contact.html" class="link editable d-flex gap-2 align-items-center">Sazinieties ar mums</a></li>
+        </ul>
+        <div class="d-flex flex-column gap-2">
+          <a href="https://www.google.com/maps/place/Skanstes+iela+29A,+Vidzemes+priekšpilseta,+Riga,+LV-1013,+Latvia" class="link editable" target="_blank">Skanstes iela 29A–91, Riga, Latvija</a>
+          <a href="tel:+37129713030" class="link editable">+371 29 71 3030</a>
+        </div>
+        <div class="d-flex flex-row gap-3">
+          <a href="#" class="link editable">Noteikumi un nosacijumi</a>
+          <a href="#" class="link editable">Pazinojums par privatumu</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="rtmicon rtmicon-arrow-up"></i></a>
+
+  <script src="/js/vendor/jquery.min.js"></script>
+  <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/js/vendor/swiper-bundle.min.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/swiper-script.js"></script>
+  <script src="/js/submit-form.js"></script>
+  <script src="/js/vendor/isotope.pkgd.min.js"></script>
+  <script src="/js/video_embedded.js"></script>
+  <script src="/js/vendor/fslightbox.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll@v1.0/oyethemes_onscroll_animation.js"></script>
+</body>
+</html>
+
+
+
+
+

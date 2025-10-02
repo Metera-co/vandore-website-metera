@@ -1,0 +1,22 @@
+{
+    "title": "Luxury Penthouse",
+    "price": "680000",
+    "address": "Riga, centrs",
+    "description": "Stunning penthouse with panoramic city views and luxury amenities.",
+    "image": "image/dummy-img-900x500.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "280 sqm",
+    "tags": [
+        "Sky terrace"
+    ],
+    "subtitle": "Stunning penthouse with panoramic city views and luxury amenities.",
+    "additionalDescription": "The private rooftop terrace spans the entire residence and includes an outdoor kitchen and spa plunge.",
+    "locationDescription": "Panoramic views across the Riga skyline with concierge services on site.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-900x500.jpg",
+        "image/dummy-img-900x600.jpg",
+        "image/dummy-img-600x400.jpg"
+    ]
+}

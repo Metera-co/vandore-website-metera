@@ -1,0 +1,11 @@
+{
+    "title": "Contact",
+    "seo": {
+        "title": "Vandore Heritage - sazinieties ar mums",
+        "description": "Contact page content."
+    },
+    "form": {
+        "id": "contact",
+        "endpoint": "https://submit-form.cloudcannon.com/contact"
+    }
+}

@@ -1,0 +1,16 @@
+﻿{
+    "name":  "vandore-website-metera",
+    "version":  "1.0.0",
+    "private":  true,
+    "scripts":  {
+                    "build":  "npx @11ty/eleventy",
+                    "start":  "npx @11ty/eleventy --serve",
+                    "verify:properties":  "node scripts/verify-properties.mjs"
+                },
+    "devDependencies":  {
+                            "@11ty/eleventy":  "^3.1.2"
+                        },
+    "engines":  {
+                    "node":  "\u003e=20"
+                }
+}

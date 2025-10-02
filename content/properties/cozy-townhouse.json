@@ -1,0 +1,22 @@
+{
+    "title": "Cozy Townhouse",
+    "price": "450000",
+    "address": "Rigas piepilseta",
+    "description": "Charming townhouse perfect for families, with garden and quiet neighbourhood.",
+    "image": "image/dummy-img-600x600.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "250 sqm",
+    "tags": [
+        "Private garden"
+    ],
+    "subtitle": "Charming townhouse perfect for families, with garden and quiet neighbourhood.",
+    "additionalDescription": "Generous living spaces extend onto a landscaped patio, ideal for family gatherings throughout the year.",
+    "locationDescription": "Family-friendly townhouse with a private garden and easy city access.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-600x600.jpg",
+        "image/dummy-img-600x500.jpg",
+        "image/dummy-img-900x700.jpg"
+    ]
+}

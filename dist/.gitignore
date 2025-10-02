@@ -1,9 +1,0 @@
-﻿node_modules/
-.history/
-.vscode/
-.env
-.env.*
-!.env.example
-public/uploads/
-_site/
-dist/

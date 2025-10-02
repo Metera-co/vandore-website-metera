@@ -1,0 +1,22 @@
+{
+    "title": "Historic Villa",
+    "price": "1200000",
+    "address": "Old Town, Riga",
+    "description": "Restored historic villa with original architectural details and modern conveniences.",
+    "image": "image/dummy-img-600x400.jpg",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "320 sqm",
+    "tags": [
+        "Historic charm"
+    ],
+    "subtitle": "Restored historic villa with original architectural details and modern conveniences.",
+    "additionalDescription": "Original parquet floors and art nouveau ceilings combine with modern climate systems for year-round comfort.",
+    "locationDescription": "Located in Old Town Riga with immediate access to cultural venues.",
+    "mapUrl": "https://www.google.com/maps/place/Skanstes+iela+29A,+Riga",
+    "gallery": [
+        "image/dummy-img-600x400.jpg",
+        "image/dummy-img-900x600.jpg",
+        "image/dummy-img-900x500.jpg"
+    ]
+}
