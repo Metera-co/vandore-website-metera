@@ -1,0 +1,21 @@
+/* Font Definitions */
+
+:root {
+    --font-primary: "Plus Jakarta Sans", "Noto Sans", "Open Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-secondary: "Noto Serif", "Plus Jakarta Sans", "Georgia", "Times New Roman", serif;
+}
+
+/* Base body font prioritises families with Baltic glyph support */
+body {
+    font-family: "Plus Jakarta Sans", "Noto Sans", "Open Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Primary font for Headlines */
+h1, .display, h2, h3, h4, .font-1 {
+    font-family: var(--font-primary);
+}
+
+/* Secondary font for UI elements */
+h5, h6, .btn, .nav-link, .dropdown-item, .form-label, .form-control, .accordion-button {
+    font-family: var(--font-secondary);
+}

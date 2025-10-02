@@ -1,0 +1,14 @@
+{
+  "name": "vandore-website-metera",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
