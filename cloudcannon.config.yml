@@ -1,16 +1,202 @@
+_schema: _schema
 version: 1
-
 ssg: none
+timezone: Etc/UTC
 source: .
-
-site:
-  base_url: /
-  timezone: Europe/Riga
-
 paths:
-  static: .
   uploads: ./image/uploads
-
+  static: .
+  data: ./data
+site:
+  base_url: https://vandore.lv
+  timezone: Europe/Riga
+editor:
+  default: visual
+  preview: true
+source_editor: monaco
+_enabled_editors:
+  - visual
+  - source
+  - data
+_inputs:
+  seo.title:
+    type: text
+    label: SEO Title
+    comment: Appears in the <title> tag.
+  seo.description:
+    type: textarea
+    label: Meta Description
+    comment: Shown in search and social previews.
+  locale:
+    type: text
+    hidden: true
+  slug:
+    type: text
+    hidden: true
+  form.id:
+    type: select
+    label: Form Identifier
+    comment: Matches your CloudCannon inbox slug.
+    options:
+      values: select_data.form_ids
+  form.endpoint:
+    type: text
+    label: Submission Endpoint
+    comment: 'Use https://submit-form.cloudcannon.com/<INBOX-ID>'
+  form.success_message:
+    type: textarea
+    label: Success Message
+  form.error_message:
+    type: textarea
+    label: Error Message
+  form.button_label:
+    type: text
+    label: Button Label
+select_data:
+  form_ids:
+    - value: contact
+      label: Contact form
+structures:
+  nav_item:
+    label: Navigation Item
+    icon: menu
+    preview:
+      - text: '{{ number }} {{ label }}'
+    fields:
+      - name: number
+        type: text
+        label: Order Number
+      - name: label
+        type: text
+        label: Label
+      - name: href
+        type: text
+        label: Link URL
+        comment: Accepts relative or absolute URLs.
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key used by the site scripts.
+      - name: iconClass
+        type: text
+        label: Icon Class
+        comment: Optional icon override (defaults to the arrow icon).
+  nav_contact_line:
+    label: Contact Line
+    icon: place
+    preview:
+      - text: '{{ text }}'
+    fields:
+      - name: text
+        type: text
+        label: Text
+      - name: i18n
+        type: text
+        label: Translation Key
+        comment: Optional translation key matching the site i18n keys.
+collections_config:
+  pages:
+    path: .
+    glob:
+      - '*.html'
+    name: Pages
+    icon: wysiwyg
+    url: "/{filename}"
+    disable_url: false
+    create: false
+    output: true
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+  properties:
+    path: properties
+    glob:
+      - '*/index.html'
+    name: Properties
+    icon: holiday_village
+    disable_url: false
+    create: true
+    output: true
+    new_item_extension: html
+    new_item_template: properties/_defaults/index.html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+  rentals:
+    path: rentals
+    glob:
+      - '*/index.html'
+    name: Rentals
+    icon: home
+    disable_url: false
+    create: true
+    output: true
+    new_item_extension: html
+    new_item_template: rentals/_defaults/index.html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+  blog:
+    path: blog
+    glob:
+      - '*/index.html'
+    name: Blog
+    icon: article
+    disable_url: false
+    create: true
+    output: true
+    new_item_extension: html
+    editor:
+      default: visual
+      preview: true
+    _enabled_editors:
+      - visual
+      - source
+data_config:
+  navigation:
+    path: data/navigation.json
+    name: Navigation
+    icon: format_list_bulleted
+    format: json
+    editor:
+      preview: false
+    structures:
+      primary:
+        values:
+          - structure: nav_item
+      contact.lines:
+        values:
+          - structure: nav_contact_line
+collection_groups:
+  - heading: Pages & Settings
+    collections:
+      - pages
+  - heading: Listings
+    collections:
+      - properties
+      - rentals
+  - heading: Editorial
+    collections:
+      - blog
+file_config:
+  - glob: '**/*.html'
+    _enabled_editors:
+      - visual
+      - source
+markdown:
+  engine: kramdown
+  options:
+    input: GFM
+    hard_wrap: false
 routing:
   routes:
     - path: /index.html
@@ -47,92 +233,11 @@ routing:
       file: rentals/{slug}/index.html
     - path: /blog/{slug}/
       file: blog/{slug}/index.html
-
-collection_groups:
-  - heading: Pages & Settings
-    collections:
-      - pages
-  - heading: Listings
-    collections:
-      - properties
-      - rentals
-  - heading: Editorial
-    collections:
-      - blog
-
-collections_config:
-  pages:
-    name: Pages
-    icon: wysiwyg
-    path: .
-    glob:
-      - '*.html'
-    url: "/{filename}"
-    output: true
-    editor:
-      default: visual
-      preview: true
-    _enabled_editors:
-      - visual
-      - source
-
-  properties:
-    name: Properties
-    icon: holiday_village
-    path: properties
-    glob:
-      - '*/index.html'
-    output: true
-    create: true
-    new_item_extension: html
-    new_item_template: properties/_defaults/index.html
-    editor:
-      default: visual
-      preview: true
-    _enabled_editors:
-      - visual
-      - source
-
-  rentals:
-    name: Rentals
-    icon: home
-    path: rentals
-    glob:
-      - '*/index.html'
-    output: true
-    create: true
-    new_item_extension: html
-    editor:
-      default: visual
-      preview: true
-    _enabled_editors:
-      - visual
-      - source
-
-  blog:
-    name: Blog
-    icon: article
-    path: blog
-    glob:
-      - '*/index.html'
-    output: true
-    create: true
-    new_item_extension: html
-    editor:
-      default: visual
-      preview: true
-    _enabled_editors:
-      - visual
-      - source
-
-file_config:
-  - glob: '**/*.html'
-    _enabled_editors:
-      - visual
-      - source
-
 build:
-  install: ''
-  command: ''
-  output_path: .
-
+  install: npm install
+  command: npm run build
+  output_path: dist
+git:
+  commit_template: '{{ user.name }} updated {{ file.path }}'
+  upstream:
+    commit_template: 'chore(upstream): merge updates from CloudCannon'
